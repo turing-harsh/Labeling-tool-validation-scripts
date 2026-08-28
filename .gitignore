@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+*.log
+
+# Local Drive-fetched artifacts (client data + tokens) — never commit
+**/golden/artifacts/
+# Service-account keys / secrets
+credentials.json
+*.sa.json
+.secrets/

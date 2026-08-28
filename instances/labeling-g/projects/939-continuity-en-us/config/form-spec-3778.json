@@ -1,0 +1,99 @@
+{
+  "id": 3778,
+  "projectId": 939,
+  "note": "Compact validation spec derived from review-criteria config 3778. modelA/modelB from csv Model A/B (SxS: Conversation A = Ramen, Conversation B = Prod Frozen). cond = JsonLogic subset (var,==,in,or,and). Rubric heads gated by a Personalized triggering option; children gated by parent Minor/Major.",
+  "modelA": "Mode 23 -> Ramen (top-20) - Fast",
+  "modelB": "Mode 23 -> Prod Frozen - Fast",
+  "triggeringCond": {
+    "or": [
+      { "in": ["Personalized (Personal Data)", { "var": "model1PersonalizationTriggering" }] },
+      { "in": ["Personalized (Response Preference)", { "var": "model1PersonalizationTriggering" }] },
+      { "in": ["Personalized (Time & Location)", { "var": "model1PersonalizationTriggering" }] }
+    ]
+  },
+  "issueOpts": ["Minor issues", "Major issues"],
+  "perSide": [
+    "numberOfTurns", "testResponse1DebugInfo", "testResponse2DebugInfo",
+    "model1TestResponse3DebugInfo", "model1TestResponse4DebugInfo", "model1TestResponse5DebugInfo",
+    "model1HtmlFileUpload", "model1PersonalizationTriggering",
+    "modelMakesUseOfAvailableUserData1MissedContext", "modelMakesUseOfAvailableUserData1MissedContextCategory", "modelMakesUseOfAvailableUserData1MissedContextTurns",
+    "modelMakesUseOfAvailableUserData1Clarification", "modelMakesUseOfAvailableUserData1ClarificationCategory", "modelMakesUseOfAvailableUserData1ClarificationTurns",
+    "modelMakesUseOfAvailableUserData1OverPersonalization", "modelMakesUseOfAvailableUserData1OverPersonalizationCategory", "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction", "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
+    "modelMakesUseOfAvailableUserData1PersonalDataErrors", "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory", "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
+    "modelFeelsLikeItGetsMe1SpeaksMyLanguage", "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
+    "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture", "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory", "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
+    "modelConnectsTheDotsForMe1TransparencyAttribution", "modelConnectsTheDotsForMe1TransparencyAttributionCategory", "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
+    "modelConnectsTheDotsForMe1OverTransparency", "modelConnectsTheDotsForMe1OverTransparencyCategory", "modelConnectsTheDotsForMe1OverTransparencyDetraction", "modelConnectsTheDotsForMe1OverTransparencyTurns",
+    "modelIsTrustworthySafe1TrustSafety", "modelIsTrustworthySafe1TrustSafetyCategory", "modelIsTrustworthySafe1TrustSafetyTurns",
+    "modelRespectsMyCorrections1Corrections", "modelRespectsMyCorrections1CorrectionsDirection", "modelRespectsMyCorrections1CorrectionsTurns",
+    "testModelOverallPersonalizationQuality", "testModelOverallQuality", "testModelOverallQualityRationale",
+    "secondModelLock"
+  ],
+  "fields": {
+    "setupCheck": { "type": "CHECKBOX", "required": true },
+    "targetLanguage": { "type": "SINGLE_CHOICE", "required": true, "options": ["Arabic","Assamese","Bengali","Bhojpuri","Bulgarian","Burmese","Chinese","Croatian","Czech","Danish","Dutch","English","Finnish","French","German","Greek","Gujarati","Hebrew","Hindi","Hungarian","Indonesian","Italian","Japanese","Javanese","Kannada","Khmer","Korean","Maithili","Malay","Malayalam","Marathi","Nepali","Norwegian","Odia","Persian","Polish","Portuguese","Punjabi","Romanian","Russian","Sanskrit","Slovak","Spanish","Swahili","Swedish","Tagalog","Tamil","Telugu","Thai","Turkish","Ukrainian","Urdu","Vietnamese"] },
+    "dialect": { "type": "SINGLE_CHOICE", "required": true, "options": ["Modern Standard","India","Bulgaria","Myanmar","Mainland (Simplified)","Taiwan (Traditional)","Hong Kong (Cantonese)","Croatia","Czech Republic","Denmark","Netherlands","Belgium (Flemish)","United Kingdom","United States","Australia","Finland","France","Canada","Belgium","Germany","Modern","Israel","Hungary","Indonesia","Italy","Japan","Cambodia","Korea","Malaysia","Nepal","Norway","Afghanistan","Poland","Brazil","Pakistan","Romania","Moldova","Russia","Slovakia","LatAm (All Variants)","Kenya","Tanzania","Sweden","Philippines","Sri Lanka","Thailand","Turkey","Ukraine","Vietnam","Portugal "] },
+    "prompt": { "type": "FREE_TEXT", "required": true },
+    "conversationalGoal": { "type": "FREE_TEXT", "required": true },
+    "personalizationExpectation": { "type": "SINGLE_CHOICE", "required": true, "options": ["A lot — A generic answer would miss important things about my situation.","Somewhat — Personal touches would help, but aren't essential.","Not really — I just need a good answer."] },
+    "firstModel": { "type": "SINGLE_CHOICE", "required": true, "options": ["Mode 23 -> Prod Frozen - Fast","Mode 23 -> Ramen (top-20) - Fast"] },
+    "qualityComparisonSxS": { "type": "SINGLE_CHOICE", "required": true, "options": ["Conversation A was much better","Conversation A was better","Conversation A was slightly better","Conversation A and B were about the same","Conversation B was slightly better","Conversation B was better","Conversation B was much better"] },
+    "qualityComparisonSxSRationale": { "type": "FREE_TEXT", "required": true },
+    "privacyGate": { "type": "CHECKBOX", "required": true },
+
+    "numberOfTurns": { "type": "SINGLE_CHOICE", "required": true, "options": ["1","2","3","4","5"] },
+    "testResponse1DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 1 },
+    "testResponse2DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 2 },
+    "model1TestResponse3DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 3 },
+    "model1TestResponse4DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 4 },
+    "model1TestResponse5DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 5 },
+    "model1HtmlFileUpload": { "type": "FREE_TEXT", "required": true, "artifact": "html" },
+    "model1PersonalizationTriggering": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Personalized (Personal Data)","Personalized (Response Preference)","Personalized (Time & Location)","Not Personalized"] },
+
+    "modelMakesUseOfAvailableUserData1MissedContext": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A - No personalization needed","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelMakesUseOfAvailableUserData1MissedContextCategory": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Missed requested fact","Missed directly supporting evidence","Missed hard constraint","Missed life context","Missed granularity"], "childOf": "modelMakesUseOfAvailableUserData1MissedContext" },
+    "modelMakesUseOfAvailableUserData1MissedContextTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelMakesUseOfAvailableUserData1MissedContext", "turnsField": true },
+
+    "modelMakesUseOfAvailableUserData1Clarification": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelMakesUseOfAvailableUserData1ClarificationCategory": { "type": "SINGLE_CHOICE", "required": true, "options": ["Over-clarification","Under-clarification"], "childOf": "modelMakesUseOfAvailableUserData1Clarification" },
+    "modelMakesUseOfAvailableUserData1ClarificationTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelMakesUseOfAvailableUserData1Clarification", "turnsField": true },
+
+    "modelMakesUseOfAvailableUserData1OverPersonalization": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelMakesUseOfAvailableUserData1OverPersonalizationCategory": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Forced connection","Tunnel vision","Cherrypicked details"], "childOf": "modelMakesUseOfAvailableUserData1OverPersonalization" },
+    "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": { "type": "SINGLE_CHOICE", "required": true, "options": ["Not at all","Somewhat","Completely"], "childOf": "modelMakesUseOfAvailableUserData1OverPersonalization" },
+    "modelMakesUseOfAvailableUserData1OverPersonalizationTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelMakesUseOfAvailableUserData1OverPersonalization", "turnsField": true },
+
+    "modelMakesUseOfAvailableUserData1PersonalDataErrors": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Used wrong personal info","Used stale context","Incorrect inference","Overconfident speculation","Personal misattribution","Locational confusion","Temporal confusion"], "childOf": "modelMakesUseOfAvailableUserData1PersonalDataErrors" },
+    "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelMakesUseOfAvailableUserData1PersonalDataErrors", "turnsField": true },
+
+    "modelFeelsLikeItGetsMe1SpeaksMyLanguage": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelFeelsLikeItGetsMe1SpeaksMyLanguage", "turnsField": true },
+
+    "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Missed general insights & patterns","Missed the \"why","Overgeneralized insights"], "childOf": "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture" },
+    "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture", "turnsField": true },
+
+    "modelConnectsTheDotsForMe1TransparencyAttribution": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelConnectsTheDotsForMe1TransparencyAttributionCategory": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Didn't explain personal relevance","Didn't ground hard constraints","Didn’t ground/attribute for sensitive info","Didn't attribute surprising content","Didn't ground when asked","Didn't attribute when asked"], "childOf": "modelConnectsTheDotsForMe1TransparencyAttribution" },
+    "modelConnectsTheDotsForMe1TransparencyAttributionTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelConnectsTheDotsForMe1TransparencyAttribution", "turnsField": true },
+
+    "modelConnectsTheDotsForMe1OverTransparency": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelConnectsTheDotsForMe1OverTransparencyCategory": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Overnarrating","Showing off","Failed to hedge"], "childOf": "modelConnectsTheDotsForMe1OverTransparency" },
+    "modelConnectsTheDotsForMe1OverTransparencyDetraction": { "type": "SINGLE_CHOICE", "required": true, "options": ["Not at all","Somewhat","Completely"], "childOf": "modelConnectsTheDotsForMe1OverTransparency" },
+    "modelConnectsTheDotsForMe1OverTransparencyTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelConnectsTheDotsForMe1OverTransparency", "turnsField": true },
+
+    "modelIsTrustworthySafe1TrustSafety": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelIsTrustworthySafe1TrustSafetyCategory": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Inappropriate use of sensitive data","Missing grounding/attribution for sensitive info","Offensive / intrusive"], "childOf": "modelIsTrustworthySafe1TrustSafety" },
+    "modelIsTrustworthySafe1TrustSafetyTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelIsTrustworthySafe1TrustSafety", "turnsField": true },
+
+    "modelRespectsMyCorrections1Corrections": { "type": "SINGLE_CHOICE", "required": true, "options": ["N/A","No issues","Minor issues","Major issues"], "condRef": "triggering" },
+    "modelRespectsMyCorrections1CorrectionsDirection": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["Ignored correction","Overgeneralized correction"], "childOf": "modelRespectsMyCorrections1Corrections" },
+    "modelRespectsMyCorrections1CorrectionsTurns": { "type": "MULTIPLE_CHOICE", "required": true, "options": ["1","2","3","4","5","N/A"], "childOf": "modelRespectsMyCorrections1Corrections", "turnsField": true },
+
+    "testModelOverallPersonalizationQuality": { "type": "SINGLE_CHOICE", "required": true, "options": ["Very dissatisfied","Somewhat dissatisfied","Neither satisfied nor dissatisfied","Somewhat satisfied","Very satisfied"] },
+    "testModelOverallQuality": { "type": "SINGLE_CHOICE", "required": true, "options": ["Very dissatisfied","Somewhat dissatisfied","Neither satisfied nor dissatisfied","Somewhat satisfied","Very satisfied"] },
+    "testModelOverallQualityRationale": { "type": "FREE_TEXT", "required": true },
+    "secondModelLock": { "type": "CHECKBOX", "required": true }
+  }
+}

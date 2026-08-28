@@ -1,0 +1,168 @@
+[
+  {
+    "name": "F1-E1 payload not locatable -> route to lead",
+    "conversationData": {},
+    "expect": { "errorsContain": ["ROUTE TO LEAD"] }
+  },
+  {
+    "name": "F1-E2 both namespaces unbindable -> abort with inventory",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "Bar" }, "Model B": { "value": "Baz" } },
+        "ratings": { "compareModels.Foo.numberOfTurns": { "value": "1" } }
+      }
+    },
+    "expect": { "errorsContain": ["Neither model side could be bound", "Foo"] }
+  },
+  {
+    "name": "F6-E2 Q1 contradiction (Not Personalized + Personalized)",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "1" },
+          "compareModels.A.model1PersonalizationTriggering": { "value": ["Not Personalized", "Personalized (Personal Data)"] },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["contradictory"] }
+  },
+  {
+    "name": "F2 rubric child required on Major (parent visible) but empty",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "1" },
+          "compareModels.A.model1PersonalizationTriggering": { "value": ["Personalized (Personal Data)"] },
+          "compareModels.A.modelMakesUseOfAvailableUserData1MissedContext": { "value": "Major issues" },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["modelMakesUseOfAvailableUserData1MissedContextCategory", "modelMakesUseOfAvailableUserData1MissedContextTurns"] }
+  },
+  {
+    "name": "F2 rubric child filled while hidden (parent No issues)",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "1" },
+          "compareModels.A.model1PersonalizationTriggering": { "value": ["Personalized (Personal Data)"] },
+          "compareModels.A.modelMakesUseOfAvailableUserData1MissedContext": { "value": "No issues" },
+          "compareModels.A.modelMakesUseOfAvailableUserData1MissedContextCategory": { "value": ["Missed requested fact"] },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["filled while hidden"] }
+  },
+  {
+    "name": "F6-E3 cited turns exceed declared count",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "1" },
+          "compareModels.A.model1PersonalizationTriggering": { "value": ["Personalized (Personal Data)"] },
+          "compareModels.A.modelMakesUseOfAvailableUserData1MissedContext": { "value": "Major issues" },
+          "compareModels.A.modelMakesUseOfAvailableUserData1MissedContextCategory": { "value": ["Missed requested fact"] },
+          "compareModels.A.modelMakesUseOfAvailableUserData1MissedContextTurns": { "value": ["2"] },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["beyond the declared count"] }
+  },
+  {
+    "name": "F6-E1 enum not a configured option (rubric head)",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "1" },
+          "compareModels.A.model1PersonalizationTriggering": { "value": ["Personalized (Personal Data)"] },
+          "compareModels.A.modelMakesUseOfAvailableUserData1MissedContext": { "value": "kinda bad" },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["not a configured option"] }
+  },
+  {
+    "name": "F6-E1 accepts per-field N/A label (no false positive)",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "1" },
+          "compareModels.A.model1PersonalizationTriggering": { "value": ["Personalized (Personal Data)"] },
+          "compareModels.A.modelMakesUseOfAvailableUserData1MissedContext": { "value": "N/A - No personalization needed" },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": [] }
+  },
+  {
+    "name": "F6-E1 enum canonical-variant diagnosis (SxS lowercase)",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "1" },
+          "compareModels.B.numberOfTurns": { "value": "1" },
+          "qualityComparisonSxS": { "value": "conversation b was better" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["variant of"] }
+  },
+  {
+    "name": "F3 debug folder linked instead of file (batch destination)",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "Model A": { "value": "A" }, "Model B": { "value": "B" },
+          "Google Drive Link (Debug Info)": { "value": "https://drive.google.com/drive/folders/FOLDERID?usp=drive_link" }
+        },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "1" },
+          "compareModels.A.testResponse1DebugInfo": { "value": "https://drive.google.com/drive/folders/FOLDERID?usp=drive_link" },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["folder was linked", "batch destination folder"] }
+  },
+  {
+    "name": "F3 same Drive file id reused across two turns",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "2" },
+          "compareModels.A.testResponse1DebugInfo": { "value": "https://drive.google.com/file/d/DUPID123/view?usp=drive_link" },
+          "compareModels.A.testResponse2DebugInfo": { "value": "https://drive.google.com/file/d/DUPID123/view?usp=drive_link" },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["two turns"] }
+  },
+  {
+    "name": "F1 turn count out of range (not a valid option)",
+    "conversationData": {
+      "conversation": {
+        "input": { "Model A": { "value": "A" }, "Model B": { "value": "B" } },
+        "ratings": {
+          "compareModels.A.numberOfTurns": { "value": "9" },
+          "compareModels.B.numberOfTurns": { "value": "1" }
+        }
+      }
+    },
+    "expect": { "errorsContain": ["1–5"] }
+  }
+]

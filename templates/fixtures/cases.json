@@ -1,0 +1,12 @@
+[
+  {
+    "name": "valid task passes",
+    "conversationData": { "ratings": [] },
+    "expect": { "errors": [] }
+  },
+  {
+    "name": "example failing task",
+    "conversationData": { "ratings": [] },
+    "expect": { "errorsContain": [] }
+  }
+]

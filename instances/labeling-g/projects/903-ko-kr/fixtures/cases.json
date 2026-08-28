@@ -1,0 +1,25 @@
+[
+  {
+    "name": "no ratings on payload -> locatability error",
+    "conversationData": {},
+    "expect": { "errorsContain": ["Could not locate ratings array"] }
+  },
+  {
+    "name": "empty prompt is flagged",
+    "conversationData": {
+      "ratings": [
+        { "key": "prompt", "question": "Prompt", "human_input_value": "" }
+      ]
+    },
+    "expect": { "errorsContain": ["\"Prompt\" field is empty"] }
+  },
+  {
+    "name": "missing turn counts are flagged",
+    "conversationData": {
+      "ratings": [
+        { "key": "prompt", "question": "Prompt", "human_input_value": "hello world" }
+      ]
+    },
+    "expect": { "errorsContain": ["numberOfTurns", "model2NumberOfTurns"] }
+  }
+]

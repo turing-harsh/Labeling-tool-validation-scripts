@@ -1,0 +1,7 @@
+{
+  "ratings": [
+    { "key": "prompt", "question": "Prompt", "human_input_value": "" },
+    { "key": "numberOfTurns", "question": "Model A - Number of Turns", "human_input_value": "1" },
+    { "key": "model2NumberOfTurns", "question": "Model B - Number of Turns", "human_input_value": "1" }
+  ]
+}

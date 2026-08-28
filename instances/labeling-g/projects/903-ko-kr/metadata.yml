@@ -1,0 +1,18 @@
+# Project metadata — keep in sync with the live tool.
+instance: labeling-g            # e.g. labeling-g
+slug: 903-ko-kr                 # kebab-case, stable, matches folder name
+display_name: 903-ko-kr         # name as shown in the tool
+task_type:                      # e.g. image-classification, text-span, bbox
+owner: harsh.a@turing.com       # who maintains this script
+tool_url:                       # direct link to the project in the labeling tool
+tool_project_id:                # tool's internal project id, if any
+status: draft                   # draft | active | deprecated
+
+deployed:
+  version: 0                    # bump each time you paste into the tool
+  date:                         # YYYY-MM-DD it was last pasted
+  by:                           # who deployed it
+  commit:                       # git commit that was deployed (git rev-parse --short HEAD)
+
+notes: |
+  Anything worth knowing: quirks, links to related projects, gotchas.

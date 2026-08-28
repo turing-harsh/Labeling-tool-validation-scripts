@@ -1,0 +1,16 @@
+{
+  "name": "labeling-tool-validation-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Source of truth for validation scripts across labeling-tool instances and projects.",
+  "scripts": {
+    "test": "node scripts/run-tests.mjs",
+    "new": "node scripts/new-project.mjs",
+    "report": "node scripts/report.mjs",
+    "golden": "node scripts/run-golden.mjs"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}

@@ -1,0 +1,820 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8662,
+      "batchName": "Batch - 1 - new",
+      "projectId": 939,
+      "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 → Ramen (top-20) - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Personal Info",
+      "L2: Sub-Use Case": "Retrieval",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+      "Model A": "Mode 23 → Ramen (top-20) - Fast",
+      "Model A HTML NAME": "M1_D1_023",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_023",
+      "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+      "Prompt Type": "Explicit With Source",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8662,
+        "batchName": "Batch - 1 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+      },
+      "modelConfig": {
+        "conversation_id": 1260592,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-08-27T21:24:18.745Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-08-28T00:30:15.186Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1ibtygGeL4RzYXSz8lNnnJxcilZzk4fGm/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)",
+          "Personalized (Time & Location)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "Major issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": [
+          "Missed requested fact",
+          "Missed granularity"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": [
+          "Forced connection"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": "Not at all"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "Major issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": [
+          "Used wrong personal info"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I asked it to find out the cricket matches score I searched this month from the Google search history. But it contradicted itself within the same answer. First it mentioned that I searched different countries matches score. But then said there are no specific match scores searched for this month. That second claim is factually wrong, since I searched the England vs Pakistan score on August 27. [Turn 2] I asked whether I had searched the England vs Pakistan score today, and it correctly said no, which was accurate as I did not search it. I rated it dissatisfied as it did not provide me the specific matches list I searched this month."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1_Fk0CUFhMhpQ4YlmEUAH4RRiQeddX_ej/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/11WrfCigyKUadFAkL-Dy879YjGJE-AEP_/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1iCvgTXQm7t_0KxX24du6Ci8DdQnrssb6/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)",
+          "Personalized (Time & Location)"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I asked to find out the all the cricket matches scores I checked this month from the Google search history and its returned me the four matches which I searched with dates. It mentioned that on 27 Aug, 2026 I searched England vs Pakistan score. [Turn 2] I asked it to check if I searched that match score today or not and it correctly told me I had not. So I liked that it did not simply agree with my leading question. In both turns the answers were accurate and well scoped."
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1EnGeF6O9Vu4JBk7SQwTE370r8gMiSAnC/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1IgQG2KOBaBlK_9RnpZN8wK99j4kHAaUB/view?usp=drive_link\n"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "Wanted to see a list of cricket matches I checked scores for this month from my Google search history and also wanted to check which cricket match score I checked today."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Ramen (top-20) - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-08-27T21:39:55.575Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "Go through my Google search history and tell me which cricket matches I was looking up scores for this month."
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation B was better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Conversation B answer my first question which is the main request accurately. It went through my Google search history and provided me the four matches score I searched on Google search engine this month. Also provided me the date of these searched matches and the specific countries cricket matches I searched. On the other hand conversation A contradicted itself within a single answer as it first said or described that I searched different countries cricket match scores and then saying no specific match searches were logged this month, which is wrong since I did search England vs Pakistan on August 27. On follow up question both conversations were accurate as I did not search any match score today. Both conversations named their source clearly and neither had tone or sensitivity problems, so the difference was only the one thing which is who better retrieved my data which Conversation B did."
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8662,
+        "batchName": "Batch - 1 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 → Ramen (top-20) - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Retrieval",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_023",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_023",
+        "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+        "Prompt Type": "Explicit With Source",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8662,
+          "batchName": "Batch - 1 - new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260592,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-27T21:24:18.745Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T00:30:15.186Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1ibtygGeL4RzYXSz8lNnnJxcilZzk4fGm/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Major issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed requested fact",
+            "Missed granularity"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Forced connection"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Not at all"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "Major issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": [
+            "Used wrong personal info"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked it to find out the cricket matches score I searched this month from the Google search history. But it contradicted itself within the same answer. First it mentioned that I searched different countries matches score. But then said there are no specific match scores searched for this month. That second claim is factually wrong, since I searched the England vs Pakistan score on August 27. [Turn 2] I asked whether I had searched the England vs Pakistan score today, and it correctly said no, which was accurate as I did not search it. I rated it dissatisfied as it did not provide me the specific matches list I searched this month."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1_Fk0CUFhMhpQ4YlmEUAH4RRiQeddX_ej/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/11WrfCigyKUadFAkL-Dy879YjGJE-AEP_/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1iCvgTXQm7t_0KxX24du6Ci8DdQnrssb6/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked to find out the all the cricket matches scores I checked this month from the Google search history and its returned me the four matches which I searched with dates. It mentioned that on 27 Aug, 2026 I searched England vs Pakistan score. [Turn 2] I asked it to check if I searched that match score today or not and it correctly told me I had not. So I liked that it did not simply agree with my leading question. In both turns the answers were accurate and well scoped."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1EnGeF6O9Vu4JBk7SQwTE370r8gMiSAnC/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1IgQG2KOBaBlK_9RnpZN8wK99j4kHAaUB/view?usp=drive_link\n"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "Wanted to see a list of cricket matches I checked scores for this month from my Google search history and also wanted to check which cricket match score I checked today."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Ramen (top-20) - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-27T21:39:55.575Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Go through my Google search history and tell me which cricket matches I was looking up scores for this month."
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Conversation B answer my first question which is the main request accurately. It went through my Google search history and provided me the four matches score I searched on Google search engine this month. Also provided me the date of these searched matches and the specific countries cricket matches I searched. On the other hand conversation A contradicted itself within a single answer as it first said or described that I searched different countries cricket match scores and then saying no specific match searches were logged this month, which is wrong since I did search England vs Pakistan on August 27. On follow up question both conversations were accurate as I did not search any match score today. Both conversations named their source clearly and neither had tone or sensitivity problems, so the difference was only the one thing which is who better retrieved my data which Conversation B did."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8662,
+        "batchName": "Batch - 1 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 → Ramen (top-20) - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Retrieval",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_023",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_023",
+        "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+        "Prompt Type": "Explicit With Source",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8662,
+          "batchName": "Batch - 1 - new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260592,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-27T21:24:18.745Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T00:30:15.186Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1ibtygGeL4RzYXSz8lNnnJxcilZzk4fGm/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Major issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed requested fact",
+            "Missed granularity"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Forced connection"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Not at all"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "Major issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": [
+            "Used wrong personal info"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked it to find out the cricket matches score I searched this month from the Google search history. But it contradicted itself within the same answer. First it mentioned that I searched different countries matches score. But then said there are no specific match scores searched for this month. That second claim is factually wrong, since I searched the England vs Pakistan score on August 27. [Turn 2] I asked whether I had searched the England vs Pakistan score today, and it correctly said no, which was accurate as I did not search it. I rated it dissatisfied as it did not provide me the specific matches list I searched this month."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1_Fk0CUFhMhpQ4YlmEUAH4RRiQeddX_ej/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/11WrfCigyKUadFAkL-Dy879YjGJE-AEP_/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1iCvgTXQm7t_0KxX24du6Ci8DdQnrssb6/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked to find out the all the cricket matches scores I checked this month from the Google search history and its returned me the four matches which I searched with dates. It mentioned that on 27 Aug, 2026 I searched England vs Pakistan score. [Turn 2] I asked it to check if I searched that match score today or not and it correctly told me I had not. So I liked that it did not simply agree with my leading question. In both turns the answers were accurate and well scoped."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1EnGeF6O9Vu4JBk7SQwTE370r8gMiSAnC/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1IgQG2KOBaBlK_9RnpZN8wK99j4kHAaUB/view?usp=drive_link\n"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "Wanted to see a list of cricket matches I checked scores for this month from my Google search history and also wanted to check which cricket match score I checked today."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Ramen (top-20) - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-27T21:39:55.575Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Go through my Google search history and tell me which cricket matches I was looking up scores for this month."
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Conversation B answer my first question which is the main request accurately. It went through my Google search history and provided me the four matches score I searched on Google search engine this month. Also provided me the date of these searched matches and the specific countries cricket matches I searched. On the other hand conversation A contradicted itself within a single answer as it first said or described that I searched different countries cricket match scores and then saying no specific match searches were logged this month, which is wrong since I did search England vs Pakistan on August 27. On follow up question both conversations were accurate as I did not search any match score today. Both conversations named their source clearly and neither had tone or sensitivity problems, so the difference was only the one thing which is who better retrieved my data which Conversation B did."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

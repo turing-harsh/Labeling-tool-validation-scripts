@@ -1,0 +1,1162 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8664,
+      "batchName": "Batch - 3 - new",
+      "projectId": 939,
+      "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Recommendation",
+      "L2: Sub-Use Case": "Discovery",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+      "Model A": "Mode 23 → Ramen (top-20) - Fast",
+      "Model A HTML NAME": "M1_D1_118",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_118",
+      "Prompt Example": "• What are the best noise-canceling headphones right now?\n• Could you suggest a  good place for a weekend trip?\n• What's a great show to binge-watch?\n• Which mentorship programs are popular right now?\n• Can you give me a solid beginner workout routine?\n• What online courses are best for learning Python?\n• Name some quick and easy dinner ideas.\n• What are the best savings accounts available?\n• Could you please show me the top free legal resources online?\n• Give me some creative first date ideas?\n• How to lower energy bills?\n• Can you list some fun hobbies to pick up?",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8664,
+        "batchName": "Batch - 3 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+      },
+      "modelConfig": {
+        "conversation_id": 1260698,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-08-28T07:30:41.525Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-08-28T10:29:13.809Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1_qXPDqizOnmeHC41o2qQPh4gUZs6sj1V/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Not Personalized"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Neither satisfied nor dissatisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1]Model has given several activities that take a short time to complete and they are not intensive.  Suggestions like sketching, walking and brewing drinks are functional and applicable in my situation.\n\n[Turn 2]Model goes further to give recommendations for indoor activities I can choose from. They are not based on anything about me. They are random but applicable."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/13z5yCQF6EBivX_5wPuFBhDCKoFCBlu0q/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1rRJQDrqdvv52hXIUTodzM38J7Umd9b0s/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1CasfF3sAnBpxVyrsMUAhTz4P2dZUp6YT/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Not Personalized"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Neither satisfied nor dissatisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1]Model gave different activities I or any other person can choose from. The activities are not personalized but I can apply some like walks, bodyweight training and roller skating.\n\n[Turn 2] Model has suggested more activities but focused on indoor activities. They are also applicable."
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1aNXt_LKPY_aw8tw4cykPFfsn383JKEUT/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1JGj8ZvKn9IihohD3SgQEHBW6Rq92SBuZ/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "A list of fun activities that only require a few hours to complete. Should not have activities like hiking that are intensive and take long to complete."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Ramen (top-20) - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "Somewhat — Personal touches would help, but aren't essential."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-08-28T09:52:23.537Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "I have two hours of free time before I start working every day. What are some fun activities I can do before then to keep me busy and entertained?"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Conversation A gave recommendations for activities I can do before my work hours start. They are not personalized to any of the activities I do but they are applicable. Conversation B equally  gave options that are general and applicable to anyone. Both are therefore applicable and helpful."
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8664,
+        "batchName": "Batch - 3 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Recommendation",
+        "L2: Sub-Use Case": "Discovery",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_118",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_118",
+        "Prompt Example": "• What are the best noise-canceling headphones right now?\n• Could you suggest a  good place for a weekend trip?\n• What's a great show to binge-watch?\n• Which mentorship programs are popular right now?\n• Can you give me a solid beginner workout routine?\n• What online courses are best for learning Python?\n• Name some quick and easy dinner ideas.\n• What are the best savings accounts available?\n• Could you please show me the top free legal resources online?\n• Give me some creative first date ideas?\n• How to lower energy bills?\n• Can you list some fun hobbies to pick up?",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8664,
+          "batchName": "Batch - 3 - new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260698,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T07:30:41.525Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T10:29:13.809Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1_qXPDqizOnmeHC41o2qQPh4gUZs6sj1V/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1]Model has given several activities that take a short time to complete and they are not intensive.  Suggestions like sketching, walking and brewing drinks are functional and applicable in my situation.\n\n[Turn 2]Model goes further to give recommendations for indoor activities I can choose from. They are not based on anything about me. They are random but applicable."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/13z5yCQF6EBivX_5wPuFBhDCKoFCBlu0q/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1rRJQDrqdvv52hXIUTodzM38J7Umd9b0s/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1CasfF3sAnBpxVyrsMUAhTz4P2dZUp6YT/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1]Model gave different activities I or any other person can choose from. The activities are not personalized but I can apply some like walks, bodyweight training and roller skating.\n\n[Turn 2] Model has suggested more activities but focused on indoor activities. They are also applicable."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1aNXt_LKPY_aw8tw4cykPFfsn383JKEUT/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1JGj8ZvKn9IihohD3SgQEHBW6Rq92SBuZ/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "A list of fun activities that only require a few hours to complete. Should not have activities like hiking that are intensive and take long to complete."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Ramen (top-20) - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T09:52:23.537Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "I have two hours of free time before I start working every day. What are some fun activities I can do before then to keep me busy and entertained?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Conversation A gave recommendations for activities I can do before my work hours start. They are not personalized to any of the activities I do but they are applicable. Conversation B equally  gave options that are general and applicable to anyone. Both are therefore applicable and helpful."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8664,
+        "batchName": "Batch - 3 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Recommendation",
+        "L2: Sub-Use Case": "Discovery",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_118",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_118",
+        "Prompt Example": "• What are the best noise-canceling headphones right now?\n• Could you suggest a  good place for a weekend trip?\n• What's a great show to binge-watch?\n• Which mentorship programs are popular right now?\n• Can you give me a solid beginner workout routine?\n• What online courses are best for learning Python?\n• Name some quick and easy dinner ideas.\n• What are the best savings accounts available?\n• Could you please show me the top free legal resources online?\n• Give me some creative first date ideas?\n• How to lower energy bills?\n• Can you list some fun hobbies to pick up?",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8664,
+          "batchName": "Batch - 3 - new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260698,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T07:30:41.525Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T10:29:13.809Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1_qXPDqizOnmeHC41o2qQPh4gUZs6sj1V/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1]Model has given several activities that take a short time to complete and they are not intensive.  Suggestions like sketching, walking and brewing drinks are functional and applicable in my situation.\n\n[Turn 2]Model goes further to give recommendations for indoor activities I can choose from. They are not based on anything about me. They are random but applicable."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/13z5yCQF6EBivX_5wPuFBhDCKoFCBlu0q/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1rRJQDrqdvv52hXIUTodzM38J7Umd9b0s/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1CasfF3sAnBpxVyrsMUAhTz4P2dZUp6YT/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1]Model gave different activities I or any other person can choose from. The activities are not personalized but I can apply some like walks, bodyweight training and roller skating.\n\n[Turn 2] Model has suggested more activities but focused on indoor activities. They are also applicable."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1aNXt_LKPY_aw8tw4cykPFfsn383JKEUT/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1JGj8ZvKn9IihohD3SgQEHBW6Rq92SBuZ/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "A list of fun activities that only require a few hours to complete. Should not have activities like hiking that are intensive and take long to complete."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Ramen (top-20) - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T09:52:23.537Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "I have two hours of free time before I start working every day. What are some fun activities I can do before then to keep me busy and entertained?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Conversation A gave recommendations for activities I can do before my work hours start. They are not personalized to any of the activities I do but they are applicable. Conversation B equally  gave options that are general and applicable to anyone. Both are therefore applicable and helpful."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}
