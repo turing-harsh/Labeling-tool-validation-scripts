@@ -1,0 +1,1174 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8663,
+      "batchName": "Batch - 2 - Attribution",
+      "projectId": 939,
+      "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "This use case aims to test the \"second turn\" performance and has a special instruction:\n1. Ask an arbitrary prompt (No use case/prompt type restriction). You may try a few prompts until one clearly used your personal data. \n2. In the second turn, ask the model about how or why the model use your personal data in turn 1.\n3. For the second model, use \"Branch from this conversation\" from end of turn 1 (see instruction in template) to reuse the same prompt for turn 1.\n\nPrompt Type and Examples are for the second turn",
+      "First Model": "Mode 23 → Ramen (top-20) - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Personal Info",
+      "L2: Sub-Use Case": "Attribution",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to explain the provenance, source, or reasoning behind a personalized response — why Gemini used certain personal information, where it came from, or how it informed a recommendation.\n\nBoundary: The user is questioning how Gemini arrived at a personalized answer, not asking for the information itself (→ Retrieval), requesting a synthesis of stored data (→ Synthesis), or correcting an error (→ Corrections). The intent is transparency and understanding of Gemini's personalization process.\n\nThe ultimate test: Is the user asking \"how do you know this about me?\" or \"why did you use that info?\" rather than \"what do you know about me?\"",
+      "Model A": "Mode 23 → Ramen (top-20) - Fast",
+      "Model A HTML NAME": "M1_D1_077",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_077",
+      "Prompt Example": "• Huh, that's a weirdly specific restaurant recommendation.\n• Interesting that you went with Italian for dinner ideas.\n• I'm curious why you suggested hiking over other activities.\n• That book recommendation came out of nowhere — in a good way.\n• You seem to know a lot about my music preferences.\n• You really zeroed in on window seats for me.\n• That travel suggestion felt like you really know me.",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8663,
+        "batchName": "Batch - 2 - Attribution",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+      },
+      "modelConfig": {
+        "conversation_id": 1260679,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T07:43:51.200Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T13:55:00.469Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1EnC0WrABJeG5n4PloJGNJJTDGLAcD10P/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": [
+          "Missed directly supporting evidence"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": [
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "I asked the agent to tell me it concluded that in Turn ! that Lionel messi is my best football player.\nTurn 2:\nThe model confirmed it's decison is based on that I called him the GOAT, and that he stands out most prominently in our discussions. There is another helpful reason the agent could have used but did not. And that is, that I always favor Lionel messi in my team selection during my match simulations.\nThe response is somewhat satisfactory."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1gGyP0GeiGIbqux-TISn_gk_KR0WVZnyg/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/118Ozc94h7h994qOoSGNST7f1OwF3ZNZi/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+        "value": "I wanted the model to explain why it concluded that Lionel Messi is my best footballer in Turn 1.\n\nTurn 2:\nThe model accurately explained that its decision was made based on my direct endorsement of the player, consistent focus on same player, and how I favor him in my team selection and match simulations.\nThe response is very satisfactory."
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1QACEes_vC8CoZx7hsLdpIDwH91BafBOb/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1ghL0PYZb-lnwyj2_U_cgUnWPHkfdDk2V/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "To understand how the agent came about concluding who my best footballer is."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Ramen (top-20) - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T13:34:04.250Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "You seem very certain about who my favorite footballer is. What made you conclude that?"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A was better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "I wanted to know why the models were sure Lionel Messi is my best football player as they responded in Turn 1.\nBoth models rightly explained that they arrived that conclusion because I had directly endorsed him as the greatest player.\nModel A stands out because it provided more valid reasons, such as, my consistent focus on Lionel Messi, and how I favor him when selecting team players in my match simulations.\nModel A is better than Model B."
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8663,
+        "batchName": "Batch - 2 - Attribution",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "This use case aims to test the \"second turn\" performance and has a special instruction:\n1. Ask an arbitrary prompt (No use case/prompt type restriction). You may try a few prompts until one clearly used your personal data. \n2. In the second turn, ask the model about how or why the model use your personal data in turn 1.\n3. For the second model, use \"Branch from this conversation\" from end of turn 1 (see instruction in template) to reuse the same prompt for turn 1.\n\nPrompt Type and Examples are for the second turn",
+        "First Model": "Mode 23 → Ramen (top-20) - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Attribution",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to explain the provenance, source, or reasoning behind a personalized response — why Gemini used certain personal information, where it came from, or how it informed a recommendation.\n\nBoundary: The user is questioning how Gemini arrived at a personalized answer, not asking for the information itself (→ Retrieval), requesting a synthesis of stored data (→ Synthesis), or correcting an error (→ Corrections). The intent is transparency and understanding of Gemini's personalization process.\n\nThe ultimate test: Is the user asking \"how do you know this about me?\" or \"why did you use that info?\" rather than \"what do you know about me?\"",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_077",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_077",
+        "Prompt Example": "• Huh, that's a weirdly specific restaurant recommendation.\n• Interesting that you went with Italian for dinner ideas.\n• I'm curious why you suggested hiking over other activities.\n• That book recommendation came out of nowhere — in a good way.\n• You seem to know a lot about my music preferences.\n• You really zeroed in on window seats for me.\n• That travel suggestion felt like you really know me.",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8663,
+          "batchName": "Batch - 2 - Attribution",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260679,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T07:43:51.200Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T13:55:00.469Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1EnC0WrABJeG5n4PloJGNJJTDGLAcD10P/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed directly supporting evidence"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "I asked the agent to tell me it concluded that in Turn ! that Lionel messi is my best football player.\nTurn 2:\nThe model confirmed it's decison is based on that I called him the GOAT, and that he stands out most prominently in our discussions. There is another helpful reason the agent could have used but did not. And that is, that I always favor Lionel messi in my team selection during my match simulations.\nThe response is somewhat satisfactory."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1gGyP0GeiGIbqux-TISn_gk_KR0WVZnyg/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/118Ozc94h7h994qOoSGNST7f1OwF3ZNZi/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "I wanted the model to explain why it concluded that Lionel Messi is my best footballer in Turn 1.\n\nTurn 2:\nThe model accurately explained that its decision was made based on my direct endorsement of the player, consistent focus on same player, and how I favor him in my team selection and match simulations.\nThe response is very satisfactory."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1QACEes_vC8CoZx7hsLdpIDwH91BafBOb/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1ghL0PYZb-lnwyj2_U_cgUnWPHkfdDk2V/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To understand how the agent came about concluding who my best footballer is."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Ramen (top-20) - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T13:34:04.250Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "You seem very certain about who my favorite footballer is. What made you conclude that?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "I wanted to know why the models were sure Lionel Messi is my best football player as they responded in Turn 1.\nBoth models rightly explained that they arrived that conclusion because I had directly endorsed him as the greatest player.\nModel A stands out because it provided more valid reasons, such as, my consistent focus on Lionel Messi, and how I favor him when selecting team players in my match simulations.\nModel A is better than Model B."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8663,
+        "batchName": "Batch - 2 - Attribution",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "This use case aims to test the \"second turn\" performance and has a special instruction:\n1. Ask an arbitrary prompt (No use case/prompt type restriction). You may try a few prompts until one clearly used your personal data. \n2. In the second turn, ask the model about how or why the model use your personal data in turn 1.\n3. For the second model, use \"Branch from this conversation\" from end of turn 1 (see instruction in template) to reuse the same prompt for turn 1.\n\nPrompt Type and Examples are for the second turn",
+        "First Model": "Mode 23 → Ramen (top-20) - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Attribution",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to explain the provenance, source, or reasoning behind a personalized response — why Gemini used certain personal information, where it came from, or how it informed a recommendation.\n\nBoundary: The user is questioning how Gemini arrived at a personalized answer, not asking for the information itself (→ Retrieval), requesting a synthesis of stored data (→ Synthesis), or correcting an error (→ Corrections). The intent is transparency and understanding of Gemini's personalization process.\n\nThe ultimate test: Is the user asking \"how do you know this about me?\" or \"why did you use that info?\" rather than \"what do you know about me?\"",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_077",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_077",
+        "Prompt Example": "• Huh, that's a weirdly specific restaurant recommendation.\n• Interesting that you went with Italian for dinner ideas.\n• I'm curious why you suggested hiking over other activities.\n• That book recommendation came out of nowhere — in a good way.\n• You seem to know a lot about my music preferences.\n• You really zeroed in on window seats for me.\n• That travel suggestion felt like you really know me.",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8663,
+          "batchName": "Batch - 2 - Attribution",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260679,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T07:43:51.200Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T13:55:00.469Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1EnC0WrABJeG5n4PloJGNJJTDGLAcD10P/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed directly supporting evidence"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "I asked the agent to tell me it concluded that in Turn ! that Lionel messi is my best football player.\nTurn 2:\nThe model confirmed it's decison is based on that I called him the GOAT, and that he stands out most prominently in our discussions. There is another helpful reason the agent could have used but did not. And that is, that I always favor Lionel messi in my team selection during my match simulations.\nThe response is somewhat satisfactory."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1gGyP0GeiGIbqux-TISn_gk_KR0WVZnyg/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/118Ozc94h7h994qOoSGNST7f1OwF3ZNZi/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "I wanted the model to explain why it concluded that Lionel Messi is my best footballer in Turn 1.\n\nTurn 2:\nThe model accurately explained that its decision was made based on my direct endorsement of the player, consistent focus on same player, and how I favor him in my team selection and match simulations.\nThe response is very satisfactory."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1QACEes_vC8CoZx7hsLdpIDwH91BafBOb/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1ghL0PYZb-lnwyj2_U_cgUnWPHkfdDk2V/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To understand how the agent came about concluding who my best footballer is."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Ramen (top-20) - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T13:34:04.250Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "You seem very certain about who my favorite footballer is. What made you conclude that?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "I wanted to know why the models were sure Lionel Messi is my best football player as they responded in Turn 1.\nBoth models rightly explained that they arrived that conclusion because I had directly endorsed him as the greatest player.\nModel A stands out because it provided more valid reasons, such as, my consistent focus on Lionel Messi, and how I favor him when selecting team players in my match simulations.\nModel A is better than Model B."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// v1.0.0-continuity-en-us — 0824 Continuity (en-US) - Turing Duplicate (projectId 939).
+// v1.1.0-continuity-en-us — 0824 Continuity (en-US) - Turing Duplicate (projectId 939).
 //
 // GENERATED FILE — do not edit by hand. Rebuild with: node scripts/build-939.mjs
 // Composed from:
@@ -41,6 +41,20 @@ async function validate(conversationData) {
       const exp = (m.match(/(?:expected|was assigned) "([^"]+)"/) || [])[1];
       if (on && exp && canon(on) && canon(on) === canon(exp)) {
         logs.push('Suppressed HTML-identity mismatch (Gemini-UI codename vs form name; model suffix matches): ' + m.slice(0, 160));
+        errors.splice(i, 1);
+      }
+    }
+  }
+
+  // Suppress the 903 prompt-mismatch FALSE POSITIVE for 939: in continuity tasks the "Prompt"
+  // field is the FOLLOW-UP (Turn 2+) question, not the Turn 1 prompt. The 903 pipeline assumes
+  // Prompt == Turn 1 and fires "first prompt doesn't match" / "from different conversations"
+  // on every multi-turn task. These are structurally wrong for 939 — drop them.
+  {
+    const promptMismatchRe = /first prompt doesn't match the prompt you submitted|"Prompt" field and Turn \d+ debug are from different conversations/;
+    for (let i = errors.length - 1; i >= 0; i--) {
+      if (promptMismatchRe.test(errors[i])) {
+        logs.push('Suppressed prompt-mismatch (continuity: Prompt field is the follow-up turn, not Turn 1): ' + errors[i].slice(0, 160));
         errors.splice(i, 1);
       }
     }
@@ -103,7 +117,7 @@ const FORM_SPEC = {
     "privacyGate": { "type": "CHECKBOX", "required": true },
 
     "numberOfTurns": { "type": "SINGLE_CHOICE", "required": true, "options": ["1","2","3","4","5"] },
-    "testResponse1DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 1 },
+    "testResponse1DebugInfo": { "type": "FREE_TEXT", "required": false, "artifact": "debug", "turn": 1 },
     "testResponse2DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 2 },
     "model1TestResponse3DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 3 },
     "model1TestResponse4DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 4 },
@@ -385,7 +399,7 @@ async function validateContinuity(conversationData) {
 //        surface in the same rework round.
 //      - Neither          -> ERROR (expected a Drive link).
 //   2. Fetch failures reuse the HTML-fetch sharing guidance (share the file
-//      or batch folder with beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com);
+//      or batch folder with the FETCH_SERVICE_ACCOUNT constant — verify it);
 //      content checks for that slot are skipped (the link error covers it).
 //   3. Linked file that fetches but contains no Gemini debug markers -> ERROR
 //      (wrong file). If the file is an HTML/Doc export, entities are decoded
@@ -675,6 +689,7 @@ async function validate903(conversationData) {
     return stripSystemMarkers(s)
       .normalize('NFC')
       .replace(/[​-‍﻿]/g, '')
+      .replace(/�/g, '')
       .replace(/\s+/g, ' ')
       .trim();
   };
@@ -1302,7 +1317,18 @@ async function validate903(conversationData) {
   const debugLinkIdByField = {};   // canonical id — used for MATCHING only
   const debugLinkUrlByField = {};  // v3.2.30: full URL as submitted — used for DISPLAY
 
+  // VERIFY THIS ADDRESS against the runner credential's client_email.
+  // "beling-" reads like "labeling-" with two letters lost; if this string is
+  // wrong, every 404 fix-message sends raters to share with a dead account.
+  const FETCH_SERVICE_ACCOUNT = 'beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com';
   const normalizeDebugNewlines = (s) => typeof s === 'string' ? s.replace(/\r\n?/g, '\n') : s;
+  const noteReplacementChars = (label, turn, text) => {
+    if (typeof text === 'string') {
+      const n = (text.match(/�/g) || []).length;
+      if (n) logs.push(`${label} Turn ${turn}: fetched text contains ${n} replacement character(s) (U+FFFD) — the runtime decoded a non-UTF-8 file (typically Windows-1252 with NBSP/accented bytes) with replacement. Comparisons ignore these; flag the runner owner to add a cp1252 decode fallback.`);
+    }
+    return text;
+  };
   const debugValue = (field) =>
     normalizeDebugNewlines(
       Object.prototype.hasOwnProperty.call(resolvedDebugByField, field)
@@ -1421,11 +1447,11 @@ async function validate903(conversationData) {
       const emsg = (e && e.message) ? e.message : String(e);
       const notFound = /\b404\b|not\s*found/i.test(emsg);
       const reason = notFound
-        ? `Google Drive returned "File not found" (404), which it also returns when a file exists but isn't shared with the fetching account — so if the link is correct the file almost certainly isn't shared with beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com.`
+        ? `Google Drive returned "File not found" (404), which it also returns when a file exists but isn't shared with the fetching account — so if the link is correct the file almost certainly isn't shared with ${FETCH_SERVICE_ACCOUNT}.`
         : `The Drive file could not be fetched.`;
       pushFieldError(sideLabel, field,
         `The linked Turn ${turn} debug file could not be accessed (likely not shared).`,
-        `save the debug file inside the batch output folder (which is pre-shared), or share the file with beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com as Viewer, then resubmit.`,
+        `save the debug file inside the batch output folder (which is pre-shared), or share the file with ${FETCH_SERVICE_ACCOUNT} as Viewer, then resubmit.`,
         `${reason} The content checks for this turn could not run. [fetch error: ${emsg.slice(0, 160)}]`);
       return null;
     }
@@ -1450,7 +1476,7 @@ async function validate903(conversationData) {
           if (looksLikeDebug(rtfDecoded)) {
             // v3.2.29: readable => acceptable. No finding; content checks run
             // on the decoded text and report any real problems themselves.
-            resolvedDebugByField[field] = normalizeDebugNewlines(rtfDecoded);
+            resolvedDebugByField[field] = noteReplacementChars(model.label, turn, normalizeDebugNewlines(rtfDecoded));
             logs.push(`${model.label} Turn ${turn}: linked file is RTF (TextEdit Rich Text); decoded ${rtfDecoded.length.toLocaleString()} chars of debug from ${debugLinkUrlByField[field]} — accepted, content checks applied to the decoded text.`);
             continue;
           }
@@ -1489,7 +1515,7 @@ async function validate903(conversationData) {
           debugFetchFailed.add(field);
           continue;
         }
-        resolvedDebugByField[field] = normalizeDebugNewlines(text);
+        resolvedDebugByField[field] = noteReplacementChars(model.label, turn, normalizeDebugNewlines(text));
         logs.push(`${model.label} Turn ${turn}: fetched linked debug (${text.length.toLocaleString()} chars) from ${debugLinkUrlByField[field]}`);
       } else if (looksLikeDebug(rawSlot)) {
         // Bare paste — protocol violation for this batch family.
@@ -1498,7 +1524,7 @@ async function validate903(conversationData) {
           `Save Turn ${turn}'s full debug info as a plain-text .txt file in the batch output Drive folder (so sharing is inherited), then replace the pasted text in this field with the file's Drive link.`);
         addEvidence(field,
           `The field contains ${rawSlot.length.toLocaleString()} chars of raw debug text instead of a Drive file link. (The pasted content was still analyzed below so any content problems can be fixed in the same round.)`);
-        resolvedDebugByField[field] = normalizeDebugNewlines(rawSlot);
+        resolvedDebugByField[field] = noteReplacementChars(model.label, turn, normalizeDebugNewlines(rawSlot));
       } else {
         addFinding(model.label, turn, field,
           `Expected a Google Drive file link to Turn ${turn}'s exported debug, but the field contains neither a Drive link nor recognizable debug text.`,
@@ -1626,11 +1652,11 @@ async function validate903(conversationData) {
       const emsg = (e && e.message) ? e.message : String(e);
       const notFound = /\b404\b|not\s*found/i.test(emsg);
       const reason = notFound
-        ? `Google Drive returned "File not found" (404), which it also returns when a file exists but isn't shared with the fetching account — so if the link is correct the file almost certainly isn't shared with beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com.`
+        ? `Google Drive returned "File not found" (404), which it also returns when a file exists but isn't shared with the fetching account — so if the link is correct the file almost certainly isn't shared with ${FETCH_SERVICE_ACCOUNT}.`
         : `The Drive file could not be fetched.`;
       pushFieldError(sideLabel, fieldKey,
         `The Drive HTML file could not be accessed (likely not shared).`,
-        `share the file — or the batch output folder it lives in — with beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com as Viewer, then resubmit. (If it lives in a Shared Drive, add the service account to the Shared Drive itself.)`,
+        `share the file — or the batch output folder it lives in — with ${FETCH_SERVICE_ACCOUNT} as Viewer, then resubmit. (If it lives in a Shared Drive, add the service account to the Shared Drive itself.)`,
         `${reason} The HTML prompt / model-identity / debug checks could not run for this side. [fetch error: ${emsg.slice(0, 160)}]`);
       return null;
     }
@@ -1826,7 +1852,7 @@ async function validate903(conversationData) {
     if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt !== bHtml.firstPrompt) {
       pushFieldError('Cross-HTML', 'modelAHtmlFileUpload', `${SIDE_A} Turn 1 prompt differs from ${SIDE_B} Turn 1 prompt.`, 'rerun both models with the exact same Turn 1 prompt and upload the matching HTML files.', `${SIDE_A} prompt="${preview(aHtml.firstPrompt, 100)}"; ${SIDE_B} prompt="${preview(bHtml.firstPrompt, 100)}". Files: ${SIDE_A} -> ${htmlLinkARaw || '(inline)'} ; ${SIDE_B} -> ${htmlLinkBRaw || '(inline)'}`);
     }
-    if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt === bHtml.firstPrompt && aHtml.firstResponse && bHtml.firstResponse && aHtml.firstResponse === bHtml.firstResponse && aHtml.firstResponse.length >= 80) {
+    if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt === bHtml.firstPrompt && aHtml.firstResponse && bHtml.firstResponse && aHtml.firstResponse === bHtml.firstResponse && aHtml.firstResponse.length >= 80 && !(aHtml.conversationId && bHtml.conversationId && aHtml.conversationId !== bHtml.conversationId)) {
       if (attributionMode && branchSide) {
         logs.push(`Attribution branch flow: both HTMLs share the same Turn 1 response (hash ${shortHash(aHtml.firstResponse)}) — inherited by the branched chat; same-chat error skipped.`);
       } else {

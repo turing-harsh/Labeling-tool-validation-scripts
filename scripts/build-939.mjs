@@ -23,7 +23,10 @@ s903 = s903.replace("async function validate(conversationData) {", "async functi
 s903 = s903.replace(/\nif \(typeof module !== 'undefined' && module\.exports\) \{[\s\S]*?\n\}\n?$/,"\n");
 s903 = s903.trim();
 
-const header = `// v1.0.0-continuity-en-us — 0824 Continuity (en-US) - Turing Duplicate (projectId 939).
+// Verify that the shared fixes are present in the 903 source.
+if (!s903.includes('aHtml.conversationId !== bHtml.conversationId')) throw new Error("build-939: cross-HTML conversationId guard not found in 903 source — apply it there first.");
+
+const header = `// v1.1.0-continuity-en-us — 0824 Continuity (en-US) - Turing Duplicate (projectId 939).
 //
 // GENERATED FILE — do not edit by hand. Rebuild with: node scripts/build-939.mjs
 // Composed from:
@@ -66,6 +69,20 @@ async function validate(conversationData) {
       const exp = (m.match(/(?:expected|was assigned) "([^"]+)"/) || [])[1];
       if (on && exp && canon(on) && canon(on) === canon(exp)) {
         logs.push('Suppressed HTML-identity mismatch (Gemini-UI codename vs form name; model suffix matches): ' + m.slice(0, 160));
+        errors.splice(i, 1);
+      }
+    }
+  }
+
+  // Suppress the 903 prompt-mismatch FALSE POSITIVE for 939: in continuity tasks the "Prompt"
+  // field is the FOLLOW-UP (Turn 2+) question, not the Turn 1 prompt. The 903 pipeline assumes
+  // Prompt == Turn 1 and fires "first prompt doesn't match" / "from different conversations"
+  // on every multi-turn task. These are structurally wrong for 939 — drop them.
+  {
+    const promptMismatchRe = /first prompt doesn't match the prompt you submitted|"Prompt" field and Turn \\d+ debug are from different conversations/;
+    for (let i = errors.length - 1; i >= 0; i--) {
+      if (promptMismatchRe.test(errors[i])) {
+        logs.push('Suppressed prompt-mismatch (continuity: Prompt field is the follow-up turn, not Turn 1): ' + errors[i].slice(0, 160));
         errors.splice(i, 1);
       }
     }

@@ -1,0 +1,1162 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8666,
+      "batchName": "Batch - 5 - new",
+      "projectId": 939,
+      "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "User prompt exactly as provided. Single turn only.",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Text Analysis",
+      "L2: Sub-Use Case": "Extraction",
+      "L2: Sub-Use Case (extended definition)": "Pull specific data or details from a larger provided content body.",
+      "Model A": "Mode 23 → Ramen (top-20) - Fast",
+      "Model A HTML NAME": "M1_D1_384",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_384",
+      "Prompt Example": "• Extract the names of all the speakers and their corresponding quotes from this meeting transcript: [00:01] Sarah: Good morning everyone, let's start with the quarterly review. [00:05] Mike: I can jump in first. Our sales are up 20% this quarter. [00:10] Sarah: That is great news, Mike. [00:15] Jenny: I have some concerns about the supply chain delays, though. [00:20] Mike: We are working on a new vendor contract to fix that.\n• From the following restaurant review, list all the dishes and their prices mentioned: \"We dined at The Golden Spoon last night. The appetizer, Calamari ($12), was crispy and delightful. For the main course, I had the Lobster Risotto which cost $28, while my partner enjoyed the Grilled Salmon for $24. We finished off with a slice of Chocolate Lava Cake for $9.\n• Given this list of customer complaints, extract the date and product ID for every entry that mentions a \"faulty part\": 1. 2023-10-01 - ID: 4500 - The screen is cracked. 2. 2023-10-02 - ID: 4502 - I found a faulty part in the hinge mechanism. 3. 2023-10-03 - ID: 4505 - Color does not match description. 4. 2023-10-05 - ID: 4508 - Faulty part discovered during assembly.\n• What are the three key performance indicators (KPIs) mentioned in the provided business quarterly report snippet? \"This quarter, our primary focus was on three metrics: Customer Acquisition Cost (CAC), which dropped by 5%; Monthly Recurring Revenue (MRR), which increased by 10%; and our Net Promoter Score (NPS), which held steady at 72.\n• Extract all numerical data points and their corresponding units from this scientific abstract on superconductivity: \"The sample exhibited superconductivity at a critical temperature of 95 K. The applied magnetic field was 5 Tesla, and the critical current density was measured at 2.5 x 10^5 A/cm^2 under high pressure conditions of 15 GPa.\n• From this legal document excerpt, identify and list all clauses related to \"limitation of liability\": \"Clause 4.1: The Service Provider shall not be liable for any indirect damages. Clause 4.2: Payment terms are net 30 days. Clause 5.1: Confidentiality must be maintained for 2 years. Clause 6.3: The total liability of the Provider shall not exceed the fees paid in the last 6 months. Clause 7.1: This agreement is governed by the laws of California.\n• Read the following paragraph about a historical battle and extract the names of the two opposing generals and the final date of the battle: \"The Battle of Waterloo was fought on Sunday\n• Scan this travel itinerary and list all the scheduled flights, including the departure city and arrival city: Day 1: Depart NYC (JFK) on Flight AA100 to London (LHR). Check into hotel. Day 4: Train to Paris. Day 7: Depart Paris (CDG) on Flight AF202 to Rome (FCO). Day 10: Depart Rome (FCO) on Flight DL400 back to NYC (JFK).",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8666,
+        "batchName": "Batch - 5 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+      },
+      "modelConfig": {
+        "conversation_id": 1260991,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-08-28T02:31:43.489Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-08-28T07:36:38.645Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1fTmTv7dC3Lj2ilZ9_Ymz28eqDpJ1mf5-/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Not Personalized"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "1"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I found the response of the model reliable and precise. It captured every speaker quote pair correctly with no lines missed or misattributed. It handled the repeated speakers, Mike and Sarah without any mix ups. Presenting it as a table made it simple to check line by line."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1ZqiESC4v3NkKqUMU0oGPpGAn9JsV4hn1/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1pMmvac1OB2zPrPC2X8zwOeJFVaaBUHgR/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Not Personalized"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+        "value": null
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+        "value": "1"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] The response provided by the model is accurate and complete. It correctly pulled all five lines from the transcript and matched each quote to the right speaker, including catching that Mike and Sarah each speak twice. The table format made it quick and easy to verify against the original text."
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1yTAAv8gnuOdtnj2UlPIKAWS_1Sd-OQr-/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+        "value": null
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "The goal here is to help me extract the names of the speakers and their quotes from the provided content."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "Not really — I just need a good answer."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-08-28T07:34:31.173Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "Extract the names of all the speakers and their corresponding quotes from this meeting transcript: [00:01] Sarah: Good morning everyone, let's start with the quarterly review. [00:05] Mike: I can jump in first. Our sales are up 20% this quarter. [00:10] Sarah: That is great news, Mike. [00:15] Jenny: I have some concerns about the supply chain delays, though. [00:20] Mike: We are working on a new vendor contract to fix that."
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Conversation A and Conversation B produced identical extractions, both correctly matched every quote to its speaker, including catching that Mike and Sarah each speak twice, with no lines missed or misattributed. Both used the same clear table format that made it easy to verify against the transcript. Since the content and presentation are the same in both responses, I didn't find any meaningful difference in quality between them."
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8666,
+        "batchName": "Batch - 5 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "User prompt exactly as provided. Single turn only.",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Text Analysis",
+        "L2: Sub-Use Case": "Extraction",
+        "L2: Sub-Use Case (extended definition)": "Pull specific data or details from a larger provided content body.",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_384",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_384",
+        "Prompt Example": "• Extract the names of all the speakers and their corresponding quotes from this meeting transcript: [00:01] Sarah: Good morning everyone, let's start with the quarterly review. [00:05] Mike: I can jump in first. Our sales are up 20% this quarter. [00:10] Sarah: That is great news, Mike. [00:15] Jenny: I have some concerns about the supply chain delays, though. [00:20] Mike: We are working on a new vendor contract to fix that.\n• From the following restaurant review, list all the dishes and their prices mentioned: \"We dined at The Golden Spoon last night. The appetizer, Calamari ($12), was crispy and delightful. For the main course, I had the Lobster Risotto which cost $28, while my partner enjoyed the Grilled Salmon for $24. We finished off with a slice of Chocolate Lava Cake for $9.\n• Given this list of customer complaints, extract the date and product ID for every entry that mentions a \"faulty part\": 1. 2023-10-01 - ID: 4500 - The screen is cracked. 2. 2023-10-02 - ID: 4502 - I found a faulty part in the hinge mechanism. 3. 2023-10-03 - ID: 4505 - Color does not match description. 4. 2023-10-05 - ID: 4508 - Faulty part discovered during assembly.\n• What are the three key performance indicators (KPIs) mentioned in the provided business quarterly report snippet? \"This quarter, our primary focus was on three metrics: Customer Acquisition Cost (CAC), which dropped by 5%; Monthly Recurring Revenue (MRR), which increased by 10%; and our Net Promoter Score (NPS), which held steady at 72.\n• Extract all numerical data points and their corresponding units from this scientific abstract on superconductivity: \"The sample exhibited superconductivity at a critical temperature of 95 K. The applied magnetic field was 5 Tesla, and the critical current density was measured at 2.5 x 10^5 A/cm^2 under high pressure conditions of 15 GPa.\n• From this legal document excerpt, identify and list all clauses related to \"limitation of liability\": \"Clause 4.1: The Service Provider shall not be liable for any indirect damages. Clause 4.2: Payment terms are net 30 days. Clause 5.1: Confidentiality must be maintained for 2 years. Clause 6.3: The total liability of the Provider shall not exceed the fees paid in the last 6 months. Clause 7.1: This agreement is governed by the laws of California.\n• Read the following paragraph about a historical battle and extract the names of the two opposing generals and the final date of the battle: \"The Battle of Waterloo was fought on Sunday\n• Scan this travel itinerary and list all the scheduled flights, including the departure city and arrival city: Day 1: Depart NYC (JFK) on Flight AA100 to London (LHR). Check into hotel. Day 4: Train to Paris. Day 7: Depart Paris (CDG) on Flight AF202 to Rome (FCO). Day 10: Depart Rome (FCO) on Flight DL400 back to NYC (JFK).",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8666,
+          "batchName": "Batch - 5 - new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260991,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T02:31:43.489Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T07:36:38.645Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1fTmTv7dC3Lj2ilZ9_Ymz28eqDpJ1mf5-/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "1"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I found the response of the model reliable and precise. It captured every speaker quote pair correctly with no lines missed or misattributed. It handled the repeated speakers, Mike and Sarah without any mix ups. Presenting it as a table made it simple to check line by line."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1ZqiESC4v3NkKqUMU0oGPpGAn9JsV4hn1/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1pMmvac1OB2zPrPC2X8zwOeJFVaaBUHgR/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "1"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The response provided by the model is accurate and complete. It correctly pulled all five lines from the transcript and matched each quote to the right speaker, including catching that Mike and Sarah each speak twice. The table format made it quick and easy to verify against the original text."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1yTAAv8gnuOdtnj2UlPIKAWS_1Sd-OQr-/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": null
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "The goal here is to help me extract the names of the speakers and their quotes from the provided content."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Not really — I just need a good answer."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T07:34:31.173Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Extract the names of all the speakers and their corresponding quotes from this meeting transcript: [00:01] Sarah: Good morning everyone, let's start with the quarterly review. [00:05] Mike: I can jump in first. Our sales are up 20% this quarter. [00:10] Sarah: That is great news, Mike. [00:15] Jenny: I have some concerns about the supply chain delays, though. [00:20] Mike: We are working on a new vendor contract to fix that."
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Conversation A and Conversation B produced identical extractions, both correctly matched every quote to its speaker, including catching that Mike and Sarah each speak twice, with no lines missed or misattributed. Both used the same clear table format that made it easy to verify against the transcript. Since the content and presentation are the same in both responses, I didn't find any meaningful difference in quality between them."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8666,
+        "batchName": "Batch - 5 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "User prompt exactly as provided. Single turn only.",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Text Analysis",
+        "L2: Sub-Use Case": "Extraction",
+        "L2: Sub-Use Case (extended definition)": "Pull specific data or details from a larger provided content body.",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_384",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_384",
+        "Prompt Example": "• Extract the names of all the speakers and their corresponding quotes from this meeting transcript: [00:01] Sarah: Good morning everyone, let's start with the quarterly review. [00:05] Mike: I can jump in first. Our sales are up 20% this quarter. [00:10] Sarah: That is great news, Mike. [00:15] Jenny: I have some concerns about the supply chain delays, though. [00:20] Mike: We are working on a new vendor contract to fix that.\n• From the following restaurant review, list all the dishes and their prices mentioned: \"We dined at The Golden Spoon last night. The appetizer, Calamari ($12), was crispy and delightful. For the main course, I had the Lobster Risotto which cost $28, while my partner enjoyed the Grilled Salmon for $24. We finished off with a slice of Chocolate Lava Cake for $9.\n• Given this list of customer complaints, extract the date and product ID for every entry that mentions a \"faulty part\": 1. 2023-10-01 - ID: 4500 - The screen is cracked. 2. 2023-10-02 - ID: 4502 - I found a faulty part in the hinge mechanism. 3. 2023-10-03 - ID: 4505 - Color does not match description. 4. 2023-10-05 - ID: 4508 - Faulty part discovered during assembly.\n• What are the three key performance indicators (KPIs) mentioned in the provided business quarterly report snippet? \"This quarter, our primary focus was on three metrics: Customer Acquisition Cost (CAC), which dropped by 5%; Monthly Recurring Revenue (MRR), which increased by 10%; and our Net Promoter Score (NPS), which held steady at 72.\n• Extract all numerical data points and their corresponding units from this scientific abstract on superconductivity: \"The sample exhibited superconductivity at a critical temperature of 95 K. The applied magnetic field was 5 Tesla, and the critical current density was measured at 2.5 x 10^5 A/cm^2 under high pressure conditions of 15 GPa.\n• From this legal document excerpt, identify and list all clauses related to \"limitation of liability\": \"Clause 4.1: The Service Provider shall not be liable for any indirect damages. Clause 4.2: Payment terms are net 30 days. Clause 5.1: Confidentiality must be maintained for 2 years. Clause 6.3: The total liability of the Provider shall not exceed the fees paid in the last 6 months. Clause 7.1: This agreement is governed by the laws of California.\n• Read the following paragraph about a historical battle and extract the names of the two opposing generals and the final date of the battle: \"The Battle of Waterloo was fought on Sunday\n• Scan this travel itinerary and list all the scheduled flights, including the departure city and arrival city: Day 1: Depart NYC (JFK) on Flight AA100 to London (LHR). Check into hotel. Day 4: Train to Paris. Day 7: Depart Paris (CDG) on Flight AF202 to Rome (FCO). Day 10: Depart Rome (FCO) on Flight DL400 back to NYC (JFK).",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8666,
+          "batchName": "Batch - 5 - new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260991,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T02:31:43.489Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T07:36:38.645Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1fTmTv7dC3Lj2ilZ9_Ymz28eqDpJ1mf5-/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "1"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I found the response of the model reliable and precise. It captured every speaker quote pair correctly with no lines missed or misattributed. It handled the repeated speakers, Mike and Sarah without any mix ups. Presenting it as a table made it simple to check line by line."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1ZqiESC4v3NkKqUMU0oGPpGAn9JsV4hn1/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1pMmvac1OB2zPrPC2X8zwOeJFVaaBUHgR/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttributionTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsDirection": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1CorrectionsTurns": {
+          "value": null
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "1"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The response provided by the model is accurate and complete. It correctly pulled all five lines from the transcript and matched each quote to the right speaker, including catching that Mike and Sarah each speak twice. The table format made it quick and easy to verify against the original text."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1yTAAv8gnuOdtnj2UlPIKAWS_1Sd-OQr-/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": null
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "The goal here is to help me extract the names of the speakers and their quotes from the provided content."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Not really — I just need a good answer."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T07:34:31.173Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Extract the names of all the speakers and their corresponding quotes from this meeting transcript: [00:01] Sarah: Good morning everyone, let's start with the quarterly review. [00:05] Mike: I can jump in first. Our sales are up 20% this quarter. [00:10] Sarah: That is great news, Mike. [00:15] Jenny: I have some concerns about the supply chain delays, though. [00:20] Mike: We are working on a new vendor contract to fix that."
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Conversation A and Conversation B produced identical extractions, both correctly matched every quote to its speaker, including catching that Mike and Sarah each speak twice, with no lines missed or misattributed. Both used the same clear table format that made it easy to verify against the transcript. Since the content and presentation are the same in both responses, I didn't find any meaningful difference in quality between them."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

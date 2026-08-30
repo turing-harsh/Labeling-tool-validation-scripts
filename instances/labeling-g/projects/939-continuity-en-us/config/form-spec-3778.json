@@ -42,7 +42,7 @@
     "privacyGate": { "type": "CHECKBOX", "required": true },
 
     "numberOfTurns": { "type": "SINGLE_CHOICE", "required": true, "options": ["1","2","3","4","5"] },
-    "testResponse1DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 1 },
+    "testResponse1DebugInfo": { "type": "FREE_TEXT", "required": false, "artifact": "debug", "turn": 1 },
     "testResponse2DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 2 },
     "model1TestResponse3DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 3 },
     "model1TestResponse4DebugInfo": { "type": "FREE_TEXT", "required": true, "artifact": "debug", "turn": 4 },
