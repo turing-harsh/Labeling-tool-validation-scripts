@@ -1464,7 +1464,11 @@ async function validate(conversationData) {
       }
     }
     if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt !== bHtml.firstPrompt) {
-      pushFieldError('Cross-HTML', 'modelAHtmlFileUpload', `${SIDE_A} Turn 1 prompt differs from ${SIDE_B} Turn 1 prompt.`, 'rerun both models with the exact same Turn 1 prompt and upload the matching HTML files.', `${SIDE_A} prompt="${preview(aHtml.firstPrompt, 100)}"; ${SIDE_B} prompt="${preview(bHtml.firstPrompt, 100)}". Files: ${SIDE_A} -> ${htmlLinkARaw || '(inline)'} ; ${SIDE_B} -> ${htmlLinkBRaw || '(inline)'}`);
+      if (attributionMode && branchSide) {
+        logs.push(`Attribution branch flow: Turn 1 prompt differs across HTMLs (branched conversation may restructure the visible first prompt) — cross-HTML prompt mismatch skipped.`);
+      } else {
+        pushFieldError('Cross-HTML', 'modelAHtmlFileUpload', `${SIDE_A} Turn 1 prompt differs from ${SIDE_B} Turn 1 prompt.`, 'rerun both models with the exact same Turn 1 prompt and upload the matching HTML files.', `${SIDE_A} prompt="${preview(aHtml.firstPrompt, 100)}"; ${SIDE_B} prompt="${preview(bHtml.firstPrompt, 100)}". Files: ${SIDE_A} -> ${htmlLinkARaw || '(inline)'} ; ${SIDE_B} -> ${htmlLinkBRaw || '(inline)'}`);
+      }
     }
     if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt === bHtml.firstPrompt && aHtml.firstResponse && bHtml.firstResponse && aHtml.firstResponse === bHtml.firstResponse && aHtml.firstResponse.length >= 80 && !(aHtml.conversationId && bHtml.conversationId && aHtml.conversationId !== bHtml.conversationId)) {
       if (attributionMode && branchSide) {

@@ -51,7 +51,7 @@ async function validate(conversationData) {
   // Prompt == Turn 1 and fires "first prompt doesn't match" / "from different conversations"
   // on every multi-turn task. These are structurally wrong for 939 — drop them.
   {
-    const promptMismatchRe = /first prompt doesn't match the prompt you submitted|"Prompt" field and Turn \d+ debug are from different conversations/;
+    const promptMismatchRe = /first prompt doesn't match the prompt you submitted|"Prompt" field and Turn \d+ debug are from different conversations|uploaded HTML doesn't contain the prompt you submitted/;
     for (let i = errors.length - 1; i >= 0; i--) {
       if (promptMismatchRe.test(errors[i])) {
         logs.push('Suppressed prompt-mismatch (continuity: Prompt field is the follow-up turn, not Turn 1): ' + errors[i].slice(0, 160));
@@ -1850,7 +1850,11 @@ async function validate903(conversationData) {
       }
     }
     if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt !== bHtml.firstPrompt) {
-      pushFieldError('Cross-HTML', 'modelAHtmlFileUpload', `${SIDE_A} Turn 1 prompt differs from ${SIDE_B} Turn 1 prompt.`, 'rerun both models with the exact same Turn 1 prompt and upload the matching HTML files.', `${SIDE_A} prompt="${preview(aHtml.firstPrompt, 100)}"; ${SIDE_B} prompt="${preview(bHtml.firstPrompt, 100)}". Files: ${SIDE_A} -> ${htmlLinkARaw || '(inline)'} ; ${SIDE_B} -> ${htmlLinkBRaw || '(inline)'}`);
+      if (attributionMode && branchSide) {
+        logs.push(`Attribution branch flow: Turn 1 prompt differs across HTMLs (branched conversation may restructure the visible first prompt) — cross-HTML prompt mismatch skipped.`);
+      } else {
+        pushFieldError('Cross-HTML', 'modelAHtmlFileUpload', `${SIDE_A} Turn 1 prompt differs from ${SIDE_B} Turn 1 prompt.`, 'rerun both models with the exact same Turn 1 prompt and upload the matching HTML files.', `${SIDE_A} prompt="${preview(aHtml.firstPrompt, 100)}"; ${SIDE_B} prompt="${preview(bHtml.firstPrompt, 100)}". Files: ${SIDE_A} -> ${htmlLinkARaw || '(inline)'} ; ${SIDE_B} -> ${htmlLinkBRaw || '(inline)'}`);
+      }
     }
     if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt === bHtml.firstPrompt && aHtml.firstResponse && bHtml.firstResponse && aHtml.firstResponse === bHtml.firstResponse && aHtml.firstResponse.length >= 80 && !(aHtml.conversationId && bHtml.conversationId && aHtml.conversationId !== bHtml.conversationId)) {
       if (attributionMode && branchSide) {

@@ -1,0 +1,763 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8665,
+      "batchName": "Batch - 4 -new",
+      "projectId": 939,
+      "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Generation",
+      "L2: Sub-Use Case": "Prose writing",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to draft or compose continuous written text — emails, essays, messages, cover letters, stories, social posts — intended to be read as natural language by a human audience.\n\nBoundary: The primary output is natural-language prose intended for consumption by others — not a structured plan (→ Plan Building) or non-text media (→ Media Production).\n\nThe ultimate test: Is the output a piece of writing (a message, document, or narrative) meant to be read as-is or lightly edited?",
+      "Model A": "Mode 23 → Ramen (top-20) - Fast",
+      "Model A HTML NAME": "M1_D1_250",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_250",
+      "Prompt Example": "• Draft an Out of Office email for next week.\n• Write a polite message declining a wedding invitation.\n• Draft a cover letter for a Senior PM role.\n• Write a customer service email about a delayed order.\n• Write a blog post about a European travel experience.\n• Write a short creative fiction story in a thriller style.\n• Draft a professional progress update email.\n• Write a motivational blog post about fitness goals.\n• Write a practice essay about a historical event.\n• Write a formal complaint letter to a landlord.\n• Draft a thank you note for a gift.\n• Write instructions for a babysitter.",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8665,
+        "batchName": "Batch - 4 -new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+      },
+      "modelConfig": {
+        "conversation_id": 1260857,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T03:58:10.687Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T15:08:40.811Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1Uq5rKP7oimxGk0BGnFp6ev16ama1bk13/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)",
+          "Personalized (Response Preference)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+        "value": "https://drive.google.com/file/d/1U6fiYuLAfOJk3CmDkQdve-LAjjhAzdFw/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+        "value": "https://drive.google.com/file/d/1wWGMPSOjWjNuVCXspaOvyn9XZg2ZKnD1/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "4"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I asked the model to draft a cover letter for an imports assistant manager position. The model claimed to be having a hard time fulfilling my request and asked if it can help me with something else instead.\n[Turn 2] When I asked it to kindly draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again.\n[Turn 3] When I asked it to please draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again, or the second time.\n[Turn 4] When I asked it ''would you kindly draft a cover letter for an imports assistant manager position?'', the model generated a personalized cover letter basing on my professional qualifications and adding relevant specific accurate background context. The model included my previous relevant experience citing each specific skill."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/18xanlo1bSzMAzKeLorHRbREjKdvX2pVy/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1Kmo70wd_6cn4Q1huGUKDy1wzKr2IgOLQ/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/16zNCaErv3nvXqpofRpBrUnXxRBwibMOz/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)",
+          "Personalized (Response Preference)"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+        "value": "https://drive.google.com/file/d/1CVfa45mJv5_qYvrbx0YRbZs2klPNqHaV/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+        "value": "https://drive.google.com/file/d/1NwOpnE_wGv0uuhldVsnKPH85vbhJuKVU/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+        "value": "https://drive.google.com/file/d/1JmGHzFJEPl-E05LgMP41wz_vZjnS_3DA/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+        "value": "5"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+        "value": "Neither satisfied nor dissatisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I asked the model to draft a cover letter for an imports assistant manager position. The model claimed that it is having a hard time fulfilling my request and asked if it can help me with something else instead. \n[Turn 2] When I asked it if it can kindly draft a cover letter for an imports assistant manager position, the model claimed that it encountered an error doing what I asked and asked if I could try again.\n[Turn 3] When I asked it to please draft a cover letter for an imports assistant manager position, the model claimed that it seemed to be encountering an error and asked if it could try something else for me.\n[Turn 4] When I asked it to kindly please draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again, for the second time.\n[Turn 5] When I asked it ''would you kindly draft a cover letter for an imports assistant manager position?'', the model generated a personalized cover letter basing on my professional qualifications background with relevant personal context. The model included my previous relevant experience citing my specific skills and key strengths."
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1U9Cfs_T5YDkxipUDaMG-7P62deDbSCBE/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1_xhSK0AcYhpBUC4JhL8k-PXQwMdWvf6J/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "To generate a step by step cover letter for an imports assistant manager position capturing required different skills and expertise levels."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "Somewhat — Personal touches would help, but aren't essential."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T06:46:08.269Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "Draft a cover letter for an imports assistant manager position."
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation B was slightly better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Model A was good because it generated a personalized contextualized cover letter and also\n captured my specific background skills. The model experienced execution errors and only generated a response in [Turn 5].\nModel B provided relevant contextualized personalization in the cover letter generation referencing my specific past work experience well and mentioning my former related work place accurately. The model experienced execution errors and only generated a response in [Turn 4].\nBoth Model A and Model B were similar in quality in correctly using my personal professional background details and referencing my specific skills accurately in their rich cover letter generation. Both models used continuous natural-language in their cover letter generation, which can be read to a human audience."
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8665,
+        "batchName": "Batch - 4 -new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Generation",
+        "L2: Sub-Use Case": "Prose writing",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to draft or compose continuous written text — emails, essays, messages, cover letters, stories, social posts — intended to be read as natural language by a human audience.\n\nBoundary: The primary output is natural-language prose intended for consumption by others — not a structured plan (→ Plan Building) or non-text media (→ Media Production).\n\nThe ultimate test: Is the output a piece of writing (a message, document, or narrative) meant to be read as-is or lightly edited?",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_250",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_250",
+        "Prompt Example": "• Draft an Out of Office email for next week.\n• Write a polite message declining a wedding invitation.\n• Draft a cover letter for a Senior PM role.\n• Write a customer service email about a delayed order.\n• Write a blog post about a European travel experience.\n• Write a short creative fiction story in a thriller style.\n• Draft a professional progress update email.\n• Write a motivational blog post about fitness goals.\n• Write a practice essay about a historical event.\n• Write a formal complaint letter to a landlord.\n• Draft a thank you note for a gift.\n• Write instructions for a babysitter.",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8665,
+          "batchName": "Batch - 4 -new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260857,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T03:58:10.687Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T15:08:40.811Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Uq5rKP7oimxGk0BGnFp6ev16ama1bk13/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Response Preference)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1U6fiYuLAfOJk3CmDkQdve-LAjjhAzdFw/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": "https://drive.google.com/file/d/1wWGMPSOjWjNuVCXspaOvyn9XZg2ZKnD1/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "4"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked the model to draft a cover letter for an imports assistant manager position. The model claimed to be having a hard time fulfilling my request and asked if it can help me with something else instead.\n[Turn 2] When I asked it to kindly draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again.\n[Turn 3] When I asked it to please draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again, or the second time.\n[Turn 4] When I asked it ''would you kindly draft a cover letter for an imports assistant manager position?'', the model generated a personalized cover letter basing on my professional qualifications and adding relevant specific accurate background context. The model included my previous relevant experience citing each specific skill."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/18xanlo1bSzMAzKeLorHRbREjKdvX2pVy/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1Kmo70wd_6cn4Q1huGUKDy1wzKr2IgOLQ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/16zNCaErv3nvXqpofRpBrUnXxRBwibMOz/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Response Preference)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1CVfa45mJv5_qYvrbx0YRbZs2klPNqHaV/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": "https://drive.google.com/file/d/1NwOpnE_wGv0uuhldVsnKPH85vbhJuKVU/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+          "value": "https://drive.google.com/file/d/1JmGHzFJEPl-E05LgMP41wz_vZjnS_3DA/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "5"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked the model to draft a cover letter for an imports assistant manager position. The model claimed that it is having a hard time fulfilling my request and asked if it can help me with something else instead. \n[Turn 2] When I asked it if it can kindly draft a cover letter for an imports assistant manager position, the model claimed that it encountered an error doing what I asked and asked if I could try again.\n[Turn 3] When I asked it to please draft a cover letter for an imports assistant manager position, the model claimed that it seemed to be encountering an error and asked if it could try something else for me.\n[Turn 4] When I asked it to kindly please draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again, for the second time.\n[Turn 5] When I asked it ''would you kindly draft a cover letter for an imports assistant manager position?'', the model generated a personalized cover letter basing on my professional qualifications background with relevant personal context. The model included my previous relevant experience citing my specific skills and key strengths."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1U9Cfs_T5YDkxipUDaMG-7P62deDbSCBE/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1_xhSK0AcYhpBUC4JhL8k-PXQwMdWvf6J/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To generate a step by step cover letter for an imports assistant manager position capturing required different skills and expertise levels."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T06:46:08.269Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Draft a cover letter for an imports assistant manager position."
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model A was good because it generated a personalized contextualized cover letter and also\n captured my specific background skills. The model experienced execution errors and only generated a response in [Turn 5].\nModel B provided relevant contextualized personalization in the cover letter generation referencing my specific past work experience well and mentioning my former related work place accurately. The model experienced execution errors and only generated a response in [Turn 4].\nBoth Model A and Model B were similar in quality in correctly using my personal professional background details and referencing my specific skills accurately in their rich cover letter generation. Both models used continuous natural-language in their cover letter generation, which can be read to a human audience."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8665,
+        "batchName": "Batch - 4 -new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Generation",
+        "L2: Sub-Use Case": "Prose writing",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to draft or compose continuous written text — emails, essays, messages, cover letters, stories, social posts — intended to be read as natural language by a human audience.\n\nBoundary: The primary output is natural-language prose intended for consumption by others — not a structured plan (→ Plan Building) or non-text media (→ Media Production).\n\nThe ultimate test: Is the output a piece of writing (a message, document, or narrative) meant to be read as-is or lightly edited?",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_250",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_250",
+        "Prompt Example": "• Draft an Out of Office email for next week.\n• Write a polite message declining a wedding invitation.\n• Draft a cover letter for a Senior PM role.\n• Write a customer service email about a delayed order.\n• Write a blog post about a European travel experience.\n• Write a short creative fiction story in a thriller style.\n• Draft a professional progress update email.\n• Write a motivational blog post about fitness goals.\n• Write a practice essay about a historical event.\n• Write a formal complaint letter to a landlord.\n• Draft a thank you note for a gift.\n• Write instructions for a babysitter.",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8665,
+          "batchName": "Batch - 4 -new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260857,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T03:58:10.687Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T15:08:40.811Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Uq5rKP7oimxGk0BGnFp6ev16ama1bk13/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Response Preference)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1U6fiYuLAfOJk3CmDkQdve-LAjjhAzdFw/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": "https://drive.google.com/file/d/1wWGMPSOjWjNuVCXspaOvyn9XZg2ZKnD1/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "4"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked the model to draft a cover letter for an imports assistant manager position. The model claimed to be having a hard time fulfilling my request and asked if it can help me with something else instead.\n[Turn 2] When I asked it to kindly draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again.\n[Turn 3] When I asked it to please draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again, or the second time.\n[Turn 4] When I asked it ''would you kindly draft a cover letter for an imports assistant manager position?'', the model generated a personalized cover letter basing on my professional qualifications and adding relevant specific accurate background context. The model included my previous relevant experience citing each specific skill."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/18xanlo1bSzMAzKeLorHRbREjKdvX2pVy/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1Kmo70wd_6cn4Q1huGUKDy1wzKr2IgOLQ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/16zNCaErv3nvXqpofRpBrUnXxRBwibMOz/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Response Preference)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1CVfa45mJv5_qYvrbx0YRbZs2klPNqHaV/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": "https://drive.google.com/file/d/1NwOpnE_wGv0uuhldVsnKPH85vbhJuKVU/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse5DebugInfo": {
+          "value": "https://drive.google.com/file/d/1JmGHzFJEPl-E05LgMP41wz_vZjnS_3DA/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "5"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked the model to draft a cover letter for an imports assistant manager position. The model claimed that it is having a hard time fulfilling my request and asked if it can help me with something else instead. \n[Turn 2] When I asked it if it can kindly draft a cover letter for an imports assistant manager position, the model claimed that it encountered an error doing what I asked and asked if I could try again.\n[Turn 3] When I asked it to please draft a cover letter for an imports assistant manager position, the model claimed that it seemed to be encountering an error and asked if it could try something else for me.\n[Turn 4] When I asked it to kindly please draft a cover letter for an imports assistant manager position, the model claimed to have encountered an error doing what I asked and asked if I could try again, for the second time.\n[Turn 5] When I asked it ''would you kindly draft a cover letter for an imports assistant manager position?'', the model generated a personalized cover letter basing on my professional qualifications background with relevant personal context. The model included my previous relevant experience citing my specific skills and key strengths."
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1U9Cfs_T5YDkxipUDaMG-7P62deDbSCBE/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1_xhSK0AcYhpBUC4JhL8k-PXQwMdWvf6J/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To generate a step by step cover letter for an imports assistant manager position capturing required different skills and expertise levels."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T06:46:08.269Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Draft a cover letter for an imports assistant manager position."
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model A was good because it generated a personalized contextualized cover letter and also\n captured my specific background skills. The model experienced execution errors and only generated a response in [Turn 5].\nModel B provided relevant contextualized personalization in the cover letter generation referencing my specific past work experience well and mentioning my former related work place accurately. The model experienced execution errors and only generated a response in [Turn 4].\nBoth Model A and Model B were similar in quality in correctly using my personal professional background details and referencing my specific skills accurately in their rich cover letter generation. Both models used continuous natural-language in their cover letter generation, which can be read to a human audience."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

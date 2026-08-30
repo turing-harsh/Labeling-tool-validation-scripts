@@ -79,7 +79,7 @@ async function validate(conversationData) {
   // Prompt == Turn 1 and fires "first prompt doesn't match" / "from different conversations"
   // on every multi-turn task. These are structurally wrong for 939 — drop them.
   {
-    const promptMismatchRe = /first prompt doesn't match the prompt you submitted|"Prompt" field and Turn \\d+ debug are from different conversations/;
+    const promptMismatchRe = /first prompt doesn't match the prompt you submitted|"Prompt" field and Turn \\d+ debug are from different conversations|uploaded HTML doesn't contain the prompt you submitted/;
     for (let i = errors.length - 1; i >= 0; i--) {
       if (promptMismatchRe.test(errors[i])) {
         logs.push('Suppressed prompt-mismatch (continuity: Prompt field is the follow-up turn, not Turn 1): ' + errors[i].slice(0, 160));

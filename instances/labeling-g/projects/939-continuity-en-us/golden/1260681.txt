@@ -1,0 +1,868 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8663,
+      "batchName": "Batch - 2 - Attribution",
+      "projectId": 939,
+      "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "This use case aims to test the \"second turn\" performance and has a special instruction:\n1. Ask an arbitrary prompt (No use case/prompt type restriction). You may try a few prompts until one clearly used your personal data. \n2. In the second turn, ask the model about how or why the model use your personal data in turn 1.\n3. For the second model, use \"Branch from this conversation\" from end of turn 1 (see instruction in template) to reuse the same prompt for turn 1.\n\nPrompt Type and Examples are for the second turn",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Personal Info",
+      "L2: Sub-Use Case": "Attribution",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to explain the provenance, source, or reasoning behind a personalized response — why Gemini used certain personal information, where it came from, or how it informed a recommendation.\n\nBoundary: The user is questioning how Gemini arrived at a personalized answer, not asking for the information itself (→ Retrieval), requesting a synthesis of stored data (→ Synthesis), or correcting an error (→ Corrections). The intent is transparency and understanding of Gemini's personalization process.\n\nThe ultimate test: Is the user asking \"how do you know this about me?\" or \"why did you use that info?\" rather than \"what do you know about me?\"",
+      "Model A": "Mode 23 → Ramen (top-20) - Fast",
+      "Model A HTML NAME": "M1_D1_068",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_068",
+      "Prompt Example": "• How did you know I like Italian food?\n• Wait, why did you bring up my sister just now?\n• Where did you get that info about my job?\n• How did you come up with those book recommendations?\n• Why did you assume I have a dog?\n• How do you know my preference for window seats?\n• What made you think I'd want a hiking recommendation?\n• How do you know I'm training for a marathon?\n• Where did you learn about my allergy?",
+      "Prompt Type": "Explicit Without Source",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8663,
+        "batchName": "Batch - 2 - Attribution",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+      },
+      "modelConfig": {
+        "conversation_id": 1260681,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T11:41:30.263Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T18:18:50.649Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1_hjK2ewclrqiyCnjgRpdoOidOoKK0aIY/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+        "value": [
+          "Showing off"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+        "value": "Somewhat"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": [
+          "Cherrypicked details"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": "Somewhat"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I appreciated that the model clearly explained which personal information influenced the learning path, including my Java, GitHub, SAP ABAP, AWS, DevOps, and cloud-related background. It also connected those details to specific recommendations, such as cloud certifications, CI/CD, and enterprise development, which made the explanation more useful than a generic response. However, I felt that Turn 1 included more personal information and source-level detail than necessary. The model brought up my McKinsey Forward program, NASSCOM training, onboarding and placement milestones, and connected Google apps and personalization settings. These details were somewhat relevant, but they were not all necessary to answer my question, making Turn 1 slightly over-personalized and over-transparent.\n\n[Turn 2] I appreciated that the model identified my AWS and DevOps interests as the strongest influence and explained how Java and GitHub supported the starting point for the recommended path. Compared with Turn 1, the response was more focused on explaining how the information influenced the recommendation, although it still repeated several personal details. Overall, the personalization was useful, but the model could have focused more on the most relevant information without providing unnecessary personal specifics."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/16brAfHvOD1WoJzEXZOjSBGBZukeLeo4t/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/19QRuoGBEdgsvfbcWKfHjprb4RHt85OqW/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/16yR9fv33yMzTQdor8N8wlVMjO2h7jxwM/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+        "value": [
+          "Showing off"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+        "value": "Somewhat"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": [
+          "Cherrypicked details"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": "Somewhat"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I appreciated that the model clearly explained which personal information influenced the learning path, including my Java, GitHub, SAP ABAP, AWS, and DevOps background. It also connected those details to specific recommendations, which made the explanation useful and personalized. However, I felt that some additional details, such as the McKinsey Forward program, NASSCOM training, onboarding timeline, and connected Google settings, were more specific than necessary for my question. This made the response somewhat over-personalized and more detailed than needed.\n\n[Turn 2] I appreciated that the model  explanation to the main reasons behind the Cloud and DevOps recommendation. It specifically connected my AWS and DevOps interests and previous exploration of cloud-related learning tracks with my Java and GitHub foundation. This made the reasoning clearer and more focused than Turn 1. Overall, I found the interaction accurate and helpful, but the unnecessary personal details in Turn 1 slightly reduced the quality of the personalization.\n"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+        "value": ""
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1V_5C1CsP6SS-__a3H6nOwoK-3GX1QVV9/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "I want to understand what personal information was used and how it influenced the learning path recommended for me."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T18:18:33.413Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "How did you know that learning path would suit me? What personal information did you use?\n\n"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "I found both Model A and B to be about the same . Both models provided relevant and accurate personalization and explained how my background influenced the learning-path recommendations. Both responses also included some unnecessary personal details, around my professional programs and background, so I did not see a meaningful difference between them.\n"
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8663,
+        "batchName": "Batch - 2 - Attribution",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "This use case aims to test the \"second turn\" performance and has a special instruction:\n1. Ask an arbitrary prompt (No use case/prompt type restriction). You may try a few prompts until one clearly used your personal data. \n2. In the second turn, ask the model about how or why the model use your personal data in turn 1.\n3. For the second model, use \"Branch from this conversation\" from end of turn 1 (see instruction in template) to reuse the same prompt for turn 1.\n\nPrompt Type and Examples are for the second turn",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Attribution",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to explain the provenance, source, or reasoning behind a personalized response — why Gemini used certain personal information, where it came from, or how it informed a recommendation.\n\nBoundary: The user is questioning how Gemini arrived at a personalized answer, not asking for the information itself (→ Retrieval), requesting a synthesis of stored data (→ Synthesis), or correcting an error (→ Corrections). The intent is transparency and understanding of Gemini's personalization process.\n\nThe ultimate test: Is the user asking \"how do you know this about me?\" or \"why did you use that info?\" rather than \"what do you know about me?\"",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_068",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_068",
+        "Prompt Example": "• How did you know I like Italian food?\n• Wait, why did you bring up my sister just now?\n• Where did you get that info about my job?\n• How did you come up with those book recommendations?\n• Why did you assume I have a dog?\n• How do you know my preference for window seats?\n• What made you think I'd want a hiking recommendation?\n• How do you know I'm training for a marathon?\n• Where did you learn about my allergy?",
+        "Prompt Type": "Explicit Without Source",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8663,
+          "batchName": "Batch - 2 - Attribution",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260681,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T11:41:30.263Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T18:18:50.649Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1_hjK2ewclrqiyCnjgRpdoOidOoKK0aIY/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": [
+            "Showing off"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Cherrypicked details"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I appreciated that the model clearly explained which personal information influenced the learning path, including my Java, GitHub, SAP ABAP, AWS, DevOps, and cloud-related background. It also connected those details to specific recommendations, such as cloud certifications, CI/CD, and enterprise development, which made the explanation more useful than a generic response. However, I felt that Turn 1 included more personal information and source-level detail than necessary. The model brought up my McKinsey Forward program, NASSCOM training, onboarding and placement milestones, and connected Google apps and personalization settings. These details were somewhat relevant, but they were not all necessary to answer my question, making Turn 1 slightly over-personalized and over-transparent.\n\n[Turn 2] I appreciated that the model identified my AWS and DevOps interests as the strongest influence and explained how Java and GitHub supported the starting point for the recommended path. Compared with Turn 1, the response was more focused on explaining how the information influenced the recommendation, although it still repeated several personal details. Overall, the personalization was useful, but the model could have focused more on the most relevant information without providing unnecessary personal specifics."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/16brAfHvOD1WoJzEXZOjSBGBZukeLeo4t/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/19QRuoGBEdgsvfbcWKfHjprb4RHt85OqW/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/16yR9fv33yMzTQdor8N8wlVMjO2h7jxwM/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": [
+            "Showing off"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Cherrypicked details"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I appreciated that the model clearly explained which personal information influenced the learning path, including my Java, GitHub, SAP ABAP, AWS, and DevOps background. It also connected those details to specific recommendations, which made the explanation useful and personalized. However, I felt that some additional details, such as the McKinsey Forward program, NASSCOM training, onboarding timeline, and connected Google settings, were more specific than necessary for my question. This made the response somewhat over-personalized and more detailed than needed.\n\n[Turn 2] I appreciated that the model  explanation to the main reasons behind the Cloud and DevOps recommendation. It specifically connected my AWS and DevOps interests and previous exploration of cloud-related learning tracks with my Java and GitHub foundation. This made the reasoning clearer and more focused than Turn 1. Overall, I found the interaction accurate and helpful, but the unnecessary personal details in Turn 1 slightly reduced the quality of the personalization.\n"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": ""
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1V_5C1CsP6SS-__a3H6nOwoK-3GX1QVV9/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "I want to understand what personal information was used and how it influenced the learning path recommended for me."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T18:18:33.413Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "How did you know that learning path would suit me? What personal information did you use?\n\n"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "I found both Model A and B to be about the same . Both models provided relevant and accurate personalization and explained how my background influenced the learning-path recommendations. Both responses also included some unnecessary personal details, around my professional programs and background, so I did not see a meaningful difference between them.\n"
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8663,
+        "batchName": "Batch - 2 - Attribution",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "This use case aims to test the \"second turn\" performance and has a special instruction:\n1. Ask an arbitrary prompt (No use case/prompt type restriction). You may try a few prompts until one clearly used your personal data. \n2. In the second turn, ask the model about how or why the model use your personal data in turn 1.\n3. For the second model, use \"Branch from this conversation\" from end of turn 1 (see instruction in template) to reuse the same prompt for turn 1.\n\nPrompt Type and Examples are for the second turn",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Attribution",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to explain the provenance, source, or reasoning behind a personalized response — why Gemini used certain personal information, where it came from, or how it informed a recommendation.\n\nBoundary: The user is questioning how Gemini arrived at a personalized answer, not asking for the information itself (→ Retrieval), requesting a synthesis of stored data (→ Synthesis), or correcting an error (→ Corrections). The intent is transparency and understanding of Gemini's personalization process.\n\nThe ultimate test: Is the user asking \"how do you know this about me?\" or \"why did you use that info?\" rather than \"what do you know about me?\"",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_068",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_068",
+        "Prompt Example": "• How did you know I like Italian food?\n• Wait, why did you bring up my sister just now?\n• Where did you get that info about my job?\n• How did you come up with those book recommendations?\n• Why did you assume I have a dog?\n• How do you know my preference for window seats?\n• What made you think I'd want a hiking recommendation?\n• How do you know I'm training for a marathon?\n• Where did you learn about my allergy?",
+        "Prompt Type": "Explicit Without Source",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8663,
+          "batchName": "Batch - 2 - Attribution",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260681,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T11:41:30.263Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T18:18:50.649Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1_hjK2ewclrqiyCnjgRpdoOidOoKK0aIY/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": [
+            "Showing off"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Cherrypicked details"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I appreciated that the model clearly explained which personal information influenced the learning path, including my Java, GitHub, SAP ABAP, AWS, DevOps, and cloud-related background. It also connected those details to specific recommendations, such as cloud certifications, CI/CD, and enterprise development, which made the explanation more useful than a generic response. However, I felt that Turn 1 included more personal information and source-level detail than necessary. The model brought up my McKinsey Forward program, NASSCOM training, onboarding and placement milestones, and connected Google apps and personalization settings. These details were somewhat relevant, but they were not all necessary to answer my question, making Turn 1 slightly over-personalized and over-transparent.\n\n[Turn 2] I appreciated that the model identified my AWS and DevOps interests as the strongest influence and explained how Java and GitHub supported the starting point for the recommended path. Compared with Turn 1, the response was more focused on explaining how the information influenced the recommendation, although it still repeated several personal details. Overall, the personalization was useful, but the model could have focused more on the most relevant information without providing unnecessary personal specifics."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/16brAfHvOD1WoJzEXZOjSBGBZukeLeo4t/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/19QRuoGBEdgsvfbcWKfHjprb4RHt85OqW/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/16yR9fv33yMzTQdor8N8wlVMjO2h7jxwM/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyCategory": {
+          "value": [
+            "Showing off"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparencyTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Cherrypicked details"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I appreciated that the model clearly explained which personal information influenced the learning path, including my Java, GitHub, SAP ABAP, AWS, and DevOps background. It also connected those details to specific recommendations, which made the explanation useful and personalized. However, I felt that some additional details, such as the McKinsey Forward program, NASSCOM training, onboarding timeline, and connected Google settings, were more specific than necessary for my question. This made the response somewhat over-personalized and more detailed than needed.\n\n[Turn 2] I appreciated that the model  explanation to the main reasons behind the Cloud and DevOps recommendation. It specifically connected my AWS and DevOps interests and previous exploration of cloud-related learning tracks with my Java and GitHub foundation. This made the reasoning clearer and more focused than Turn 1. Overall, I found the interaction accurate and helpful, but the unnecessary personal details in Turn 1 slightly reduced the quality of the personalization.\n"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": ""
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1V_5C1CsP6SS-__a3H6nOwoK-3GX1QVV9/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "I want to understand what personal information was used and how it influenced the learning path recommended for me."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T18:18:33.413Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "How did you know that learning path would suit me? What personal information did you use?\n\n"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "I found both Model A and B to be about the same . Both models provided relevant and accurate personalization and explained how my background influenced the learning-path recommendations. Both responses also included some unnecessary personal details, around my professional programs and background, so I did not see a meaningful difference between them.\n"
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}
