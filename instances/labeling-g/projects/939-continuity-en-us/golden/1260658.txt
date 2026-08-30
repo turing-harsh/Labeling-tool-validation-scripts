@@ -1,0 +1,976 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8662,
+      "batchName": "Batch - 1 - new",
+      "projectId": 939,
+      "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 → Ramen (top-20) - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Recommendation",
+      "L2: Sub-Use Case": "Evaluation",
+      "L2: Sub-Use Case (extended definition)": "The user presents one or more specific, named options and asks Gemini to assess, compare, or rank them based on personal context.\n\nBoundary: The candidate set is user-provided — Gemini judges options it was given, rather than generating new ones (→ Discovery). The question has a concrete, choosable answer, unlike open-ended deliberation (→ Advice & Perspective).\n\nThe ultimate test: Has the user handed Gemini specific options to evaluate?",
+      "Model A": "Mode 23 → Ramen (top-20) - Fast",
+      "Model A HTML NAME": "M1_D1_089",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_089",
+      "Prompt Example": "• What's better, a Tesla Model 3 or Model S?\n• Is Paris or Rio de Janeiro a better vacation destination?\n• Is The Martian a good movie?\n• Is data science or software engineering a better career path?\n• Which burns more calories, Zumba or cycling?\n• Is it better to study math or physics first?\n• Are Chef Ramsey's restaurants worth the price?\n• High-yield savings account vs. stocks — which is smarter?\n• Is it more effective to contact a congressman or a senator?\n• Is a physical gift or an experience better for an anniversary?\n• Which is more reliable, Plumber Bob or Plumber Joe?\n• Is The Design of Everyday Things worth reading?",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8662,
+        "batchName": "Batch - 1 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+      },
+      "modelConfig": {
+        "conversation_id": 1260658,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-08-28T06:17:31.890Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T19:09:58.939Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1ZBe6a7_1VUCC43azd3twKU8kbGwliNyh/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)",
+          "Personalized (Time & Location)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+        "value": "https://drive.google.com/file/d/1dhd6Ib0xjBi0lNAGQsm1-ZpiNG_cSqVO/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+        "value": "https://drive.google.com/file/d/1tY13qh5dkUS96CExKC4a932NkbKAzo9J/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+        "value": [
+          "Missed the \"why"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": "Under-clarification"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": [
+          "Missed directly supporting evidence"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "4"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] The agent here also provided a more generalized answer to my prompt. Though the prompt did not specify my location, i expected the agent to generate a response that considered my location or at least follow up with question that narrows down to my location rather than me having to ask in the next turn.\n\n[Turn 2] Here, the agent was able to provide a response using my location but in a broader sense. The agent stated Accra but the response would have been better if the agent at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in Accra\n\n[Turn 3] Agent was able to provide the one i use more often accurately based on the information from my email and also accurately stated that there are no bolt receipts in my email.\n\n[Turn 4] The agents  recommendation based on the information from my email is useful and also recommending how i can use both apps based on their availability in my pick up zone is helpful       "
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1xsfL6AFY7XlHTKIElrDKN8Z_nwTAlolB/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1SK_8sFnrRHUx-_GMnCJz5hxzyd2FXD8u/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1Q7y6cpmv86dnOvUgVI3ArYHr5xnkZNXi/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)",
+          "Personalized (Time & Location)"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+        "value": "https://drive.google.com/file/d/1zwHV0PtYKjjuJ6MORzejfIBw9FTO4TMZ/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+        "value": "https://drive.google.com/file/d/1EPqK4vxWLCRGcO2yFF-XUIUBSUtyh3Cn/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+        "value": [
+          "Missed general insights & patterns"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": "Under-clarification"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": [
+          "Missed directly supporting evidence"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+        "value": "4"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] The agent provided a more generalized answer to my prompt. Though the prompt did not specify my location, i expected the model to generate a response with reference to my location or at least follow up with question that narrows down to my location rather than me having to ask in the next turn.\n\n[Turn 2] The agent was able to provide a response using my location but in a broader sense.  The response would have been better if the agent at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in Accra\n\n[Turn 3] Agent was able to provide the one i use more often accurately based on the information from my email.\n\n[Turn 4] I am satisfied with the recommendation the agent gave in this turn based on the information from my email and also strategically recommending how i can use both apps based on their availability in my pickup zone.       "
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1fmAQuPFu6f-43iTqyqrOEldIq5M_p_Yh/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/15uibNq-yPLGbt1tVNVmWVJb2WEzEJB6M/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "I want recommendation on which ride hailing app provides better services"
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Ramen (top-20) - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "Somewhat — Personal touches would help, but aren't essential."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-08-29T19:09:17.443Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "Which of these two ride hailing apps is better? Uber or Bolt?"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Model  A and  Model B are rated about the same,  because in Turn 1 both model provided a more generalized answer to my prompt. Also in Turn 2 both model were able to provide a response using my location but in a broader sense. Both model stated Accra but the response would have been better if both  model at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in in Accra. For Turn 3, both model provided accurate responses based on the information in my email. They both provided a useful response in Turn 4 recommending that i keep using uber and keep the bolt app as a backup app. Overall, both model returned similar output for same input.       "
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8662,
+        "batchName": "Batch - 1 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 → Ramen (top-20) - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Recommendation",
+        "L2: Sub-Use Case": "Evaluation",
+        "L2: Sub-Use Case (extended definition)": "The user presents one or more specific, named options and asks Gemini to assess, compare, or rank them based on personal context.\n\nBoundary: The candidate set is user-provided — Gemini judges options it was given, rather than generating new ones (→ Discovery). The question has a concrete, choosable answer, unlike open-ended deliberation (→ Advice & Perspective).\n\nThe ultimate test: Has the user handed Gemini specific options to evaluate?",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_089",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_089",
+        "Prompt Example": "• What's better, a Tesla Model 3 or Model S?\n• Is Paris or Rio de Janeiro a better vacation destination?\n• Is The Martian a good movie?\n• Is data science or software engineering a better career path?\n• Which burns more calories, Zumba or cycling?\n• Is it better to study math or physics first?\n• Are Chef Ramsey's restaurants worth the price?\n• High-yield savings account vs. stocks — which is smarter?\n• Is it more effective to contact a congressman or a senator?\n• Is a physical gift or an experience better for an anniversary?\n• Which is more reliable, Plumber Bob or Plumber Joe?\n• Is The Design of Everyday Things worth reading?",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8662,
+          "batchName": "Batch - 1 - new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260658,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T06:17:31.890Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T19:09:58.939Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1ZBe6a7_1VUCC43azd3twKU8kbGwliNyh/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1dhd6Ib0xjBi0lNAGQsm1-ZpiNG_cSqVO/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": "https://drive.google.com/file/d/1tY13qh5dkUS96CExKC4a932NkbKAzo9J/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": [
+            "Missed the \"why"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": "Under-clarification"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed directly supporting evidence"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "4"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The agent here also provided a more generalized answer to my prompt. Though the prompt did not specify my location, i expected the agent to generate a response that considered my location or at least follow up with question that narrows down to my location rather than me having to ask in the next turn.\n\n[Turn 2] Here, the agent was able to provide a response using my location but in a broader sense. The agent stated Accra but the response would have been better if the agent at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in Accra\n\n[Turn 3] Agent was able to provide the one i use more often accurately based on the information from my email and also accurately stated that there are no bolt receipts in my email.\n\n[Turn 4] The agents  recommendation based on the information from my email is useful and also recommending how i can use both apps based on their availability in my pick up zone is helpful       "
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1xsfL6AFY7XlHTKIElrDKN8Z_nwTAlolB/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1SK_8sFnrRHUx-_GMnCJz5hxzyd2FXD8u/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Q7y6cpmv86dnOvUgVI3ArYHr5xnkZNXi/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1zwHV0PtYKjjuJ6MORzejfIBw9FTO4TMZ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": "https://drive.google.com/file/d/1EPqK4vxWLCRGcO2yFF-XUIUBSUtyh3Cn/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": [
+            "Missed general insights & patterns"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": "Under-clarification"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed directly supporting evidence"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "4"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The agent provided a more generalized answer to my prompt. Though the prompt did not specify my location, i expected the model to generate a response with reference to my location or at least follow up with question that narrows down to my location rather than me having to ask in the next turn.\n\n[Turn 2] The agent was able to provide a response using my location but in a broader sense.  The response would have been better if the agent at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in Accra\n\n[Turn 3] Agent was able to provide the one i use more often accurately based on the information from my email.\n\n[Turn 4] I am satisfied with the recommendation the agent gave in this turn based on the information from my email and also strategically recommending how i can use both apps based on their availability in my pickup zone.       "
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1fmAQuPFu6f-43iTqyqrOEldIq5M_p_Yh/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/15uibNq-yPLGbt1tVNVmWVJb2WEzEJB6M/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "I want recommendation on which ride hailing app provides better services"
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Ramen (top-20) - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T19:09:17.443Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Which of these two ride hailing apps is better? Uber or Bolt?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model  A and  Model B are rated about the same,  because in Turn 1 both model provided a more generalized answer to my prompt. Also in Turn 2 both model were able to provide a response using my location but in a broader sense. Both model stated Accra but the response would have been better if both  model at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in in Accra. For Turn 3, both model provided accurate responses based on the information in my email. They both provided a useful response in Turn 4 recommending that i keep using uber and keep the bolt app as a backup app. Overall, both model returned similar output for same input.       "
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8662,
+        "batchName": "Batch - 1 - new",
+        "projectId": 939,
+        "projectName": "0824 Continuity (en-US) - Turing Duplicate",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 → Ramen (top-20) - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1sPtAGVkODRDadGWA1Os2UREqtahgPO2r?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1WAk93F_Mz08bQ77qiDQrTuXxzWWQMciv?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Recommendation",
+        "L2: Sub-Use Case": "Evaluation",
+        "L2: Sub-Use Case (extended definition)": "The user presents one or more specific, named options and asks Gemini to assess, compare, or rank them based on personal context.\n\nBoundary: The candidate set is user-provided — Gemini judges options it was given, rather than generating new ones (→ Discovery). The question has a concrete, choosable answer, unlike open-ended deliberation (→ Advice & Perspective).\n\nThe ultimate test: Has the user handed Gemini specific options to evaluate?",
+        "Model A": "Mode 23 → Ramen (top-20) - Fast",
+        "Model A HTML NAME": "M1_D1_089",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_089",
+        "Prompt Example": "• What's better, a Tesla Model 3 or Model S?\n• Is Paris or Rio de Janeiro a better vacation destination?\n• Is The Martian a good movie?\n• Is data science or software engineering a better career path?\n• Which burns more calories, Zumba or cycling?\n• Is it better to study math or physics first?\n• Are Chef Ramsey's restaurants worth the price?\n• High-yield savings account vs. stocks — which is smarter?\n• Is it more effective to contact a congressman or a senator?\n• Is a physical gift or an experience better for an anniversary?\n• Which is more reliable, Plumber Bob or Plumber Joe?\n• Is The Design of Everyday Things worth reading?",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8662,
+          "batchName": "Batch - 1 - new",
+          "projectId": 939,
+          "projectName": "0824 Continuity (en-US) - Turing Duplicate"
+        },
+        "modelConfig": {
+          "conversation_id": 1260658,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-08-28T06:17:31.890Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T19:09:58.939Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1ZBe6a7_1VUCC43azd3twKU8kbGwliNyh/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1dhd6Ib0xjBi0lNAGQsm1-ZpiNG_cSqVO/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1TestResponse4DebugInfo": {
+          "value": "https://drive.google.com/file/d/1tY13qh5dkUS96CExKC4a932NkbKAzo9J/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": [
+            "Missed the \"why"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": "Under-clarification"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed directly supporting evidence"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "4"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The agent here also provided a more generalized answer to my prompt. Though the prompt did not specify my location, i expected the agent to generate a response that considered my location or at least follow up with question that narrows down to my location rather than me having to ask in the next turn.\n\n[Turn 2] Here, the agent was able to provide a response using my location but in a broader sense. The agent stated Accra but the response would have been better if the agent at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in Accra\n\n[Turn 3] Agent was able to provide the one i use more often accurately based on the information from my email and also accurately stated that there are no bolt receipts in my email.\n\n[Turn 4] The agents  recommendation based on the information from my email is useful and also recommending how i can use both apps based on their availability in my pick up zone is helpful       "
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1xsfL6AFY7XlHTKIElrDKN8Z_nwTAlolB/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1SK_8sFnrRHUx-_GMnCJz5hxzyd2FXD8u/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Q7y6cpmv86dnOvUgVI3ArYHr5xnkZNXi/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)",
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1zwHV0PtYKjjuJ6MORzejfIBw9FTO4TMZ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.model1TestResponse4DebugInfo": {
+          "value": "https://drive.google.com/file/d/1EPqK4vxWLCRGcO2yFF-XUIUBSUtyh3Cn/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": {
+          "value": [
+            "Missed general insights & patterns"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": "Under-clarification"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed directly supporting evidence"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.numberOfTurns": {
+          "value": "4"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The agent provided a more generalized answer to my prompt. Though the prompt did not specify my location, i expected the model to generate a response with reference to my location or at least follow up with question that narrows down to my location rather than me having to ask in the next turn.\n\n[Turn 2] The agent was able to provide a response using my location but in a broader sense.  The response would have been better if the agent at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in Accra\n\n[Turn 3] Agent was able to provide the one i use more often accurately based on the information from my email.\n\n[Turn 4] I am satisfied with the recommendation the agent gave in this turn based on the information from my email and also strategically recommending how i can use both apps based on their availability in my pickup zone.       "
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1fmAQuPFu6f-43iTqyqrOEldIq5M_p_Yh/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Ramen (top-20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/15uibNq-yPLGbt1tVNVmWVJb2WEzEJB6M/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "I want recommendation on which ride hailing app provides better services"
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Ramen (top-20) - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-08-29T19:09:17.443Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Which of these two ride hailing apps is better? Uber or Bolt?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model  A and  Model B are rated about the same,  because in Turn 1 both model provided a more generalized answer to my prompt. Also in Turn 2 both model were able to provide a response using my location but in a broader sense. Both model stated Accra but the response would have been better if both  model at least narrowed down to the suburb within Accra i am in since all the two ride hailing apps are not equally available everywhere in in Accra. For Turn 3, both model provided accurate responses based on the information in my email. They both provided a useful response in Turn 4 recommending that i keep using uber and keep the bolt app as a backup app. Overall, both model returned similar output for same input.       "
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

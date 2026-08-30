@@ -1699,18 +1699,19 @@ async function validate903(conversationData) {
     }
 
     if (formPromptNorm) {
-      const visibleContainsPrompt = visibleText.includes(formPromptNorm);
-      const promptCandidateMatches = prompts.some(p => p === formPromptNorm);
+      const formPromptLc = formPromptNorm.toLowerCase();
+      const visibleContainsPrompt = visibleText.toLowerCase().includes(formPromptLc);
+      const promptCandidateMatches = prompts.some(p => p.toLowerCase() === formPromptLc);
       if (!visibleContainsPrompt && !promptCandidateMatches) {
         pushFieldError(side, fieldKey, `The uploaded HTML doesn't contain the prompt you submitted.`, 'upload the HTML export for the same task prompt that was submitted in the form.', `Submitted prompt="${preview(formPromptRaw, 120)}"; HTML title="${title || '(missing)'}".`);
       }
-      if (firstPrompt && firstPrompt !== formPromptNorm) {
+      if (firstPrompt && firstPrompt.toLowerCase() !== formPromptLc) {
         const dp = previewDiff(formPromptRaw, firstPrompt, 120);
         pushFieldError(side, fieldKey, `The uploaded HTML's first prompt doesn't match the prompt you submitted.`, 'upload the HTML export from the current task conversation, or correct the form prompt if the form prompt is wrong.', `Form prompt="${dp.a}"; HTML Turn 1 prompt="${dp.b}".`);
       }
       const declaredTurnCount = side === SIDE_A ? parseTurnCount(byKey.numberOfTurns) : parseTurnCount(byKey.model2NumberOfTurns);
       if (declaredTurnCount === 1) {
-        const otherVisiblePrompts = prompts.filter(p => p !== formPromptNorm);
+        const otherVisiblePrompts = prompts.filter(p => p.toLowerCase() !== formPromptLc);
         if (otherVisiblePrompts.length > 0) {
           pushFieldError(side, fieldKey, `The uploaded HTML appears to include another task's prompt in the conversation.`, 'upload a single-task HTML export whose visible conversation belongs only to this task.', `Unexpected visible prompt example="${preview(otherVisiblePrompts[0], 120)}".`);
         }
@@ -1849,14 +1850,14 @@ async function validate903(conversationData) {
         pushFieldError(SIDE_A, 'modelAHtmlFileUpload', `Both sides' uploaded HTML are the same Gemini conversation.`, `upload separate Gemini conversations for ${SIDE_A} and ${SIDE_B}.`, `Both HTML files resolve to Gemini conversation id "${aHtml.conversationId}". Files: ${SIDE_A} -> ${htmlLinkARaw || '(inline)'} ; ${SIDE_B} -> ${htmlLinkBRaw || '(inline)'}`);
       }
     }
-    if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt !== bHtml.firstPrompt) {
+    if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt.toLowerCase() !== bHtml.firstPrompt.toLowerCase()) {
       if (attributionMode && branchSide) {
         logs.push(`Attribution branch flow: Turn 1 prompt differs across HTMLs (branched conversation may restructure the visible first prompt) — cross-HTML prompt mismatch skipped.`);
       } else {
         pushFieldError('Cross-HTML', 'modelAHtmlFileUpload', `${SIDE_A} Turn 1 prompt differs from ${SIDE_B} Turn 1 prompt.`, 'rerun both models with the exact same Turn 1 prompt and upload the matching HTML files.', `${SIDE_A} prompt="${preview(aHtml.firstPrompt, 100)}"; ${SIDE_B} prompt="${preview(bHtml.firstPrompt, 100)}". Files: ${SIDE_A} -> ${htmlLinkARaw || '(inline)'} ; ${SIDE_B} -> ${htmlLinkBRaw || '(inline)'}`);
       }
     }
-    if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt === bHtml.firstPrompt && aHtml.firstResponse && bHtml.firstResponse && aHtml.firstResponse === bHtml.firstResponse && aHtml.firstResponse.length >= 80 && !(aHtml.conversationId && bHtml.conversationId && aHtml.conversationId !== bHtml.conversationId)) {
+    if (aHtml.firstPrompt && bHtml.firstPrompt && aHtml.firstPrompt.toLowerCase() === bHtml.firstPrompt.toLowerCase() && aHtml.firstResponse && bHtml.firstResponse && aHtml.firstResponse === bHtml.firstResponse && aHtml.firstResponse.length >= 80 && !(aHtml.conversationId && bHtml.conversationId && aHtml.conversationId !== bHtml.conversationId)) {
       if (attributionMode && branchSide) {
         logs.push(`Attribution branch flow: both HTMLs share the same Turn 1 response (hash ${shortHash(aHtml.firstResponse)}) — inherited by the branched chat; same-chat error skipped.`);
       } else {
@@ -2029,8 +2030,8 @@ async function validate903(conversationData) {
         const a = turns[i], b = turns[j];
         const isLikelyCorrect = (t) => {
           if (!formPromptNorm) return false;
-          if (t.turn === 1) return t.lastUserNorm === formPromptNorm;
-          return t.lastUserNorm !== formPromptNorm;
+          if (t.turn === 1) return t.lastUserNorm.toLowerCase() === formPromptNorm.toLowerCase();
+          return t.lastUserNorm.toLowerCase() !== formPromptNorm.toLowerCase();
         };
         const aOk = isLikelyCorrect(a);
         const bOk = isLikelyCorrect(b);
@@ -2054,7 +2055,7 @@ async function validate903(conversationData) {
     if (formPromptNorm) {
       for (const t of turns) {
         if (!t.firstUser) continue;
-        if (t.firstUserNorm !== formPromptNorm) {
+        if (t.firstUserNorm.toLowerCase() !== formPromptNorm.toLowerCase()) {
           const fieldLabel = labelByKey[t.field] || t.field;
           const dp = previewDiff(formPromptRaw, t.firstUser, 80);
           addFinding(
@@ -2086,7 +2087,7 @@ async function validate903(conversationData) {
     if (formPromptNorm) {
       for (const t of turns) {
         if (t.turn === 1 || !t.lastUser) continue;
-        if (t.lastUserNorm === formPromptNorm) {
+        if (t.lastUserNorm.toLowerCase() === formPromptNorm.toLowerCase()) {
           const fieldLabel = labelByKey[t.field] || t.field;
           addFinding(
             model.label, t.turn, t.field,
