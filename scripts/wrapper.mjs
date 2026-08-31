@@ -19,7 +19,11 @@ function makeDriveFetch(fetchDir) {
     if (!id) return null;
     for (const ext of ['txt', 'html', 'json']) {
       const p = join(fetchDir, `${id}.${ext}`);
-      if (existsSync(p)) return readFileSync(p, 'utf8');
+      if (!existsSync(p)) continue;
+      const text = readFileSync(p, 'utf8');
+      // Mirror the tool's drive-fetcher: it JSON.parses the bytes and hands the script the
+      // parsed value when the file is JSON, the raw text otherwise.
+      try { return JSON.parse(text); } catch { return text; }
     }
     return null;
   };
@@ -88,15 +92,13 @@ const EMPTY = { errors: [], warnings: [], infos: [], successes: [], logs: [] };
  */
 export async function runValidation(userScript, conversationData, { timeoutMs = 30000, fetchDir } = {}) {
   const source = buildSandboxSource(userScript);
+  // Mirror the production isolate (run-checks-api script-executor): it injects ONLY
+  // conversationData and the fetch helpers -- no console, no setTimeout/timers. Scripts that
+  // reference those would break at runtime in the tool, so they must break here too. Language
+  // intrinsics (Object, Promise, JSON, Date, ...) exist natively in the fresh context.
   const sandbox = {
     conversationData,
     __driveFetch: makeDriveFetch(fetchDir),
-    console: { log: () => {}, error: () => {}, warn: () => {} },
-    setTimeout, clearTimeout, setInterval, clearInterval,
-    Promise, JSON,
-    Object, Array, Map, Set, RegExp, Number, String, Math, Date, Error,
-    parseInt, parseFloat, isNaN, isFinite,
-    encodeURIComponent, decodeURIComponent, encodeURI, decodeURI,
   };
   vm.createContext(sandbox);
   try {

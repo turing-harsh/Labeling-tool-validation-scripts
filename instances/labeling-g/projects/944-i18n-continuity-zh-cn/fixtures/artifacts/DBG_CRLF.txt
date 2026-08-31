@@ -1,0 +1,7 @@
+LM Prefix: DBG_CRLF_prefix
+Model ID: model_DBG_CRLF
+num_turns_read_from_footprints: 1
+<ctrl99>user
+turn text for DBG_CRLF<ctrl100>
+<ctrl99>model
+response text for DBG_CRLF<ctrl100>

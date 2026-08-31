@@ -2,7 +2,7 @@
 
 **Purpose.** The generation contract for `i18n-continuity-validator-944`. Every check the script performs is specified here with its trigger, severity, non-fire conditions, rater-facing wording and anchor. A builder can emit the script from this file; a reviewer can audit the script against it. Where the two disagree, this file is wrong until updated — the script is never hand-edited away from it.
 
-**Scope.** Layer L1 only (deterministic, computable from bytes). Semantic questions are listed in §10 and belong to the QD pack. Unverifiable items are declared in §11 and belong to nobody.
+**Scope.** Layer L1 (deterministic, computable from the payload's own bytes) plus Layer L2 (deterministic, computable from the bytes of a Drive-linked artifact once fetched — §8–§9). Semantic questions are listed in §12 and belong to the QD pack. Unverifiable items are declared in §13 and belong to nobody.
 
 **Source of field truth.** `project-config-id-944` — 97 fields, 55 of them per side. Every key, enum value and gate condition below was generated from that export, not hand-typed.
 
@@ -18,7 +18,7 @@
 | Model B | `Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast` |
 | Task types | Single Turn and Multi Turn, in one batch, on one form |
 | Locales | 53 `targetLanguage` × 50 `dialect` options |
-| Artifacts | Google Drive **links only** — debug, conversation HTML, thread HTML, Takeout |
+| Artifacts | Google Drive links — debug, conversation HTML, thread HTML, Takeout — **fetched and content-checked**, not just link-shape-checked (§8–§9) |
 | Per-side key shape | `compareModels.<model name>.<questionKey>` |
 | Batch/input root | task-sheet columns: `Task Type`, `First Model`, `Conversation Track`, `Model A`, `Model B`, `Target Language`, `Dialect`, `Time Gap`, `Context Relevance`, `Prompt Explicitness` |
 
@@ -133,7 +133,39 @@ Message names every slot in the collision group. When all colliding slots are pe
 
 ---
 
-## 8. Check register — identity and coherence (I, C)
+## 8. Fetch layer (Layer L2)
+
+**Added v2.0.0.** Every artifact field in scope for §6 (`topicConversationsHtml1..10`, `geminiConversationHistory`, and per side `model1HtmlFileUpload` and the five debug slots — up to 23 links on one task) is now retrieved, not just pattern-checked, using the sandbox-injected `fetchDataFromDriveLink`. This closes the gap the v1.x line left open ("no fetch layer in the script" — old §11) and matches the sibling 939/903 pipeline's approach to the same artifact family.
+
+- **Precondition.** A field is only fetched once it has passed U-01–U-06 as exactly one clean `https://` link **on a host the fetch helper can actually read**. A field that already carries a U-family finding is not fetched — the link-shape error owns it. A U-07 link (non-Drive host, `docs.google.com` included) is **never fetched**: the tool's fetch helper hard-rejects every URL that is not a `drive.google.com` file link (its `isGoogleDriveUrl` gate — verified in `libs/google-drive`), so a "best-effort" attempt is a guaranteed failure that would escalate U-07's warn into an F-01 error. Skipped hosts are logged, never findings. *(v2.0.1 — the v2.0.0 "attempted best-effort" wording predated reading the helper's host gate.)*
+- **Mechanism.** `await fetchDataFromDriveLink(url)`, one retry when the first read comes back empty or implausibly short (mirrors the inherited "incomplete read" defence) before a failure is treated as real. When the linked file is JSON, the helper hands over the **parsed value**, not text (it `JSON.parse`s internally — verified in `drive-fetcher.ts`); the script re-serialises before content checks.
+- **Timeout enforcement is host-side, and the isolate has NO timers.** The production isolate (isolated-vm, `run-checks-api` script-executor) injects **only** `conversationData` and the fetch helpers — `setTimeout`/`clearTimeout`/`console` do not exist there, so an in-script timeout race or wall-clock budget is unimplementable (referencing `setTimeout` broke every fetch with a `ReferenceError` — the v2.0.1 incident). The real enforcement: the host drive-fetcher races each fetch against its own configured timeout (rejecting with "Drive fetch timed out after Nms", which surfaces as F-01), and the API aborts all outstanding fetches when the 30s script budget ends. The script's own obligations are **concurrency** — all fetches issued together via `Promise.allSettled`, never awaited one at a time in a loop (build-asserted) — and the one retry above. *(v2.0.1 — replaces the v2.0.0 "~18s in-script `[FETCH BUDGET]`" design, which assumed timers the sandbox does not provide.)*
+- **Normalisation before content checks.** The same ladder as §2, plus: if the fetched bytes are HTML-shaped (head starts `<!doctype`/`<html`/`<head`/`<meta` in the first 400 characters, or the expected structural markers are entity-encoded), decode entities and strip tags line-wise before applying F-02's marker test — a Drive "export as HTML/Doc" of a plain debug file must still be readable. Literal `<ctrl99>`/`<ctrl100>` markers found as-is always mean "treat as plain text, never decode" (decoding would eat them, since they match a generic tag-stripping pattern).
+- **Non-goals (still out of scope — see §17 items 6–7 and §14).** No verified Model-ID identity map exists for 944's Model A/B, so Model-ID consistency checks are not restored. No confirmed 944 debug sample exists yet, so content-anchoring (matching a debug's first turn against `prompt`/`keyContext`) is deliberately **not** attempted — 939's sibling pipeline found this exact doctrine wrong for continuity-shaped tasks (the "Prompt" field there is a follow-up turn, not the opening line; see 939's `validation.js` header comment), and 944 is a continuity project too. Do not add a Check-A-style anchor without a same-project sample proving `prompt` corresponds to the debug's Turn 1.
+
+---
+
+## 9. Check register — fetched-artifact content (F)
+
+| ID | Scope | Sev | Trigger | Non-fire | Fields |
+|---|---|---|---|---|---|
+| F-01 | side/task | error | a fetchable link (§8 precondition) fails to fetch (error, host-side timeout, permission-denied) after one retry | the field already carries a U-family finding; the field is blank; the host is one the helper cannot read (U-07 owns it, logged not fetched) | all artifact fields in §8 |
+| F-02 | side | error | fetched debug-slot content contains none of `<ctrl99>` `Model ID:` `LM Prefix:` `num_turns_read_from_footprints` (post-decode, §8) | the fetch itself failed (F-01 owns it) | `testResponse1DebugInfo` `testResponse2DebugInfo` `model1TestResponse3..5DebugInfo` |
+| F-03 | side/task | error | fetched `model1HtmlFileUpload` / `topicConversationsHtmlK` content contains none of `<!doctype` `<html` `<head` `<body`; **or** fetched `geminiConversationHistory` content is not a Gemini Takeout export — JSON whose records carry ≥2 of the keys `header` / `title` / `products` / `activityControls` / `safeHtmlItem` on a majority of the first 5 records | the fetch itself failed | those fields |
+| F-04 | task | warn | two fetched artifacts with **different** Drive file ids normalise (§2, plus HTML-decode) to byte-identical content | either side's fetch failed | all artifact fields in §8 |
+| F-05 | side | error | the count of `<ctrl99>user` **turn-open markers** (`\b`-anchored, case-insensitive) in a side's fetched debug does not equal that side's declared `numberOfTurns` | any contributing debug slot failed F-01/F-02; `numberOfTurns` unreadable (R-05 owns it) | debug slots, `numberOfTurns` |
+
+**Why F-03 treats `geminiConversationHistory` differently (v2.0.1):** the v2.0.0 register assumed a Takeout export is HTML-shaped. The first real sample (golden task 1264318) proved it is a **JSON array of activity records** (`header`/`title`/`time`/`products`/`details`/`activityControls`/`safeHtmlItem`) — the HTML-marker test would have false-blocked every well-formed task. Some records omit a field, so the test requires ≥2 of the anchor keys on a majority of sampled records rather than an exact key set.
+
+**Why F-04 is a warn, not the error D-01 already is:** D-01 (same Drive file **id**) is unconditional because no field pair on this form is a sanctioned duplicate. F-04 (same **content**, different id — e.g. a re-uploaded copy) has no equivalent client ruling for 944 yet, unlike 903's shared-template family where byte-identical debug across turns was confirmed as a real defect; keep it a warn until a first real hit is triaged.
+
+**Why F-05 counts open markers, not whole blocks (v2.0.2 incident):** the first production run false-blocked both sides of a task with "0 turns counted, 1 declared" while F-02 passed on the same fetched bytes — the strict `<ctrl99>user\n…<ctrl100>` block regex demanded a bare LF after the role token, and real captures vary there (CRLF from Windows-saved files, tags in a Doc/HTML export, `\n` as two literal characters when the blob arrives JSON-encoded). The count is now anchored on the `<ctrl99>user` open marker alone (`\b` after `user` so `username` never counts; case-insensitive). On any count mismatch the run log carries an escaped byte-context snippet around each file's first marker, so a new export shape diagnoses itself from the tool's log.
+
+**Why content-anchoring (Check A–D) and Model-ID identity are not F-checks:** see §8's non-goals paragraph and §14.
+
+---
+
+## 10. Check register — identity and coherence (I, C)
 
 | ID | Scope | Sev | Rule |
 |---|---|---|---|
@@ -157,7 +189,7 @@ Message names every slot in the collision group. When all colliding slots are pe
 | C-15 | side (MT) | warn | `turnKContextSourceThreads` names neither a thread nor a turn |
 | C-16 | side (MT) | warn | cited `Thread N` exceeds `numberOfThreadsAdded` |
 
-### 8.1 The two rules that carry the most risk
+### 10.1 The two rules that carry the most risk
 
 **C-06 — the English-thread exception.** The predecessor engine's rule is "a stray N/A without the gate is flagged." Dimensions 8 and 9 offer N/A for *cold start **or** contextual material is in English*, and Step 2 explicitly permits English-dominant threads. Inheriting the rule unchanged blocks every English-thread task. C-06 therefore warns rather than blocks, names the checkbox that resolves it, and is suppressed entirely when the English declaration is present. **This is the single highest-value false-block prevention in the spec.** Two near-miss scenarios in the suite lock it.
 
@@ -165,9 +197,9 @@ Message names every slot in the collision group. When all colliding slots are pe
 
 ---
 
-## 9. Check register — assignment vs submission (B)
+## 11. Check register — assignment vs submission (B)
 
-All of §9 **self-skips with a loud log** if the batch/input root does not resolve. Silence there is silent blindness.
+All of §11 **self-skips with a loud log** if the batch/input root does not resolve. Silence there is silent blindness.
 
 | ID | Sev | Rule | Comparison |
 |---|---|---|---|
@@ -181,7 +213,7 @@ All of §9 **self-skips with a loud log** if the batch/input root does not resol
 
 ---
 
-## 10. Not this layer — routed to the QD pack
+## 12. Not this layer — routed to the QD pack
 
 Listed so the reverse coverage pass closes. A judge that re-raises any of these produces a duplicate finding.
 
@@ -197,33 +229,44 @@ Listed so the reverse coverage pass closes. A judge that re-raises any of these 
 
 ---
 
-## 11. Declared unverifiable — nobody can check these
+## 13. Declared unverifiable — nobody can check these
 
 Reported as such, never silently passed, never blamed on the rater.
 
 | Item | Blocker | What would unblock it |
 |---|---|---|
-| The 20-turn-per-thread cap | saved pages carry no reliable turn delimiters | a per-thread turn-count field |
+| The 20-turn-per-thread cap | fetched thread pages (§8) still carry no reliable turn delimiters — only Gemini debug does (F-05) | a per-thread turn-count field, or confirmation the thread pages carry a countable structure |
 | The 12-turn floor for a single-thread topic | same | same |
-| Thread recency vs the assigned Time Gap | saved pages carry no timestamps | a per-thread date field |
+| Thread recency vs the assigned Time Gap | fetched thread pages carry no confirmed timestamps | a per-thread date field, or confirmation the page HTML embeds one |
 | The 06/21–07/12 exclusion window | same | same |
-| Accuracy of any `Thread X, Turn Y` citation | no turn delimiters; format is checkable, correctness is not | same |
-| The `M1_D1_001` file-naming convention | a Drive link does not carry the filename | a filename field, or fetch-and-inspect |
-| Whether a Drive link resolves at all | no fetch layer in the script | a fetch layer, with classified failures |
+| Accuracy of any `Thread X, Turn Y` citation | thread pages have no confirmed turn delimiters; the citation's *format* is checkable (C-15/C-16), its *correctness* is not | same |
+| The `M1_D1_001` file-naming convention | a Drive link does not carry the filename, and `fetchDataFromDriveLink` returns content, not Drive metadata | a filename field, or a fetch helper that also returns the file's name |
+
+**Resolved in v2.0.0:** "Whether a Drive link resolves at all" — the fetch layer (§8–§9) now attempts every artifact link and classifies the failure (F-01).
 
 ---
 
-## 12. Removed on fork — deleted outright, never left to self-skip
+## 14. Removed on fork — deleted outright, never left to self-skip
 
-The predecessor engine read the debug **blob** from the form. On 944 the blob never enters the payload. A check that can never fire is indistinguishable from a broken one.
+The predecessor engine read the debug **blob** directly off the form. On 944 the blob never enters the payload as a value — it lives behind a Drive link. A check that can never fire is indistinguishable from a broken one, so v1.x deleted the whole content-anchored family rather than ship dead code.
 
-`looksLikeDebug` · Check A (first user block = form prompt) · Check B (Turn N>1 last block ≠ form prompt) · Check C (cross-turn containment) · Check D (Turn 1 first = last) · omission-marker handling · footprints delta · Model ID consistency within a side · cross-side same-Model-ID · declared-identity · byte-identical blob comparison.
+v2.0.0 adds a fetch layer (§8) and restores the two items that are generic structural sanity, not content semantics — everything else stays removed because it depends on a doctrine or an identity map that has not been confirmed for 944 specifically:
 
-Replaced by §6 (URL discipline) and §7 (Drive id identity), which are the only forms of those questions the payload can still answer.
+| Item | Status | Why |
+|---|---|---|
+| `looksLikeDebug` | **restored** → F-02 | pure marker sniffing, no semantic assumption |
+| footprints / turn-count cross-check | **restored** → F-05 | counts `<ctrl99>` blocks against the declared turn count; no assumption about *what* the turns say |
+| byte-identical blob comparison | **restored, loosened** → F-04 (warn, not error) | same mechanism, but 944 has no client ruling yet that a duplicate is a defect (903's shared-template ruling doesn't transfer without evidence) |
+| Check A (first user block = form prompt) | still removed | 939's sibling pipeline found this doctrine **wrong** for continuity-shaped tasks — the "Prompt" field is a follow-up turn, not the opening line. 944 is a continuity project too; do not restore without a 944 sample proving otherwise (§17 item 6) |
+| Check B (Turn N>1 last block ≠ form prompt) · Check C (cross-turn containment) · Check D (Turn 1 first = last) | still removed | same reason — all three assume the same prompt-anchoring doctrine as Check A |
+| omission-marker handling | still removed | the marker strings are inherited from 903's project family; unconfirmed that 944's Gemini export uses the same ones |
+| Model ID consistency within a side · cross-side same-Model-ID · declared-identity | still removed | requires an exact Model-ID map for `07 Pizzi Gemelli --> Fast …` / `Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast`, which does not exist yet (§17 item 6) |
+
+Everything in this table that is *not* marked restored is still covered only by §6 (URL discipline) and §7 (Drive id identity) — the forms of these questions the payload could already answer without a fetch.
 
 ---
 
-## 13. Coverage
+## 15. Coverage
 
 93 writable fields. 86 bound by at least one check. The 7 unbound, each with a named reason:
 
@@ -237,7 +280,7 @@ Zero phantom keys: every key the script names exists in the config export.
 
 ---
 
-## 14. Escalations — open, and they gate work downstream
+## 16. Escalations — open, and they gate work downstream
 
 | # | Issue | Owner | Blocking? |
 |---|---|---|---|
@@ -250,21 +293,23 @@ Zero phantom keys: every key the script names exists in the config export.
 
 ---
 
-## 15. First-task verification
+## 17. First-task verification
 
 Blocking at deploy. One row per assumption that could not be proved offline.
 
 | # | Assumption | Expected | If it fails |
 |---|---|---|---|
 | 1 | Per-side key shape | `compareModels.<model name>.<questionKey>` | adapter fix; the run logs every namespace found, so one run answers it |
-| 2 | Batch/input root resolves | `Task Type`, `First Model`, `Conversation Track`, `Model A/B` present | §9 self-skips with a loud log — expected behaviour, but record it |
+| 2 | Batch/input root resolves | `Task Type`, `First Model`, `Conversation Track`, `Model A/B` present | §11 self-skips with a loud log — expected behaviour, but record it |
 | 3 | Artifact fields hold one Drive **file** link | confirmed on 5 completed ST tasks | re-confirm on the first MT task |
 | 4 | **MT branch behaviour** | no completed MT task exists in the sample; every MT check is structurally verified and **behaviourally unproven** | replay one MT task before trusting any MT finding |
 | 5 | Model-name bytes | exactly as in §1, including `-->` and ` - Fast` | exact-match resolution fails → A/B checks skip with a log; fix the identity table, never loosen the match |
+| 6 | Fetched debug format is Gemini-native (`<ctrl99>`, `Model ID:` markers) | **confirmed** on golden task 1264318 — both sides' debug carry `<ctrl99>user…<ctrl100>` blocks (1 each, matching `numberOfTurns=1`) and `Model ID:` lines (`bard_paid_fast_uft90` on side A, `pcontext_1p_paid_fast_prod_notebook_eval` on side B — the first observed pair for a future Model-ID identity map, one sample is not yet a map) | if F-02 starts firing broadly on other tasks, the export format varies — re-check before touching the marker list |
+| 7 | Fetch stage fits the 30s script timeout | fetches are concurrent and each is bounded by the host fetcher's own timeout (§8) — the script cannot add timers of its own | if real tasks time out at 30s, drop fetch/content-checking for the lowest-value targets (start with `topicConversationsHtml1..10`, keep per-side debug/HTML) |
 
 ---
 
-## 16. Regression cases
+## 18. Regression cases
 
 Named permanently. Re-run after any edit touching their checks.
 
@@ -274,10 +319,14 @@ Named permanently. Re-run after any edit touching their checks.
 | 1264308 | ST task, one side declares 2 turns | B-06 |
 | 1264311 | trailing newlines inside link fields — must **not** fire | U-05 non-fire |
 | *(needed)* | first completed Multi-Turn task | G-06 to G-08, C-07 to C-10 |
+| *(needed)* | a well-formed link whose share was revoked (fetch fails) | F-01 |
+| *(needed)* | a debug slot linking a file that fetches but isn't a Gemini debug capture | F-02 non-fire boundary |
+| *(needed)* | a side's fetched debug whose `<ctrl99>` block count disagrees with its declared `numberOfTurns` | F-05 |
+| fixture `DBG_CRLF` | Windows-saved debug (CRLF after `<ctrl99>user`) — must **not** fire; locks the v2.0.2 production false-block | F-05 non-fire |
 
 ---
 
-## 17. Message contract
+## 19. Message contract
 
 Every finding renders as:
 
@@ -296,12 +345,23 @@ Every finding renders as:
 
 ---
 
-## 18. Build discipline
+## 20. Build discipline
 
 - Generated by an assertion-guarded builder from this file; the `.js` is never hand-edited.
-- Assertions: zero phantom keys against the 944 key universe · every check ID in §4–§9 present exactly once · every skip logs · version string in the completion log · rebuild twice and diff hashes.
+- Assertions: zero phantom keys against the 944 key universe · every check ID in §4 (R), §5 (G), §6 (U), §7 (D), §9 (F), §10 (I/C), §11 (B) present exactly once · every skip logs · version string in the completion log · rebuild twice and diff hashes.
 - Suites: one smoke scenario per check family, one adversarial per check, plus the **near-miss that must not fire** for every check where a false block is plausible.
+- **Fetch-family (F) fixtures run offline** against `scripts/wrapper.mjs`'s `fetchDir` mock — local `<driveFileId>.txt`/`.html` files (mirroring `939-continuity-en-us/golden/artifacts/`) stand in for `fetchDataFromDriveLink`, so F-01..F-05's success/failure/malformed-content paths are exercised without a live network call.
+- **No serial fetch loops.** The builder asserts the compiled script never `await`s `fetchDataFromDriveLink` inside a `for`/`for-of`/`.forEach` over artifact fields — all fetches for one task must be issued concurrently (`Promise.allSettled`), per §8's budget.
 - Outputs folder holds exactly one registrable file.
-- Changelog entries name the incident that forced the change.
+- Changelog entries (§21) name the incident or decision that forced the change.
 
-*END OF REQUIREMENTS — 944 deterministic layer v1.0.0*
+---
+
+## 21. Changelog
+
+- **v2.0.2** — F-05 false-block fix from the first production run: both sides of a task were blocked with "0 turns counted, 1 declared" although the fetched debug carried the markers (F-02 passed on the same bytes). The strict `<ctrl99>user\n…<ctrl100>` block regex required a bare LF after the role token; turn counting is now anchored on the `<ctrl99>user` open marker alone (`\b`-anchored, case-insensitive — tolerant of CRLF, Doc/HTML-export separators, and JSON-encoded blobs). Any count mismatch now also writes an escaped byte-context snippet per debug file to the run log, so an unexpected export shape self-diagnoses in production. New regression fixture `DBG_CRLF` (F-05 non-fire).
+- **v2.0.1** — Sandbox-reality corrections to the fetch layer, from reading the tool's actual executor (`run-checks-api`) and the first real golden task (1264318). (1) The production isolate injects **no timers** — the v2.0.0 in-script timeout/`[FETCH BUDGET]` design threw `setTimeout is not defined` and turned every fetch into a false F-01; §8 now names host-side timeout + 30s abort as the enforcement, and the script keeps only concurrency + one retry. (2) The fetch helper hard-rejects every non-`drive.google.com` host, so U-07 links are now skipped-with-log, never fetched (the "best-effort" attempt guaranteed an error out of a warn). (3) F-03 splits `geminiConversationHistory`: a real Takeout export is a JSON array of activity records, not HTML — the HTML-marker test would have false-blocked every task. (4) The helper returns parsed JSON for JSON files; the script re-serialises before content checks. (5) Fields carrying pasted debug/HTML text (U-01/U-02) are excluded from fetching, completing the §8 precondition. §17 items 6 (Gemini-native debug) and 7 (timeout fit) updated with golden-task evidence. Local mirror (`scripts/wrapper.mjs`) aligned to the isolate: no timers/console injected, JSON parsed like the host.
+- **v2.0.0** — Added Layer L2: a real fetch layer (`fetchDataFromDriveLink`) over the artifact fields already governed by §6/§7, per an explicit decision to bring 944 in line with the sibling 939/903 pipeline instead of staying link-shape-only. New check register §9 (F-01..F-05). Restored, in scoped form, three items from the v1.0.0 "removed on fork" list (§14: `looksLikeDebug` → F-02, footprints/turn-count cross-check → F-05, byte-identical blob comparison → F-04, loosened to warn). Resolved one v1.0.0 "declared unverifiable" item (§13: Drive-link resolution → F-01). Explicitly did **not** restore content-anchoring (Check A–D) or Model-ID identity — both require a doctrine or identity map not yet confirmed for 944 (§8 non-goals, §17 items 6–7). Sections renumbered throughout (old §8→10, §9→11, §10→12, §11→13, §12→14, §13→15, §14→16, §15→17, §16→18, §17→19, §18→20); `metadata.yml` and `golden/README.md` cross-references updated to match.
+- **v1.0.0** — Initial deterministic (Layer L1) release: 56 checks (R/G/U/D/I/C/B), no fetch layer.
+
+*END OF REQUIREMENTS — 944 deterministic + fetched-artifact layer v2.0.1*

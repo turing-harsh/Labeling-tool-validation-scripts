@@ -1,6 +1,6 @@
 [
   {
-    "name": "SMOKE valid Single-Turn task passes",
+    "name": "SMOKE valid Single-Turn task passes (L1 + fetch layer)",
     "conversationData": {
       "conversation": {
         "ratings": {
@@ -158,7 +158,7 @@
     }
   },
   {
-    "name": "SMOKE valid Multi-Turn task passes",
+    "name": "SMOKE valid Multi-Turn task passes (L1 + fetch layer)",
     "conversationData": {
       "conversation": {
         "ratings": {
@@ -1267,7 +1267,7 @@
     },
     "expect": {
       "errorsContain": [
-        "Model B — \"Feedback\""
+        "Model B -- \"Feedback\""
       ]
     }
   },
@@ -3453,7 +3453,7 @@
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
             "value": [
-              "Temporal Awareness — Expired Rule"
+              "Temporal Awareness -- Expired Rule"
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
@@ -3462,7 +3462,7 @@
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
-            "value": "Temporal Awareness — Expired Rule"
+            "value": "Temporal Awareness -- Expired Rule"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
             "value": "No issues logged"
@@ -4269,7 +4269,7 @@
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
             "value": [
-              "Temporal Awareness — Expired Rule"
+              "Temporal Awareness -- Expired Rule"
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
@@ -4278,7 +4278,7 @@
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
-            "value": "Temporal Awareness — Expired Rule"
+            "value": "Temporal Awareness -- Expired Rule"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
             "value": "No issues logged"
@@ -5308,7 +5308,7 @@
     }
   },
   {
-    "name": "U-07 non-Drive host (warn)",
+    "name": "U-07 non-Drive host warns without an F-01 error",
     "conversationData": {
       "conversation": {
         "ratings": {
@@ -5464,7 +5464,166 @@
     "expect": {
       "warningsContain": [
         "not on drive.google.com"
-      ]
+      ],
+      "errors": []
+    }
+  },
+  {
+    "name": "NEAR-MISS docs.google.com link: allowed host, not fetchable, no finding",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://docs.google.com/document/d/DOCX1/edit"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_A1/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errors": []
     }
   },
   {
@@ -5625,6 +5784,1282 @@
       "errorsContain": [
         "same Drive file"
       ]
+    }
+  },
+  {
+    "name": "F-01 debug link does not resolve",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/NOFETCH1/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "could not be retrieved"
+      ]
+    }
+  },
+  {
+    "name": "F-02 debug link points at a non-debug file",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "does not look like a debug capture"
+      ]
+    }
+  },
+  {
+    "name": "F-03 html-upload link points at a non-HTML file",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_A1/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/DBG_A1/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "does not look like a saved conversation page"
+      ]
+    }
+  },
+  {
+    "name": "F-03 takeout link points at a non-Takeout file",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_A1/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "does not look like a Gemini Takeout export"
+      ]
+    }
+  },
+  {
+    "name": "F-04 different ids, byte-identical content (warn)",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_A1/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A_COPY/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "warningsContain": [
+        "identical to"
+      ]
+    }
+  },
+  {
+    "name": "F-05 fetched debug turn count disagrees with declared",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_TOOMANY/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "but this side declares"
+      ]
+    }
+  },
+  {
+    "name": "NEAR-MISS F-05: CRLF line endings in debug still count 1 turn",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_CRLF/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errors": []
+    }
+  },
+  {
+    "name": "NEAR-MISS F-family: clean base has no fetch findings",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Single Turn"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "promptGoalAlignment": {
+            "value": "aligned"
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_A1/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
+            "value": "No Issues"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "1"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.overallSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.contextualContinuityGate": {
+            "value": "No"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.utilityRelevance": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.constraintExpertiseAdherence": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.stateEntityProgressTracking": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.temporalAwareness": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.granularityDepth": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
+            "value": "No Issues"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errors": []
     }
   },
   {
@@ -6516,22 +7951,22 @@
             "value": "Yes"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
             "value": "No Issue"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
             "value": "N/A"
@@ -6583,7 +8018,7 @@
     },
     "expect": {
       "errorsContain": [
-        "must read \"N/A — Cold Start\""
+        "must read \"N/A - Cold Start\""
       ]
     }
   },
@@ -6676,22 +8111,22 @@
             "value": "Yes"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
             "value": "No Issues"
@@ -6836,7 +8271,7 @@
             "value": "No"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
             "value": "No Issue"
@@ -6903,7 +8338,7 @@
     },
     "expect": {
       "errorsContain": [
-        "marked \"N/A — Cold Start\""
+        "marked \"N/A - Cold Start\""
       ]
     }
   },
@@ -7011,7 +8446,7 @@
             "value": "No Issue"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
             "value": "No Issues"
@@ -7063,7 +8498,7 @@
     },
     "expect": {
       "warningsContain": [
-        "Target Language Meaning is \"N/A — Cold Start\""
+        "Target Language Meaning is \"N/A - Cold Start\""
       ]
     }
   },
@@ -7171,7 +8606,7 @@
             "value": "No Issue"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
             "value": "N/A"
@@ -7213,7 +8648,7 @@
             "value": "No Issue"
           },
           "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.targetLanguageMeaning": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.internationalizationQuality": {
             "value": "N/A"
@@ -7319,7 +8754,7 @@
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
             "value": [
               "None",
-              "Temporal Awareness — Expired Rule"
+              "Temporal Awareness -- Expired Rule"
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
@@ -7490,7 +8925,7 @@
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
             "value": [
-              "Temporal Awareness — Expired Rule"
+              "Temporal Awareness -- Expired Rule"
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
@@ -7502,7 +8937,7 @@
             "value": "No issues logged"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
-            "value": "Temporal Awareness — Expired Rule"
+            "value": "Temporal Awareness -- Expired Rule"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
             "value": "No issues logged"
@@ -7664,7 +9099,7 @@
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
             "value": [
-              "Temporal Awareness — Expired Rule"
+              "Temporal Awareness -- Expired Rule"
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
@@ -7673,10 +9108,10 @@
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
-            "value": "Temporal Awareness — Expired Rule"
+            "value": "Temporal Awareness -- Expired Rule"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
-            "value": "Temporal Awareness — Expired Rule"
+            "value": "Temporal Awareness -- Expired Rule"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
             "value": "No issues logged"
@@ -7850,7 +9285,7 @@
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
-            "value": "Temporal Awareness — Expired Rule"
+            "value": "Temporal Awareness -- Expired Rule"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
             "value": "No issues logged"
@@ -8002,22 +9437,22 @@
             "value": "Yes"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).utilityRelevance": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).constraintExpertiseAdherence": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).stateEntityProgressTracking": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).temporalAwareness": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).granularityDepth": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).targetLanguageMeaning": {
-            "value": "N/A — Cold Start"
+            "value": "N/A - Cold Start"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).internationalizationQuality": {
             "value": "N/A"
@@ -8646,7 +10081,7 @@
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
             "value": [
-              "Temporal Awareness — Expired Rule"
+              "Temporal Awareness -- Expired Rule"
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
@@ -8655,7 +10090,7 @@
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
-            "value": "Temporal Awareness — Expired Rule"
+            "value": "Temporal Awareness -- Expired Rule"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
             "value": "No issues logged"
@@ -8820,7 +10255,7 @@
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
             "value": [
-              "Temporal Awareness — Expired Rule"
+              "Temporal Awareness -- Expired Rule"
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
@@ -8829,7 +10264,7 @@
             ]
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
-            "value": "Temporal Awareness — Expired Rule"
+            "value": "Temporal Awareness -- Expired Rule"
           },
           "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
             "value": "No issues logged"
@@ -10531,7 +11966,7 @@
     }
   },
   {
-    "name": "ADAPTER runtime array shape + csv_data passes",
+    "name": "ADAPTER runtime array shape + csv_data passes (L1 + fetch layer)",
     "conversationData": {
       "conversationId": 999,
       "csv_data": {

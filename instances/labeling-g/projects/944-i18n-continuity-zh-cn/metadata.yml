@@ -7,7 +7,7 @@ language: zh-CN
 owner: raghav.k1@turing.com
 tool_url: https://labeling-g.turing.com/projects/944/view/quality
 tool_project_id: 944
-status: draft                    # script authored (v1.0.0), not yet deployed to the tool
+status: ready-to-deploy          # requirements.md at v2.0.2; validation.js rebuilt off it, 77 fixtures + golden 1264318 green
 
 deployed:
   version: 0                     # bump to 1 after first paste into the tool
@@ -16,9 +16,34 @@ deployed:
   commit:
 
 script:
-  version: v1.0.2-i18n-continuity-zh-cn
+  version: 2.0.2
   generated: true                # validation.js is BUILT — do not hand-edit
   build: node scripts/build-944.mjs
+  notes_v2_0_2: |
+    F-05 false-block fix from the FIRST PRODUCTION RUN: both sides blocked with "0 turns
+    counted, 1 declared" though the fetched debug carried the markers (F-02 passed on the same
+    bytes). Root cause: the strict "<ctrl99>user\n...<ctrl100>" block regex demanded a bare LF
+    after the role token; real captures vary (CRLF from Windows-saved files, tags in Doc/HTML
+    exports, escaped newlines in JSON-encoded blobs). Turn counting now anchors on the
+    "<ctrl99>user" open marker (\b so "username" never counts; case-insensitive). Mismatches
+    log an escaped byte-context snippet per debug file so a new export shape self-diagnoses
+    from the tool's run log. New regression fixture DBG_CRLF (F-05 non-fire).
+  notes_v2_0_1: |
+    Sandbox-reality fixes to the fetch layer, from reading run-checks-api's actual executor and
+    the first real golden task (1264318). (1) The production isolate injects NO timers — the
+    v2.0.0 in-script setTimeout race threw "setTimeout is not defined" and turned every fetch
+    into a false F-01; removed, host-side per-fetch timeout + 30s abort is the enforcement.
+    (2) The fetch helper hard-rejects non-drive.google.com hosts (isGoogleDriveUrl), so U-07
+    links are skipped-with-log, never fetched — no warn-to-error escalation. (3) F-03 splits
+    geminiConversationHistory: a real Takeout export is a JSON array of activity records, not
+    HTML. (4) The helper returns PARSED JSON for JSON files — re-serialised before checks.
+    (5) U-01/U-02 fields (pasted debug/HTML) excluded from fetching. Local wrapper.mjs aligned
+    to the isolate (no timers/console; JSON parsed like the host). 76 fixtures + golden green.
+  notes_v2_0_0: |
+    Rebuilt off requirements.md v2.0.0 on 939's two-sub-validator architecture:
+    validate() -> validateI18nContinuityL1 (R/G/U/D/I/C/B) + validateFetchLayer (F-01..F-05,
+    fetchDataFromDriveLink, concurrent via Promise.allSettled). FORM_SPEC-equivalent CFG
+    generated from the config export and injected into each part; deployable stays 7-bit ASCII.
   notes_v1_0_2: |
     Rebuilt ON THE 917 ENGINE SKELETON (continuity-validator-917 v0.8, the production-verified
     reference): single async function validate(conversationData) with ZERO top-level
@@ -41,7 +66,7 @@ script:
   composed_from:
     - config/project-config-id-944.json   # form config export -> derives config/form-spec-944.json -> injected FORM_SPEC
     - parts/i18n-continuity-checks.js      # deterministic Layer-L1 checks R/G/U/D/I/C/B
-  spec: requirements.md                    # 944 deterministic layer v1.0.0 — the generation contract
+  spec: requirements.md                    # now at v2.0.0 — deterministic (L1) + fetched-artifact (L2) layer, the generation contract
 
 shape: |
   Two sides via compareModels SIDE_BY_SIDE_COMPARISON. Per-side keys arrive as
@@ -49,37 +74,50 @@ shape: |
   Model A = "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
   Model B = "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
   97 config fields, 55 per side. Single Turn and Multi Turn on one form. Artifacts are Google
-  Drive links only. Batch/input axes (Task Type, First Model, Conversation Track, Model A/B,
-  Target Language, Dialect, ...) live at conversation.input; §9 self-skips loudly if absent.
+  Drive links, fetched and content-checked (v2.0.0, §8-9), not just link-shape-checked. Batch/input
+  axes (Task Type, First Model, Conversation Track, Model A/B, Target Language, Dialect, ...) live
+  at conversation.input; §11 self-skips loudly if absent.
 
 coverage: |
-  56 deterministic checks implemented and build-asserted (one per register ID):
+  61 checks implemented and build-asserted (one per register ID):
     R-01..R-09  completeness (blank required, declared-vs-filled, stale hidden slots)
     G-01..G-13  gate cascades (required-when-shown + empty-when-hidden), transcribed from config displayConditions
     U-01..U-07  artifact URL integrity (pasted debug/HTML, no link, multi-link, folder, host)
     D-01        artifact identity (same Drive file id across slots)
+    F-01..F-05  fetched-artifact content (fetch failure, debug/HTML sanity, cross-artifact byte-identity, turn-count vs debug) — v2.0.0, Layer L2
     I-01..I-03  namespace / ranking identity
     C-01..C-16  coherence (cold-start gate cascade, satisfaction anchor C-11, English-thread exception C-06, MT ranking coherence)
     B-01..B-07  assignment vs submission (batch axes)
-  Build discipline (§18): FORM_SPEC generated from the config export; zero phantom keys;
-  every register ID present exactly once; rebuild-twice hash diff. fixtures/cases.json carries
-  a smoke pass + adversarial fire + near-miss non-fire per check family.
+  Build discipline (§20): FORM_SPEC generated from the config export; zero phantom keys;
+  every register ID present exactly once; rebuild-twice hash diff; no serial fetch loops (§8
+  concurrency budget). fixtures/cases.json carries a smoke pass + adversarial fire + near-miss
+  non-fire per check family; F-family fixtures mock fetchDataFromDriveLink via wrapper.mjs's
+  fetchDir convention.
 
 notes: |
-  Layer L1 only (deterministic, computable from bytes). Semantic questions (§10) belong to the
-  QD pack; unverifiable items (§11: turn caps, recency, filename convention, link resolution)
-  are out of scope by design — the payload carries Drive links, not fetched content, so content-
-  anchored debug checks from the predecessor engine were deliberately removed (§12) in favour of
-  §6 URL discipline and §7 Drive-id identity.
+  Layer L1 (deterministic, computable from bytes) plus Layer L2 (deterministic, computable from a
+  fetched artifact's bytes — v2.0.0, §8-9). Semantic questions (§12) belong to the QD pack;
+  remaining unverifiable items (§13: turn caps, recency, exclusion window, citation accuracy,
+  filename convention) stay out of scope — fetched thread pages still carry no confirmed turn
+  delimiters or timestamps. Drive-link resolution moved OUT of that list in v2.0.0 (now F-01).
+  Content-anchored debug checks (Check A-D) and Model-ID identity from the predecessor engine
+  remain deliberately removed (§14) — no confirmed 944 debug sample or Model-ID map exists yet,
+  and 939's sibling pipeline found the prompt-anchoring doctrine specifically wrong for
+  continuity-shaped tasks. §6 URL discipline and §7 Drive-id identity still cover what the
+  unfetched payload alone could answer; §9 (F) covers what the fetch adds.
 
   Highest-value false-block guard: C-06 (English-thread exception) WARNS rather than blocks and
   is suppressed entirely when "Dominant threads language is English" is declared. Only C-10/C-11
   and the assignment blocks fire at ERROR on satisfaction/severity; C-12..C-14 stay warnings (no
-  client sentence behind them — §8.1).
+  client sentence behind them — §10.1).
 
-  First-task verification (§15, blocking at deploy): confirm the per-side key shape
-  compareModels.<model name>.<qKey>, that the batch/input root resolves, and replay one completed
-  Multi-Turn task (no completed MT existed in the sample — every MT check is structurally verified
-  but behaviourally unproven). The run logs every discovered namespace on every task.
+  First-task verification (§17): items 1-3 and 5-6 are CONFIRMED on golden task 1264318 (runtime
+  payload shape, batch axes at csv_data, one-Drive-link artifacts, exact model-name bytes,
+  Gemini-native debug with <ctrl99> blocks + Model ID lines). Item 7 (fetch stage vs 30s) is
+  bounded by design (concurrent fetches, host-side per-fetch timeout) but unmeasured on a live
+  run. Item 4 still open: no completed Multi-Turn task exists — every MT check is structurally
+  verified but behaviourally unproven; replay one MT task before trusting MT findings. The run
+  logs every discovered namespace on every task.
 
-  Local `npm test` runs 65 fixtures through the same sandbox the tool uses.
+  Local `npm test` runs 77 fixtures through the same sandbox the tool uses (regenerate with
+  `node fixtures/gen-cases.mjs fixtures/cases.json` after editing gen-cases.mjs).

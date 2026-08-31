@@ -1,5 +1,7 @@
 // Generate fixtures/cases.json for project 944 from a valid ST base and a valid MT base,
 // mutating one thing per case (smoke / adversarial / near-miss per check family).
+// F-family (fetched-artifact) cases rely on fixtures/artifacts/<id>.<ext> mocks, resolved by
+// scripts/run-tests.mjs via the same fetchDir convention as scripts/run-golden.mjs.
 import { writeFileSync } from "node:fs";
 
 const MA = "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)";
@@ -12,6 +14,8 @@ const v = (x) => ({ value: x });
 function ratings(map) { const o = {}; for (const [k, val] of Object.entries(map)) o[k] = v(val); return o; }
 
 // ---- valid Single-Turn base ----
+// Artifact ids (THREAD1, HIST1, DBG_A1, DBG_B1, HTML_A, HTML_B) all resolve via
+// fixtures/artifacts/ mocks -- the fetch layer (F-01..F-05) runs clean on this base.
 function stBase() {
   const task = {
     p0CujCategory: "Planning",
@@ -112,8 +116,8 @@ const kA = (k) => `compareModels.${MA}.${k}`;
 const kB = (k) => `compareModels.${MB}.${k}`;
 
 // ===================== SMOKE (pass) =====================
-add("SMOKE valid Single-Turn task passes", stBase(), { errors: [] });
-add("SMOKE valid Multi-Turn task passes", mtBase(), { errors: [] });
+add("SMOKE valid Single-Turn task passes (L1 + fetch layer)", stBase(), { errors: [] });
+add("SMOKE valid Multi-Turn task passes (L1 + fetch layer)", mtBase(), { errors: [] });
 
 // ===================== R — completeness =====================
 add("R-01 missing required task field (myGoal)", mut(stBase(), { myGoal: undefined }), { errorsContain: ['"My Goal - English version"'] });
@@ -121,7 +125,7 @@ add("R-02 invalid turnType value", mut(stBase(), { turnType: "Zero Turn" }), { e
 add("R-03 declared 2 threads, slot 2 empty", mut(stBase(), { numberOfThreadsAdded: "2" }), { errorsContain: ["thread HTML slot"] });
 add("R-04 stale hidden thread slot", mut(stBase(), { topicConversationsHtml3: link("STALE3") }), { errorsContain: ["hidden at the current thread count"] });
 add("R-05 per-side turn count missing", mut(stBase(), { [kA("numberOfTurns")]: undefined }), { errorsContain: ["turn count is missing"] });
-add("R-06 per-side feedback blank", mut(stBase(), { [kB("conversationFeedback")]: undefined }), { errorsContain: ['Model B — "Feedback"'] });
+add("R-06 per-side feedback blank", mut(stBase(), { [kB("conversationFeedback")]: undefined }), { errorsContain: ['Model B -- "Feedback"'] });
 add("R-07 declared 2 turns, Turn 2 debug empty", mut(mtBase(), { [kA("testResponse2DebugInfo")]: undefined }), { errorsContain: ["Turn 2 debug info"] });
 add("R-08 stale hidden debug slot", mut(stBase(), { [kA("testResponse2DebugInfo")]: link("STALEDBG") }), { errorsContain: ["hidden at the current turn count"] });
 add("R-09 SxS rationale blank", mut(stBase(), { qualityComparisonSxSRationale: undefined }), { errorsContain: ["side-by-side rationale is blank"] });
@@ -137,12 +141,12 @@ add("G-05 ST rating filled on MT task (stale)", mut(mtBase(), { [kA("overallSati
 add("G-06 MT satisfaction blank", mut(mtBase(), { [kA("multiTurnSatisfaction")]: undefined }), { errorsContain: ["Multi Turn overall satisfaction is required"] });
 add("G-06 MT field filled on ST task (stale)", mut(stBase(), { [kA("turn1Continuity")]: "No Issue" }), { errorsContain: ["filled on a Single Turn task"] });
 add("G-07 turn continuity beyond declared turns (stale)", mut(mtBase(), { [kA("turn3Continuity")]: "No Issue" }), { errorsContain: ["declares only 2 turns"] });
-add("G-08 turn logs error but detail blank", mut(mtBase(), { [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness — Expired Rule"], [kA("errorSeverityFirst")]: "Temporal Awareness — Expired Rule", [kA("errorSeverityFirstRationale")]: "because expired" }), { errorsContain: ["follow-up detail is required"] });
+add("G-08 turn logs error but detail blank", mut(mtBase(), { [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness -- Expired Rule"], [kA("errorSeverityFirst")]: "Temporal Awareness -- Expired Rule", [kA("errorSeverityFirstRationale")]: "because expired" }), { errorsContain: ["follow-up detail is required"] });
 add("G-09 TLM issue but rationale blank", mut(stBase(), { [kA("targetLanguageMeaning")]: "Minor Issue" }), { errorsContain: ["Target Language Meaning is rated an issue but its rationale is blank"] });
 add("G-10 IQ Minor Issues but no pattern", mut(stBase(), { [kA("internationalizationQuality")]: "Minor Issues", [kA("internationalizationRationale")]: "x" }), { errorsContain: ["no pattern is ticked"] });
 add("G-11 IQ Major Issues but no pattern", mut(stBase(), { [kA("internationalizationQuality")]: "Major Issues", [kA("internationalizationRationale")]: "x" }), { errorsContain: ["no pattern is ticked"] });
 add("G-12 IQ issue but rationale blank", mut(stBase(), { [kA("internationalizationQuality")]: "Minor Issues", [kA("internationalizationMinorIssues")]: ["Register slip"] }), { errorsContain: ["Internationalization is rated an issue but its rationale is blank"] });
-add("G-13 ranked error but rationale blank", mut(mtBase(), { [kA("errorSeverityFirst")]: "Temporal Awareness — Expired Rule", [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness — Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 1, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No" }), { errorsContain: ["rationale is blank"] });
+add("G-13 ranked error but rationale blank", mut(mtBase(), { [kA("errorSeverityFirst")]: "Temporal Awareness -- Expired Rule", [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness -- Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 1, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No" }), { errorsContain: ["rationale is blank"] });
 
 // ===================== U — artifact URL integrity =====================
 add("U-01 pasted debug text in artifact", mut(stBase(), { [kA("testResponse1DebugInfo")]: "Model ID: foo\n<ctrl99>user\nhi<ctrl100>" }), { errorsContain: ["pasted debug text"] });
@@ -151,10 +155,27 @@ add("U-03 no link in artifact", mut(stBase(), { [kA("model1HtmlFileUpload")]: "s
 add("U-04 two links in one artifact", mut(stBase(), { topicConversationsHtml1: `${link("X1")} ${link("X2")}` }), { errorsContain: ["must hold exactly one"] });
 add("U-05 link plus surrounding text (warn)", mut(stBase(), { topicConversationsHtml1: `thread: ${link("THREAD1")}` }), { warningsContain: ["link plus surrounding text"] });
 add("U-06 folder link", mut(stBase(), { topicConversationsHtml1: "https://drive.google.com/drive/folders/FOLDER1?usp=sharing" }), { errorsContain: ["folder is linked instead of an individual file"] });
-add("U-07 non-Drive host (warn)", mut(stBase(), { topicConversationsHtml1: "https://example.com/file/d/Z1/view" }), { warningsContain: ["not on drive.google.com"] });
+// U-07 links are never fetched (the tool's helper hard-rejects non-Drive hosts) -- the warn
+// must NOT be escalated into an F-01 error, so this case also asserts a clean error list.
+add("U-07 non-Drive host warns without an F-01 error", mut(stBase(), { topicConversationsHtml1: "https://example.com/file/d/Z1/view" }), { warningsContain: ["not on drive.google.com"], errors: [] });
+add("NEAR-MISS docs.google.com link: allowed host, not fetchable, no finding", mut(stBase(), { topicConversationsHtml1: "https://docs.google.com/document/d/DOCX1/edit" }), { errors: [] });
 
 // ===================== D — artifact identity =====================
 add("D-01 same drive file in two slots", mut(stBase(), { [kA("model1HtmlFileUpload")]: link("DUP99"), [kA("testResponse1DebugInfo")]: link("DUP99") }), { errorsContain: ["same Drive file"] });
+
+// ===================== F — fetched-artifact content (requirements §8-§9) =====================
+add("F-01 debug link does not resolve", mut(stBase(), { [kA("testResponse1DebugInfo")]: link("NOFETCH1") }), { errorsContain: ["could not be retrieved"] });
+add("F-02 debug link points at a non-debug file", mut(stBase(), { [kA("testResponse1DebugInfo")]: link("HTML_A") }), { errorsContain: ["does not look like a debug capture"] });
+add("F-03 html-upload link points at a non-HTML file", mut(stBase(), { [kA("model1HtmlFileUpload")]: link("DBG_A1") }), { errorsContain: ["does not look like a saved conversation page"] });
+add("F-03 takeout link points at a non-Takeout file", mut(stBase(), { geminiConversationHistory: link("HTML_A") }), { errorsContain: ["does not look like a Gemini Takeout export"] });
+add("F-04 different ids, byte-identical content (warn)", mut(stBase(), { [kB("model1HtmlFileUpload")]: link("HTML_A_COPY") }), { warningsContain: ["identical to"] });
+add("F-05 fetched debug turn count disagrees with declared", mut(stBase(), { [kA("testResponse1DebugInfo")]: link("DBG_TOOMANY") }), { errorsContain: ["but this side declares"] });
+// Production incident (v2.0.2): a Windows-saved capture separates "<ctrl99>user" from the turn
+// text with CRLF -- the strict "<ctrl99>user\n...<ctrl100>" block regex counted 0 and F-05
+// false-blocked both sides while F-02 passed on the same bytes. Turn counting is now anchored
+// on the "<ctrl99>user" open marker alone; this near-miss locks that.
+add("NEAR-MISS F-05: CRLF line endings in debug still count 1 turn", mut(stBase(), { [kA("testResponse1DebugInfo")]: link("DBG_CRLF") }), { errors: [] });
+add("NEAR-MISS F-family: clean base has no fetch findings", stBase(), { errors: [] });
 
 // ===================== I — identity =====================
 add("I-01 firstModel not a present side", mut(stBase(), { firstModel: "Some Other Model" }), { errorsContain: ["does not match either side"] });
@@ -166,29 +187,29 @@ add("C-01 SxS verdict disagrees with 1st place", mut(stBase(), { qualityComparis
 add("C-02 CC Major but gate not Yes", mut(stBase(), { [kA("contextualContinuity")]: "Major Issue", [kA("overallSatisfaction")]: "Very dissatisfied" }), { errorsContain: ["cold-start gate is not Yes"] });
 add("C-03 gate Yes but a dimension rated", mut(stBase(), {
   [kA("contextualContinuity")]: "Major Issue", [kA("contextualContinuityGate")]: "Yes", [kA("overallSatisfaction")]: "Very dissatisfied",
-  [kA("utilityRelevance")]: "N/A — Cold Start", [kA("constraintExpertiseAdherence")]: "N/A — Cold Start", [kA("stateEntityProgressTracking")]: "N/A — Cold Start", [kA("temporalAwareness")]: "N/A — Cold Start", [kA("granularityDepth")]: "No Issue", [kA("targetLanguageMeaning")]: "N/A — Cold Start", [kA("internationalizationQuality")]: "N/A",
-}), { errorsContain: ['must read "N/A — Cold Start"'] });
+  [kA("utilityRelevance")]: "N/A - Cold Start", [kA("constraintExpertiseAdherence")]: "N/A - Cold Start", [kA("stateEntityProgressTracking")]: "N/A - Cold Start", [kA("temporalAwareness")]: "N/A - Cold Start", [kA("granularityDepth")]: "No Issue", [kA("targetLanguageMeaning")]: "N/A - Cold Start", [kA("internationalizationQuality")]: "N/A",
+}), { errorsContain: ['must read "N/A - Cold Start"'] });
 add("C-04 gate Yes but IQ not N/A", mut(stBase(), {
   [kA("contextualContinuity")]: "Major Issue", [kA("contextualContinuityGate")]: "Yes", [kA("overallSatisfaction")]: "Very dissatisfied",
-  [kA("utilityRelevance")]: "N/A — Cold Start", [kA("constraintExpertiseAdherence")]: "N/A — Cold Start", [kA("stateEntityProgressTracking")]: "N/A — Cold Start", [kA("temporalAwareness")]: "N/A — Cold Start", [kA("granularityDepth")]: "N/A — Cold Start", [kA("targetLanguageMeaning")]: "N/A — Cold Start", [kA("internationalizationQuality")]: "No Issues",
+  [kA("utilityRelevance")]: "N/A - Cold Start", [kA("constraintExpertiseAdherence")]: "N/A - Cold Start", [kA("stateEntityProgressTracking")]: "N/A - Cold Start", [kA("temporalAwareness")]: "N/A - Cold Start", [kA("granularityDepth")]: "N/A - Cold Start", [kA("targetLanguageMeaning")]: "N/A - Cold Start", [kA("internationalizationQuality")]: "No Issues",
 }), { errorsContain: ['Internationalization Quality is not "N/A"'] });
-add("C-05 gate No but a memory dim cold start", mut(stBase(), { [kA("utilityRelevance")]: "N/A — Cold Start" }), { errorsContain: ['marked "N/A — Cold Start"'] });
-add("C-06 gate No stray N/A WARNS (not English)", mut(stBase(), { [kA("targetLanguageMeaning")]: "N/A — Cold Start" }), { warningsContain: ['Target Language Meaning is "N/A — Cold Start"'] });
-add("C-06 NEAR-MISS English thread suppresses", mut(stBase(), { dominantThreadLanguageMatching: ["Dominant threads language is English"], [kA("targetLanguageMeaning")]: "N/A — Cold Start", [kA("internationalizationQuality")]: "N/A", [kB("targetLanguageMeaning")]: "N/A — Cold Start", [kB("internationalizationQuality")]: "N/A" }), { errors: [] });
-add("C-07 turn ticks None plus real error", mut(mtBase(), { [kA("turn1ContinuityErrorTypes")]: ["None", "Temporal Awareness — Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 1, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No" }), { errorsContain: ['ticks "None" together with a real error'] });
-add("C-08 failure ranked below empty higher slot", mut(mtBase(), { [kA("errorSeveritySecond")]: "Temporal Awareness — Expired Rule", [kA("errorSeveritySecondRationale")]: "x", [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness — Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 1, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No" }), { errorsContain: ['more severe 1st place is "No issues logged"'] });
+add("C-05 gate No but a memory dim cold start", mut(stBase(), { [kA("utilityRelevance")]: "N/A - Cold Start" }), { errorsContain: ['marked "N/A - Cold Start"'] });
+add("C-06 gate No stray N/A WARNS (not English)", mut(stBase(), { [kA("targetLanguageMeaning")]: "N/A - Cold Start" }), { warningsContain: ['Target Language Meaning is "N/A - Cold Start"'] });
+add("C-06 NEAR-MISS English thread suppresses", mut(stBase(), { dominantThreadLanguageMatching: ["Dominant threads language is English"], [kA("targetLanguageMeaning")]: "N/A - Cold Start", [kA("internationalizationQuality")]: "N/A", [kB("targetLanguageMeaning")]: "N/A - Cold Start", [kB("internationalizationQuality")]: "N/A" }), { errors: [] });
+add("C-07 turn ticks None plus real error", mut(mtBase(), { [kA("turn1ContinuityErrorTypes")]: ["None", "Temporal Awareness -- Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 1, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No" }), { errorsContain: ['ticks "None" together with a real error'] });
+add("C-08 failure ranked below empty higher slot", mut(mtBase(), { [kA("errorSeveritySecond")]: "Temporal Awareness -- Expired Rule", [kA("errorSeveritySecondRationale")]: "x", [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness -- Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 1, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No" }), { errorsContain: ['more severe 1st place is "No issues logged"'] });
 add("C-09 same failure ranked twice", mut(mtBase(), {
-  [kA("errorSeverityFirst")]: "Temporal Awareness — Expired Rule", [kA("errorSeverityFirstRationale")]: "x",
-  [kA("errorSeveritySecond")]: "Temporal Awareness — Expired Rule", [kA("errorSeveritySecondRationale")]: "x",
-  [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness — Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 1, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No",
+  [kA("errorSeverityFirst")]: "Temporal Awareness -- Expired Rule", [kA("errorSeverityFirstRationale")]: "x",
+  [kA("errorSeveritySecond")]: "Temporal Awareness -- Expired Rule", [kA("errorSeveritySecondRationale")]: "x",
+  [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness -- Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 1, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No",
 }), { errorsContain: ["same error is ranked in both"] });
-add("C-10 ranked failure not in any turn list", mut(mtBase(), { [kA("errorSeverityFirst")]: "Temporal Awareness — Expired Rule", [kA("errorSeverityFirstRationale")]: "x" }), { errorsContain: ["never logged on any turn"] });
-add("C-11 CC Major but satisfaction not Very dissatisfied", mut(stBase(), { [kA("contextualContinuity")]: "Major Issue", [kA("contextualContinuityGate")]: "Yes", [kA("utilityRelevance")]: "N/A — Cold Start", [kA("constraintExpertiseAdherence")]: "N/A — Cold Start", [kA("stateEntityProgressTracking")]: "N/A — Cold Start", [kA("temporalAwareness")]: "N/A — Cold Start", [kA("granularityDepth")]: "N/A — Cold Start", [kA("targetLanguageMeaning")]: "N/A — Cold Start", [kA("internationalizationQuality")]: "N/A", [kA("overallSatisfaction")]: "Somewhat dissatisfied" }), { errorsContain: ['must be "Very dissatisfied"'] });
+add("C-10 ranked failure not in any turn list", mut(mtBase(), { [kA("errorSeverityFirst")]: "Temporal Awareness -- Expired Rule", [kA("errorSeverityFirstRationale")]: "x" }), { errorsContain: ["never logged on any turn"] });
+add("C-11 CC Major but satisfaction not Very dissatisfied", mut(stBase(), { [kA("contextualContinuity")]: "Major Issue", [kA("contextualContinuityGate")]: "Yes", [kA("utilityRelevance")]: "N/A - Cold Start", [kA("constraintExpertiseAdherence")]: "N/A - Cold Start", [kA("stateEntityProgressTracking")]: "N/A - Cold Start", [kA("temporalAwareness")]: "N/A - Cold Start", [kA("granularityDepth")]: "N/A - Cold Start", [kA("targetLanguageMeaning")]: "N/A - Cold Start", [kA("internationalizationQuality")]: "N/A", [kA("overallSatisfaction")]: "Somewhat dissatisfied" }), { errorsContain: ['must be "Very dissatisfied"'] });
 add("C-12 Major dimension but satisfied (warn)", mut(stBase(), { [kA("utilityRelevance")]: "Major Issue", [kA("overallSatisfaction")]: "Very satisfied" }), { warningsContain: ["rated Major Issue while overall satisfaction"] });
 add("C-13 two minors but Very satisfied (warn)", mut(stBase(), { [kA("utilityRelevance")]: "Minor Issue", [kA("temporalAwareness")]: "Minor Issue", [kA("overallSatisfaction")]: "Very satisfied" }), { warningsContain: ["two or more dimensions are rated Minor Issue"] });
 add("C-14 dissatisfied but all No Issue (warn)", mut(stBase(), { [kA("overallSatisfaction")]: "Very dissatisfied" }), { warningsContain: ["every rated dimension is No Issue"] });
-add("C-15 context source cites neither thread nor turn (warn)", mut(mtBase(), { [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness — Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "somewhere earlier", [kA("turn1ModelCorrectionOutcome")]: "No", [kA("errorSeverityFirst")]: "Temporal Awareness — Expired Rule", [kA("errorSeverityFirstRationale")]: "x" }), { warningsContain: ["names neither a thread nor a turn"] });
-add("C-16 cites Thread beyond count (warn)", mut(mtBase(), { [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness — Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 5, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No", [kA("errorSeverityFirst")]: "Temporal Awareness — Expired Rule", [kA("errorSeverityFirstRationale")]: "x" }), { warningsContain: ["beyond the 1 thread"] });
+add("C-15 context source cites neither thread nor turn (warn)", mut(mtBase(), { [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness -- Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "somewhere earlier", [kA("turn1ModelCorrectionOutcome")]: "No", [kA("errorSeverityFirst")]: "Temporal Awareness -- Expired Rule", [kA("errorSeverityFirstRationale")]: "x" }), { warningsContain: ["names neither a thread nor a turn"] });
+add("C-16 cites Thread beyond count (warn)", mut(mtBase(), { [kA("turn1ContinuityErrorTypes")]: ["Temporal Awareness -- Expired Rule"], [kA("turn1ExpectedContext")]: "x", [kA("turn1ContextSourceThreads")]: "Thread 5, Turn 1", [kA("turn1ModelCorrectionOutcome")]: "No", [kA("errorSeverityFirst")]: "Temporal Awareness -- Expired Rule", [kA("errorSeverityFirstRationale")]: "x" }), { warningsContain: ["beyond the 1 thread"] });
 
 // ===================== B — assignment vs submission (needs batch input) =====================
 const stInput = { "Task Type": v("Single Turn"), "First Model": v(MA), "Conversation Track": v("N/A"), "Target Language": v("Chinese"), "Dialect": v("Mainland (Simplified)"), "Model A": v(MA), "Model B": v(MB) };
@@ -210,10 +231,10 @@ add("NEAR-MISS trailing newlines in link do not fire U-05", mut(stBase(), { topi
 // ===================== ADAPTER: runtime payload shape =====================
 // The real runtime payload (task 1264318) nests the answers at conversation_data.ratings as
 // an ARRAY of { key, question, human_input_value } (unanswered fields carry NO value), with
-// the batch axes at top-level csv_data. Locks the v1.0.1 adapter fix.
+// the batch axes at top-level csv_data. Locks the v1.0.1 adapter fix; L2 must resolve the same
+// shape independently (requirements §8 -- each sub-validator resolves the payload for itself).
 const toRuntime = (flat, csvOverrides) => {
   const arr = Object.entries(flat).map(([key, val]) => ({ key, input_type: "X", value_options: [], human_input_value: val }));
-  // an unanswered field: present in the array with no human_input_value — must read as blank
   arr.push({ key: "temporalTag", question: "Temporal Tag (if relevant)", input_type: "SINGLE_CHOICE", value_options: [] });
   return {
     conversationId: 999,
@@ -221,7 +242,7 @@ const toRuntime = (flat, csvOverrides) => {
     conversation_data: { ratings: arr },
   };
 };
-cases.push({ name: "ADAPTER runtime array shape + csv_data passes", conversationData: toRuntime(stBase()), expect: { errors: [] } });
+cases.push({ name: "ADAPTER runtime array shape + csv_data passes (L1 + fetch layer)", conversationData: toRuntime(stBase()), expect: { errors: [] } });
 cases.push({ name: "ADAPTER runtime shape: checks actually run (blank myGoal fires)", conversationData: toRuntime(mut(stBase(), { myGoal: undefined })), expect: { errorsContain: ['"My Goal - English version"'] } });
 cases.push({ name: "ADAPTER runtime shape: csv_data axes bind (task-type mismatch fires)", conversationData: toRuntime(stBase(), { "Task Type": "Multi-Turn" }), expect: { errorsContain: ["does not match the assigned task type"] } });
 

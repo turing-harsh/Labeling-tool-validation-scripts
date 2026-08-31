@@ -1,0 +1,4 @@
+[
+  {"header": "Gemini Apps", "title": "fixture takeout entry 1", "time": "2026-01-01T00:00:00.000Z", "products": ["Gemini Apps"], "activityControls": ["Gemini Apps Activity"], "safeHtmlItem": [{"html": "<p>fixture</p>"}]},
+  {"header": "Gemini Apps", "title": "fixture takeout entry 2", "time": "2026-01-01T00:01:00.000Z", "products": ["Gemini Apps"], "activityControls": ["Gemini Apps Activity"], "safeHtmlItem": [{"html": "<p>fixture 2</p>"}]}
+]

@@ -1,0 +1,11 @@
+LM Prefix: too_many_prefix
+Model ID: model_toomany
+num_turns_read_from_footprints: 2
+<ctrl99>user
+first turn text<ctrl100>
+<ctrl99>model
+first response<ctrl100>
+<ctrl99>user
+second turn text<ctrl100>
+<ctrl99>model
+second response<ctrl100>

@@ -1,0 +1,7 @@
+LM Prefix: DBG_B2_prefix
+Model ID: model_DBG_B2
+num_turns_read_from_footprints: 1
+<ctrl99>user
+turn text for DBG_B2<ctrl100>
+<ctrl99>model
+response text for DBG_B2<ctrl100>

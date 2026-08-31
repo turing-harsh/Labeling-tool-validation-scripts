@@ -44,6 +44,12 @@ for (const { id, dir } of projects) {
     continue;
   }
 
+  // Mock fetchDataFromDriveLink for fixtures that exercise a fetch layer -- same convention
+  // as run-golden.mjs's golden/artifacts/: <driveFileId>.<txt|html|json> files under
+  // fixtures/artifacts/ stand in for a real Drive fetch.
+  const artifactsDir = join(dir, "fixtures", "artifacts");
+  const fetchDir = existsSync(artifactsDir) ? artifactsDir : undefined;
+
   const userScript = readFileSync(scriptPath, "utf8");
 
   // Mirror the tool's save-time gates so a script that passes here is acceptable there.
@@ -70,7 +76,7 @@ for (const { id, dir } of projects) {
 
   for (const c of cases) {
     totalCases++;
-    const got = await runValidation(userScript, c.conversationData ?? {});
+    const got = await runValidation(userScript, c.conversationData ?? {}, { fetchDir });
     const exp = c.expect || {};
     const problems = [];
 

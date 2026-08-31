@@ -10,22 +10,29 @@ Run them through the real sandbox and eyeball the findings (no assertions):
 npm run golden -- labeling-g/944-i18n-continuity-zh-cn
 ```
 
-## First-task verification (requirements §15 — blocking at deploy)
+## First-task verification (requirements §17 — answers recorded against task 1264318)
 
-Record an answer for each before trusting production output:
+1. **Per-side key shape** — ✅ CONFIRMED: `ALL DISCOVERED NAMESPACES` logs both model names and
+   they bind exactly (`compareModels.<model name>.<questionKey>`).
+2. **Batch/input root resolves** — ✅ CONFIRMED: axes bind from top-level `csv_data` on the runtime
+   shape (and `conversation.input` on the export shape).
+3. **Artifact fields hold one Drive file link** — ✅ CONFIRMED on ST tasks (6 links on 1264318);
+   re-confirm on the first MT task.
+4. **Multi-Turn branch** — ⏳ OPEN: no completed MT task existed in the sample; every MT check
+   (G-06..G-08, C-07..C-10) is structurally verified but behaviourally unproven. Replay one MT
+   task before trusting any MT finding.
+5. **Model-name bytes** — ✅ CONFIRMED, including `-->` and ` - Fast`. An exact-match miss skips
+   that side with a log; fix the identity table, never loosen the match.
+6. **Fetched debug is Gemini-native** — ✅ CONFIRMED: both sides' debug artifacts carry
+   `<ctrl99>user…<ctrl100>` blocks (1 each, matching `numberOfTurns=1`) and `Model ID:` lines
+   (`bard_paid_fast_uft90` / `pcontext_1p_paid_fast_prod_notebook_eval`).
+   The Takeout export proved to be a JSON array of activity records, NOT HTML — F-03 was split
+   accordingly (requirements v2.0.1).
+7. **Fetch stage fits the 30s timeout** — bounded by design (concurrent `Promise.allSettled`,
+   host-side per-fetch timeout; the isolate has no timers of its own) but unmeasured on a live
+   run — watch the first production run's timing log.
 
-1. **Per-side key shape** is `compareModels.<model name>.<questionKey>` — the run logs
-   `ALL DISCOVERED NAMESPACES` on every task; confirm Model A / Model B bind exactly.
-2. **Batch/input root resolves** — if not, §9 (B-01..B-07) self-skips with a loud log (expected,
-   but record it).
-3. **Artifact fields hold one Drive file link** — confirmed on ST tasks; re-confirm on the first MT task.
-4. **Multi-Turn branch** — no completed MT task existed in the sample; every MT check (G-06..G-08,
-   C-07..C-10) is structurally verified but behaviourally unproven. Replay one MT task before trusting
-   any MT finding.
-5. **Model-name bytes** — exactly as in requirements §1, including `-->` and ` - Fast`. An exact-match
-   miss skips that side with a log; fix the identity table, never loosen the match.
-
-## Regression cases (requirements §16 — re-run after any edit touching their checks)
+## Regression cases (requirements §18 — re-run after any edit touching their checks)
 
 | Task | Class | Check |
 |---|---|---|
@@ -33,3 +40,6 @@ Record an answer for each before trusting production output:
 | 1264308 | ST task, one side declares 2 turns | B-06 |
 | 1264311 | trailing newlines inside link fields — must **not** fire | U-05 non-fire |
 | *(needed)* | first completed Multi-Turn task | G-06..G-08, C-07..C-10 |
+| *(needed)* | a well-formed link whose share was revoked (fetch fails) | F-01 |
+| *(needed)* | a debug slot linking a file that fetches but isn't a Gemini debug capture | F-02 non-fire boundary |
+| *(needed)* | a side's fetched debug whose `<ctrl99>` block count disagrees with its declared `numberOfTurns` | F-05 |
