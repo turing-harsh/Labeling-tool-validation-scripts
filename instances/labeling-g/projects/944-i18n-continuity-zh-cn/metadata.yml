@@ -1,0 +1,85 @@
+# Project metadata — keep in sync with the live tool.
+instance: labeling-g
+slug: 944-i18n-continuity-zh-cn
+display_name: I18n Continuity Quality E2E Eval (zh-CN)
+task_type: model-comparison-personalization (i18n continuity, 2-side SxS)
+language: zh-CN
+owner: raghav.k1@turing.com
+tool_url: https://labeling-g.turing.com/projects/944/view/quality
+tool_project_id: 944
+status: draft                    # script authored (v1.0.0), not yet deployed to the tool
+
+deployed:
+  version: 0                     # bump to 1 after first paste into the tool
+  date:
+  by:
+  commit:
+
+script:
+  version: v1.0.2-i18n-continuity-zh-cn
+  generated: true                # validation.js is BUILT — do not hand-edit
+  build: node scripts/build-944.mjs
+  notes_v1_0_2: |
+    Rebuilt ON THE 917 ENGINE SKELETON (continuity-validator-917 v0.8, the production-verified
+    reference): single async function validate(conversationData) with ZERO top-level
+    statements, generated CFG tables inside the function, 917's shape-searched adapter
+    (v0.6/v0.7 fixes) verbatim-by-doctrine, 917's findings machinery and namespace-discovery
+    logging. 944's 56-check register unchanged. Deployable stays 7-bit ASCII (builder-escaped
+    and asserted) and passes the same new Function parse gate the tool runs at save time.
+    Verified: real task 1264318 (runtime shape) passes clean; 68 fixtures green.
+  notes_v1_0_1: |
+    Deploy-rejection + adapter fix (31 Aug 2026, task 1264318). First paste failed at save
+    time ("Unexpected identifier 'Validation' [<isolated-vm>]") — the deployable carried
+    literal non-ASCII (em dashes, curly quotes, zero-width chars in regex classes) that paste
+    layers can mangle; the builder now emits 7-bit ASCII (\uXXXX escapes, asserted) and the
+    injected FORM_SPEC is slimmed to labels + model names (79KB -> 58KB, no giant single
+    line). Separately, the real runtime payload nests answers at conversation_data.ratings
+    as an ARRAY of {key, question, human_input_value} with axes at top-level csv_data — the
+    v1.0.0 adapter accepted only the export object-map shape. Both roots now resolve by shape
+    search anchored on the form's key universe (the 917 v0.6/v0.7 doctrine) and log the path
+    found. Golden task 1264318 passes clean; runtime shape locked in fixtures.
+  composed_from:
+    - config/project-config-id-944.json   # form config export -> derives config/form-spec-944.json -> injected FORM_SPEC
+    - parts/i18n-continuity-checks.js      # deterministic Layer-L1 checks R/G/U/D/I/C/B
+  spec: requirements.md                    # 944 deterministic layer v1.0.0 — the generation contract
+
+shape: |
+  Two sides via compareModels SIDE_BY_SIDE_COMPARISON. Per-side keys arrive as
+  compareModels.<model name>.<questionKey> under conversation.ratings (object map key -> {value}).
+  Model A = "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+  Model B = "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+  97 config fields, 55 per side. Single Turn and Multi Turn on one form. Artifacts are Google
+  Drive links only. Batch/input axes (Task Type, First Model, Conversation Track, Model A/B,
+  Target Language, Dialect, ...) live at conversation.input; §9 self-skips loudly if absent.
+
+coverage: |
+  56 deterministic checks implemented and build-asserted (one per register ID):
+    R-01..R-09  completeness (blank required, declared-vs-filled, stale hidden slots)
+    G-01..G-13  gate cascades (required-when-shown + empty-when-hidden), transcribed from config displayConditions
+    U-01..U-07  artifact URL integrity (pasted debug/HTML, no link, multi-link, folder, host)
+    D-01        artifact identity (same Drive file id across slots)
+    I-01..I-03  namespace / ranking identity
+    C-01..C-16  coherence (cold-start gate cascade, satisfaction anchor C-11, English-thread exception C-06, MT ranking coherence)
+    B-01..B-07  assignment vs submission (batch axes)
+  Build discipline (§18): FORM_SPEC generated from the config export; zero phantom keys;
+  every register ID present exactly once; rebuild-twice hash diff. fixtures/cases.json carries
+  a smoke pass + adversarial fire + near-miss non-fire per check family.
+
+notes: |
+  Layer L1 only (deterministic, computable from bytes). Semantic questions (§10) belong to the
+  QD pack; unverifiable items (§11: turn caps, recency, filename convention, link resolution)
+  are out of scope by design — the payload carries Drive links, not fetched content, so content-
+  anchored debug checks from the predecessor engine were deliberately removed (§12) in favour of
+  §6 URL discipline and §7 Drive-id identity.
+
+  Highest-value false-block guard: C-06 (English-thread exception) WARNS rather than blocks and
+  is suppressed entirely when "Dominant threads language is English" is declared. Only C-10/C-11
+  and the assignment blocks fire at ERROR on satisfaction/severity; C-12..C-14 stay warnings (no
+  client sentence behind them — §8.1).
+
+  First-task verification (§15, blocking at deploy): confirm the per-side key shape
+  compareModels.<model name>.<qKey>, that the batch/input root resolves, and replay one completed
+  Multi-Turn task (no completed MT existed in the sample — every MT check is structurally verified
+  but behaviourally unproven). The run logs every discovered namespace on every task.
+
+  Local `npm test` runs 65 fixtures through the same sandbox the tool uses.
