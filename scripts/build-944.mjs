@@ -150,6 +150,11 @@ const HEADER = `// i18n-continuity-validator-944 -- I18n Continuity Quality E2E 
 //   R-01..R-09  G-01..G-13  U-01..U-07  D-01  F-01..F-05  I-01..I-03  C-01..C-16  B-01..B-07
 //
 // CHANGELOG:
+//   v2.0.3 -- F-05 false-block fix #2, from the FIRST completed Multi-Turn task (1264388):
+//     debug captures are CUMULATIVE (turn t replays turns 1..t), so summing markers across a
+//     side's files gives 1+2+...+declared, not declared -- both sides of a correct MT
+//     submission were blocked. F-05 now accepts either export shape (flat: 1 marker per file;
+//     cumulative: t markers in turn t) and fires only when the counts fit neither.
 //   v2.0.2 -- F-05 false-block fix (first production run): turn counting is anchored on the
 //     "<ctrl99>user" open marker (\\b, /i) instead of the strict "<ctrl99>user\\n...<ctrl100>"
 //     block, which counted 0 on captures whose role token is followed by CRLF / tags / escaped

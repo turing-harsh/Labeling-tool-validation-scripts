@@ -7,7 +7,7 @@ language: zh-CN
 owner: raghav.k1@turing.com
 tool_url: https://labeling-g.turing.com/projects/944/view/quality
 tool_project_id: 944
-status: ready-to-deploy          # requirements.md at v2.0.2; validation.js rebuilt off it, 77 fixtures + golden 1264318 green
+status: ready-to-deploy          # requirements.md at v2.0.3; validation.js rebuilt off it, 79 fixtures + golden 1264318/1264388 green
 
 deployed:
   version: 0                     # bump to 1 after first paste into the tool
@@ -16,9 +16,20 @@ deployed:
   commit:
 
 script:
-  version: 2.0.2
+  version: 2.0.3
   generated: true                # validation.js is BUILT — do not hand-edit
   build: node scripts/build-944.mjs
+  notes_v2_0_3: |
+    F-05 false-block fix #2, from the FIRST completed Multi-Turn task (1264388). Gemini debug
+    captures are CUMULATIVE: turn t's capture replays turns 1..t, so it carries t
+    "<ctrl99>user" markers. v2.0.2 summed markers across a side's files and compared the sum
+    to numberOfTurns -- Model A summed 1+2=3 against declared 2, Model B 1+2+3=6 against
+    declared 3, blocking both sides of a correct submission. F-05 now counts per file and
+    fires only when the counts fit NEITHER shape: flat (1 marker per file, sum == number of
+    fetched slots -- what every ST task looks like) nor cumulative (turn t carries t). The
+    flat sum compares against fetched slots, not declared, because debug slots cap at 5.
+    Closes requirements SS17 item 4 (Multi-Turn branch behaviourally proven). New fixtures:
+    DBG_CUMUL2 (F-05 non-fire) and a fits-neither fire case.
   notes_v2_0_2: |
     F-05 false-block fix from the FIRST PRODUCTION RUN: both sides blocked with "0 turns
     counted, 1 declared" though the fetched debug carried the markers (F-02 passed on the same
@@ -115,9 +126,9 @@ notes: |
   payload shape, batch axes at csv_data, one-Drive-link artifacts, exact model-name bytes,
   Gemini-native debug with <ctrl99> blocks + Model ID lines). Item 7 (fetch stage vs 30s) is
   bounded by design (concurrent fetches, host-side per-fetch timeout) but unmeasured on a live
-  run. Item 4 still open: no completed Multi-Turn task exists — every MT check is structurally
-  verified but behaviourally unproven; replay one MT task before trusting MT findings. The run
-  logs every discovered namespace on every task.
+  run. Item 4 is now CLOSED on task 1264388, the first completed Multi-Turn task (Model A 2 turns,
+  Model B 3 turns): it passes clean and, in doing so, exposed the v2.0.3 F-05 cumulative-debug
+  false block. The run logs every discovered namespace on every task.
 
-  Local `npm test` runs 77 fixtures through the same sandbox the tool uses (regenerate with
+  Local `npm test` runs 79 fixtures through the same sandbox the tool uses (regenerate with
   `node fixtures/gen-cases.mjs fixtures/cases.json` after editing gen-cases.mjs).

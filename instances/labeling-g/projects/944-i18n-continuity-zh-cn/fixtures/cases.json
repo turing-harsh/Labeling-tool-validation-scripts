@@ -6905,6 +6905,328 @@
     }
   },
   {
+    "name": "NEAR-MISS F-05: cumulative MT debug (turn 2 replays turn 1) does not fire",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Multi Turn"
+          },
+          "trackType": {
+            "value": "Track A"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "2"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_A1/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse2DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_CUMUL2/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).multiTurnSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1Continuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2Continuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
+            "value": [
+              "None"
+            ]
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
+            "value": [
+              "None"
+            ]
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
+            "value": "No issues logged"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
+            "value": "No issues logged"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
+            "value": "No issues logged"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "2"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse2DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.multiTurnSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1Continuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2Continuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContinuityErrorTypes": {
+            "value": [
+              "None"
+            ]
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContinuityErrorTypes": {
+            "value": [
+              "None"
+            ]
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirst": {
+            "value": "No issues logged"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecond": {
+            "value": "No issues logged"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThird": {
+            "value": "No issues logged"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errors": []
+    }
+  },
+  {
+    "name": "F-05 MT debug fits neither flat nor cumulative",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "p0CujCategory": {
+            "value": "Planning"
+          },
+          "targetLanguage": {
+            "value": "Chinese"
+          },
+          "dialect": {
+            "value": "Mainland (Simplified)"
+          },
+          "turnType": {
+            "value": "Multi Turn"
+          },
+          "trackType": {
+            "value": "Track A"
+          },
+          "numberOfThreadsAdded": {
+            "value": "1"
+          },
+          "topicConversationsHtml1": {
+            "value": "https://drive.google.com/file/d/THREAD1/view?usp=sharing"
+          },
+          "myGoal": {
+            "value": "goal en"
+          },
+          "keyContext": {
+            "value": "ctx en"
+          },
+          "targetLanguageVersion": {
+            "value": "goal zh"
+          },
+          "keyContextTargetLanguageVersion": {
+            "value": "ctx zh"
+          },
+          "languageNuance": {
+            "value": "nuance"
+          },
+          "prompt": {
+            "value": "the follow-up prompt"
+          },
+          "firstModel": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "geminiConversationHistory": {
+            "value": "https://drive.google.com/file/d/HIST1/view?usp=sharing"
+          },
+          "dominantThreadLanguageMatching": {
+            "value": [
+              "Dominant threads language matches target language"
+            ]
+          },
+          "qualityComparisonSxS": {
+            "value": "Conversation A was better"
+          },
+          "firstPlaceEnvironment": {
+            "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+          },
+          "secondPlaceEnvironment": {
+            "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+          },
+          "qualityComparisonSxSRationale": {
+            "value": "A stayed on context better than B."
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+            "value": "2"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_CUMUL2/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse2DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_A2/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).multiTurnSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1Continuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2Continuity": {
+            "value": "No Issue"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
+            "value": [
+              "None"
+            ]
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
+            "value": [
+              "None"
+            ]
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
+            "value": "No issues logged"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
+            "value": "No issues logged"
+          },
+          "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
+            "value": "No issues logged"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+            "value": "2"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse2DebugInfo": {
+            "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+            "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+            "value": "looked fine"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.multiTurnSatisfaction": {
+            "value": "Very satisfied"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1Continuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2Continuity": {
+            "value": "No Issue"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContinuityErrorTypes": {
+            "value": [
+              "None"
+            ]
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContinuityErrorTypes": {
+            "value": [
+              "None"
+            ]
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirst": {
+            "value": "No issues logged"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecond": {
+            "value": "No issues logged"
+          },
+          "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThird": {
+            "value": "No issues logged"
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "but this side declares"
+      ]
+    }
+  },
+  {
     "name": "NEAR-MISS F-family: clean base has no fetch findings",
     "conversationData": {
       "conversation": {

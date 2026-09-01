@@ -1,0 +1,11 @@
+LM Prefix: DBG_CUMUL2_prefix
+Model ID: model_DBG_CUMUL2
+num_turns_read_from_footprints: 2
+<ctrl99>user
+turn 1 text, replayed in the turn-2 capture<ctrl100>
+<ctrl99>model
+turn 1 response<ctrl100>
+<ctrl99>user
+turn 2 text<ctrl100>
+<ctrl99>model
+turn 2 response<ctrl100>

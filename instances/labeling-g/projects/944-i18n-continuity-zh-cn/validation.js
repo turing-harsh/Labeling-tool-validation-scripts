@@ -12,6 +12,11 @@
 //   R-01..R-09  G-01..G-13  U-01..U-07  D-01  F-01..F-05  I-01..I-03  C-01..C-16  B-01..B-07
 //
 // CHANGELOG:
+//   v2.0.3 -- F-05 false-block fix #2, from the FIRST completed Multi-Turn task (1264388):
+//     debug captures are CUMULATIVE (turn t replays turns 1..t), so summing markers across a
+//     side's files gives 1+2+...+declared, not declared -- both sides of a correct MT
+//     submission were blocked. F-05 now accepts either export shape (flat: 1 marker per file;
+//     cumulative: t markers in turn t) and fires only when the counts fit neither.
 //   v2.0.2 -- F-05 false-block fix (first production run): turn counting is anchored on the
 //     "<ctrl99>user" open marker (\b, /i) instead of the strict "<ctrl99>user\n...<ctrl100>"
 //     block, which counted 0 on captures whose role token is followed by CRLF / tags / escaped
@@ -62,7 +67,7 @@
 //   B-01 B-02 B-03 B-04 B-05 B-06 B-07
 
 async function validateI18nContinuityL1(conversationData) {
-  const VERSION = 'i18n-continuity-validator-944-L1-v2.0.2';
+  const VERSION = 'i18n-continuity-validator-944-L1-v2.0.3';
 
   // ===== GENERATED TABLES -- emitted from project-config-id-944.json =====
   // DO NOT HAND-EDIT. Rebuild with: node scripts/build-944.mjs
@@ -1000,7 +1005,7 @@ async function validateI18nContinuityL1(conversationData) {
 // CHECK IDS IMPLEMENTED: F-01 F-02 F-03 F-04 F-05
 
 async function validateFetchLayer(conversationData) {
-  const VERSION = 'i18n-continuity-validator-944-L2-v2.0.2';
+  const VERSION = 'i18n-continuity-validator-944-L2-v2.0.3';
   const errorsBefore = errors.length;
   const warningsBefore = warnings.length;
 
@@ -1455,8 +1460,23 @@ async function validateFetchLayer(conversationData) {
     const allOk = sideDebugResults.length === Math.min(declared, 5) && sideDebugResults.every((r) => r.ok);
     if (!allTurnsAttempted || !allOk) continue;
 
-    const totalBlocks = sideDebugResults.reduce((n, r) => n + countCtrl99(r.decoded), 0);
-    if (totalBlocks !== declared) {
+    // Two debug-export shapes are both legitimate, and v2.0.2's sum-across-files rule only
+    // matched one of them:
+    //   CUMULATIVE (observed on the FIRST completed MT task, 1264388) -- each turn's capture
+    //     carries the whole conversation so far, so turn t shows t "<ctrl99>user" markers and
+    //     the sum over turns is 1+2+...+declared, not declared. Model A summed 3 for declared=2
+    //     and Model B summed 6 for declared=3: a pure false block on correct captures.
+    //   FLAT -- each capture carries only its own turn (1 marker per file), so the sum is
+    //     declared. This is what v2.0.2 assumed and what every ST task (declared=1) looks like.
+    // Fire only when the counts fit NEITHER shape; that still catches captures exported for the
+    // wrong turns (e.g. 1/1/4) while never blocking a well-formed export of either kind.
+    const perTurn = sideDebugResults.map((r) => ({ turn: r.turn, count: countCtrl99(r.decoded) }));
+    const totalBlocks = perTurn.reduce((n, p) => n + p.count, 0);
+    const fitsCumulative = perTurn.every((p) => p.count === p.turn);
+    // Compare against the number of slots actually fetched, not `declared`: the form caps debug
+    // slots at 5, so a 6-turn side legitimately contributes 5 files under either shape.
+    const fitsFlat = totalBlocks === sideDebugResults.length;
+    if (!fitsCumulative && !fitsFlat) {
       // Self-diagnosing log: show the (escaped) bytes around the first marker of each file, so
       // a surprise format shows its true shape in the tool's run log instead of needing a
       // local repro. Logs are not rater-facing (requirements SS19).
@@ -1466,7 +1486,8 @@ async function validateFetchLayer(conversationData) {
         logs.push(`${VERSION}: F-05 diagnostic ${side.scope} turn ${r.turn}: userMarkers=${countCtrl99(r.decoded)}, firstMarkerAt=${i}, context=${ctx}`.slice(0, 900));
       }
       const anchor = sideDebugResults[sideDebugResults.length - 1];
-      err(side.scope, anchor.fieldKey, `the fetched debug shows ${totalBlocks} turn${totalBlocks === 1 ? '' : 's'} of model activity, but this side declares ${declared}.`, `confirm the debug captures were exported for the right turns, and that the turn count is correct.`, `counted ${totalBlocks} "<ctrl99>user" turn marker(s) across ${sideDebugResults.length} debug file(s); declared numberOfTurns=${declared}.`);
+      const observed = perTurn.reduce((m, p) => Math.max(m, p.count), 0);
+      err(side.scope, anchor.fieldKey, `the fetched debug shows ${observed} turn${observed === 1 ? '' : 's'} of model activity, but this side declares ${declared}.`, `confirm the debug captures were exported for the right turns, and that the turn count is correct.`, `"<ctrl99>user" turn marker(s) per debug file: ${perTurn.map((p) => `turn ${p.turn}=${p.count}`).join(', ')}; declared numberOfTurns=${declared}.`);
     }
   }
 

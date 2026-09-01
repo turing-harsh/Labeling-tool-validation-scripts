@@ -175,6 +175,14 @@ add("F-05 fetched debug turn count disagrees with declared", mut(stBase(), { [kA
 // false-blocked both sides while F-02 passed on the same bytes. Turn counting is now anchored
 // on the "<ctrl99>user" open marker alone; this near-miss locks that.
 add("NEAR-MISS F-05: CRLF line endings in debug still count 1 turn", mut(stBase(), { [kA("testResponse1DebugInfo")]: link("DBG_CRLF") }), { errors: [] });
+// First completed MT task (1264388, v2.0.3): debug captures are CUMULATIVE -- the turn-2 capture
+// replays turn 1, so turn t carries t "<ctrl99>user" markers and the sum over turns is
+// 1+2+...+declared. v2.0.2's sum-across-files rule blocked both sides of a correct submission.
+// F-05 now accepts the cumulative shape as well as the flat one (mtBase covers flat).
+add("NEAR-MISS F-05: cumulative MT debug (turn 2 replays turn 1) does not fire", mut(mtBase(), { [kA("testResponse2DebugInfo")]: link("DBG_CUMUL2") }), { errors: [] });
+// ...but a count that fits NEITHER shape still blocks: turn 1 carrying 2 markers is wrong under
+// both (flat wants 1, cumulative wants 1).
+add("F-05 MT debug fits neither flat nor cumulative", mut(mtBase(), { [kA("testResponse1DebugInfo")]: link("DBG_CUMUL2") }), { errorsContain: ["but this side declares"] });
 add("NEAR-MISS F-family: clean base has no fetch findings", stBase(), { errors: [] });
 
 // ===================== I — identity =====================

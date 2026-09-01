@@ -1,0 +1,904 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8684,
+      "batchName": "Batch - 1",
+      "projectId": 944,
+      "projectName": "I18n Continuity Quality E2E Eval (zh-CN)",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Context Relevance": "Direct Continuation",
+      "Context Relevance Definition": "[Same intent, full carryover of context]\nThe follow-up prompt either moves the existing topic forward or recaps it. All historical constraints, preferences, and entities remain 100% valid and must be applied",
+      "Context Relevance Examples": "Next Step: \"For my upcoming trip to Lisbon, are there any hotels with pools near the airport?\"\n\n\nState Retrieval / Recap: \"What’s the last version of the itinerary for the Vegas trip?\"\n\n\nProgress Check: \"Give me a quick summary of where we left off on the kitchen remodel plan.\"\n",
+      "Conversation Track": "Track A",
+      "Conversation Track Definition": "Directly jump into the previous topic starting in Turn 1.",
+      "Dialect": "Mainland (Simplified)",
+      "First Model": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1cLR_srTlEROlZkj0eSMEsLUpRwqEEBB9?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1M042rWpL5bIxKna93U5c5nNp1QxGv68X?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1A95R_Q9fwlnmOMvKXK0E-YRvis1TLUCU?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "Model A": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+      "Model A HTML NAME": "M1_D1_099",
+      "Model B": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast",
+      "Model B HTML NAME": "M2_D1_099",
+      "Prompt Explicitness": "Explicit Thread Anchoring",
+      "Prompt Explicitness Definition": "Directly call out the reference to a previous discussion, decision point, or agreement. The prompt contains structural markers like \"remember when we talked about X\"?",
+      "Prompt Explicitness Examples": "\"Remember when we talked about the kitchen remodel? Let's take the next step.\"\n\n\"My sister just told me she’s bringing her toddler to the dinner I told you about on Friday.\"\n",
+      "Target Language": "Chinese",
+      "Task Type": "Multi-Turn",
+      "Time Gap": "Super Short Term",
+      "Time Gap Definition": "Most recent conversation turn was within the past 24 hours",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Gemini Conversation History",
+        "Gemini Conversation History Instructions",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "Target Language",
+        "Dialect",
+        "First Model",
+        "Task Type",
+        "Conversation Track",
+        "Conversation Track Definition",
+        "Time Gap",
+        "Time Gap Definition",
+        "Context Relevance",
+        "Context Relevance Definition",
+        "Context Relevance Examples",
+        "Prompt Explicitness",
+        "Prompt Explicitness Definition",
+        "Prompt Explicitness Examples",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8684,
+        "batchName": "Batch - 1",
+        "projectId": 944,
+        "projectName": "WIP - I18n Continuity Quality E2E Eval (zh-CN)"
+      },
+      "modelConfig": {
+        "conversation_id": 1264388,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-09-01T05:43:08.101Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-09-01T14:14:10.873Z",
+          "locked": true
+        }
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+        "value": "Model A demonstrated strong continuity across both turns. It correctly recalled the Korean-food preference, VND 500,000-per-person budget, and need for a quiet setting suitable for discussing work. In Turn 2, it consistently selected Arirang from its previous recommendations and justified the choice using the established constraints."
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
+        "value": "No issues logged"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
+        "value": "No issues logged"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
+        "value": "No issues logged"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1ulJt_fwTywCbjRDnA5ciDq2SmmbmkWa0/view"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).multiTurnSatisfaction": {
+        "value": "Very satisfied"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).secondModelLock": {
+        "value": true
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1ZJP3A-1vGZXwwaxaY1uxplXfucwYj-d2/view"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1oyPsACQGTmK38wjPYdEKPSr-iiWMlbVu/view"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1Continuity": {
+        "value": "No Issue"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
+        "value": [
+          "None"
+        ]
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2Continuity": {
+        "value": "No Issue"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
+        "value": [
+          "None"
+        ]
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+        "value": "Model B failed to remember the previously established context in Turn 1. It treated the prompt as a new, isolated request, claimed that the cuisine, budget, and environment preferences were unavailable, and required the user to provide them again. Although it recovered and applied the constraints correctly after the reminder in Turn 2, its initial historical-context retrieval was unreliable."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirst": {
+        "value": "State, Entity, and Progress Tracking — Workflow Progress Amnesia (Repeated Steps)"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirstRationale": {
+        "value": "The model forgot that the cuisine, budget, and environment requirements had already been established, forcing the user to provide them again."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecond": {
+        "value": "Constraint & Expertise Adherence — Violates hard constraint / soft preference"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecondRationale": {
+        "value": "The model suggested non-Korean cuisines and price ranges exceeding the VND 500,000-per-person limit."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThird": {
+        "value": "Utility & Relevance — Omitted High-Utility Detail"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThirdRationale": {
+        "value": "The model failed to apply important historical requirements, including reliable food and service and a quiet setting suitable for discussing work."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1Sf0or8qfbohlk1DxF8s55ZwIMN4afMIU/view"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1TestResponse3DebugInfo": {
+        "value": "https://drive.google.com/file/d/1JwZAdZqeZP8iRWaW0DzLeCrpf85ANTBu/view"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.multiTurnSatisfaction": {
+        "value": "Very dissatisfied"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+        "value": "3"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/10Oj3TWesn8_rfZZhDTGO5soEAJQCHHZh/view"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/17zaTft5nfxUQvIDPP5imDw74S-BJh-EU/view"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContextSourceThreads": {
+        "value": "Thread 1, Turn 1: Jason, Ho Chi Minh City, and Friday after work.\nThread 1, Turn 2: Korean food, the budget, and quality requirements.\nThread 1, Turn 3: A quiet setting suitable for discussing wor"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1Continuity": {
+        "value": "Major Issue"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContinuityErrorTypes": {
+        "value": [
+          "Utility & Relevance — Boilerplate Response",
+          "Utility & Relevance — Omitted High-Utility Detail",
+          "Constraint & Expertise Adherence — Violates hard constraint / soft preference",
+          "State, Entity, and Progress Tracking — Workflow Progress Amnesia (Repeated Steps)",
+          "Granularity & Depth of Info — Shallow Topic Resolution",
+          "Granularity & Depth of Info — Loss of Variable Precision (Flattened Details)"
+        ]
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ExpectedContext": {
+        "value": "I expected the model to remember that Jason and I planned a Friday after-work Korean dinner in Ho Chi Minh City, with a maximum budget of VND 500,000 per person including food and drinks, reliable service, and a quiet setting for discussing work."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ModelCorrectionOutcome": {
+        "value": "Yes — it recovered"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2Continuity": {
+        "value": "No Issue"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContinuityErrorTypes": {
+        "value": [
+          "None"
+        ]
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn3Continuity": {
+        "value": "No Issue"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn3ContinuityErrorTypes": {
+        "value": [
+          "None"
+        ]
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "dialect": {
+        "value": "Mainland (Simplified)"
+      },
+      "dominantThreadLanguageMatching": {
+        "value": [
+          "Dominant threads language matches target language"
+        ]
+      },
+      "firstModel": {
+        "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+      },
+      "firstPlaceEnvironment": {
+        "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+      },
+      "geminiConversationHistory": {
+        "value": "https://drive.google.com/file/d/1-CSCPrzaHPkFe-9c8JVudareYpVNnJlU/view"
+      },
+      "keyContext": {
+        "value": "Dinner with Jason in Ho Chi Minh City on Friday after work (Thread 1, Turn 1).\nKorean food (Thread 1, Turn 2).\nMaximum budget: VND 500,000 per person, including food and drinks (Thread 1, Turn 2).\nReliable food and service (Thread 1, Turn 2).\nA quiet, uncrowded place suitable for discussing work (Thread 1, Turn 3)."
+      },
+      "keyContextTargetLanguageVersion": {
+        "value": "周五下班后和Jason在胡志明市吃晚饭（Thread 1, Turn 1）。\n已经决定吃韩国菜（Thread 1, Turn 2）。\n每人预算不超过50万越南盾，包括餐食和饮料（Thread 1, Turn 2）。\n菜品质量和服务需要稳定（Thread 1, Turn 2）。"
+      },
+      "languageNuance": {
+        "value": "No nuance found"
+      },
+      "myGoal": {
+        "value": "I want to choose the best Korean restaurant in Ho Chi Minh City for dinner with Jason after work on Friday. I want to compare two options that fit our budget and preference for a quiet place with reliable food and service.”"
+      },
+      "numberOfThreadsAdded": {
+        "value": "1"
+      },
+      "p0CujCategory": {
+        "value": "Recommendation"
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-09-01T08:29:19.687Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "关于我们之前讨论的我和Jason在胡志明市吃晚饭的安排，请根据我之前提到的饮食偏好、预算和环境要求，推荐两家最合适的餐厅，并比较它们各自的优缺点。"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A was much better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Model A performed better than Model B in maintaining continuity. Model A immediately retrieved and applied the established restaurant preferences in Turn 1 without requiring any repetition. In contrast, Model B failed to remember the previous context, treated the request as isolated, and required the user to restate all key constraints before recovering in Turn 2. Although Model B’s corrected response was detailed and relevant, Model A was clearly more reliable in historical-context retrieval and cross-turn consistency."
+      },
+      "secondPlaceEnvironment": {
+        "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "Chinese"
+      },
+      "targetLanguageVersion": {
+        "value": "我想为周五下班后和Jason在胡志明市的晚餐选择一家最合适的韩国餐厅。我希望比较两个符合预算、环境安静且菜品和服务稳定的选择，并选出更合适的一家。"
+      },
+      "topicConversationsHtml1": {
+        "value": "https://drive.google.com/file/d/1J1ahywuwC9u5OsmUDTaaQFTyDgM3doMX/view"
+      },
+      "trackType": {
+        "value": "Track A"
+      },
+      "turnType": {
+        "value": "Multi Turn"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8684,
+        "batchName": "Batch - 1",
+        "projectId": 944,
+        "projectName": "I18n Continuity Quality E2E Eval (zh-CN)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Context Relevance": "Direct Continuation",
+        "Context Relevance Definition": "[Same intent, full carryover of context]\nThe follow-up prompt either moves the existing topic forward or recaps it. All historical constraints, preferences, and entities remain 100% valid and must be applied",
+        "Context Relevance Examples": "Next Step: \"For my upcoming trip to Lisbon, are there any hotels with pools near the airport?\"\n\n\nState Retrieval / Recap: \"What’s the last version of the itinerary for the Vegas trip?\"\n\n\nProgress Check: \"Give me a quick summary of where we left off on the kitchen remodel plan.\"\n",
+        "Conversation Track": "Track A",
+        "Conversation Track Definition": "Directly jump into the previous topic starting in Turn 1.",
+        "Dialect": "Mainland (Simplified)",
+        "First Model": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1cLR_srTlEROlZkj0eSMEsLUpRwqEEBB9?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1M042rWpL5bIxKna93U5c5nNp1QxGv68X?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1A95R_Q9fwlnmOMvKXK0E-YRvis1TLUCU?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "Model A": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+        "Model A HTML NAME": "M1_D1_099",
+        "Model B": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast",
+        "Model B HTML NAME": "M2_D1_099",
+        "Prompt Explicitness": "Explicit Thread Anchoring",
+        "Prompt Explicitness Definition": "Directly call out the reference to a previous discussion, decision point, or agreement. The prompt contains structural markers like \"remember when we talked about X\"?",
+        "Prompt Explicitness Examples": "\"Remember when we talked about the kitchen remodel? Let's take the next step.\"\n\n\"My sister just told me she’s bringing her toddler to the dinner I told you about on Friday.\"\n",
+        "Target Language": "Chinese",
+        "Task Type": "Multi-Turn",
+        "Time Gap": "Super Short Term",
+        "Time Gap Definition": "Most recent conversation turn was within the past 24 hours",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "Target Language",
+          "Dialect",
+          "First Model",
+          "Task Type",
+          "Conversation Track",
+          "Conversation Track Definition",
+          "Time Gap",
+          "Time Gap Definition",
+          "Context Relevance",
+          "Context Relevance Definition",
+          "Context Relevance Examples",
+          "Prompt Explicitness",
+          "Prompt Explicitness Definition",
+          "Prompt Explicitness Examples",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8684,
+          "batchName": "Batch - 1",
+          "projectId": 944,
+          "projectName": "WIP - I18n Continuity Quality E2E Eval (zh-CN)"
+        },
+        "modelConfig": {
+          "conversation_id": 1264388,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T05:43:08.101Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T14:14:10.873Z",
+            "locked": true
+          }
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+          "value": "Model A demonstrated strong continuity across both turns. It correctly recalled the Korean-food preference, VND 500,000-per-person budget, and need for a quiet setting suitable for discussing work. In Turn 2, it consistently selected Arirang from its previous recommendations and justified the choice using the established constraints."
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1ulJt_fwTywCbjRDnA5ciDq2SmmbmkWa0/view"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).multiTurnSatisfaction": {
+          "value": "Very satisfied"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).secondModelLock": {
+          "value": true
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1ZJP3A-1vGZXwwaxaY1uxplXfucwYj-d2/view"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1oyPsACQGTmK38wjPYdEKPSr-iiWMlbVu/view"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+          "value": "Model B failed to remember the previously established context in Turn 1. It treated the prompt as a new, isolated request, claimed that the cuisine, budget, and environment preferences were unavailable, and required the user to provide them again. Although it recovered and applied the constraints correctly after the reminder in Turn 2, its initial historical-context retrieval was unreliable."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirst": {
+          "value": "State, Entity, and Progress Tracking — Workflow Progress Amnesia (Repeated Steps)"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirstRationale": {
+          "value": "The model forgot that the cuisine, budget, and environment requirements had already been established, forcing the user to provide them again."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecond": {
+          "value": "Constraint & Expertise Adherence — Violates hard constraint / soft preference"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecondRationale": {
+          "value": "The model suggested non-Korean cuisines and price ranges exceeding the VND 500,000-per-person limit."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThird": {
+          "value": "Utility & Relevance — Omitted High-Utility Detail"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThirdRationale": {
+          "value": "The model failed to apply important historical requirements, including reliable food and service and a quiet setting suitable for discussing work."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Sf0or8qfbohlk1DxF8s55ZwIMN4afMIU/view"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1JwZAdZqeZP8iRWaW0DzLeCrpf85ANTBu/view"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.multiTurnSatisfaction": {
+          "value": "Very dissatisfied"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+          "value": "3"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/10Oj3TWesn8_rfZZhDTGO5soEAJQCHHZh/view"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/17zaTft5nfxUQvIDPP5imDw74S-BJh-EU/view"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContextSourceThreads": {
+          "value": "Thread 1, Turn 1: Jason, Ho Chi Minh City, and Friday after work.\nThread 1, Turn 2: Korean food, the budget, and quality requirements.\nThread 1, Turn 3: A quiet setting suitable for discussing wor"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1Continuity": {
+          "value": "Major Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContinuityErrorTypes": {
+          "value": [
+            "Utility & Relevance — Boilerplate Response",
+            "Utility & Relevance — Omitted High-Utility Detail",
+            "Constraint & Expertise Adherence — Violates hard constraint / soft preference",
+            "State, Entity, and Progress Tracking — Workflow Progress Amnesia (Repeated Steps)",
+            "Granularity & Depth of Info — Shallow Topic Resolution",
+            "Granularity & Depth of Info — Loss of Variable Precision (Flattened Details)"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ExpectedContext": {
+          "value": "I expected the model to remember that Jason and I planned a Friday after-work Korean dinner in Ho Chi Minh City, with a maximum budget of VND 500,000 per person including food and drinks, reliable service, and a quiet setting for discussing work."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ModelCorrectionOutcome": {
+          "value": "Yes — it recovered"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn3Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn3ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "dialect": {
+          "value": "Mainland (Simplified)"
+        },
+        "dominantThreadLanguageMatching": {
+          "value": [
+            "Dominant threads language matches target language"
+          ]
+        },
+        "firstModel": {
+          "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+        },
+        "firstPlaceEnvironment": {
+          "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+        },
+        "geminiConversationHistory": {
+          "value": "https://drive.google.com/file/d/1-CSCPrzaHPkFe-9c8JVudareYpVNnJlU/view"
+        },
+        "keyContext": {
+          "value": "Dinner with Jason in Ho Chi Minh City on Friday after work (Thread 1, Turn 1).\nKorean food (Thread 1, Turn 2).\nMaximum budget: VND 500,000 per person, including food and drinks (Thread 1, Turn 2).\nReliable food and service (Thread 1, Turn 2).\nA quiet, uncrowded place suitable for discussing work (Thread 1, Turn 3)."
+        },
+        "keyContextTargetLanguageVersion": {
+          "value": "周五下班后和Jason在胡志明市吃晚饭（Thread 1, Turn 1）。\n已经决定吃韩国菜（Thread 1, Turn 2）。\n每人预算不超过50万越南盾，包括餐食和饮料（Thread 1, Turn 2）。\n菜品质量和服务需要稳定（Thread 1, Turn 2）。"
+        },
+        "languageNuance": {
+          "value": "No nuance found"
+        },
+        "myGoal": {
+          "value": "I want to choose the best Korean restaurant in Ho Chi Minh City for dinner with Jason after work on Friday. I want to compare two options that fit our budget and preference for a quiet place with reliable food and service.”"
+        },
+        "numberOfThreadsAdded": {
+          "value": "1"
+        },
+        "p0CujCategory": {
+          "value": "Recommendation"
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T08:29:19.687Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "关于我们之前讨论的我和Jason在胡志明市吃晚饭的安排，请根据我之前提到的饮食偏好、预算和环境要求，推荐两家最合适的餐厅，并比较它们各自的优缺点。"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was much better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model A performed better than Model B in maintaining continuity. Model A immediately retrieved and applied the established restaurant preferences in Turn 1 without requiring any repetition. In contrast, Model B failed to remember the previous context, treated the request as isolated, and required the user to restate all key constraints before recovering in Turn 2. Although Model B’s corrected response was detailed and relevant, Model A was clearly more reliable in historical-context retrieval and cross-turn consistency."
+        },
+        "secondPlaceEnvironment": {
+          "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "Chinese"
+        },
+        "targetLanguageVersion": {
+          "value": "我想为周五下班后和Jason在胡志明市的晚餐选择一家最合适的韩国餐厅。我希望比较两个符合预算、环境安静且菜品和服务稳定的选择，并选出更合适的一家。"
+        },
+        "topicConversationsHtml1": {
+          "value": "https://drive.google.com/file/d/1J1ahywuwC9u5OsmUDTaaQFTyDgM3doMX/view"
+        },
+        "trackType": {
+          "value": "Track A"
+        },
+        "turnType": {
+          "value": "Multi Turn"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8684,
+        "batchName": "Batch - 1",
+        "projectId": 944,
+        "projectName": "I18n Continuity Quality E2E Eval (zh-CN)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Context Relevance": "Direct Continuation",
+        "Context Relevance Definition": "[Same intent, full carryover of context]\nThe follow-up prompt either moves the existing topic forward or recaps it. All historical constraints, preferences, and entities remain 100% valid and must be applied",
+        "Context Relevance Examples": "Next Step: \"For my upcoming trip to Lisbon, are there any hotels with pools near the airport?\"\n\n\nState Retrieval / Recap: \"What’s the last version of the itinerary for the Vegas trip?\"\n\n\nProgress Check: \"Give me a quick summary of where we left off on the kitchen remodel plan.\"\n",
+        "Conversation Track": "Track A",
+        "Conversation Track Definition": "Directly jump into the previous topic starting in Turn 1.",
+        "Dialect": "Mainland (Simplified)",
+        "First Model": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1cLR_srTlEROlZkj0eSMEsLUpRwqEEBB9?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1M042rWpL5bIxKna93U5c5nNp1QxGv68X?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1A95R_Q9fwlnmOMvKXK0E-YRvis1TLUCU?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "Model A": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+        "Model A HTML NAME": "M1_D1_099",
+        "Model B": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast",
+        "Model B HTML NAME": "M2_D1_099",
+        "Prompt Explicitness": "Explicit Thread Anchoring",
+        "Prompt Explicitness Definition": "Directly call out the reference to a previous discussion, decision point, or agreement. The prompt contains structural markers like \"remember when we talked about X\"?",
+        "Prompt Explicitness Examples": "\"Remember when we talked about the kitchen remodel? Let's take the next step.\"\n\n\"My sister just told me she’s bringing her toddler to the dinner I told you about on Friday.\"\n",
+        "Target Language": "Chinese",
+        "Task Type": "Multi-Turn",
+        "Time Gap": "Super Short Term",
+        "Time Gap Definition": "Most recent conversation turn was within the past 24 hours",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "Target Language",
+          "Dialect",
+          "First Model",
+          "Task Type",
+          "Conversation Track",
+          "Conversation Track Definition",
+          "Time Gap",
+          "Time Gap Definition",
+          "Context Relevance",
+          "Context Relevance Definition",
+          "Context Relevance Examples",
+          "Prompt Explicitness",
+          "Prompt Explicitness Definition",
+          "Prompt Explicitness Examples",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8684,
+          "batchName": "Batch - 1",
+          "projectId": 944,
+          "projectName": "WIP - I18n Continuity Quality E2E Eval (zh-CN)"
+        },
+        "modelConfig": {
+          "conversation_id": 1264388,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T05:43:08.101Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T14:14:10.873Z",
+            "locked": true
+          }
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+          "value": "Model A demonstrated strong continuity across both turns. It correctly recalled the Korean-food preference, VND 500,000-per-person budget, and need for a quiet setting suitable for discussing work. In Turn 2, it consistently selected Arirang from its previous recommendations and justified the choice using the established constraints."
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1ulJt_fwTywCbjRDnA5ciDq2SmmbmkWa0/view"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).multiTurnSatisfaction": {
+          "value": "Very satisfied"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).secondModelLock": {
+          "value": true
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1ZJP3A-1vGZXwwaxaY1uxplXfucwYj-d2/view"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1oyPsACQGTmK38wjPYdEKPSr-iiWMlbVu/view"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+          "value": "Model B failed to remember the previously established context in Turn 1. It treated the prompt as a new, isolated request, claimed that the cuisine, budget, and environment preferences were unavailable, and required the user to provide them again. Although it recovered and applied the constraints correctly after the reminder in Turn 2, its initial historical-context retrieval was unreliable."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirst": {
+          "value": "State, Entity, and Progress Tracking — Workflow Progress Amnesia (Repeated Steps)"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirstRationale": {
+          "value": "The model forgot that the cuisine, budget, and environment requirements had already been established, forcing the user to provide them again."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecond": {
+          "value": "Constraint & Expertise Adherence — Violates hard constraint / soft preference"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecondRationale": {
+          "value": "The model suggested non-Korean cuisines and price ranges exceeding the VND 500,000-per-person limit."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThird": {
+          "value": "Utility & Relevance — Omitted High-Utility Detail"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThirdRationale": {
+          "value": "The model failed to apply important historical requirements, including reliable food and service and a quiet setting suitable for discussing work."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Sf0or8qfbohlk1DxF8s55ZwIMN4afMIU/view"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1TestResponse3DebugInfo": {
+          "value": "https://drive.google.com/file/d/1JwZAdZqeZP8iRWaW0DzLeCrpf85ANTBu/view"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.multiTurnSatisfaction": {
+          "value": "Very dissatisfied"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+          "value": "3"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/10Oj3TWesn8_rfZZhDTGO5soEAJQCHHZh/view"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/17zaTft5nfxUQvIDPP5imDw74S-BJh-EU/view"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContextSourceThreads": {
+          "value": "Thread 1, Turn 1: Jason, Ho Chi Minh City, and Friday after work.\nThread 1, Turn 2: Korean food, the budget, and quality requirements.\nThread 1, Turn 3: A quiet setting suitable for discussing wor"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1Continuity": {
+          "value": "Major Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContinuityErrorTypes": {
+          "value": [
+            "Utility & Relevance — Boilerplate Response",
+            "Utility & Relevance — Omitted High-Utility Detail",
+            "Constraint & Expertise Adherence — Violates hard constraint / soft preference",
+            "State, Entity, and Progress Tracking — Workflow Progress Amnesia (Repeated Steps)",
+            "Granularity & Depth of Info — Shallow Topic Resolution",
+            "Granularity & Depth of Info — Loss of Variable Precision (Flattened Details)"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ExpectedContext": {
+          "value": "I expected the model to remember that Jason and I planned a Friday after-work Korean dinner in Ho Chi Minh City, with a maximum budget of VND 500,000 per person including food and drinks, reliable service, and a quiet setting for discussing work."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ModelCorrectionOutcome": {
+          "value": "Yes — it recovered"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn3Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn3ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "dialect": {
+          "value": "Mainland (Simplified)"
+        },
+        "dominantThreadLanguageMatching": {
+          "value": [
+            "Dominant threads language matches target language"
+          ]
+        },
+        "firstModel": {
+          "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+        },
+        "firstPlaceEnvironment": {
+          "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+        },
+        "geminiConversationHistory": {
+          "value": "https://drive.google.com/file/d/1-CSCPrzaHPkFe-9c8JVudareYpVNnJlU/view"
+        },
+        "keyContext": {
+          "value": "Dinner with Jason in Ho Chi Minh City on Friday after work (Thread 1, Turn 1).\nKorean food (Thread 1, Turn 2).\nMaximum budget: VND 500,000 per person, including food and drinks (Thread 1, Turn 2).\nReliable food and service (Thread 1, Turn 2).\nA quiet, uncrowded place suitable for discussing work (Thread 1, Turn 3)."
+        },
+        "keyContextTargetLanguageVersion": {
+          "value": "周五下班后和Jason在胡志明市吃晚饭（Thread 1, Turn 1）。\n已经决定吃韩国菜（Thread 1, Turn 2）。\n每人预算不超过50万越南盾，包括餐食和饮料（Thread 1, Turn 2）。\n菜品质量和服务需要稳定（Thread 1, Turn 2）。"
+        },
+        "languageNuance": {
+          "value": "No nuance found"
+        },
+        "myGoal": {
+          "value": "I want to choose the best Korean restaurant in Ho Chi Minh City for dinner with Jason after work on Friday. I want to compare two options that fit our budget and preference for a quiet place with reliable food and service.”"
+        },
+        "numberOfThreadsAdded": {
+          "value": "1"
+        },
+        "p0CujCategory": {
+          "value": "Recommendation"
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T08:29:19.687Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "关于我们之前讨论的我和Jason在胡志明市吃晚饭的安排，请根据我之前提到的饮食偏好、预算和环境要求，推荐两家最合适的餐厅，并比较它们各自的优缺点。"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was much better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model A performed better than Model B in maintaining continuity. Model A immediately retrieved and applied the established restaurant preferences in Turn 1 without requiring any repetition. In contrast, Model B failed to remember the previous context, treated the request as isolated, and required the user to restate all key constraints before recovering in Turn 2. Although Model B’s corrected response was detailed and relevant, Model A was clearly more reliable in historical-context retrieval and cross-turn consistency."
+        },
+        "secondPlaceEnvironment": {
+          "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "Chinese"
+        },
+        "targetLanguageVersion": {
+          "value": "我想为周五下班后和Jason在胡志明市的晚餐选择一家最合适的韩国餐厅。我希望比较两个符合预算、环境安静且菜品和服务稳定的选择，并选出更合适的一家。"
+        },
+        "topicConversationsHtml1": {
+          "value": "https://drive.google.com/file/d/1J1ahywuwC9u5OsmUDTaaQFTyDgM3doMX/view"
+        },
+        "trackType": {
+          "value": "Track A"
+        },
+        "turnType": {
+          "value": "Multi Turn"
+        }
+      }
+    }
+  }
+}
