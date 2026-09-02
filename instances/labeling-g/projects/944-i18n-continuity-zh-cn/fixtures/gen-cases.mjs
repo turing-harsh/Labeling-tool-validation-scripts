@@ -167,7 +167,10 @@ add("D-01 same drive file in two slots", mut(stBase(), { [kA("model1HtmlFileUplo
 add("F-01 debug link does not resolve", mut(stBase(), { [kA("testResponse1DebugInfo")]: link("NOFETCH1") }), { errorsContain: ["could not be retrieved"] });
 add("F-02 debug link points at a non-debug file", mut(stBase(), { [kA("testResponse1DebugInfo")]: link("HTML_A") }), { errorsContain: ["does not look like a debug capture"] });
 add("F-03 html-upload link points at a non-HTML file", mut(stBase(), { [kA("model1HtmlFileUpload")]: link("DBG_A1") }), { errorsContain: ["does not look like a saved conversation page"] });
-add("F-03 takeout link points at a non-Takeout file", mut(stBase(), { geminiConversationHistory: link("HTML_A") }), { errorsContain: ["does not look like a Gemini Takeout export"] });
+// v2.0.4: geminiConversationHistory is no longer fetched (unbounded Takeout size blew the
+// isolate's 256MB cap on task 1264206). NOTAKEOUT1 has no artifact mock, so it would raise F-01
+// if anything still fetched it -- a clean error list proves the field is skipped.
+add("NEAR-MISS v2.0.4: takeout link is not fetched at all", mut(stBase(), { geminiConversationHistory: link("NOTAKEOUT1") }), { errors: [] });
 add("F-04 different ids, byte-identical content (warn)", mut(stBase(), { [kB("model1HtmlFileUpload")]: link("HTML_A_COPY") }), { warningsContain: ["identical to"] });
 add("F-05 fetched debug turn count disagrees with declared", mut(stBase(), { [kA("testResponse1DebugInfo")]: link("DBG_TOOMANY") }), { errorsContain: ["but this side declares"] });
 // Production incident (v2.0.2): a Windows-saved capture separates "<ctrl99>user" from the turn

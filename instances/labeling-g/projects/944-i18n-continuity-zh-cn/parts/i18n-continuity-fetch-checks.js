@@ -24,7 +24,7 @@
 // CHECK IDS IMPLEMENTED: F-01 F-02 F-03 F-04 F-05
 
 async function validateFetchLayer(conversationData) {
-  const VERSION = 'i18n-continuity-validator-944-L2-v2.0.3';
+  const VERSION = 'i18n-continuity-validator-944-L2-v2.0.4';
   const errorsBefore = errors.length;
   const warningsBefore = warnings.length;
 
@@ -152,11 +152,9 @@ async function validateFetchLayer(conversationData) {
   const isFetchableDriveUrl = (u) => /https?:\/\/(www\.)?drive\.google\.com\/(file\/d\/|open\?id=)/i.test(u);
 
   // ===== candidate artifact fields =====
-  // family 'takeout' is distinct from 'html': the real golden sample (task 1264318,
-  // geminiConversationHistory) confirms a Google Takeout export is a JSON array of activity
-  // records ({header,title,products,activityControls,safeHtmlItem,...}), NOT an HTML page --
-  // requirements §17 item 6 assumption confirmed/corrected on receipt of real sample data.
-  const candidates = []; // { scopeLabel, fieldKey, family: 'debug'|'html'|'takeout', url, turn? }
+  // Two families remain after v2.0.4: 'debug' (text retained -- F-02, F-05) and 'html'
+  // (prefix + fingerprint only -- F-03, F-04). The 'takeout' family is gone; see below.
+  const candidates = []; // { scopeLabel, fieldKey, family: 'debug'|'html', url, turn? }
   const addCandidate = (scopeLabel, fieldKey, family, raw, extra) => {
     const u = extractCleanUrl(raw);
     if (!u) return;
@@ -167,7 +165,14 @@ async function validateFetchLayer(conversationData) {
     candidates.push({ scopeLabel, fieldKey, family, url: u, ...(extra || {}) });
   };
   for (let k = 1; k <= 10; k++) addCandidate('Task', threadSlot(k), 'html', byKey[threadSlot(k)]);
-  addCandidate('Task', 'geminiConversationHistory', 'takeout', byKey['geminiConversationHistory']);
+  // geminiConversationHistory is deliberately NOT fetched (v2.0.4, requirements §8). A Takeout
+  // export is the one artifact class with no size ceiling -- 0.67MB on task 1264318, 1.20MB on
+  // 1264388, 18.20MB on 1264206 -- and the host fetcher JSON.parses it before handing it over,
+  // so the object graph alone can blow the isolate's 256MB cap before a single check runs. On
+  // 1264206 that killed the whole script ("Promise was abandoned": isolated-vm disposes the
+  // isolate on the memory limit, which rejects the pending fetch promise). The link-shape
+  // checks (§6/§7: U-family, D-01) still cover this field; F-03's takeout half is withdrawn.
+  if (extractCleanUrl(byKey['geminiConversationHistory'])) logs.push(`${VERSION}: geminiConversationHistory is not fetched by design (unbounded Takeout size, §8); link-shape checks still apply.`);
   for (const side of presentSides) {
     addCandidate(side.scope, side.keyOf('model1HtmlFileUpload'), 'html', side.get('model1HtmlFileUpload'));
     for (let k = 0; k < DEBUG_SLOTS.length; k++) {
@@ -185,8 +190,9 @@ async function validateFetchLayer(conversationData) {
       const c = await fetchDataFromDriveLink(url);
       if (typeof c === 'string' && c.trim().length > 0) return { ok: true, content: c };
       if (c !== null && c !== undefined && typeof c !== 'string') {
-        // The host fetcher JSON.parses the bytes and hands over the parsed value when the
-        // file is JSON (e.g. a Takeout export) -- re-serialise so content checks see text.
+        // The host fetcher JSON.parses the bytes and hands over the parsed value when a file
+        // is JSON -- re-serialise so content checks see text. Since v2.0.4 no candidate is
+        // expected to be JSON (the Takeout field is no longer fetched); this is a fallback.
         return { ok: true, content: JSON.stringify(c) };
       }
       return { ok: false, reason: 'empty read' };
@@ -194,9 +200,15 @@ async function validateFetchLayer(conversationData) {
       return { ok: false, reason: (e && e.message) ? e.message : String(e) };
     }
   };
+  // The retry is deadline-gated (v2.0.4): a dead link burns a full host timeout, and on a task
+  // with many slots the second round can push the script past the 30s budget -- which surfaces
+  // as "Promise was abandoned", not as a finding. Past the gate, report the first failure.
+  const RETRY_DEADLINE_MS = 12000;
+  const tStart = Date.now();
   const fetchWithRetry = async (url) => {
     const first = await attemptOnce(url);
     if (first.ok) return first;
+    if (Date.now() - tStart > RETRY_DEADLINE_MS) return { ok: false, reason: `${first.reason} (no retry: fetch budget spent)` };
     const second = await attemptOnce(url); // one retry on an empty/failed read (requirements §8)
     return second.ok ? second : { ok: false, reason: `${second.reason} (after one retry)` };
   };
@@ -216,7 +228,24 @@ async function validateFetchLayer(conversationData) {
     if (HTML_HEAD_RE.test(raw.slice(0, 400)) || /&lt;ctrl99&gt;/.test(raw)) return decodeEntities(stripTags(raw));
     return raw;
   };
-  const normalizeForCompare = (raw) => normalizeText(decodeIfHtmlShaped(raw)).toLowerCase();
+  // ===== memory discipline (v2.0.4) =====
+  // The isolate is capped at 256MB and a task's artifacts can be tens of MB (task 1264206:
+  // 38.3MB over 9 files, four HTML uploads of 4.6-5.5MB each). v2.0.3 retained THREE full
+  // copies of every artifact -- content, decoded, normalized -- and JS strings are UTF-16, so
+  // the retained set alone was ~2x the fetched bytes per copy. Peak RSS on 1264206 measured
+  // 849MB; the isolate died and every pending promise rejected as "Promise was abandoned".
+  //
+  // Only the debug family needs its text kept (F-05 counts turn markers in it, and those files
+  // are small -- 68-175KB on 1264206). For html, the checks need a bounded prefix (F-03 tests
+  // the leading bytes for page markers) and an identity fingerprint (F-04), never the bytes
+  // themselves. So each result is reduced to {prefix, len, hash} and the full string is
+  // dropped, letting the fetched bytes be collected as the loop advances.
+  const PREFIX_CHARS = 4096;
+  // djb2/xor over the raw content: one pass, no intermediate strings. F-04 identity is now
+  // raw-byte identity (length + hash) rather than post-normalisation identity -- narrower, and
+  // arguably more faithful to what F-04 asks ("is this a re-uploaded copy of the same file?").
+  const hashOf = (s) => { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0; return h.toString(36); };
+  const fingerprint = (s) => `${s.length}:${hashOf(s)}`;
 
   const DEBUG_MARKERS = ['<ctrl99>', 'Model ID:', 'LM Prefix', 'num_turns_read_from_footprints'];
   const HTML_MARKERS = ['<!doctype', '<html', '<head', '<body'];
@@ -224,39 +253,24 @@ async function validateFetchLayer(conversationData) {
   // activity records, not an HTML page -- keys observed: header/title/time/products/details/
   // activityControls/safeHtmlItem. Some records may omit a field, so require >=2 of these keys
   // on a majority of the sampled records rather than an exact key set.
-  const TAKEOUT_KEYS = ['header', 'title', 'products', 'activityControls', 'safeHtmlItem'];
-  const looksLikeTakeoutJson = (raw) => {
-    let parsed;
-    try { parsed = JSON.parse(raw); } catch (e) { return false; }
-    const arr = Array.isArray(parsed) ? parsed
-      : (parsed && typeof parsed === 'object' ? Object.values(parsed).find((v) => Array.isArray(v) && v.length > 0) : null);
-    if (!Array.isArray(arr) || arr.length === 0) return false;
-    const sample = arr.slice(0, 5).filter((e) => e && typeof e === 'object');
-    if (sample.length === 0) return false;
-    return sample.every((e) => TAKEOUT_KEYS.filter((k) => k in e).length >= 2);
-  };
-
-  const results = []; // { ...candidate, ok, content, decoded, normalized }
+  const results = []; // { ...candidate, ok, decoded (debug only), fp, id }
   for (let i = 0; i < candidates.length; i++) {
     const c = candidates[i];
     const r = settled[i].status === 'fulfilled' ? settled[i].value : { ok: false, reason: settled[i].reason ? String(settled[i].reason) : 'rejected' };
+    // Release this slot's reference to the fetched bytes as soon as it is in hand, so an
+    // already-checked multi-MB artifact can be collected while the loop is still running.
+    settled[i] = null;
     if (!r.ok) {
       err(c.scopeLabel, c.fieldKey, `the linked file could not be retrieved.`, `confirm the file is shared and the link still resolves, then re-paste it if needed.`, `${r.reason || 'fetch failed'}; link: ${c.url}`);
       results.push({ ...c, ok: false });
       continue;
     }
-    if (c.family === 'takeout') {
-      if (!looksLikeTakeoutJson(r.content)) {
-        err(c.scopeLabel, c.fieldKey, `the linked file does not look like a Gemini Takeout export.`, `confirm this is the right file -- it should be the Takeout JSON archive for this conversation, not some other export.`, `link: ${c.url}`);
-        results.push({ ...c, ok: false });
-        continue;
-      }
-      results.push({ ...c, ok: true, content: r.content, decoded: r.content, normalized: normalizeForCompare(r.content), id: driveId(c.url) });
-      continue;
-    }
+    const fp = fingerprint(r.content);
     if (c.family === 'debug') {
       // Decode BEFORE the marker check: an HTML/Doc export of the debug text hides the
       // literal <ctrl99> markers inside tags until stripped (requirements §8).
+      // Debug captures are the one family whose full text is retained -- F-05 counts turn
+      // markers across all of it, and these files are small (68-175KB on task 1264206).
       const decoded = decodeIfHtmlShaped(r.content);
       const hasMarker = DEBUG_MARKERS.some((mk) => decoded.toLowerCase().includes(mk.toLowerCase()));
       if (!hasMarker) {
@@ -264,20 +278,24 @@ async function validateFetchLayer(conversationData) {
         results.push({ ...c, ok: false });
         continue;
       }
-      results.push({ ...c, ok: true, content: r.content, decoded, normalized: normalizeForCompare(r.content), id: driveId(c.url) });
+      results.push({ ...c, ok: true, decoded, fp, id: driveId(c.url) });
       continue;
     }
-    // family === 'html': check the RAW bytes for tag markers -- do NOT strip tags first,
-    // that would remove the very markers being looked for.
+    // family === 'html': check the RAW bytes for tag markers -- do NOT strip tags first, that
+    // would remove the very markers being looked for. Scan a bounded prefix, not the whole
+    // page: a saved conversation page runs to megabytes and lowercasing it whole allocates a
+    // second copy of it for no added signal -- every marker sought is in the document head.
     {
-      const hasMarker = HTML_MARKERS.some((mk) => r.content.toLowerCase().includes(mk));
+      const head = r.content.slice(0, PREFIX_CHARS).toLowerCase();
+      const hasMarker = HTML_MARKERS.some((mk) => head.includes(mk));
       if (!hasMarker) {
         err(c.scopeLabel, c.fieldKey, `the linked file does not look like a saved conversation page.`, `confirm this is the right file -- it should be the saved HTML page, not some other export.`, `link: ${c.url}`);
         results.push({ ...c, ok: false });
         continue;
       }
     }
-    results.push({ ...c, ok: true, content: r.content, decoded: r.content, normalized: normalizeForCompare(r.content), id: driveId(c.url) });
+    // No text retained for html: F-04 needs identity, which the fingerprint carries.
+    results.push({ ...c, ok: true, fp, id: driveId(c.url) });
   }
 
   // ===== F-04: different Drive ids, byte-identical (post-normalisation) content -- warn =====
@@ -285,8 +303,8 @@ async function validateFetchLayer(conversationData) {
     const byContent = new Map();
     for (const r of results) {
       if (!r.ok) continue;
-      if (!byContent.has(r.normalized)) byContent.set(r.normalized, []);
-      byContent.get(r.normalized).push(r);
+      if (!byContent.has(r.fp)) byContent.set(r.fp, []);
+      byContent.get(r.fp).push(r);
     }
     for (const [, group] of byContent) {
       const distinctIds = [...new Set(group.map((g) => g.id))];

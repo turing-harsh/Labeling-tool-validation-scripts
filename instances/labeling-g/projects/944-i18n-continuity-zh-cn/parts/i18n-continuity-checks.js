@@ -27,7 +27,7 @@
 //   B-01 B-02 B-03 B-04 B-05 B-06 B-07
 
 async function validateI18nContinuityL1(conversationData) {
-  const VERSION = 'i18n-continuity-validator-944-L1-v2.0.3';
+  const VERSION = 'i18n-continuity-validator-944-L1-v2.0.4';
 
   // ===== GENERATED TABLES -- emitted from project-config-id-944.json =====
   // DO NOT HAND-EDIT. Rebuild with: node scripts/build-944.mjs

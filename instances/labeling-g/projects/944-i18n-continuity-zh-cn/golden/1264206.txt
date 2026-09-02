@@ -1,0 +1,913 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8682,
+      "batchName": "Batch - 1",
+      "projectId": 943,
+      "projectName": "I18n Continuity Quality E2E Eval (es-419)",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Context Relevance": "Direct Continuation",
+      "Context Relevance Definition": "[Same intent, full carryover of context]\nThe follow-up prompt either moves the existing topic forward or recaps it. All historical constraints, preferences, and entities remain 100% valid and must be applied",
+      "Context Relevance Examples": "Next Step: \"For my upcoming trip to Lisbon, are there any hotels with pools near the airport?\"\n\n\nState Retrieval / Recap: \"What’s the last version of the itinerary for the Vegas trip?\"\n\n\nProgress Check: \"Give me a quick summary of where we left off on the kitchen remodel plan.\"\n",
+      "Conversation Track": "Track A",
+      "Conversation Track Definition": "Directly jump into the previous topic starting in Turn 1.",
+      "Dialect": "\n \t\nLatAm (All Variants)",
+      "First Model": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1aIgNK6-rCoM3QQHk9pQHymiWd0nz3THd?usp=sharing",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1u7UUpJ4TkeAGt_s81Ywt3ToRmgRXAJ2b?usp=sharing",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1t71N1935g5fXmFbZ08rP1zmrj7369Tvy?usp=sharing",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "Model A": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+      "Model A HTML NAME": "M1_D1_091",
+      "Model B": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast",
+      "Model B HTML NAME": "M2_D1_091",
+      "Prompt Explicitness": "Explicit Thread Anchoring",
+      "Prompt Explicitness Definition": "Directly call out the reference to a previous discussion, decision point, or agreement. The prompt contains structural markers like \"remember when we talked about X\"?",
+      "Prompt Explicitness Examples": "\"Remember when we talked about the kitchen remodel? Let's take the next step.\"\n\n\"My sister just told me she’s bringing her toddler to the dinner I told you about on Friday.\"\n",
+      "Target Language": "Spanish",
+      "Task Type": "Multi-Turn",
+      "Time Gap": "Super Short Term",
+      "Time Gap Definition": "Most recent conversation turn was within the past 24 hours",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Gemini Conversation History",
+        "Gemini Conversation History Instructions",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "Target Language",
+        "Dialect",
+        "First Model",
+        "Task Type",
+        "Conversation Track",
+        "Conversation Track Definition",
+        "Time Gap",
+        "Time Gap Definition",
+        "Context Relevance",
+        "Context Relevance Definition",
+        "Context Relevance Examples",
+        "Prompt Explicitness",
+        "Prompt Explicitness Definition",
+        "Prompt Explicitness Examples",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8682,
+        "batchName": "Batch - 1",
+        "projectId": 943,
+        "projectName": "WIP - I18n Continuity Quality E2E Eval (es-419)"
+      },
+      "modelConfig": {
+        "conversation_id": 1264206,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-09-01T12:40:49.641Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-09-01T14:23:37.252Z",
+          "locked": true
+        }
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+        "value": "My reasoning is that Model A delivered exactly what I needed across both turns without me having to repeat myself. In Turn 1, it flawlessly retrieved and applied everything we discussed across both threads. It structured a comprehensive 12-month plan with the correct quarterly phases, incorporated the six pillars of longevity, included the specific biomarker targets, referenced the cost-effective monitoring technologies, and built the plan around the prioritization framework we established. The response was practical, detailed, and directly tailored to my goal of improving health and longevity. In Turn 2, when I asked about ejercicios de fuerza, it provided a complete, structured strength training routine that aligned perfectly with the Q1 plan it had just outlined"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
+        "value": "No issues logged"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
+        "value": "No issues logged"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
+        "value": "No issues logged"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1CGxt0EqJfXxkv8wxu6qRmBLFtqcdUWPV/view?usp=drive_link"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).multiTurnSatisfaction": {
+        "value": "Very satisfied"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).secondModelLock": {
+        "value": true
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1gZxVJ3DrEE4_j3F3gpsNdMKi6VmSQC7C/view?usp=drive_link"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1g-DwZGA91xqeqlgr2R7zC5oI36eki-CN/view?usp=drive_link"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1Continuity": {
+        "value": "No Issue"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
+        "value": [
+          "None"
+        ]
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2Continuity": {
+        "value": "No Issue"
+      },
+      "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
+        "value": [
+          "None"
+        ]
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+        "value": "My reasoning is that Model B failed catastrophically in both turns. In Turn 1, despite my explicit prompt anchoring the conversation to our previous medical discussions with \"Recuerda que hemos estado hablando sobre medicina,\" the model gave me a generic, boilerplate 12-month longevity plan that showed no evidence of having retrieved any of the specific context we had established. It mentioned none of the six pillars of longevity, none of the specific biomarker targets, none of the prioritization framework for limited resources, and none of the quarterly structure we had discussed. The response felt like a copy-paste from a generic wellness protocol, not a personalized plan based on our conversations."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirst": {
+        "value": "State, Entity, and Progress Tracking — Entity Awareness Loss"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirstRationale": {
+        "value": "This is the most detrimental failure because the model explicitly denied the existence of our extensive medical and longevity discussions. When I asked \"¿Recuerdas de qué hablamos?\" it claimed \"No hay registro previo en el historial de conversaciones directas sobre consultas médicas clínicas o de salud personal,\" completely ignoring Threads 1 and 2 which were entirely about medical advances, preventive health, biomarkers, and longevity strategies. This made the assistant feel not just forgetful but fundamentally disconnected from our entire shared history. The denial of context is worse than omission because it actively undermines trust and suggests the model has no awareness of our previous interactions at all."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecond": {
+        "value": "Utility & Relevance — Omitted High-Utility Detail"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecondRationale": {
+        "value": "In Turn 1, the model omitted every single high-utility detail that would have made the response personalized and useful. It did not reference the six pillars of longevity, it ignored the specific biomarker targets we established, it failed to apply the prioritization framework, and it ignored the quarterly structure we had discussed. Instead, it gave me a generic protocol about sauna, cold exposure, and mitochondrial optimization that had no connection to the specific frameworks we had spent time developing. This omission meant I could not apply the response to my specific situation without doing significant additional work to reconnect the context myself."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThird": {
+        "value": "Utility & Relevance — Boilerplate Response"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThirdRationale": {
+        "value": "The Turn 1 response felt like a copy-paste from a generic longevity protocol. It used phrases like \"fase 1: evaluación inicial,\" \"fase 2: capacidad cardiorrespiratoria,\" and \"fase 3: optimización mitocondrial\" that were generic and had no connection to the specific vocabulary and frameworks we had established. The response could have been given to anyone asking for a wellness plan, completely ignoring the rich context we had built across Threads 1 and 2. This made the assistant feel impersonal and untailored, undermining the collaborative feel we had established in the earlier conversations."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1USSXvvWnLm3KVBPtB6PLzl1YITcn96Yi/view?usp=drive_link"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.multiTurnSatisfaction": {
+        "value": "Very dissatisfied"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1_8zJVeiwyyNDPEVpQKSvnbRP3Sn4NNyF/view?usp=drive_link"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1g6Qx3ipkha2ByD2EiugoP67zC2Yu451Z/view?usp=drive_link"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContextSourceThreads": {
+        "value": "Thread 2, Turn 1: The six pillars of longevity, key biomarkers and their optimal ranges.\n\nThread 2, Turn 2: The prioritization framework showing sleep as highest priority, followed by strength training, aerobic capacity, nutrition, and basic monitoring.\n\nThread 2, Turn 3: Cost-effective monitoring technologies: wearables, CGM, blood pressure monitors, ECG chest straps.\n\nThread 2, Turn 4: Guidance on genetic testing: clinical directed sequencing, avoid overinterpretation of polygenic risk scores.\n\nThread 2, Turn 5: The 12-month quarterly structure with specific behavior changes, medical investments, and success criteria.\n\nThread 1, Turns 1-5: General context on medical advances, public health challenges, and telemedicine."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1Continuity": {
+        "value": "Major Issue"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContinuityErrorTypes": {
+        "value": [
+          "Utility & Relevance — Boilerplate Response",
+          "Utility & Relevance — Omitted High-Utility Detail",
+          "Constraint & Expertise Adherence — Soft preference slip",
+          "State, Entity, and Progress Tracking — Dropped past rationale",
+          "Granularity & Depth of Info — Loss of Variable Precision (Flattened Details)"
+        ]
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ExpectedContext": {
+        "value": "I expected the model to remember and apply everything we discussed: the six scientific pillars of longevity; the key biomarkers to monitor ; the prioritization framework for limited resources ; the cost-effective monitoring technologies (wearables, CGM, blood pressure monitors, ECG chest straps); the guidance on genetic testing; and the 12-month quarterly structure with specific behavior changes, medical investments, and success criteria for each quarter.\n\n"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ModelCorrectionOutcome": {
+        "value": "Yes — it repeated the error"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContextSourceThreads": {
+        "value": "Thread 1, Turns 1-5: Extensive discussions about medical advances (immunotherapy, precision oncology, CAR-T, antiretroviral therapy, cardiovascular therapeutics, mRNA vaccines, CRISPR), public health challenges, and telemedicine in Brazil.\n\nThread 2, Turns 1-5: Extensive discussions about preventive medicine, six pillars of longevity, biomarkers, prioritization framework, monitoring technologies, genetic testing, and the 12-month quarterly plan structure.\n\nTurn 1 of this conversation: I explicitly anchored the conversation with \"Recuerda que hemos estado hablando sobre medicina\" and asked for a personalized 12-month plan."
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2Continuity": {
+        "value": "Major Issue"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContinuityErrorTypes": {
+        "value": [
+          "Utility & Relevance — Hallucinated Context Link",
+          "Utility & Relevance — Boilerplate Response",
+          "Utility & Relevance — Omitted High-Utility Detail",
+          "State, Entity, and Progress Tracking — Entity Awareness Loss"
+        ]
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ExpectedContext": {
+        "value": "I expected the model to acknowledge the extensive discussions we had about medical advances, preventive health, the six pillars of longevity, biomarkers, monitoring technologies, and the 12-month plan structure, and to either confirm its recall or ask for clarification based on that shared history.\n\n"
+      },
+      "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ModelCorrectionOutcome": {
+        "value": "No"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "dialect": {
+        "value": "LatAm (All Variants)"
+      },
+      "dominantThreadLanguageMatching": {
+        "value": [
+          "Dominant threads language matches target language"
+        ]
+      },
+      "firstModel": {
+        "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+      },
+      "firstPlaceEnvironment": {
+        "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+      },
+      "geminiConversationHistory": {
+        "value": "https://drive.google.com/file/d/1hSxlpwD3iaGHGzQOTMYOzuZiKYqQcs8N/view?usp=drive_link"
+      },
+      "keyContext": {
+        "value": "The model MUST remember these facts:\n\nThe six scientific pillars of longevity: cardiorespiratory fitness, metabolic flexibility, sleep architecture, nutrition and autophagy, neuroendocrine regulation, and environmental health (established in Thread 2, Turn 1)\n\nKey biomarkers to monitor: ApoB (< 60–70 mg/dL), HbA1c (< 5.3%), fasting insulin (< 5 μIU/mL), hs-CRP (< 0.5 mg/L), VO2 max (top percentile), grip strength, and blood pressure (< 120/80 mmHg) (established in Thread 2, Turn 1)\n\nA prioritization framework for limited resources: sleep and circadian rhythm as the highest priority, followed by strength training, aerobic capacity, nutrition, and basic monitoring (established in Thread 2, Turn 2)\n\nCost-effective monitoring technologies: wearables with PPG sensors, validated oscillometric blood pressure monitors, intermittent CGM use (1-2 sensors per year), and ECG chest straps for calibration (established in Thread 2, Turn 3)\n\nGuidance on genetic testing: clinical-directed sequencing only with family history, avoid overinterpretation of polygenic risk scores, focus on modifiable variables, and always consult a geneticist for clinical-grade findings (established in Thread 2, Turn 4)\n"
+      },
+      "keyContextTargetLanguageVersion": {
+        "value": "El modelo DEBE recordar estos datos:\n\nLos seis pilares científicos de la longevidad: capacidad cardiorrespiratoria, flexibilidad metabólica, arquitectura del sueño, nutrición y autofagia, regulación neuroendocrina, y salud ambiental (Thread 2, Turn 1)\n\nBiomarcadores clave a monitorear: ApoB (< 60–70 mg/dL), HbA1c (< 5.3%), insulina en ayunas (< 5 μIU/mL), hs-CRP (< 0.5 mg/L), VO2 máx (percentil superior), fuerza de agarre, y presión arterial (< 120/80 mmHg) (Thread 2, Turn 2)\n\nUn marco de priorización para recursos limitados: sueño y ritmo circadiano como máxima prioridad, seguido de entrenamiento de fuerza, capacidad aeróbica, nutrición y monitoreo básico (Thread 2, Turn 2)\n\nTecnologías de monitoreo costo-efectivas: wearables con sensores PPG, tensiómetros oscilométricos validados, uso intermitente de CGM (1-2 sensores al año), y bandas de pecho con ECG para calibración (Thread 2, Turn 3)\n\nOrientación sobre pruebas genéticas: secuenciación clínica dirigida solo con antecedentes familiares, evitar sobreinterpretación de puntajes de riesgo poligénico, enfocarse en variables modificables, y consultar siempre a un genetista para hallazgos de grado clínico (Thread 2, Turn 4)"
+      },
+      "languageNuance": {
+        "value": "There is virtually no nuance lost between the Spanish and English versions because the terminology is predominantly medical, technical, and internationally standardized. "
+      },
+      "myGoal": {
+        "value": "I want a concrete, actionable, step-by-step 12-month plan for optimizing my health and longevity based on everything we've discussed. The plan should be practical and tailored to my situation, covering specific behavior changes, prioritized interventions, recommended investments in technology or medical evaluations, and monitoring systems to track my progress."
+      },
+      "numberOfThreadsAdded": {
+        "value": "2"
+      },
+      "p0CujCategory": {
+        "value": "Planning"
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-09-01T13:24:13.178Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "Recuerda que hemos estado hablando sobre medicina. Con base en todo lo que hemos conversado, ayúdame a diseñar un plan personalizado de 12 meses para mejorar mi salud y longevidad."
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A was much better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "The decisive difference between these two models is so stark that it represents a complete failure versus a flawless execution. Model A delivered exactly what I needed across both turns without me having to repeat myself. In Turn 1, it flawlessly retrieved and applied everything we discussed across both threads, structuring a comprehensive 12-month plan with the correct quarterly phases (Q1 through Q4), incorporating the six pillars of longevity, including the specific biomarker targets, referencing the cost-effective monitoring technologies, and building the plan around the prioritization framework we established. In Turn 2, when I asked about ejercicios de fuerza, it provided a complete, structured strength training routine that aligned perfectly with the Q1 plan it had outlined, demonstrating deep contextual awareness and practical application. Model B, in contrast, failed catastrophically. In Turn 1, despite my explicit prompt anchoring the conversation to our previous medical discussions, it gave me a generic, boilerplate 12-month longevity plan that showed no evidence of having retrieved any of the specific context we had established. Beyond personalization, Model A demonstrated superior quality by providing a structured, actionable plan that built directly on the established frameworks and then offered additional detail when asked, while Model B's responses felt generic and disconnected."
+      },
+      "secondPlaceEnvironment": {
+        "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "Spanish"
+      },
+      "targetLanguageVersion": {
+        "value": "Quiero un plan concreto, accionable y paso a paso de 12 meses para optimizar mi salud y longevidad basado en todo lo que hemos conversado. El plan debe ser práctico y adaptado a mi situación, cubriendo cambios de comportamiento específicos, intervenciones priorizadas, inversiones recomendadas en tecnología o evaluaciones médicas, y sistemas de monitoreo para evaluar mi progreso."
+      },
+      "topicConversationsHtml1": {
+        "value": "https://drive.google.com/file/d/1AKeAkQ74wGeH9rleErcLnbxQlTf_Z_GH/view?usp=drive_link"
+      },
+      "topicConversationsHtml2": {
+        "value": "https://drive.google.com/file/d/1_4ZcVsAetMOJUAP1Cs9KEKXhGQZY2dV4/view?usp=drive_link"
+      },
+      "trackType": {
+        "value": "Track A"
+      },
+      "turnType": {
+        "value": "Multi Turn"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8682,
+        "batchName": "Batch - 1",
+        "projectId": 943,
+        "projectName": "I18n Continuity Quality E2E Eval (es-419)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Context Relevance": "Direct Continuation",
+        "Context Relevance Definition": "[Same intent, full carryover of context]\nThe follow-up prompt either moves the existing topic forward or recaps it. All historical constraints, preferences, and entities remain 100% valid and must be applied",
+        "Context Relevance Examples": "Next Step: \"For my upcoming trip to Lisbon, are there any hotels with pools near the airport?\"\n\n\nState Retrieval / Recap: \"What’s the last version of the itinerary for the Vegas trip?\"\n\n\nProgress Check: \"Give me a quick summary of where we left off on the kitchen remodel plan.\"\n",
+        "Conversation Track": "Track A",
+        "Conversation Track Definition": "Directly jump into the previous topic starting in Turn 1.",
+        "Dialect": "\n \t\nLatAm (All Variants)",
+        "First Model": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1aIgNK6-rCoM3QQHk9pQHymiWd0nz3THd?usp=sharing",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1u7UUpJ4TkeAGt_s81Ywt3ToRmgRXAJ2b?usp=sharing",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1t71N1935g5fXmFbZ08rP1zmrj7369Tvy?usp=sharing",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "Model A": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+        "Model A HTML NAME": "M1_D1_091",
+        "Model B": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast",
+        "Model B HTML NAME": "M2_D1_091",
+        "Prompt Explicitness": "Explicit Thread Anchoring",
+        "Prompt Explicitness Definition": "Directly call out the reference to a previous discussion, decision point, or agreement. The prompt contains structural markers like \"remember when we talked about X\"?",
+        "Prompt Explicitness Examples": "\"Remember when we talked about the kitchen remodel? Let's take the next step.\"\n\n\"My sister just told me she’s bringing her toddler to the dinner I told you about on Friday.\"\n",
+        "Target Language": "Spanish",
+        "Task Type": "Multi-Turn",
+        "Time Gap": "Super Short Term",
+        "Time Gap Definition": "Most recent conversation turn was within the past 24 hours",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "Target Language",
+          "Dialect",
+          "First Model",
+          "Task Type",
+          "Conversation Track",
+          "Conversation Track Definition",
+          "Time Gap",
+          "Time Gap Definition",
+          "Context Relevance",
+          "Context Relevance Definition",
+          "Context Relevance Examples",
+          "Prompt Explicitness",
+          "Prompt Explicitness Definition",
+          "Prompt Explicitness Examples",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8682,
+          "batchName": "Batch - 1",
+          "projectId": 943,
+          "projectName": "WIP - I18n Continuity Quality E2E Eval (es-419)"
+        },
+        "modelConfig": {
+          "conversation_id": 1264206,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T12:40:49.641Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T14:23:37.252Z",
+            "locked": true
+          }
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+          "value": "My reasoning is that Model A delivered exactly what I needed across both turns without me having to repeat myself. In Turn 1, it flawlessly retrieved and applied everything we discussed across both threads. It structured a comprehensive 12-month plan with the correct quarterly phases, incorporated the six pillars of longevity, included the specific biomarker targets, referenced the cost-effective monitoring technologies, and built the plan around the prioritization framework we established. The response was practical, detailed, and directly tailored to my goal of improving health and longevity. In Turn 2, when I asked about ejercicios de fuerza, it provided a complete, structured strength training routine that aligned perfectly with the Q1 plan it had just outlined"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1CGxt0EqJfXxkv8wxu6qRmBLFtqcdUWPV/view?usp=drive_link"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).multiTurnSatisfaction": {
+          "value": "Very satisfied"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).secondModelLock": {
+          "value": true
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1gZxVJ3DrEE4_j3F3gpsNdMKi6VmSQC7C/view?usp=drive_link"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1g-DwZGA91xqeqlgr2R7zC5oI36eki-CN/view?usp=drive_link"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+          "value": "My reasoning is that Model B failed catastrophically in both turns. In Turn 1, despite my explicit prompt anchoring the conversation to our previous medical discussions with \"Recuerda que hemos estado hablando sobre medicina,\" the model gave me a generic, boilerplate 12-month longevity plan that showed no evidence of having retrieved any of the specific context we had established. It mentioned none of the six pillars of longevity, none of the specific biomarker targets, none of the prioritization framework for limited resources, and none of the quarterly structure we had discussed. The response felt like a copy-paste from a generic wellness protocol, not a personalized plan based on our conversations."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirst": {
+          "value": "State, Entity, and Progress Tracking — Entity Awareness Loss"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirstRationale": {
+          "value": "This is the most detrimental failure because the model explicitly denied the existence of our extensive medical and longevity discussions. When I asked \"¿Recuerdas de qué hablamos?\" it claimed \"No hay registro previo en el historial de conversaciones directas sobre consultas médicas clínicas o de salud personal,\" completely ignoring Threads 1 and 2 which were entirely about medical advances, preventive health, biomarkers, and longevity strategies. This made the assistant feel not just forgetful but fundamentally disconnected from our entire shared history. The denial of context is worse than omission because it actively undermines trust and suggests the model has no awareness of our previous interactions at all."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecond": {
+          "value": "Utility & Relevance — Omitted High-Utility Detail"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecondRationale": {
+          "value": "In Turn 1, the model omitted every single high-utility detail that would have made the response personalized and useful. It did not reference the six pillars of longevity, it ignored the specific biomarker targets we established, it failed to apply the prioritization framework, and it ignored the quarterly structure we had discussed. Instead, it gave me a generic protocol about sauna, cold exposure, and mitochondrial optimization that had no connection to the specific frameworks we had spent time developing. This omission meant I could not apply the response to my specific situation without doing significant additional work to reconnect the context myself."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThird": {
+          "value": "Utility & Relevance — Boilerplate Response"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThirdRationale": {
+          "value": "The Turn 1 response felt like a copy-paste from a generic longevity protocol. It used phrases like \"fase 1: evaluación inicial,\" \"fase 2: capacidad cardiorrespiratoria,\" and \"fase 3: optimización mitocondrial\" that were generic and had no connection to the specific vocabulary and frameworks we had established. The response could have been given to anyone asking for a wellness plan, completely ignoring the rich context we had built across Threads 1 and 2. This made the assistant feel impersonal and untailored, undermining the collaborative feel we had established in the earlier conversations."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1USSXvvWnLm3KVBPtB6PLzl1YITcn96Yi/view?usp=drive_link"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.multiTurnSatisfaction": {
+          "value": "Very dissatisfied"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1_8zJVeiwyyNDPEVpQKSvnbRP3Sn4NNyF/view?usp=drive_link"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1g6Qx3ipkha2ByD2EiugoP67zC2Yu451Z/view?usp=drive_link"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContextSourceThreads": {
+          "value": "Thread 2, Turn 1: The six pillars of longevity, key biomarkers and their optimal ranges.\n\nThread 2, Turn 2: The prioritization framework showing sleep as highest priority, followed by strength training, aerobic capacity, nutrition, and basic monitoring.\n\nThread 2, Turn 3: Cost-effective monitoring technologies: wearables, CGM, blood pressure monitors, ECG chest straps.\n\nThread 2, Turn 4: Guidance on genetic testing: clinical directed sequencing, avoid overinterpretation of polygenic risk scores.\n\nThread 2, Turn 5: The 12-month quarterly structure with specific behavior changes, medical investments, and success criteria.\n\nThread 1, Turns 1-5: General context on medical advances, public health challenges, and telemedicine."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1Continuity": {
+          "value": "Major Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContinuityErrorTypes": {
+          "value": [
+            "Utility & Relevance — Boilerplate Response",
+            "Utility & Relevance — Omitted High-Utility Detail",
+            "Constraint & Expertise Adherence — Soft preference slip",
+            "State, Entity, and Progress Tracking — Dropped past rationale",
+            "Granularity & Depth of Info — Loss of Variable Precision (Flattened Details)"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ExpectedContext": {
+          "value": "I expected the model to remember and apply everything we discussed: the six scientific pillars of longevity; the key biomarkers to monitor ; the prioritization framework for limited resources ; the cost-effective monitoring technologies (wearables, CGM, blood pressure monitors, ECG chest straps); the guidance on genetic testing; and the 12-month quarterly structure with specific behavior changes, medical investments, and success criteria for each quarter.\n\n"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ModelCorrectionOutcome": {
+          "value": "Yes — it repeated the error"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContextSourceThreads": {
+          "value": "Thread 1, Turns 1-5: Extensive discussions about medical advances (immunotherapy, precision oncology, CAR-T, antiretroviral therapy, cardiovascular therapeutics, mRNA vaccines, CRISPR), public health challenges, and telemedicine in Brazil.\n\nThread 2, Turns 1-5: Extensive discussions about preventive medicine, six pillars of longevity, biomarkers, prioritization framework, monitoring technologies, genetic testing, and the 12-month quarterly plan structure.\n\nTurn 1 of this conversation: I explicitly anchored the conversation with \"Recuerda que hemos estado hablando sobre medicina\" and asked for a personalized 12-month plan."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2Continuity": {
+          "value": "Major Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContinuityErrorTypes": {
+          "value": [
+            "Utility & Relevance — Hallucinated Context Link",
+            "Utility & Relevance — Boilerplate Response",
+            "Utility & Relevance — Omitted High-Utility Detail",
+            "State, Entity, and Progress Tracking — Entity Awareness Loss"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ExpectedContext": {
+          "value": "I expected the model to acknowledge the extensive discussions we had about medical advances, preventive health, the six pillars of longevity, biomarkers, monitoring technologies, and the 12-month plan structure, and to either confirm its recall or ask for clarification based on that shared history.\n\n"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ModelCorrectionOutcome": {
+          "value": "No"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "dialect": {
+          "value": "LatAm (All Variants)"
+        },
+        "dominantThreadLanguageMatching": {
+          "value": [
+            "Dominant threads language matches target language"
+          ]
+        },
+        "firstModel": {
+          "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+        },
+        "firstPlaceEnvironment": {
+          "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+        },
+        "geminiConversationHistory": {
+          "value": "https://drive.google.com/file/d/1hSxlpwD3iaGHGzQOTMYOzuZiKYqQcs8N/view?usp=drive_link"
+        },
+        "keyContext": {
+          "value": "The model MUST remember these facts:\n\nThe six scientific pillars of longevity: cardiorespiratory fitness, metabolic flexibility, sleep architecture, nutrition and autophagy, neuroendocrine regulation, and environmental health (established in Thread 2, Turn 1)\n\nKey biomarkers to monitor: ApoB (< 60–70 mg/dL), HbA1c (< 5.3%), fasting insulin (< 5 μIU/mL), hs-CRP (< 0.5 mg/L), VO2 max (top percentile), grip strength, and blood pressure (< 120/80 mmHg) (established in Thread 2, Turn 1)\n\nA prioritization framework for limited resources: sleep and circadian rhythm as the highest priority, followed by strength training, aerobic capacity, nutrition, and basic monitoring (established in Thread 2, Turn 2)\n\nCost-effective monitoring technologies: wearables with PPG sensors, validated oscillometric blood pressure monitors, intermittent CGM use (1-2 sensors per year), and ECG chest straps for calibration (established in Thread 2, Turn 3)\n\nGuidance on genetic testing: clinical-directed sequencing only with family history, avoid overinterpretation of polygenic risk scores, focus on modifiable variables, and always consult a geneticist for clinical-grade findings (established in Thread 2, Turn 4)\n"
+        },
+        "keyContextTargetLanguageVersion": {
+          "value": "El modelo DEBE recordar estos datos:\n\nLos seis pilares científicos de la longevidad: capacidad cardiorrespiratoria, flexibilidad metabólica, arquitectura del sueño, nutrición y autofagia, regulación neuroendocrina, y salud ambiental (Thread 2, Turn 1)\n\nBiomarcadores clave a monitorear: ApoB (< 60–70 mg/dL), HbA1c (< 5.3%), insulina en ayunas (< 5 μIU/mL), hs-CRP (< 0.5 mg/L), VO2 máx (percentil superior), fuerza de agarre, y presión arterial (< 120/80 mmHg) (Thread 2, Turn 2)\n\nUn marco de priorización para recursos limitados: sueño y ritmo circadiano como máxima prioridad, seguido de entrenamiento de fuerza, capacidad aeróbica, nutrición y monitoreo básico (Thread 2, Turn 2)\n\nTecnologías de monitoreo costo-efectivas: wearables con sensores PPG, tensiómetros oscilométricos validados, uso intermitente de CGM (1-2 sensores al año), y bandas de pecho con ECG para calibración (Thread 2, Turn 3)\n\nOrientación sobre pruebas genéticas: secuenciación clínica dirigida solo con antecedentes familiares, evitar sobreinterpretación de puntajes de riesgo poligénico, enfocarse en variables modificables, y consultar siempre a un genetista para hallazgos de grado clínico (Thread 2, Turn 4)"
+        },
+        "languageNuance": {
+          "value": "There is virtually no nuance lost between the Spanish and English versions because the terminology is predominantly medical, technical, and internationally standardized. "
+        },
+        "myGoal": {
+          "value": "I want a concrete, actionable, step-by-step 12-month plan for optimizing my health and longevity based on everything we've discussed. The plan should be practical and tailored to my situation, covering specific behavior changes, prioritized interventions, recommended investments in technology or medical evaluations, and monitoring systems to track my progress."
+        },
+        "numberOfThreadsAdded": {
+          "value": "2"
+        },
+        "p0CujCategory": {
+          "value": "Planning"
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T13:24:13.178Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Recuerda que hemos estado hablando sobre medicina. Con base en todo lo que hemos conversado, ayúdame a diseñar un plan personalizado de 12 meses para mejorar mi salud y longevidad."
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was much better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "The decisive difference between these two models is so stark that it represents a complete failure versus a flawless execution. Model A delivered exactly what I needed across both turns without me having to repeat myself. In Turn 1, it flawlessly retrieved and applied everything we discussed across both threads, structuring a comprehensive 12-month plan with the correct quarterly phases (Q1 through Q4), incorporating the six pillars of longevity, including the specific biomarker targets, referencing the cost-effective monitoring technologies, and building the plan around the prioritization framework we established. In Turn 2, when I asked about ejercicios de fuerza, it provided a complete, structured strength training routine that aligned perfectly with the Q1 plan it had outlined, demonstrating deep contextual awareness and practical application. Model B, in contrast, failed catastrophically. In Turn 1, despite my explicit prompt anchoring the conversation to our previous medical discussions, it gave me a generic, boilerplate 12-month longevity plan that showed no evidence of having retrieved any of the specific context we had established. Beyond personalization, Model A demonstrated superior quality by providing a structured, actionable plan that built directly on the established frameworks and then offered additional detail when asked, while Model B's responses felt generic and disconnected."
+        },
+        "secondPlaceEnvironment": {
+          "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "Spanish"
+        },
+        "targetLanguageVersion": {
+          "value": "Quiero un plan concreto, accionable y paso a paso de 12 meses para optimizar mi salud y longevidad basado en todo lo que hemos conversado. El plan debe ser práctico y adaptado a mi situación, cubriendo cambios de comportamiento específicos, intervenciones priorizadas, inversiones recomendadas en tecnología o evaluaciones médicas, y sistemas de monitoreo para evaluar mi progreso."
+        },
+        "topicConversationsHtml1": {
+          "value": "https://drive.google.com/file/d/1AKeAkQ74wGeH9rleErcLnbxQlTf_Z_GH/view?usp=drive_link"
+        },
+        "topicConversationsHtml2": {
+          "value": "https://drive.google.com/file/d/1_4ZcVsAetMOJUAP1Cs9KEKXhGQZY2dV4/view?usp=drive_link"
+        },
+        "trackType": {
+          "value": "Track A"
+        },
+        "turnType": {
+          "value": "Multi Turn"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8682,
+        "batchName": "Batch - 1",
+        "projectId": 943,
+        "projectName": "I18n Continuity Quality E2E Eval (es-419)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Context Relevance": "Direct Continuation",
+        "Context Relevance Definition": "[Same intent, full carryover of context]\nThe follow-up prompt either moves the existing topic forward or recaps it. All historical constraints, preferences, and entities remain 100% valid and must be applied",
+        "Context Relevance Examples": "Next Step: \"For my upcoming trip to Lisbon, are there any hotels with pools near the airport?\"\n\n\nState Retrieval / Recap: \"What’s the last version of the itinerary for the Vegas trip?\"\n\n\nProgress Check: \"Give me a quick summary of where we left off on the kitchen remodel plan.\"\n",
+        "Conversation Track": "Track A",
+        "Conversation Track Definition": "Directly jump into the previous topic starting in Turn 1.",
+        "Dialect": "\n \t\nLatAm (All Variants)",
+        "First Model": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1aIgNK6-rCoM3QQHk9pQHymiWd0nz3THd?usp=sharing",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1u7UUpJ4TkeAGt_s81Ywt3ToRmgRXAJ2b?usp=sharing",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1t71N1935g5fXmFbZ08rP1zmrj7369Tvy?usp=sharing",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "Model A": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)",
+        "Model A HTML NAME": "M1_D1_091",
+        "Model B": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast",
+        "Model B HTML NAME": "M2_D1_091",
+        "Prompt Explicitness": "Explicit Thread Anchoring",
+        "Prompt Explicitness Definition": "Directly call out the reference to a previous discussion, decision point, or agreement. The prompt contains structural markers like \"remember when we talked about X\"?",
+        "Prompt Explicitness Examples": "\"Remember when we talked about the kitchen remodel? Let's take the next step.\"\n\n\"My sister just told me she’s bringing her toddler to the dinner I told you about on Friday.\"\n",
+        "Target Language": "Spanish",
+        "Task Type": "Multi-Turn",
+        "Time Gap": "Super Short Term",
+        "Time Gap Definition": "Most recent conversation turn was within the past 24 hours",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "Target Language",
+          "Dialect",
+          "First Model",
+          "Task Type",
+          "Conversation Track",
+          "Conversation Track Definition",
+          "Time Gap",
+          "Time Gap Definition",
+          "Context Relevance",
+          "Context Relevance Definition",
+          "Context Relevance Examples",
+          "Prompt Explicitness",
+          "Prompt Explicitness Definition",
+          "Prompt Explicitness Examples",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8682,
+          "batchName": "Batch - 1",
+          "projectId": 943,
+          "projectName": "WIP - I18n Continuity Quality E2E Eval (es-419)"
+        },
+        "modelConfig": {
+          "conversation_id": 1264206,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T12:40:49.641Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T14:23:37.252Z",
+            "locked": true
+          }
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).conversationFeedback": {
+          "value": "My reasoning is that Model A delivered exactly what I needed across both turns without me having to repeat myself. In Turn 1, it flawlessly retrieved and applied everything we discussed across both threads. It structured a comprehensive 12-month plan with the correct quarterly phases, incorporated the six pillars of longevity, included the specific biomarker targets, referenced the cost-effective monitoring technologies, and built the plan around the prioritization framework we established. The response was practical, detailed, and directly tailored to my goal of improving health and longevity. In Turn 2, when I asked about ejercicios de fuerza, it provided a complete, structured strength training routine that aligned perfectly with the Q1 plan it had just outlined"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityFirst": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeveritySecond": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).errorSeverityThird": {
+          "value": "No issues logged"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1CGxt0EqJfXxkv8wxu6qRmBLFtqcdUWPV/view?usp=drive_link"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).multiTurnSatisfaction": {
+          "value": "Very satisfied"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).secondModelLock": {
+          "value": true
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1gZxVJ3DrEE4_j3F3gpsNdMKi6VmSQC7C/view?usp=drive_link"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1g-DwZGA91xqeqlgr2R7zC5oI36eki-CN/view?usp=drive_link"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn1ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2Continuity": {
+          "value": "No Issue"
+        },
+        "compareModels.07 Pizzi Gemelli --> Fast (paid) (prod default + notebook).turn2ContinuityErrorTypes": {
+          "value": [
+            "None"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.conversationFeedback": {
+          "value": "My reasoning is that Model B failed catastrophically in both turns. In Turn 1, despite my explicit prompt anchoring the conversation to our previous medical discussions with \"Recuerda que hemos estado hablando sobre medicina,\" the model gave me a generic, boilerplate 12-month longevity plan that showed no evidence of having retrieved any of the specific context we had established. It mentioned none of the six pillars of longevity, none of the specific biomarker targets, none of the prioritization framework for limited resources, and none of the quarterly structure we had discussed. The response felt like a copy-paste from a generic wellness protocol, not a personalized plan based on our conversations."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirst": {
+          "value": "State, Entity, and Progress Tracking — Entity Awareness Loss"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityFirstRationale": {
+          "value": "This is the most detrimental failure because the model explicitly denied the existence of our extensive medical and longevity discussions. When I asked \"¿Recuerdas de qué hablamos?\" it claimed \"No hay registro previo en el historial de conversaciones directas sobre consultas médicas clínicas o de salud personal,\" completely ignoring Threads 1 and 2 which were entirely about medical advances, preventive health, biomarkers, and longevity strategies. This made the assistant feel not just forgetful but fundamentally disconnected from our entire shared history. The denial of context is worse than omission because it actively undermines trust and suggests the model has no awareness of our previous interactions at all."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecond": {
+          "value": "Utility & Relevance — Omitted High-Utility Detail"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeveritySecondRationale": {
+          "value": "In Turn 1, the model omitted every single high-utility detail that would have made the response personalized and useful. It did not reference the six pillars of longevity, it ignored the specific biomarker targets we established, it failed to apply the prioritization framework, and it ignored the quarterly structure we had discussed. Instead, it gave me a generic protocol about sauna, cold exposure, and mitochondrial optimization that had no connection to the specific frameworks we had spent time developing. This omission meant I could not apply the response to my specific situation without doing significant additional work to reconnect the context myself."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThird": {
+          "value": "Utility & Relevance — Boilerplate Response"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.errorSeverityThirdRationale": {
+          "value": "The Turn 1 response felt like a copy-paste from a generic longevity protocol. It used phrases like \"fase 1: evaluación inicial,\" \"fase 2: capacidad cardiorrespiratoria,\" and \"fase 3: optimización mitocondrial\" that were generic and had no connection to the specific vocabulary and frameworks we had established. The response could have been given to anyone asking for a wellness plan, completely ignoring the rich context we had built across Threads 1 and 2. This made the assistant feel impersonal and untailored, undermining the collaborative feel we had established in the earlier conversations."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1USSXvvWnLm3KVBPtB6PLzl1YITcn96Yi/view?usp=drive_link"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.multiTurnSatisfaction": {
+          "value": "Very dissatisfied"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1_8zJVeiwyyNDPEVpQKSvnbRP3Sn4NNyF/view?usp=drive_link"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1g6Qx3ipkha2ByD2EiugoP67zC2Yu451Z/view?usp=drive_link"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContextSourceThreads": {
+          "value": "Thread 2, Turn 1: The six pillars of longevity, key biomarkers and their optimal ranges.\n\nThread 2, Turn 2: The prioritization framework showing sleep as highest priority, followed by strength training, aerobic capacity, nutrition, and basic monitoring.\n\nThread 2, Turn 3: Cost-effective monitoring technologies: wearables, CGM, blood pressure monitors, ECG chest straps.\n\nThread 2, Turn 4: Guidance on genetic testing: clinical directed sequencing, avoid overinterpretation of polygenic risk scores.\n\nThread 2, Turn 5: The 12-month quarterly structure with specific behavior changes, medical investments, and success criteria.\n\nThread 1, Turns 1-5: General context on medical advances, public health challenges, and telemedicine."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1Continuity": {
+          "value": "Major Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ContinuityErrorTypes": {
+          "value": [
+            "Utility & Relevance — Boilerplate Response",
+            "Utility & Relevance — Omitted High-Utility Detail",
+            "Constraint & Expertise Adherence — Soft preference slip",
+            "State, Entity, and Progress Tracking — Dropped past rationale",
+            "Granularity & Depth of Info — Loss of Variable Precision (Flattened Details)"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ExpectedContext": {
+          "value": "I expected the model to remember and apply everything we discussed: the six scientific pillars of longevity; the key biomarkers to monitor ; the prioritization framework for limited resources ; the cost-effective monitoring technologies (wearables, CGM, blood pressure monitors, ECG chest straps); the guidance on genetic testing; and the 12-month quarterly structure with specific behavior changes, medical investments, and success criteria for each quarter.\n\n"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn1ModelCorrectionOutcome": {
+          "value": "Yes — it repeated the error"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContextSourceThreads": {
+          "value": "Thread 1, Turns 1-5: Extensive discussions about medical advances (immunotherapy, precision oncology, CAR-T, antiretroviral therapy, cardiovascular therapeutics, mRNA vaccines, CRISPR), public health challenges, and telemedicine in Brazil.\n\nThread 2, Turns 1-5: Extensive discussions about preventive medicine, six pillars of longevity, biomarkers, prioritization framework, monitoring technologies, genetic testing, and the 12-month quarterly plan structure.\n\nTurn 1 of this conversation: I explicitly anchored the conversation with \"Recuerda que hemos estado hablando sobre medicina\" and asked for a personalized 12-month plan."
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2Continuity": {
+          "value": "Major Issue"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ContinuityErrorTypes": {
+          "value": [
+            "Utility & Relevance — Hallucinated Context Link",
+            "Utility & Relevance — Boilerplate Response",
+            "Utility & Relevance — Omitted High-Utility Detail",
+            "State, Entity, and Progress Tracking — Entity Awareness Loss"
+          ]
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ExpectedContext": {
+          "value": "I expected the model to acknowledge the extensive discussions we had about medical advances, preventive health, the six pillars of longevity, biomarkers, monitoring technologies, and the 12-month plan structure, and to either confirm its recall or ask for clarification based on that shared history.\n\n"
+        },
+        "compareModels.Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast.turn2ModelCorrectionOutcome": {
+          "value": "No"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "dialect": {
+          "value": "LatAm (All Variants)"
+        },
+        "dominantThreadLanguageMatching": {
+          "value": [
+            "Dominant threads language matches target language"
+          ]
+        },
+        "firstModel": {
+          "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+        },
+        "firstPlaceEnvironment": {
+          "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
+        },
+        "geminiConversationHistory": {
+          "value": "https://drive.google.com/file/d/1hSxlpwD3iaGHGzQOTMYOzuZiKYqQcs8N/view?usp=drive_link"
+        },
+        "keyContext": {
+          "value": "The model MUST remember these facts:\n\nThe six scientific pillars of longevity: cardiorespiratory fitness, metabolic flexibility, sleep architecture, nutrition and autophagy, neuroendocrine regulation, and environmental health (established in Thread 2, Turn 1)\n\nKey biomarkers to monitor: ApoB (< 60–70 mg/dL), HbA1c (< 5.3%), fasting insulin (< 5 μIU/mL), hs-CRP (< 0.5 mg/L), VO2 max (top percentile), grip strength, and blood pressure (< 120/80 mmHg) (established in Thread 2, Turn 1)\n\nA prioritization framework for limited resources: sleep and circadian rhythm as the highest priority, followed by strength training, aerobic capacity, nutrition, and basic monitoring (established in Thread 2, Turn 2)\n\nCost-effective monitoring technologies: wearables with PPG sensors, validated oscillometric blood pressure monitors, intermittent CGM use (1-2 sensors per year), and ECG chest straps for calibration (established in Thread 2, Turn 3)\n\nGuidance on genetic testing: clinical-directed sequencing only with family history, avoid overinterpretation of polygenic risk scores, focus on modifiable variables, and always consult a geneticist for clinical-grade findings (established in Thread 2, Turn 4)\n"
+        },
+        "keyContextTargetLanguageVersion": {
+          "value": "El modelo DEBE recordar estos datos:\n\nLos seis pilares científicos de la longevidad: capacidad cardiorrespiratoria, flexibilidad metabólica, arquitectura del sueño, nutrición y autofagia, regulación neuroendocrina, y salud ambiental (Thread 2, Turn 1)\n\nBiomarcadores clave a monitorear: ApoB (< 60–70 mg/dL), HbA1c (< 5.3%), insulina en ayunas (< 5 μIU/mL), hs-CRP (< 0.5 mg/L), VO2 máx (percentil superior), fuerza de agarre, y presión arterial (< 120/80 mmHg) (Thread 2, Turn 2)\n\nUn marco de priorización para recursos limitados: sueño y ritmo circadiano como máxima prioridad, seguido de entrenamiento de fuerza, capacidad aeróbica, nutrición y monitoreo básico (Thread 2, Turn 2)\n\nTecnologías de monitoreo costo-efectivas: wearables con sensores PPG, tensiómetros oscilométricos validados, uso intermitente de CGM (1-2 sensores al año), y bandas de pecho con ECG para calibración (Thread 2, Turn 3)\n\nOrientación sobre pruebas genéticas: secuenciación clínica dirigida solo con antecedentes familiares, evitar sobreinterpretación de puntajes de riesgo poligénico, enfocarse en variables modificables, y consultar siempre a un genetista para hallazgos de grado clínico (Thread 2, Turn 4)"
+        },
+        "languageNuance": {
+          "value": "There is virtually no nuance lost between the Spanish and English versions because the terminology is predominantly medical, technical, and internationally standardized. "
+        },
+        "myGoal": {
+          "value": "I want a concrete, actionable, step-by-step 12-month plan for optimizing my health and longevity based on everything we've discussed. The plan should be practical and tailored to my situation, covering specific behavior changes, prioritized interventions, recommended investments in technology or medical evaluations, and monitoring systems to track my progress."
+        },
+        "numberOfThreadsAdded": {
+          "value": "2"
+        },
+        "p0CujCategory": {
+          "value": "Planning"
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-01T13:24:13.178Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Recuerda que hemos estado hablando sobre medicina. Con base en todo lo que hemos conversado, ayúdame a diseñar un plan personalizado de 12 meses para mejorar mi salud y longevidad."
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was much better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "The decisive difference between these two models is so stark that it represents a complete failure versus a flawless execution. Model A delivered exactly what I needed across both turns without me having to repeat myself. In Turn 1, it flawlessly retrieved and applied everything we discussed across both threads, structuring a comprehensive 12-month plan with the correct quarterly phases (Q1 through Q4), incorporating the six pillars of longevity, including the specific biomarker targets, referencing the cost-effective monitoring technologies, and building the plan around the prioritization framework we established. In Turn 2, when I asked about ejercicios de fuerza, it provided a complete, structured strength training routine that aligned perfectly with the Q1 plan it had outlined, demonstrating deep contextual awareness and practical application. Model B, in contrast, failed catastrophically. In Turn 1, despite my explicit prompt anchoring the conversation to our previous medical discussions, it gave me a generic, boilerplate 12-month longevity plan that showed no evidence of having retrieved any of the specific context we had established. Beyond personalization, Model A demonstrated superior quality by providing a structured, actionable plan that built directly on the established frameworks and then offered additional detail when asked, while Model B's responses felt generic and disconnected."
+        },
+        "secondPlaceEnvironment": {
+          "value": "Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast"
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "Spanish"
+        },
+        "targetLanguageVersion": {
+          "value": "Quiero un plan concreto, accionable y paso a paso de 12 meses para optimizar mi salud y longevidad basado en todo lo que hemos conversado. El plan debe ser práctico y adaptado a mi situación, cubriendo cambios de comportamiento específicos, intervenciones priorizadas, inversiones recomendadas en tecnología o evaluaciones médicas, y sistemas de monitoreo para evaluar mi progreso."
+        },
+        "topicConversationsHtml1": {
+          "value": "https://drive.google.com/file/d/1AKeAkQ74wGeH9rleErcLnbxQlTf_Z_GH/view?usp=drive_link"
+        },
+        "topicConversationsHtml2": {
+          "value": "https://drive.google.com/file/d/1_4ZcVsAetMOJUAP1Cs9KEKXhGQZY2dV4/view?usp=drive_link"
+        },
+        "trackType": {
+          "value": "Track A"
+        },
+        "turnType": {
+          "value": "Multi Turn"
+        }
+      }
+    }
+  }
+}

@@ -6267,7 +6267,7 @@
     }
   },
   {
-    "name": "F-03 takeout link points at a non-Takeout file",
+    "name": "NEAR-MISS v2.0.4: takeout link is not fetched at all",
     "conversationData": {
       "conversation": {
         "ratings": {
@@ -6311,7 +6311,7 @@
             "value": "07 Pizzi Gemelli --> Fast (paid) (prod default + notebook)"
           },
           "geminiConversationHistory": {
-            "value": "https://drive.google.com/file/d/HTML_A/view?usp=sharing"
+            "value": "https://drive.google.com/file/d/NOTAKEOUT1/view?usp=sharing"
           },
           "dominantThreadLanguageMatching": {
             "value": [
@@ -6421,9 +6421,7 @@
       }
     },
     "expect": {
-      "errorsContain": [
-        "does not look like a Gemini Takeout export"
-      ]
+      "errors": []
     }
   },
   {
