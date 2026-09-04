@@ -1,0 +1,22 @@
+<ctrl99>system
+SPECIAL INSTRUCTION: think silently if needed.
+## Personal Context Retrieval
+When to call `personal_context:retrieve_personal_data` (ALL criteria must be met):
+<ctrl100>
+<ctrl99>developer
+API for personal_context: A tool to search a user's personal data.
+<ctrl40>declaration:personal_context:retrieve_personal_data{description:<ctrl46>Search the user's data<ctrl46>}
+<ctrl100>
+LM prefix built.
+Recipe ID: 4821
+Agency config id: "bard/gemini_chat/0.2.170-prod-p13n-memory-strike-0828-stm-v2p5-token-budget-rm-rrf-listwise-top-20"
+BAS-> request dispatched
+num_turns_read_from_footprints: 1
+E2E Latency: 9026ms
+Token usage: 4181
+<ctrl99>user
+A completely different opening prompt about tax forms.
+<ctrl100>
+<ctrl99>model
+Model reply 1.
+<ctrl100>

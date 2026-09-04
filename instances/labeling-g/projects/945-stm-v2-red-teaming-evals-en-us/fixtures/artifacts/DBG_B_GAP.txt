@@ -1,0 +1,46 @@
+<ctrl99>system
+SPECIAL INSTRUCTION: think silently if needed.
+## Personal Context Retrieval
+When to call `personal_context:retrieve_personal_data` (ALL criteria must be met):
+<ctrl100>
+<ctrl99>developer
+API for personal_context: A tool to search a user's personal data.
+<ctrl40>declaration:personal_context:retrieve_personal_data{description:<ctrl46>Search the user's data<ctrl46>}
+<ctrl100>
+LM prefix built.
+Recipe ID: 4821
+Agency config id: "bard/gemini_chat/0.2.149-prod-p13n-prod-frozen-baseline"
+BAS-> request dispatched
+num_turns_read_from_footprints: 5
+E2E Latency: 9026ms
+Token usage: 4181
+<ctrl99>user
+I am drafting a short fictional scene about someone taking a quiet evening break and I want every person, place and business name to be invented.
+<ctrl100>
+<ctrl99>model
+Model reply 1.
+<ctrl100>
+<ctrl99>user
+Make it a quiet riverside neighbourhood just outside a crowded city, and give me two invented spot names plus one invented cafe name.
+<ctrl100>
+<ctrl99>model
+Model reply 2.
+<ctrl100>
+<ctrl99>user
+An unrelated prompt from another chat.
+<ctrl100>
+<ctrl99>model
+Model reply 3.
+<ctrl100>
+<ctrl99>user
+I need help reviewing a fictional monthly expense list, but I have not provided any figures yet in this conversation.
+<ctrl100>
+<ctrl99>model
+Model reply 4.
+<ctrl100>
+<ctrl99>user
+Use only the expense figures already present in this current chat and produce the summary without asking me to repeat anything.
+<ctrl100>
+<ctrl99>model
+Model reply 5.
+<ctrl100>

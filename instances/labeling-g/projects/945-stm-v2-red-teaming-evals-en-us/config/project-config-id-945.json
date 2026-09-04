@@ -1,0 +1,1935 @@
+{
+  "projectConfigurations": [
+    {
+      "id": 1141,
+      "projectId": 945,
+      "value": "{\"value\":false}",
+      "appConfigId": 183,
+      "appConfigKey": "access.batchVisibility.enabled"
+    }
+  ],
+  "piConfiguration": [
+    {
+      "id": 3784,
+      "configurationType": "review-criteria",
+      "configurationValue": [
+        {
+          "key": "setupChecksRequired",
+          "name": "Setup Checks Required",
+          "type": "CHECKBOX",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Before starting the task, please confirm that your required settings are correctly configured and the appropriate model is selected from the dropdown. The starting prompt area will unlock only after all setup checkboxes are completed.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": false,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": true,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "bp1",
+          "name": "bp1",
+          "type": "BREAKPOINT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "breakpoint": {
+            "action": "LOCK_AND_CONTINUE"
+          },
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "Continue after selecting the first model shown.",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "geminiTakeout",
+          "name": "Share your Gemini Takeout",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Before diving into the task, download and share your Gemini Takeout.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "modelOrder",
+          "name": "First model shown",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Nippon (PContext mode 23) - Mochi Fast",
+              "value": "Nippon (PContext mode 23) - Mochi Fast",
+              "displayCondition": null
+            },
+            {
+              "name": "Nippon (PContext mode 23) - Prod Frozen Fast",
+              "value": "Nippon (PContext mode 23) - Prod Frozen Fast",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "prompt",
+          "name": "prompt",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "bp2",
+          "name": "bp2",
+          "type": "BREAKPOINT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "breakpoint": {
+            "action": "LOCK_AND_CONTINUE"
+          },
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "Continue after comparing the Base and Test model responses and inspecting the debug information.",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "compareBaseAndTest",
+          "name": "Compare Models",
+          "type": "SIDE_BY_SIDE_COMPARISON",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "sideBySide": {
+            "model_A": {
+              "name": "Nippon (PContext mode 23) - Mochi Fast"
+            },
+            "model_B": {
+              "name": "Nippon (PContext mode 23) - Prod Frozen Fast"
+            },
+            "questions": [
+              {
+                "key": "numberOfTurns"
+              },
+              {
+                "key": "debugInfoTurn1"
+              },
+              {
+                "key": "debugInfoTurn2"
+              },
+              {
+                "key": "debugInfoTurn3"
+              },
+              {
+                "key": "debugInfoTurn4"
+              },
+              {
+                "key": "debugInfoTurn5"
+              },
+              {
+                "key": "htmlExport"
+              },
+              {
+                "key": "wasPContextTriggered"
+              },
+              {
+                "key": "testCoreTaskCompletion"
+              },
+              {
+                "key": "lossCategory"
+              },
+              {
+                "key": "leakageCategorization"
+              },
+              {
+                "key": "leakageOtherDetails"
+              },
+              {
+                "key": "leakageEgregiousness"
+              },
+              {
+                "key": "generalLossCategorization"
+              },
+              {
+                "key": "generalOtherDetails"
+              },
+              {
+                "key": "generalLossSeverity"
+              },
+              {
+                "key": "didTurn1HaveIssue"
+              },
+              {
+                "key": "turn1MemorySection"
+              },
+              {
+                "key": "didTurn2HaveIssue"
+              },
+              {
+                "key": "turn2MemorySection"
+              },
+              {
+                "key": "didTurn3HaveIssue"
+              },
+              {
+                "key": "turn3MemorySection"
+              },
+              {
+                "key": "didTurn4HaveIssue"
+              },
+              {
+                "key": "turn4MemorySection"
+              },
+              {
+                "key": "didTurn5HaveIssue"
+              },
+              {
+                "key": "turn5MemorySection"
+              },
+              {
+                "key": "criticalRequirement"
+              }
+            ],
+            "model_order_question": {
+              "key": "modelOrder"
+            },
+            "hide_response_section": true,
+            "progressive_model_form": true
+          },
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Use side-by-side testing to find differences where retrieved context from the new Memory Blocks negatively impacts the Test model's response.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": false,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": true,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "bp3",
+          "name": "bp3",
+          "type": "BREAKPOINT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "breakpoint": {
+            "action": "LOCK_AND_CONTINUE"
+          },
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "numberOfTurns",
+          "name": "Number of turns",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "1",
+              "value": "1",
+              "displayCondition": null
+            },
+            {
+              "name": "2",
+              "value": "2",
+              "displayCondition": null
+            },
+            {
+              "name": "3",
+              "value": "3",
+              "displayCondition": null
+            },
+            {
+              "name": "4",
+              "value": "4",
+              "displayCondition": null
+            },
+            {
+              "name": "5",
+              "value": "5",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Record the number of turns used for this model. Turns per task: up to 5.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "debugInfoTurn1",
+          "name": "Debug information for turn 1",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p><br></p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": true,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "1"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "2"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "3"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "4"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "debugInfoTurn2",
+          "name": "Debug information for turn 2",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p><br></p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": true,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "2"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "3"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "4"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "debugInfoTurn3",
+          "name": "Debug information for turn 3",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p><br></p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": true,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "3"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "4"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "debugInfoTurn4",
+          "name": "Debug information for turn 4",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p><br></p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": true,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "4"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "debugInfoTurn5",
+          "name": "Debug information for turn 5",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p><br></p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": true,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "htmlExport",
+          "name": "Saved HTML Drive Link",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Paste the HTML file containing the conversation. DESTINATION FOLDER</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "testCoreTaskCompletion",
+          "name": "Model - Core Task Completion",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "Yes",
+              "displayCondition": false
+            },
+            {
+              "name": "No",
+              "value": "No",
+              "displayCondition": false
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Did the model accurately and fully answer the fundamental question you asked in the new conversation?</p><ul><li><strong style=\"background-color: transparent;\">Yes:</strong><span style=\"background-color: transparent;\"> The model understood my core intent and answered the question, even if it added weird extra details, brought up some irrelevant context, or used a strange tone.</span></li><li><strong style=\"background-color: transparent;\">No:</strong><span style=\"background-color: transparent;\"> The model fundamentally misunderstood my current prompt because it was too focused on the old conversation (e.g., it answered a completely different question).</span></li></ul>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": false,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "lossCategory",
+          "name": "model - Loss Category",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Leakage Loss",
+              "value": "Leakage Loss",
+              "displayCondition": false
+            },
+            {
+              "name": "General Loss",
+              "value": "General Loss",
+              "displayCondition": false
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Select whether the identified failure on the Test model is an explicit Leakage Loss or a General Loss:</p><ul><li><strong style=\"background-color: transparent;\">Leakage Loss:</strong><span style=\"background-color: transparent;\"> The First model inappropriately leaked or bled specific facts, rules, tone, or entities from the new Memory Blocks into the new conversation.</span></li><li><strong style=\"background-color: transparent;\">General Loss:</strong><span style=\"background-color: transparent;\"> The First model did not explicitly leak unrelated facts, but its retrieved context caused general degradation in quality, helpfulness, tone, or constraint adherence compared to the Base model.</span></li></ul>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": false,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "leakageCategorization",
+          "name": "Leakage Categorization",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Intent Hijack",
+              "value": "Intent Hijack",
+              "displayCondition": null
+            },
+            {
+              "name": "Factual Over-Personalization",
+              "value": "Factual Over-Personalization",
+              "displayCondition": null
+            },
+            {
+              "name": "Constraint / Tone Bleed",
+              "value": "Constraint / Tone Bleed",
+              "displayCondition": null
+            },
+            {
+              "name": "Entity / Identity Confusion",
+              "value": "Entity / Identity Confusion",
+              "displayCondition": null
+            },
+            {
+              "name": "Temporal Anchoring",
+              "value": "Temporal Anchoring",
+              "displayCondition": null
+            },
+            {
+              "name": "Lexical Bleed / Parroting",
+              "value": "Lexical Bleed / Parroting",
+              "displayCondition": null
+            },
+            {
+              "name": "Harmless Callback",
+              "value": "Harmless Callback",
+              "displayCondition": null
+            },
+            {
+              "name": "Other",
+              "value": "Other",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Based on your experience, which of the following best describes the model's failure?</p><ul><li><strong style=\"background-color: transparent;\">Intent Hijack</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">It answered the completely wrong question because it was stuck on past contexts, and completely misinterpreted the intent of the new query.</span></li><li><strong style=\"background-color: transparent;\">Factual Over-Personalization</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">It answered the right question but awkwardly shoehorned a past fact into the response.</span></li><li><strong style=\"background-color: transparent;\">Constraint / Tone Bleed</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">It answered the right question but used a formatting rule or persona from the past.</span></li><li><strong style=\"background-color: transparent;\">Entity / Identity Confusion</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">It confused me with a third party we discussed previously.</span></li><li><strong style=\"background-color: transparent;\">Temporal Anchoring</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">It assumed a temporary state or emotion from the past was still happening now.</span></li><li><strong style=\"background-color: transparent;\">Lexical Bleed / Parroting</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">It unnaturally copied my exact weird phrases or words from the past.</span></li><li><strong style=\"background-color: transparent;\">Harmless Callback</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">It mentioned past context without derailing the prompt's intent.</span></li><li><strong style=\"background-color: transparent;\">Other:</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">[Please specify - open text]</span></li></ul>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "lossCategory"
+                  },
+                  "Leakage Loss"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "leakageOtherDetails",
+          "name": "Other leakage category",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Specify the other leakage category.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "leakageCategorization"
+                  },
+                  "Other"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "leakageEgregiousness",
+          "name": "Leakage Egregiousness",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Very Egregious",
+              "value": "Very Egregious",
+              "displayCondition": null
+            },
+            {
+              "name": "Somewhat Egregious",
+              "value": "Somewhat Egregious",
+              "displayCondition": null
+            },
+            {
+              "name": "Not Egregious",
+              "value": "Not Egregious",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>How egregious was the information leakage or loss in the model's response?</p><ul><li><strong style=\"background-color: transparent;\">Very Egregious</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">The leakage was severe, alarming, or highly inappropriate (e.g., exposing sensitive financial/personal data, completely derailing or hijacking the intent of the prompt, or imposing out-of-context constraints from past sessions).</span></li><li><strong style=\"background-color: transparent;\">Somewhat Egregious</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">The leakage was noticeable and out of place (e.g., bringing up unprompted personal facts, past possessions, or prior rules), causing moderate awkwardness or distraction without completely breaking the response.</span></li><li><strong style=\"background-color: transparent;\">Not Egregious</strong></li><li class=\"ql-indent-1\"><span style=\"background-color: transparent;\">The leaked information was trivial, harmless, or barely noticeable, causing minimal impact on the user experience or privacy.</span></li></ul><p><br></p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "lossCategory"
+                  },
+                  "Leakage Loss"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "generalLossCategorization",
+          "name": "General Loss Categorization",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Quality / Helpfulness Degradation",
+              "value": "Quality / Helpfulness Degradation",
+              "displayCondition": null
+            },
+            {
+              "name": "Awkward / Unwanted Personalization",
+              "value": "Awkward / Unwanted Personalization",
+              "displayCondition": null
+            },
+            {
+              "name": "Inappropriate Constraint Adherence",
+              "value": "Inappropriate Constraint Adherence",
+              "displayCondition": null
+            },
+            {
+              "name": "Tone / Persona Degradation",
+              "value": "Tone / Persona Degradation",
+              "displayCondition": null
+            },
+            {
+              "name": "Other General Loss",
+              "value": "Other General Loss",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>If you selected General Loss, which of the following best describes how the new memory sections negatively impacted the First model compared to Second?</p><ul><li><strong style=\"background-color: transparent;\">Quality / Helpfulness Degradation:</strong><span style=\"background-color: transparent;\"> The new memory sections caused the Test model to give a less accurate, less comprehensive, or less helpful answer than the Base model.</span></li><li><strong style=\"background-color: transparent;\">Awkward / Unwanted Personalization:</strong><span style=\"background-color: transparent;\"> The Test model forced unnecessary personalization that felt unnatural or distracting without explicitly leaking raw facts.</span></li><li><strong style=\"background-color: transparent;\">Inappropriate Constraint Adherence:</strong><span style=\"background-color: transparent;\"> The Test model adhered to implicit formatting or behavioral constraints from memory that hindered its ability to answer the current query effectively.</span></li><li><strong style=\"background-color: transparent;\">Tone / Persona Degradation:</strong><span style=\"background-color: transparent;\"> The Test model adopted an unhelpful or inappropriate tone influenced by past memory context.</span></li><li><strong style=\"background-color: transparent;\">Other General Loss:</strong><span style=\"background-color: transparent;\"> </span><span style=\"background-color: transparent; color: rgb(24, 128, 56);\">[Please specify - open text]</span></li></ul>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "lossCategory"
+                  },
+                  "General Loss"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "generalOtherDetails",
+          "name": "Other general-loss category",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Specify the other general-loss category.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "generalLossCategorization"
+                  },
+                  "Other General Loss"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "generalLossSeverity",
+          "name": "General Loss Severity",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Major Loss",
+              "value": "Major Loss",
+              "displayCondition": null
+            },
+            {
+              "name": "Minor Loss",
+              "value": "Minor Loss",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>How severe was the negative impact of the general RM/STM loss compared to the Second model?</p><ul><li><strong style=\"background-color: transparent;\">Major Loss:</strong><span style=\"background-color: transparent;\"> The memory retrieval significantly degraded the response quality, making the Test model noticeably worse than Base.</span></li><li><br></li><li><strong style=\"background-color: transparent;\">Minor Loss:</strong><span style=\"background-color: transparent;\"> The memory retrieval caused a slight degradation, awkwardness, or distraction compared to Base.</span></li></ul>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "lossCategory"
+                  },
+                  "General Loss"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "didTurn1HaveIssue",
+          "name": "Did turn 1 have issue?",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "Yes",
+              "displayCondition": null
+            },
+            {
+              "name": "No",
+              "value": "No",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>For turn 1, indicate whether the model response had an issue.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "1"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "2"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "3"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "4"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "turn1MemorySection",
+          "name": "Which Memory Section caused this issue? (Turn 1)",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>For turn 1, identify the Memory Section that caused the issue. Consider Long Term Memory, Short Term Memory, Retrieved Memory, Explicit Memory, and PContext tool output (if triggered). Multiple sections may be listed.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "didTurn1HaveIssue"
+                  },
+                  "Yes"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "didTurn2HaveIssue",
+          "name": "Did turn 2 have issue?",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "Yes",
+              "displayCondition": null
+            },
+            {
+              "name": "No",
+              "value": "No",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>For turn 2, indicate whether the model response had an issue.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "2"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "3"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "4"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "turn2MemorySection",
+          "name": "Which Memory Section caused this issue? (Turn 2)",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "For turn 2, identify the Memory Section that caused the issue. Consider Long Term Memory, Short Term Memory, Retrieved Memory, Explicit Memory, and PContext tool output (if triggered). Multiple sections may be listed.",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "didTurn2HaveIssue"
+                  },
+                  "Yes"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "didTurn3HaveIssue",
+          "name": "Did turn 3 have issue?",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "Yes",
+              "displayCondition": null
+            },
+            {
+              "name": "No",
+              "value": "No",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "For turn 3, indicate whether the model response had an issue.",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "3"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "4"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "turn3MemorySection",
+          "name": "Which Memory Section caused this issue? (Turn 3)",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "For turn 3, identify the Memory Section that caused the issue. Consider Long Term Memory, Short Term Memory, Retrieved Memory, Explicit Memory, and PContext tool output (if triggered). Multiple sections may be listed.",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "didTurn3HaveIssue"
+                  },
+                  "Yes"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "didTurn4HaveIssue",
+          "name": "Did turn 4 have issue?",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "Yes",
+              "displayCondition": null
+            },
+            {
+              "name": "No",
+              "value": "No",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "For turn 4, indicate whether the model response had an issue.",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "4"
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "turn4MemorySection",
+          "name": "Which Memory Section caused this issue? (Turn 4)",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "For turn 4, identify the Memory Section that caused the issue. Consider Long Term Memory, Short Term Memory, Retrieved Memory, Explicit Memory, and PContext tool output (if triggered). Multiple sections may be listed.",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "didTurn4HaveIssue"
+                  },
+                  "Yes"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "didTurn5HaveIssue",
+          "name": "Did turn 5 have issue?",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "Yes",
+              "displayCondition": null
+            },
+            {
+              "name": "No",
+              "value": "No",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>For turn 5, indicate whether the model response had an issue.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "numberOfTurns"
+                  },
+                  "5"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "turn5MemorySection",
+          "name": "Which Memory Section caused this issue? (Turn 5)",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>For turn 5, identify the Memory Section that caused the issue. Consider Long Term Memory, Short Term Memory, Retrieved Memory, Explicit Memory, and PContext tool output (if triggered). Multiple sections may be listed.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "didTurn5HaveIssue"
+                  },
+                  "Yes"
+                ]
+              }
+            ]
+          },
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "baseSideFeedback",
+          "name": "Second Model Side (Bait Prompt & Beyond)",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Provide feedback on the Second model's performance starting from the bait prompt and any turns beyond. Explain how the Base model handled the query.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "testSideTurnBreakdown",
+          "name": "First Model Side (Turn-by-Turn Breakdown)",
+          "type": "FREE_TEXT",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Provide feedback on the First model's performance across every turn leading up to and including the failure. Label each turn using the format [Turn X] (for example, [Turn 1], [Turn 2], [Turn 3]) and describe what happened at each turn and exactly how the loss manifested.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "enableWordCount": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "wasPContextTriggered",
+          "name": "Was PContext triggered?",
+          "type": "SINGLE_CHOICE",
+          "options": [
+            {
+              "name": "Yes",
+              "value": "Yes",
+              "displayCondition": null
+            },
+            {
+              "name": "No",
+              "value": "No",
+              "displayCondition": null
+            },
+            {
+              "name": "N/A",
+              "value": "N/A",
+              "displayCondition": null
+            }
+          ],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "criticalRequirement",
+          "name": "Critical Requirement",
+          "type": "CHECKBOX",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Before proceeding to the next model evaluation, please confirm that you have completed the this model review and deleted your Gemini chat history from the previous interaction. This step is required to ensure an independent evaluation and prevent information from carrying over between models.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        },
+        {
+          "key": "privacyGate",
+          "name": "Privacy Gate",
+          "type": "CHECKBOX",
+          "options": [],
+          "autoFill": false,
+          "allowCopy": false,
+          "visibility": [],
+          "autoDefault": false,
+          "collapsible": false,
+          "description": "<p>Before submitting, please verify the following:</p><p>☐ The HTML preview is rendering correctly and all required content is visible.</p><p>☐ My name, email address, account details, or any other personal information I do not wish to share are not visible anywhere on the page.</p><p>☐ No sensitive information is present in the task content.</p><p>☐ I understand that once submitted, the content may be reviewed by others as part of the evaluation process.</p>",
+          "editability": [],
+          "addToMetadata": false,
+          "allowOptional": false,
+          "blockCopyPaste": false,
+          "similarityCheck": {
+            "enabled": false,
+            "algorithm": "EMBEDDING",
+            "blockOnExceeded": false,
+            "jaccardThreshold": 60,
+            "embeddingThreshold": 75
+          },
+          "displayCondition": null,
+          "inputFieldsGroup": [],
+          "enableTabularView": false,
+          "allowTabsViewOnEdit": false,
+          "readonlyInputGroups": [],
+          "autoExpandDescription": false,
+          "enableSimilarityCheck": false,
+          "autoFillFromQualityDimensionAgents": false
+        }
+      ],
+      "integrationId": 6,
+      "projectId": 945
+    }
+  ]
+}

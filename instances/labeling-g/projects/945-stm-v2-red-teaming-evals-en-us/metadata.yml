@@ -1,0 +1,148 @@
+# Project metadata — keep in sync with the live tool.
+instance: labeling-g
+slug: 945-stm-v2-red-teaming-evals-en-us
+display_name: WIP - STM v2 - Red Teaming Evals (en-US) - Turing Duplicate
+task_type: red-teaming loss eval (Test vs Base branch, 2-side SxS)
+language: en-US
+owner: harsh.a@turing.com
+tool_url: https://labeling-g.turing.com/projects/945/view/quality
+tool_project_id: 945
+status: ready-to-deploy          # requirements.md v1.0.3; 65 fixtures + golden 1267698 green; golden 1267733 correctly BLOCKED on F-09. Paste blocked on the tool's WAF (with devops).
+
+deployed:
+  version: 0                     # bump to 1 after first paste into the tool
+  date:
+  by:
+  commit:
+
+script:
+  version: 1.0.3
+  generated: true                # validation.js is BUILT — do not hand-edit
+  build: node scripts/build-945.mjs
+  notes_v1_0_3: |
+    E-8 RULED (2026-09-03): the roles are FIXED. Always start the conversation on Model A
+    (Mochi = Test) and continue until it makes the mistake -- that turn is the bait prompt --
+    then branch the bait prompt and the conversation history to Model B (Prod Frozen = Base).
+    Display order never rotates the roles.
+
+    Task 1267733 is therefore a genuine protocol violation: it ran the 4-turn conversation on
+    the frozen baseline and baited the test model, which measures nothing -- the regression
+    under test is in Mochi's memory build. New check F-09 blocks it, and it reads the DEBUG
+    CAPTURES, not the batch sheet: it fires only when the Base side holds a real multi-capture
+    ladder (>=2 slots, turn t carrying t user blocks) while the Test side holds no ladder and
+    every Test capture carries the Base side's whole history. A correct task has one Base
+    capture, so the ladder clause alone rules it out. When F-09 fires, F-05/F-06/A-04/A-05 stand
+    down so the real message is not buried under restatements of it; C-01 lives in Layer L1,
+    which cannot see artifacts, so it may still report.
+
+    I-03 also gains a warning when "First model shown" is not Model A. Warn, not error: a
+    spreadsheet column is not evidence of how the task was run, and if the run was correct then
+    a wrong column is a batch fix rather than rater rework. SS3's inert-Base-rubric rule stands
+    as written -- 1267733's substantive Base rubric is a symptom of the inversion, not a
+    counterexample to E-1. Register is now 50 checks.
+  notes_v1_0_2: |
+    Corrections from reading the SECOND completed task (1267733) end to end against its
+    artifacts. B-01 no longer ties the Test role to batch "First Model" -- that field is DISPLAY
+    ORDER, randomised per task, and the clause fired on a task whose namespaces were both
+    correct; I-03 keeps display order at warn. C-04 parses the live "[Turn K] - [Section].
+    rationale" convention instead of splitting prose on commas. F-05 now names its commonest
+    sub-case: a slot whose capture holds no prompt the previous slot lacks documents no
+    additional turn (1267733's turn-2 capture repeated turn 1's four prompts and role sequence,
+    differing only in latency telemetry -- the turn had been cancelled).
+
+    OPEN, BLOCKING (escalation E-8): 1267733 ran the 4-turn conversation on the FROZEN BASELINE
+    and baited the TEST model -- the reverse of requirements SS1's study shape, with the rater's
+    own write-ups consistent throughout. Either it is a protocol violation the validator must
+    block, or the study rotates which model is baited and SS1/SS1.1/SS3 need rewriting onto
+    order-derived roles. The fixed mapping (Test = model_A) stands until the QA lead rules, so
+    golden 1267733 still reports the inversion's consequences (C-01, F-06, A-05).
+  notes_v1_0_1: |
+    WAF-safe output. The tool's save endpoint sits behind a firewall that rejected the
+    deployable; every HTML tag opener and HTML entity is now written with \x3c / \x26 escapes
+    (identical strings after parsing, invisible to a signature engine), asserted by the builder
+    including in comments. Whether that was the actual trigger is still with devops.
+  notes_v1_0_0: |
+    First build, off requirements.md v1.0.1, on 944's two-sub-validator engine:
+    validate() -> validateRedTeamL1 (R/G/U/D/I-03/C/B) + validateRedTeamFetchLayer
+    (F-01..F-08, A-01..A-05, I-01, I-02; concurrent via Promise.allSettled). The
+    FORM_SPEC-equivalent CFG is generated from the config export and injected into each part;
+    the deployable stays 7-bit ASCII (84.5KB, under the tool's 100KB cap).
+
+    Project-specific doctrine, all of it forced by the study shape rather than inherited:
+      * Every submitted task is a LOSS BY CONSTRUCTION. R-09 blocks a task whose Test turns are
+        all marked clean; C-01 blocks a loss recorded before a clean final turn (the protocol
+        stops at the loss turn).
+      * The BASE-SIDE RUBRIC IS INERT (escalation E-1). The config forces the rater to fill 15
+        rubric fields on the Base side, but a loss is Test-only by definition, so any value
+        there is forced noise -- flagging it would punish compliance with a broken form. Those
+        values are LOGGED every run, never judged. R-04..R-07 (turn count / debug / HTML), the
+        U/D artifact checks and the A-family content anchoring still run on Base: those are
+        about artifacts, not the rubric.
+      * F-06 is the project's structural invariant, replacing the inherited MT/ST eval-type
+        shape check: the Base capture is the branch of Test turns 1..N-1 plus the bait prompt
+        P(N), so it carries exactly N user blocks.
+      * Identity is anchored on "Agency config id", NOT "Model ID:" -- there is no Model ID line
+        on this execution path (proven on task 1267698).
+      * The footprints delta is deleted outright, not left to self-skip: the protocol requires
+        deleting the Test chat before the Base run, so the signal is dead by design.
+      * Content anchoring (A-family) is restored after 944 removed it: on 1267698 the form's
+        prompt equals the first user block of every fetched capture byte-for-byte.
+
+  composed_from:
+    - config/project-config-id-945.json  # form config export -> config/form-spec-945.json -> injected CFG
+    - parts/redteam-checks.js            # Layer L1 deterministic checks
+    - parts/redteam-fetch-checks.js      # Layer L2 fetched-artifact checks
+  spec: requirements.md                  # v1.0.3 -- the generation contract
+
+shape: |
+  Two sides via compareBaseAndTest SIDE_BY_SIDE_COMPARISON, progressive per-model form.
+  Per-side keys arrive as compareBaseAndTest.<model name>.<questionKey> under
+  conversation.ratings (object map key -> {value}); batch axes at conversation.input.
+  Test = model_A = "Nippon (PContext mode 23) - Mochi Fast"
+  Base = model_B = "Nippon (PContext mode 23) - Prod Frozen Fast"
+  38 config fields, 27 of them per side. Both model names contain " - " and the batch sheet
+  joins namespace and key with the same " - ", so keys are only ever split at the LAST "."
+  and model names are matched by exact canonical string, never by prefix or substring.
+  Artifacts are Google Drive FILE links in every debug slot, htmlExport and geminiTakeout --
+  fetched and content-checked, not just link-shape-checked.
+
+coverage: |
+  50 checks implemented and build-asserted (one owner per register ID):
+    R-01..R-09  completeness (blank required, declared-vs-filled, stale hidden slots,
+                loss-by-construction)
+    G-01..G-06  gate cascades (required-when-shown + empty-when-hidden), transcribed from the
+                config's own displayConditions, plus enum membership -- Test side only
+    U-01..U-07  artifact URL integrity (pasted debug/HTML, no link, multi-link, folder, host)
+    D-01        artifact identity (same Drive file id across slots)
+    F-01..F-09  fetched-artifact content (fetch failure, debug/HTML/Takeout sanity, export
+                shape, the bait-turn invariant, byte-identical re-uploads, PContext trigger,
+                and F-09: the conversation run on the wrong model)
+    A-01..A-05  content anchoring (form prompt vs capture, bait prompt across sides, shared
+                history containment, within-side history, turn-1 single prompt)
+    I-01..I-03  identity (Agency config id frozen/non-frozen, cross-side distinctness,
+                model order vs the batch)
+    C-01..C-07  coherence (stop-at-the-loss-turn, Base turn count, memory-section vocabulary,
+                [Turn X] labels, category-vs-core-task, the open Harmless-Callback ruling)
+    B-01..B-03  assignment vs submission (batch axes; self-skips with a loud log)
+
+notes: |
+  Local `npm test` runs 65 fixtures through the same sandbox the tool uses; regenerate them and
+  their Drive fetch mocks with `node fixtures/gen-cases.mjs`. `node scripts/run-golden.mjs
+  labeling-g/945-stm-v2-red-teaming-evals-en-us` runs the real task 1267698 against the nine
+  real artifacts in golden/artifacts/ -- it passes with 0 errors and 0 warnings.
+
+  First-task verification (requirements SS18) is CLOSED on all rows except item 8 (fetch stage
+  vs the 30s budget), which is bounded by design -- concurrent fetches, host-side per-fetch
+  timeout, and no fetched artifact's full text retained -- but unmeasured on a live run. The two
+  saved HTML pages on 1267698 are 4.4MB and 4.1MB, which is why they reduce to a bounded prefix
+  plus a fingerprint rather than being held in the isolate (the 944 v2.0.4 memory incident).
+
+  Highest-value false-block guards: the SS3 inert-Base-rubric rule; F-05 accepting both the flat
+  and the cumulative debug export shapes; A-01 applying only where a capture actually replays
+  turn 1; A-03 excluding the bait prompt so A-02's >=90% word-overlap warn tier is not undone by
+  a hard containment test on the same bytes; F-08 and every C-check staying at warn.
+
+  E-8 is CLOSED (fixed roles, above). Open escalations carried from requirements SS17: E-1 (Base rubric forced -- blocking), E-2
+  (no attempt-count field), E-3 (internal doc inverts the Model A/B mapping), E-4 (redaction vs
+  memory-section attribution), E-5 (turnKMemorySection should be a MULTI_SELECT), E-6 (two
+  rubric rulings behind C-06/C-07), E-7 (wasPContextTriggered should be derived, not asked).
