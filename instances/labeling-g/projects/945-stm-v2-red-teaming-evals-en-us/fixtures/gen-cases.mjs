@@ -159,9 +159,9 @@ function baseTask() {
     [ns(BASE, "htmlExport")]: link("HTML_B"),
     [ns(BASE, "wasPContextTriggered")]: "No",
     [ns(BASE, "testCoreTaskCompletion")]: "Yes",
-    [ns(BASE, "lossCategory")]: "General Loss",
-    [ns(BASE, "generalLossCategorization")]: "Inappropriate Constraint Adherence",
-    [ns(BASE, "generalLossSeverity")]: "Minor Loss",
+    // v1.0.7 (C-13): Loss Category gained an "N/A" option and the Base side -- the control --
+    // must select it; its Leakage/General sub-answers must stay empty.
+    [ns(BASE, "lossCategory")]: "N/A",
     [ns(BASE, "didTurn1HaveIssue")]: "No",
     [ns(BASE, "criticalRequirement")]: true,
   };

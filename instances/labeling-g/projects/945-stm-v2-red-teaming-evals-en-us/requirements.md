@@ -327,6 +327,25 @@ output under 100 KB that survives `new Function`, and a rebuild-twice hash diff.
 
 ## 22. Changelog
 
+- **v1.0.9** — Two rater-reported false warnings on live tasks, one root cause: both compared
+  against the batch sheet's `First Model` column, which is randomised display order (§1.1, proven
+  on 1267733), while policy fixes the form's "First model shown" to the Test model — so the column
+  disagrees with correct work about half the time by construction. **I-03 is demoted to a log**
+  (it compares run order against display order: different quantities, no rater action). **The
+  protocol first-model warning is removed outright** -- both arms. "First model shown" records
+  what the tool displayed, in the batch column and the form alike, and never asserted run order:
+  task 1267704 is a textbook-correct submission (Mochi ran and lost, the bait branched to Prod
+  Frozen, Base at Loss Category N/A) whose rater truthfully set that field to Prod Frozen because
+  that is what the platform showed. Third fix, from task 1267723: the v1.0.6
+  injected-block rule ate a rater's only real prompt, because the model forwarded the 26-character
+  bait to `google:search` verbatim and it therefore appeared as a tool argument. The drop is now
+  **positional — the first surviving user block is never dropped** — which can neither zero out a
+  capture nor inflate one, where a content-based "keep it if it equals the typed prompt" rule
+  would leave the mirror-image hole. This bug selectively hit short turn-1 baits, which the guide
+  encourages. A genuinely inverted run
+  remains F-09's, on the debug captures. Separately, v1.0.4–v1.0.8 were re-imported into `parts/`
+  — they had been edited into the built file only, so any rebuild would have reverted them — and
+  C-12/C-13/C-14 gained the ID labels their v1.0.7 logic shipped without (register now 53).
 - **v1.0.3** — **E-8 ruled: the roles are fixed.** Always start the conversation on Model A
   (Mochi) and continue until it makes the mistake — that is the bait prompt — then branch the
   bait prompt and the history to Model B (Prod Frozen). Task 1267733 is therefore a genuine

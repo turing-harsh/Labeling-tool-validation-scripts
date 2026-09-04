@@ -7,7 +7,7 @@ language: en-US
 owner: harsh.a@turing.com
 tool_url: https://labeling-g.turing.com/projects/945/view/quality
 tool_project_id: 945
-status: ready-to-deploy          # requirements.md v1.0.3; 65 fixtures + golden 1267698 green; golden 1267733 correctly BLOCKED on F-09. Paste blocked on the tool's WAF (with devops).
+status: ready-to-deploy          # requirements.md v1.0.9; source chain restored (parts/ == built file); goldens verified. 1267704 + 1267723 clean, 1267733 blocked on F-09. Fixture net stale -- see notes_v1_0_9.
 
 deployed:
   version: 0                     # bump to 1 after first paste into the tool
@@ -16,9 +16,59 @@ deployed:
   commit:
 
 script:
-  version: 1.0.3
+  version: 1.0.9
   generated: true                # validation.js is BUILT — do not hand-edit
   build: node scripts/build-945.mjs
+  notes_v1_0_9: |
+    Two rater-reported false warnings on live tasks, both the same category error: they compared
+    against the batch sheet's "First Model" column, which is randomised DISPLAY ORDER (proven on
+    1267733), while policy fixes the form's "First model shown" to the Test model -- so the
+    column disagrees with a correct submission about half the time, by construction.
+      * I-03 is demoted to a LOG line. It compares run order against display order: different
+        quantities, no rater action behind the difference.
+      * The protocol first-model warning is REMOVED OUTRIGHT -- both arms, not just the
+        assignment one. "First model shown" records what the TOOL DISPLAYED first, in the batch
+        column and in the form alike; it never asserted run order. Task 1267704 settles it: the
+        rater ran Mochi first and got the loss on it ("[Turn 1] Model A was showing off
+        personalization ..."), branched the bait to Prod Frozen ("[Turn 1] Model B answered the
+        bait prompt ..."), recorded Test=1 turn with the issue and Base=1 turn clean at Loss
+        Category N/A -- a textbook submission -- and still, truthfully, set "First model shown"
+        to Prod Frozen because that is what the platform showed. Keeping the form arm would have
+        gone on punishing raters for reporting the UI accurately. Run order is knowable only
+        from the debug captures, so F-09 owns it alone.
+    A genuinely inverted run stays with F-09, on the debug captures -- which is what caught 1267733.
+
+      * KEEP-GUARD on the v1.0.6 injected-block rule (task 1267723, rater-reported): that rule
+        ate a rater's only real prompt. The bait was "how should i plan october?" (26 chars);
+        the model forwarded it to google:search VERBATIM, so it appeared as a string_value under
+        "Function calls and responses:" and landed in the drop set. The capture's single genuine
+        user block was deleted, the count went to 0, and F-05 (Test) and F-06 (Base 0 vs Test 1)
+        both fired on a correct submission. The bug was selective in the worst way: a short
+        conversational bait is exactly what a model forwards to a tool unmodified, and short
+        turn-1 baits are what the guide asks raters to write.
+        The guard is POSITIONAL: the first surviving user block is never dropped. A content rule
+        ("keep it if it equals the typed prompt") fixes 1267723 but leaves the mirror-image hole
+        -- a genuine sub-agent block echoing the typed prompt would be kept and inflate the
+        count, re-firing F-05 from the other side. Positional can neither zero out a capture nor
+        inflate one, and it covers both live files: 1267723 (real prompt first) and the file_gen
+        capture (injected block second). The typed-prompt comparison survives only in the log
+        line, to say which case fired.
+
+    ALSO, and more important than either edit: v1.0.4-v1.0.8 had been edited into the BUILT file
+    only, leaving parts/ five versions behind. Any rebuild would have silently reverted C-12/13/14
+    (Loss Category N/A), the v1.0.6 sub-agent block fix and the v1.0.8 history-drop handling. All
+    of it is now re-imported into parts/ and the rebuild reproduces the live file byte for byte
+    apart from the two intended edits. validation.js is generated again -- do not hand-edit it.
+
+    Builder changes that went with the re-import: C-12/C-13/C-14 gained the ID labels their
+    v1.0.7 logic shipped without (the register now asserts 53 checks); the 100KB size cap is a
+    warning rather than a hard stop, since docs/CONVENTIONS.md's figure is stale against a 112KB
+    deployable that runs; and the WAF byte-sequence assertion is removed.
+
+    KNOWN GAP: fixtures/cases.json is a stale net. All 53 checks still fire, but 43 of the 65
+    cases assert v1.0.3 message wording that v1.0.4-v1.0.8 rewrote (e.g. R-01 now reads "the
+    'prompt' field is empty", F-09 "on the wrong model", I-01 "did not come from the Base
+    model"). They need re-pointing at the current text before the suite means anything again.
   notes_v1_0_3: |
     E-8 RULED (2026-09-03): the roles are FIXED. Always start the conversation on Model A
     (Mochi = Test) and continue until it makes the mistake -- that turn is the bait prompt --
