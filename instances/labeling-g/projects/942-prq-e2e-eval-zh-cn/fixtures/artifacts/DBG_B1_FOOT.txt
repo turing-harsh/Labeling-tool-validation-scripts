@@ -1,0 +1,17 @@
+Personal Context
+sian_profile {
+  source: SEARCH
+  source: GMAIL
+  source: PHOTOS
+  source: YOUTUBE
+  source: BARD_NOT_PERSONALIZED_USING_FIRST_PARTY_DATA
+}
+num_turns_read_from_footprints: 3
+Model ID: pcontext_prod_frozen
+LM Prefix:
+<ctrl99>user
+What should I pack for my trip to Lisbon next week?
+<ctrl100>
+<ctrl99>model
+Pack layers, a light rain shell, and comfortable walking shoes.
+<ctrl100>

@@ -515,6 +515,22 @@ async function validateRedTeamFetchLayer(conversationData) {
   if (!inverted && testAll && baseAll && baseAnchor && testN !== null) {
     if (baseAnchor.count !== testN && historyDropped) {
       warn('Base side', baseAnchor.fieldKey, `the Base model did not receive the earlier turns: its debug holds ${baseAnchor.count} prompt${baseAnchor.count === 1 ? '' : 's'} while the Test side ran ${testN}, although the saved Base page shows the branch.`, dropFix, `Base capture user prompts = ${baseAnchor.count}; Test "Number of turns" = ${testN}; Base page shows every shared prompt; Base bait turn called a tool.`);
+    } else if (baseAnchor.count > testN) {
+      // v1.0.9, task 1267717: TOO MANY prompts is the opposite defect from too few, and the
+      // generic "not branched" wording actively misled -- that capture DID carry the shared
+      // history, and one turn more besides. Its role sequence was user>model x4 then a fifth
+      // user whose text repeated the fourth: the branch was taken AFTER the bait turn, so the
+      // Base chat already held the bait and the Test model's answer to it, and then the bait was
+      // sent again. That contaminates the comparison in a way the count alone does not convey --
+      // the Base is replying with the Test model's leaking answer already in its context.
+      const bb = baseAnchor.blocks;
+      const dupTail = bb.length >= 2 && bb[bb.length - 1] === bb[bb.length - 2];
+      err('Base side', baseAnchor.fieldKey,
+        dupTail
+          ? `the Base chat already held the bait prompt and its answer before the bait was sent again: its debug holds ${baseAnchor.count} prompts for a ${testN}-turn conversation, and the last two are the same prompt.`
+          : `the Base debug holds ${baseAnchor.count} user prompts, ${baseAnchor.count - testN} more than the ${testN} turn${testN === 1 ? '' : 's'} the Test side ran -- the Base chat carries a turn it should not.`,
+        `branch one turn earlier: open the Test conversation, click the three dots under the reply to the turn BEFORE the bait${testN > 1 ? ` (turn ${testN - 1})` : ''}, choose "Branch in new chat", switch the model to "${BASE_NAME}", then send the bait exactly once. Why: if the Base chat already holds the Test model's answer to the bait, the Base model replies with that answer in front of it, so the two sides are no longer answering the same question from the same state.`,
+        `Base capture user prompts = ${baseAnchor.count}; Test "Number of turns" = ${testN}${dupTail ? '; the last two Base prompts are identical' : ''}.`);
     } else if (baseAnchor.count !== testN) {
       err('Base side', baseAnchor.fieldKey,
         `the Base debug holds ${baseAnchor.count} user prompt${baseAnchor.count === 1 ? '' : 's'}, but the Test side ran ${testN} turn${testN === 1 ? '' : 's'} -- the Base chat was not branched from the Test conversation.`,

@@ -1,0 +1,149 @@
+# Project metadata -- keep in sync with the live tool.
+instance: labeling-g
+slug: 941-prq-e2e-eval-es-419
+display_name: "[MT Chat] PRQ E2E Eval [0P + 1P] -- P13n Response Quality (es-419)"
+task_type: model-comparison-personalization (2-side SxS, 1-5 turns per side)
+language: es-419
+owner: harsh.a@turing.com
+tool_url: https://labeling-g.turing.com/projects/941/view/quality
+tool_project_id: 941
+review_criteria_id: 3780
+status: ready-for-first-task      # 65 fixtures green; every requirements section-9 row still unproven
+
+deployed:
+  version: 0                     # bump to 1 after the first paste into the tool
+  date:
+  by:
+  commit:
+
+script:
+  version: 1.0.1
+  generated: true                # validation.js is BUILT -- do not hand-edit
+  build: node scripts/build-941.mjs      # builds BOTH 941 and 942
+  composed_from:
+    - 941-prq-e2e-eval-es-419/config/project-config-id-941.json   # -> config/form-spec-<id>.json -> injected CFG
+    - 941-prq-e2e-eval-es-419/parts/prq-checks.js                 # Layer L1 -> validatePrqL1
+    - 941-prq-e2e-eval-es-419/parts/prq-fetch-checks.js           # Layer L2 -> validatePrqFetch
+  spec: 941-prq-e2e-eval-es-419/requirements.md
+  notes_v1_0_1: |
+    Model rename (revised config export, 9 Sep 2026): model_A went from
+    "Mode 23 -> Ramen (top-20) - Fast" to "PContext Mode 23 (Nippon) > Mochi - Fast" (EN DASH
+    before "Fast"). A machine diff of the old and new exports showed the name is the ONLY
+    change -- all 65 fields, the gate graph, every option vocabulary and the field ordering are
+    byte-identical, and it moves in exactly two places (sideBySide.model_A and the firstModel
+    enum). Because every table is config-derived, swapping the export carried the rename
+    through on its own; the two code fixes below were needed because the new name's SHAPE broke
+    assumptions:
+      * F3-09's discriminator recognised only {"->", " - "} as separators, so on the new name it
+        split first at the " - " before "Fast" and reduced the form name to "fast" while the
+        saved page reduced to "mochifast" -- an ERROR ON EVERY CORRECT TEST-SIDE TASK. A bare
+        ">" is now a separator. Pinned by a permanent two-direction regression case; reverting
+        the one-character fix fails 23 of the 67 fixtures, including every clean-task case.
+      * canonModel (A-04 side binding, F5-04, run-order) now collapses either "->" or a bare
+        ">" in ONE pass, so arrow-style variants of the same name canonicalize equal. One pass,
+        not two: replacing ">" first also eats the ">" inside "->" and mangles every
+        ASCII-arrow name (caught while writing the fix).
+    The builder now reports every separator/dash style in each configured model name, so a
+    future rename in an unseen style gets a human look instead of silent handling.
+    The superseded export is kept at config/project-config-id-941.superseded-ramen.json.
+
+coverage: |
+  53 checks implemented and build-asserted (one call site each):
+    F1-01..F1-07  completeness (required task/per-side fields, attestations, turn count,
+                  declared-vs-filled debug slots, SxS, per-side rationale)
+    F2-01..F2-07  gate cascades BOTH directions, TRANSCRIBED from the config's displayConditions
+                  by the builder -- never hand-written (category / turns / detraction / i18n
+                  explanation, stale hidden values, stale debug slots, bp2 log)
+    F3-01..F3-11  artifact integrity: link shape, duplicate Drive ids, fetch-failure
+                  classification, debug/HTML sanity, slice classification, prompt-in-page,
+                  mode-selector identity, per-turn page coverage, one-chat-for-both
+    F4-A..F4-H    content anchoring on the fetched debug: prompt anchor, later-turn anchor,
+                  cross-turn continuity, Turn 1 single-prompt, byte-identical slots,
+                  one-chat-for-both, footprints delta both directions
+    F5-01..F5-05  identity: Model ID within a side, across sides, vs the (EMPTY) identity table,
+                  firstModel enum, firstModel vs the batch assignment
+    F6-01..F6-11  coherence matrices in the client's own vocabulary
+    F7-01..F7-04  locale assignment, Prompt Type presence, Test-side personal-context sources,
+                  attribution-branch mode
+  F5-06 and the seven section-4 REMOVED-ON-FORK items are absent by design, not self-skipping.
+
+  Build discipline: every field key, on-screen label, option vocabulary, gate edge and model
+  name is DERIVED from the config export -- zero phantom keys, build-asserted. The builder also
+  asserts the requirements' "proven facts" (51 per-side / 13 top-level / 10 severity heads /
+  4 i18n heads / 9 category + 10 turns + 2 detraction children / 5 debug slots / firstModel
+  enum / no Q1 gate anywhere), so a config revision that breaks an assumption FAILS THE BUILD
+  instead of silently disabling a check. Output is 7-bit ASCII, deterministic (rebuild-twice
+  hash diff), parses through the same new Function gate the tool runs at save time, contains no
+  timers or console, and never awaits a Drive fetch serially in a loop.
+
+  65 fixtures green per project: a smoke pass, an adversarial fire per check, and the
+  section-7 near-misses that must NOT fire (CRLF + omission marker; NBSP prompt vs U+FFFD debug
+  -- the permanent 939 regression pair; legal N/A alone on a Turns child; ?usp=sharing suffix;
+  curly-apostrophe option variant; descriptive redaction placeholders; dissatisfied with a FULL
+  share; the Fact-13 "Not Personalized + N/A everywhere" compliant pattern). Regenerate with
+  "node fixtures/gen-cases.mjs fixtures/cases.json [es|zh]" from the 941 directory.
+
+named_deviations: |
+  Three places where the build knowingly departs from the literal requirements text. Each wants
+  a ruling; none is a silent choice.
+
+  1. F4-A / F4-B / F4-C are SCOPED BY DEBUG EXPORT SHAPE, detected per side and logged.
+     The requirements state all three unconditionally. Taken literally each false-fires on one
+     of the two legitimate Gemini export shapes: F4-A and F4-C on a FLAT export (turn t's file
+     holds only turn t), F4-B on a CUMULATIVE one (turn t replays turns 1..t, so its last block
+     is turn t's question, not the starting prompt). 944 v2.0.2 and v2.0.3 were BOTH production
+     false blocks caused by assuming one shape, and 944 v2.0.3 proved captures are cumulative in
+     real data. So: F4-A runs on turn 1 always and on later turns only when cumulative; F4-B
+     only when flat; F4-C only when cumulative. Turn 1 anchoring (F4-A, F4-D) is unconditional
+     under every shape, so a wrong Turn 1 conversation is still caught either way. Settle with
+     the first real export (requirements section 9 row 5).
+
+  2. F6-09 option equality: the "short value vs long label" rule the requirements ask for
+     ("treat N/A and its long label as the same answer") applies ONLY when one side carries no
+     separator. A looser shared-first-segment reading made
+     "Mode 23 -> Something Else - Fast" equal to "Mode 23 -> Ramen (top-20) - Fast" and silently
+     disabled F5-04 -- caught by that check's own fixture. Model names never go through option
+     equality at all; they use the arrow/whitespace/case canonicalizer.
+
+  3. Requirements Fact 4 counts "13 top-level keys". The config has 14 non-per-side keys, of
+     which one is compareModels and three are BREAKPOINTs carrying no answer. The build asserts
+     10 answerable task fields + 3 breakpoints = 13, and that the whole field count closes
+     (51 + 10 + 3 + 1 = 65).
+
+open_at_deploy: |
+  BLOCKING, must be settled before the first batch:
+  * The service-account address in the sharing fix text is carried verbatim from the deployed
+    903/939 scripts as "beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com". That looks like a
+    TRUNCATION of "labeling-tool-g-svc@..." -- if it is wrong, every F3-03 fix sends raters to a
+    dead end. It lives in ONE constant per part (FETCH_SERVICE_ACCOUNT); verify it against the
+    harness credential's client_email and correct it in both parts (requirements section 9
+    row 13). Not guessed here on purpose: silently "fixing" a credential is worse than flagging
+    one.
+  * The deployable is ~176KB, over run-checks-api's 100KB default maxScriptSize. labeling-g
+    already stores 903/939 well above that, so this is expected -- confirm this instance's limit
+    before pasting.
+
+  Requirements section 9 first-task table -- every row is still UNPROVEN (no task export exists
+  yet). The run logs everything needed to close them on the first real task: the resolved
+  ratings/metadata roots and their paths, ALL COMPARE MODEL NAMESPACES, the per-slot slice
+  classification (FULL / AGENCY-SLICE / ALS-SLICE / UNKNOWN), user-block counts, Model ID lines,
+  footprints, the export shape per side, the page mode-selector label and conversation id, the
+  sian_profile source list, U+FFFD counts, bp2 resolution, and the zh-CN width probe.
+  Escalations 1 (link vs paste protocol) and 2 (is Prompt the Turn 1 prompt?) are the two that
+  could invert a whole family: F3-01 inverts if the protocol is paste, and F4-A is live only
+  because the client doc says Prompt is the starting prompt.
+
+shape: |
+  Two sides via compareModels SIDE_BY_SIDE_COMPARISON. Per-side answers arrive namespaced
+  compareModels.<model name>.<questionKey>; 51 per-side keys, 10 answerable task keys,
+  3 breakpoints, 65 config fields total.
+  Test = model_A = "PContext Mode 23 (Nippon) > Mochi - Fast"   (EN DASH before "Fast")
+  Base = model_B = "Mode 23 -> Prod Frozen - Fast"
+  Sides bind by EXACT canonical match of the namespace to a configured model name -- never from
+  csv Model A / Model B (those are run-order columns, the 939 learning) and never by position.
+  Artifacts are Google Drive file links, fetched and content-checked. Batch metadata (First
+  Model / Prompt Type / Additional Rater Instruction / destination folder) is discovered by
+  shape search; every batch-layer check self-skips with a loud log when it is absent.
+  Locale assignment for F7-01: Spanish / LatAm (All Variants), SUPPLIED by the build -- the
+  config carries no locale marker, so this is a warning until the client rules it a hard
+  assignment (escalation 6).

@@ -1,0 +1,141 @@
+# Project metadata -- keep in sync with the live tool.
+instance: labeling-g
+slug: 942-prq-e2e-eval-zh-cn
+display_name: "[MT Chat] PRQ E2E Eval [0P + 1P] -- P13n Response Quality (zh-CN)"
+task_type: model-comparison-personalization (2-side SxS, 1-5 turns per side)
+language: zh-CN
+owner: harsh.a@turing.com
+tool_url: https://labeling-g.turing.com/projects/942/view/quality
+tool_project_id: 942
+review_criteria_id: 3780          # declared identical to 941 by the lead; NOT yet machine-diffed
+status: ready-for-first-task      # 65 fixtures green; blocked on 942's own config export for the parity diff
+
+deployed:
+  version: 0                     # bump to 1 after the first paste into the tool
+  date:
+  by:
+  commit:
+
+script:
+  version: 1.0.1
+  generated: true                # validation.js is BUILT -- do not hand-edit
+  build: node scripts/build-941.mjs      # builds BOTH 941 and 942
+  composed_from:
+    - 941-prq-e2e-eval-es-419/config/project-config-id-941.json   # -> config/form-spec-<id>.json -> injected CFG
+    - 941-prq-e2e-eval-es-419/parts/prq-checks.js                 # Layer L1 -> validatePrqL1
+    - 941-prq-e2e-eval-es-419/parts/prq-fetch-checks.js           # Layer L2 -> validatePrqFetch
+  spec: 941-prq-e2e-eval-es-419/requirements.md
+  notes_v1_0_1: |
+    Model rename carried through from the revised 941 config export (model_A is now
+    "PContext Mode 23 (Nippon) > Mochi - Fast"). See 941's metadata.yml notes_v1_0_1 for the
+    diff and the two shape fixes it required. NOTE: 942 is still built from 941's config, so
+    this rename is ASSUMED to apply to 942 as well -- confirm it when 942's own export arrives
+    (see parity below).
+
+coverage: |
+  53 checks implemented and build-asserted (one call site each):
+    F1-01..F1-07  completeness (required task/per-side fields, attestations, turn count,
+                  declared-vs-filled debug slots, SxS, per-side rationale)
+    F2-01..F2-07  gate cascades BOTH directions, TRANSCRIBED from the config's displayConditions
+                  by the builder -- never hand-written (category / turns / detraction / i18n
+                  explanation, stale hidden values, stale debug slots, bp2 log)
+    F3-01..F3-11  artifact integrity: link shape, duplicate Drive ids, fetch-failure
+                  classification, debug/HTML sanity, slice classification, prompt-in-page,
+                  mode-selector identity, per-turn page coverage, one-chat-for-both
+    F4-A..F4-H    content anchoring on the fetched debug: prompt anchor, later-turn anchor,
+                  cross-turn continuity, Turn 1 single-prompt, byte-identical slots,
+                  one-chat-for-both, footprints delta both directions
+    F5-01..F5-05  identity: Model ID within a side, across sides, vs the (EMPTY) identity table,
+                  firstModel enum, firstModel vs the batch assignment
+    F6-01..F6-11  coherence matrices in the client's own vocabulary
+    F7-01..F7-04  locale assignment, Prompt Type presence, Test-side personal-context sources,
+                  attribution-branch mode
+  F5-06 and the seven section-4 REMOVED-ON-FORK items are absent by design, not self-skipping.
+
+  Build discipline: every field key, on-screen label, option vocabulary, gate edge and model
+  name is DERIVED from the config export -- zero phantom keys, build-asserted. The builder also
+  asserts the requirements' "proven facts" (51 per-side / 13 top-level / 10 severity heads /
+  4 i18n heads / 9 category + 10 turns + 2 detraction children / 5 debug slots / firstModel
+  enum / no Q1 gate anywhere), so a config revision that breaks an assumption FAILS THE BUILD
+  instead of silently disabling a check. Output is 7-bit ASCII, deterministic (rebuild-twice
+  hash diff), parses through the same new Function gate the tool runs at save time, contains no
+  timers or console, and never awaits a Drive fetch serially in a loop.
+
+  65 fixtures green per project: a smoke pass, an adversarial fire per check, and the
+  section-7 near-misses that must NOT fire (CRLF + omission marker; NBSP prompt vs U+FFFD debug
+  -- the permanent 939 regression pair; legal N/A alone on a Turns child; ?usp=sharing suffix;
+  curly-apostrophe option variant; descriptive redaction placeholders; dissatisfied with a FULL
+  share; the Fact-13 "Not Personalized + N/A everywhere" compliant pattern). Regenerate with
+  "node fixtures/gen-cases.mjs fixtures/cases.json [es|zh]" from the 941 directory.
+
+named_deviations: |
+  Three places where the build knowingly departs from the literal requirements text. Each wants
+  a ruling; none is a silent choice.
+
+  1. F4-A / F4-B / F4-C are SCOPED BY DEBUG EXPORT SHAPE, detected per side and logged.
+     The requirements state all three unconditionally. Taken literally each false-fires on one
+     of the two legitimate Gemini export shapes: F4-A and F4-C on a FLAT export (turn t's file
+     holds only turn t), F4-B on a CUMULATIVE one (turn t replays turns 1..t, so its last block
+     is turn t's question, not the starting prompt). 944 v2.0.2 and v2.0.3 were BOTH production
+     false blocks caused by assuming one shape, and 944 v2.0.3 proved captures are cumulative in
+     real data. So: F4-A runs on turn 1 always and on later turns only when cumulative; F4-B
+     only when flat; F4-C only when cumulative. Turn 1 anchoring (F4-A, F4-D) is unconditional
+     under every shape, so a wrong Turn 1 conversation is still caught either way. Settle with
+     the first real export (requirements section 9 row 5).
+
+  2. F6-09 option equality: the "short value vs long label" rule the requirements ask for
+     ("treat N/A and its long label as the same answer") applies ONLY when one side carries no
+     separator. A looser shared-first-segment reading made
+     "Mode 23 -> Something Else - Fast" equal to "Mode 23 -> Ramen (top-20) - Fast" and silently
+     disabled F5-04 -- caught by that check's own fixture. Model names never go through option
+     equality at all; they use the arrow/whitespace/case canonicalizer.
+
+  3. Requirements Fact 4 counts "13 top-level keys". The config has 14 non-per-side keys, of
+     which one is compareModels and three are BREAKPOINTs carrying no answer. The build asserts
+     10 answerable task fields + 3 breakpoints = 13, and that the whole field count closes
+     (51 + 10 + 3 + 1 = 65).
+
+open_at_deploy: |
+  BLOCKING, must be settled before the first batch:
+  * The service-account address in the sharing fix text is carried verbatim from the deployed
+    903/939 scripts as "beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com". That looks like a
+    TRUNCATION of "labeling-tool-g-svc@..." -- if it is wrong, every F3-03 fix sends raters to a
+    dead end. It lives in ONE constant per part (FETCH_SERVICE_ACCOUNT); verify it against the
+    harness credential's client_email and correct it in both parts (requirements section 9
+    row 13). Not guessed here on purpose: silently "fixing" a credential is worse than flagging
+    one.
+  * The deployable is ~176KB, over run-checks-api's 100KB default maxScriptSize. labeling-g
+    already stores 903/939 well above that, so this is expected -- confirm this instance's limit
+    before pasting.
+
+  Requirements section 9 first-task table -- every row is still UNPROVEN (no task export exists
+  yet). The run logs everything needed to close them on the first real task: the resolved
+  ratings/metadata roots and their paths, ALL COMPARE MODEL NAMESPACES, the per-slot slice
+  classification (FULL / AGENCY-SLICE / ALS-SLICE / UNKNOWN), user-block counts, Model ID lines,
+  footprints, the export shape per side, the page mode-selector label and conversation id, the
+  sian_profile source list, U+FFFD counts, bp2 resolution, and the zh-CN width probe.
+  Escalations 1 (link vs paste protocol) and 2 (is Prompt the Turn 1 prompt?) are the two that
+  could invert a whole family: F3-01 inverts if the protocol is paste, and F4-A is live only
+  because the client doc says Prompt is the starting prompt.
+
+shape: |
+  Identical to 941 (see 941-prq-e2e-eval-es-419/metadata.yml) except the locale assignment.
+  Locale for F7-01: Chinese / Mainland (Simplified), SUPPLIED by the build.
+
+parity: |
+  BLOCKING (requirements escalation 11): 942's OWN config export has not been received. This
+  build derives its tables from 941's config. Drop the export at
+  config/project-config-id-942.json and re-run "node scripts/build-941.mjs" -- the builder then
+  machine-diffs 942 against 941 (model names, per-side keys, option vocabularies, gate graph,
+  head families, debug slots) and prints IDENTICAL or DIFFERS, stamping the result into this
+  script's header. Until that runs, "942 is identical to 941" is a claim, not a verified fact.
+
+zh_cn_specific: |
+  The normalization ladder deliberately does NOT fold full-width to half-width forms, and does
+  NOT apply NFKC: NFC leaves U+FF01..U+FF5E and ideographic punctuation distinct, and that is
+  the intended behaviour until real data says otherwise (requirements section 5 locale notes).
+  A MEASURE-ONLY width probe runs on every task and logs, for each prompt-vs-first-user-block
+  inequality, whether full-width characters are present, whether the two become equal after
+  width folding, and the word overlap. Width folding is added ONLY if the probe shows it in real
+  zh-CN data, with the probe line as the incident citation. The suite carries the width-form
+  near-miss pair as KNOWN-OPEN: its result is recorded in the run log, never asserted.

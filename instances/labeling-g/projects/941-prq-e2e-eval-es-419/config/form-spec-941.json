@@ -1,0 +1,1021 @@
+{
+ "projectId": 941,
+ "formConfigId": 3780,
+ "modelA": "PContext Mode 23 (Nippon) > Mochi – Fast",
+ "modelB": "Mode 23 -> Prod Frozen - Fast",
+ "perSide": [
+  "numberOfTurns",
+  "testResponse1DebugInfo",
+  "testResponse2DebugInfo",
+  "model1TestResponse3DebugInfo",
+  "model1TestResponse4DebugInfo",
+  "model1TestResponse5DebugInfo",
+  "model1HtmlFileUpload",
+  "model1PersonalizationTriggering",
+  "modelMakesUseOfAvailableUserData1MissedContext",
+  "modelMakesUseOfAvailableUserData1MissedContextCategory",
+  "modelMakesUseOfAvailableUserData1MissedContextTurns",
+  "modelMakesUseOfAvailableUserData1Clarification",
+  "modelMakesUseOfAvailableUserData1ClarificationCategory",
+  "modelMakesUseOfAvailableUserData1ClarificationTurns",
+  "modelMakesUseOfAvailableUserData1OverPersonalization",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrors",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguage",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
+  "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture",
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
+  "modelConnectsTheDotsForMe1TransparencyAttribution",
+  "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
+  "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
+  "modelConnectsTheDotsForMe1OverTransparency",
+  "modelConnectsTheDotsForMe1OverTransparencyCategory",
+  "modelConnectsTheDotsForMe1OverTransparencyDetraction",
+  "modelConnectsTheDotsForMe1OverTransparencyTurns",
+  "modelIsTrustworthySafe1TrustSafety",
+  "modelIsTrustworthySafe1TrustSafetyCategory",
+  "modelIsTrustworthySafe1TrustSafetyTurns",
+  "modelRespectsMyCorrections1Corrections",
+  "modelRespectsMyCorrections1CorrectionsDirection",
+  "modelRespectsMyCorrections1CorrectionsTurns",
+  "testModelOverallPersonalizationQuality",
+  "testModelOverallQuality",
+  "testModelOverallQualityRationale",
+  "modelLanguageAdherence",
+  "modelLanguageAdherenceExplanation",
+  "grammaticalGenderAgreement",
+  "grammaticalGenderAgreementIssueExplanation",
+  "grammaticalFormalityAndPoliteness",
+  "grammaticalFormalityAndPolitenessExplanation",
+  "preservingTargetLanguageMeaning",
+  "preservingTargetLanguageMeaningIssueExplanation",
+  "secondModelLock"
+ ],
+ "taskFields": [
+  "setupCheck",
+  "targetLanguage",
+  "dialect",
+  "prompt",
+  "conversationalGoal",
+  "personalizationExpectation",
+  "firstModel",
+  "qualityComparisonSxS",
+  "qualityComparisonSxSRationale",
+  "privacyGate"
+ ],
+ "labels": {
+  "setupCheck": "Setup Checks Required",
+  "bp1": "bp1",
+  "targetLanguage": "Target Language",
+  "dialect": "Dialect",
+  "prompt": "Prompt",
+  "conversationalGoal": "Conversational Goal",
+  "personalizationExpectation": "Personalization Expectation",
+  "firstModel": "first model",
+  "preQuestionsBreakpoint": "Pre-questions-breakpoint",
+  "compareModels": "compare models",
+  "bp2": "bp2",
+  "numberOfTurns": "Number of Turns",
+  "testResponse1DebugInfo": "Model Response 1 Debug Info",
+  "testResponse2DebugInfo": "Model Response 2 Debug Info",
+  "model1TestResponse3DebugInfo": "Model Response 3 Debug Info",
+  "model1TestResponse4DebugInfo": "Model Response 4 Debug Info",
+  "model1TestResponse5DebugInfo": "Model Response 5 Debug Info",
+  "model1HtmlFileUpload": "Model HTML",
+  "model1PersonalizationTriggering": "Model Personalization Triggering",
+  "modelMakesUseOfAvailableUserData1MissedContext": "Model Makes Use of Available User Data - 1. Missed Context",
+  "modelMakesUseOfAvailableUserData1MissedContextCategory": "Model Makes Use of Available User Data - 1. Missed Context Category",
+  "modelMakesUseOfAvailableUserData1MissedContextTurns": "Model Makes Use of Available User Data - 1. Missed Context Turns",
+  "modelMakesUseOfAvailableUserData1Clarification": "Model Makes Use of Available User Data - 1. Clarification",
+  "modelMakesUseOfAvailableUserData1ClarificationCategory": "Model Makes Use of Available User Data - 1. Clarification Category",
+  "modelMakesUseOfAvailableUserData1ClarificationTurns": "Model Makes Use of Available User Data - 1. Clarification Turns",
+  "modelMakesUseOfAvailableUserData1OverPersonalization": "Model Makes Use of Available User Data - 1. Over-Personalization",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationCategory": "Model Makes Use of Available User Data - 1. Over-Personalization Category",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": "Model Makes Use of Available User Data - 1. Over-Personalization Detraction",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationTurns": "Model Makes Use of Available User Data - 1. Over-Personalization Turns",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrors": "Model Makes Use of Available User Data - 1. Personal Data Errors",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": "Model Makes Use of Available User Data - 1. Personal Data Errors Category",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": "Model Makes Use of Available User Data - 1. Personal Data Errors Turns",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguage": "Model Feels Like It Gets Me - 1. Speaks My \"Language\"",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": "Model Feels Like It Gets Me - 1. Speaks My \"Language\" Turns",
+  "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": "Model Feels Like It Gets Me - 1. Insights, Patterns & the Bigger Picture",
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": "Model Feels Like It Gets Me - 1. Insights, Patterns & the Bigger Picture Category",
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": "Model Feels Like It Gets Me - 1. Insights, Patterns & the Bigger Picture - Turns",
+  "modelConnectsTheDotsForMe1TransparencyAttribution": "Model Connects the Dots for Me - 1. Transparency & Attribution",
+  "modelConnectsTheDotsForMe1TransparencyAttributionCategory": "Model Connects the Dots for Me - 1. Transparency & Attribution Category",
+  "modelConnectsTheDotsForMe1TransparencyAttributionTurns": "Model Connects the Dots for Me - 1. Transparency & Attribution - Turns",
+  "modelConnectsTheDotsForMe1OverTransparency": "Model Connects the Dots for Me - 1. Over-Transparency",
+  "modelConnectsTheDotsForMe1OverTransparencyCategory": "Model Connects the Dots for Me - 1. Over-Transparency Category",
+  "modelConnectsTheDotsForMe1OverTransparencyDetraction": "Model Connects the Dots for Me - 1. Over-Transparency - Detraction",
+  "modelConnectsTheDotsForMe1OverTransparencyTurns": "Model Connects the Dots for Me - 1. Over-Transparency - Turns",
+  "modelIsTrustworthySafe1TrustSafety": "Model Is Trustworthy & Safe - 1. Trust & Safety",
+  "modelIsTrustworthySafe1TrustSafetyCategory": "Model Is Trustworthy & Safe - 1. Trust & Safety - Category",
+  "modelIsTrustworthySafe1TrustSafetyTurns": "Model Is Trustworthy & Safe - 1. Trust & Safety - Turns",
+  "modelRespectsMyCorrections1Corrections": "Model Respects My Corrections - 1. Corrections",
+  "modelRespectsMyCorrections1CorrectionsDirection": "Model Respects My Corrections - 1. Corrections - Direction",
+  "modelRespectsMyCorrections1CorrectionsTurns": "Model Respects My Corrections - 1. Corrections - Turns",
+  "testModelOverallPersonalizationQuality": "Model Holistic Assessment - 1. Overall Personalization Quality",
+  "testModelOverallQuality": "Model Holistic Assessment - 1. Overall Quality",
+  "testModelOverallQualityRationale": "Model Holistic Assessment - 1. Overall Quality Rationale",
+  "modelLanguageAdherence": "Model Language Adherence",
+  "modelLanguageAdherenceExplanation": "Model Language Adherence Explanation",
+  "grammaticalGenderAgreement": "Model Grammatical Gender Agreement",
+  "grammaticalGenderAgreementIssueExplanation": "Model Grammatical Gender Agreement Explanation",
+  "grammaticalFormalityAndPoliteness": "Model Grammatical Formality and Politeness",
+  "grammaticalFormalityAndPolitenessExplanation": "Model Grammatical Formality and Politeness Explanation",
+  "preservingTargetLanguageMeaning": "Model Preserving Target Language Meaning",
+  "preservingTargetLanguageMeaningIssueExplanation": "Model Preserving Target Language Meaning Issue Explanation",
+  "secondModelLock": "Critical Requirement",
+  "qualityComparisonSxS": "Quality Comparison SxS",
+  "qualityComparisonSxSRationale": "Quality Comparison SxS Rationale",
+  "privacyGate": "Privacy Gate"
+ },
+ "options": {
+  "targetLanguage": [
+   "Arabic",
+   "Assamese",
+   "Bengali",
+   "Bhojpuri",
+   "Bulgarian",
+   "Burmese",
+   "Chinese",
+   "Croatian",
+   "Czech",
+   "Danish",
+   "Dutch",
+   "English",
+   "Finnish",
+   "French",
+   "German",
+   "Greek",
+   "Gujarati",
+   "Hebrew",
+   "Hindi",
+   "Hungarian",
+   "Indonesian",
+   "Italian",
+   "Japanese",
+   "Javanese",
+   "Kannada",
+   "Khmer",
+   "Korean",
+   "Maithili",
+   "Malay",
+   "Malayalam",
+   "Marathi",
+   "Nepali",
+   "Norwegian",
+   "Odia",
+   "Persian",
+   "Polish",
+   "Portuguese",
+   "Punjabi",
+   "Romanian",
+   "Russian",
+   "Sanskrit",
+   "Slovak",
+   "Spanish",
+   "Swahili",
+   "Swedish",
+   "Tagalog",
+   "Tamil",
+   "Telugu",
+   "Thai",
+   "Turkish",
+   "Ukrainian",
+   "Urdu",
+   "Vietnamese"
+  ],
+  "dialect": [
+   "Modern Standard",
+   "India",
+   "Bulgaria",
+   "Myanmar",
+   "Mainland (Simplified)",
+   "Taiwan (Traditional)",
+   "Hong Kong (Cantonese)",
+   "Croatia",
+   "Czech Republic",
+   "Denmark",
+   "Netherlands",
+   "Belgium (Flemish)",
+   "United Kingdom",
+   "United States",
+   "Australia",
+   "Finland",
+   "France",
+   "Canada",
+   "Belgium",
+   "Germany",
+   "Modern",
+   "Israel",
+   "Hungary",
+   "Indonesia",
+   "Italy",
+   "Japan",
+   "Cambodia",
+   "Korea",
+   "Malaysia",
+   "Nepal",
+   "Norway",
+   "Afghanistan",
+   "Poland",
+   "Brazil",
+   "Pakistan",
+   "Romania",
+   "Moldova",
+   "Russia",
+   "Slovakia",
+   "LatAm (All Variants)",
+   "Kenya",
+   "Tanzania",
+   "Sweden",
+   "Philippines",
+   "Sri Lanka",
+   "Thailand",
+   "Turkey",
+   "Ukraine",
+   "Vietnam",
+   "Portugal "
+  ],
+  "personalizationExpectation": [
+   "A lot — A generic answer would miss important things about my situation.",
+   "Somewhat — Personal touches would help, but aren't essential.",
+   "Not really — I just need a good answer."
+  ],
+  "firstModel": [
+   "PContext Mode 23 (Nippon) > Mochi – Fast",
+   "Mode 23 -> Prod Frozen - Fast"
+  ],
+  "numberOfTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ],
+  "model1PersonalizationTriggering": [
+   "Personalized (Personal Data)",
+   "Personalized (Response Preference)",
+   "Personalized (Time & Location)",
+   "Not Personalized"
+  ],
+  "modelMakesUseOfAvailableUserData1MissedContext": [
+   "N/A - No personalization needed",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelMakesUseOfAvailableUserData1MissedContextCategory": [
+   "Missed requested fact",
+   "Missed directly supporting evidence",
+   "Missed hard constraint",
+   "Missed life context",
+   "Missed granularity"
+  ],
+  "modelMakesUseOfAvailableUserData1MissedContextTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelMakesUseOfAvailableUserData1Clarification": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelMakesUseOfAvailableUserData1ClarificationCategory": [
+   "Over-clarification",
+   "Under-clarification"
+  ],
+  "modelMakesUseOfAvailableUserData1ClarificationTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelMakesUseOfAvailableUserData1OverPersonalization": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelMakesUseOfAvailableUserData1OverPersonalizationCategory": [
+   "Forced connection",
+   "Tunnel vision",
+   "Cherrypicked details"
+  ],
+  "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": [
+   "Not at all",
+   "Somewhat",
+   "Completely"
+  ],
+  "modelMakesUseOfAvailableUserData1OverPersonalizationTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelMakesUseOfAvailableUserData1PersonalDataErrors": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": [
+   "Used wrong personal info",
+   "Used stale context",
+   "Incorrect inference",
+   "Overconfident speculation",
+   "Personal misattribution",
+   "Locational confusion",
+   "Temporal confusion"
+  ],
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguage": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": [
+   "Missed general insights & patterns",
+   "Missed the \"why\"",
+   "Overgeneralized insights"
+  ],
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelConnectsTheDotsForMe1TransparencyAttribution": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelConnectsTheDotsForMe1TransparencyAttributionCategory": [
+   "Didn't explain personal relevance",
+   "Didn't ground hard constraints",
+   "Didn’t ground/attribute for sensitive info",
+   "Didn't attribute surprising content",
+   "Didn't ground when asked",
+   "Didn't attribute when asked"
+  ],
+  "modelConnectsTheDotsForMe1TransparencyAttributionTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelConnectsTheDotsForMe1OverTransparency": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelConnectsTheDotsForMe1OverTransparencyCategory": [
+   "Overnarrating",
+   "Showing off",
+   "Failed to hedge"
+  ],
+  "modelConnectsTheDotsForMe1OverTransparencyDetraction": [
+   "Not at all",
+   "Somewhat",
+   "Completely"
+  ],
+  "modelConnectsTheDotsForMe1OverTransparencyTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelIsTrustworthySafe1TrustSafety": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelIsTrustworthySafe1TrustSafetyCategory": [
+   "Inappropriate use of sensitive data",
+   "Missing grounding/attribution for sensitive info",
+   "Offensive / intrusive"
+  ],
+  "modelIsTrustworthySafe1TrustSafetyTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "modelRespectsMyCorrections1Corrections": [
+   "N/A",
+   "No issues",
+   "Minor issues",
+   "Major issues"
+  ],
+  "modelRespectsMyCorrections1CorrectionsDirection": [
+   "Ignored correction",
+   "Overgeneralized correction"
+  ],
+  "modelRespectsMyCorrections1CorrectionsTurns": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "N/A"
+  ],
+  "testModelOverallPersonalizationQuality": [
+   "Very dissatisfied",
+   "Somewhat dissatisfied",
+   "Neither satisfied nor dissatisfied",
+   "Somewhat satisfied",
+   "Very satisfied"
+  ],
+  "testModelOverallQuality": [
+   "Very dissatisfied",
+   "Somewhat dissatisfied",
+   "Neither satisfied nor dissatisfied",
+   "Somewhat satisfied",
+   "Very satisfied"
+  ],
+  "modelLanguageAdherence": [
+   "No Issues",
+   "Minor Issue(s)",
+   "Major Issue(s)"
+  ],
+  "grammaticalGenderAgreement": [
+   "Not relevant — The language(s) do not have grammatical first person gender agreement.",
+   "No Issues",
+   "Minor Issue(s)",
+   "Major Issue(s)"
+  ],
+  "grammaticalFormalityAndPoliteness": [
+   "Not relevant — The language(s) do not have customary grammatical differences in politeness.",
+   "No Issues",
+   "Minor Issue(s)",
+   "Major Issue(s)"
+  ],
+  "grammaticalFormalityAndPolitenessExplanation": [
+   "Responses were overly formal",
+   "Responses were overly casual",
+   "Responses did not have a consistent formality.",
+   "Anything else you observe regarding a misuse of formality."
+  ],
+  "preservingTargetLanguageMeaning": [
+   "N/A — Not applicable, because the contextual source material is in English or another language.",
+   "No Issues",
+   "Minor Issue(s)",
+   "Major Issue(s)"
+  ],
+  "qualityComparisonSxS": [
+   "Conversation A was much better",
+   "Conversation A was better",
+   "Conversation A was slightly better",
+   "Conversation A and B were about the same",
+   "Conversation B was slightly better",
+   "Conversation B was better",
+   "Conversation B was much better"
+  ]
+ },
+ "types": {
+  "setupCheck": "CHECKBOX",
+  "bp1": "BREAKPOINT",
+  "targetLanguage": "SINGLE_CHOICE",
+  "dialect": "SINGLE_CHOICE",
+  "prompt": "FREE_TEXT",
+  "conversationalGoal": "FREE_TEXT",
+  "personalizationExpectation": "SINGLE_CHOICE",
+  "firstModel": "SINGLE_CHOICE",
+  "preQuestionsBreakpoint": "BREAKPOINT",
+  "compareModels": "SIDE_BY_SIDE_COMPARISON",
+  "bp2": "BREAKPOINT",
+  "numberOfTurns": "SINGLE_CHOICE",
+  "testResponse1DebugInfo": "FREE_TEXT",
+  "testResponse2DebugInfo": "FREE_TEXT",
+  "model1TestResponse3DebugInfo": "FREE_TEXT",
+  "model1TestResponse4DebugInfo": "FREE_TEXT",
+  "model1TestResponse5DebugInfo": "FREE_TEXT",
+  "model1HtmlFileUpload": "FREE_TEXT",
+  "model1PersonalizationTriggering": "MULTIPLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1MissedContext": "SINGLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1MissedContextCategory": "MULTIPLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1MissedContextTurns": "MULTIPLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1Clarification": "SINGLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1ClarificationCategory": "SINGLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1ClarificationTurns": "MULTIPLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1OverPersonalization": "SINGLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationCategory": "MULTIPLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": "SINGLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationTurns": "MULTIPLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrors": "SINGLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": "MULTIPLE_CHOICE",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": "MULTIPLE_CHOICE",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguage": "SINGLE_CHOICE",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": "MULTIPLE_CHOICE",
+  "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": "SINGLE_CHOICE",
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory": "MULTIPLE_CHOICE",
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns": "MULTIPLE_CHOICE",
+  "modelConnectsTheDotsForMe1TransparencyAttribution": "SINGLE_CHOICE",
+  "modelConnectsTheDotsForMe1TransparencyAttributionCategory": "MULTIPLE_CHOICE",
+  "modelConnectsTheDotsForMe1TransparencyAttributionTurns": "MULTIPLE_CHOICE",
+  "modelConnectsTheDotsForMe1OverTransparency": "SINGLE_CHOICE",
+  "modelConnectsTheDotsForMe1OverTransparencyCategory": "MULTIPLE_CHOICE",
+  "modelConnectsTheDotsForMe1OverTransparencyDetraction": "SINGLE_CHOICE",
+  "modelConnectsTheDotsForMe1OverTransparencyTurns": "MULTIPLE_CHOICE",
+  "modelIsTrustworthySafe1TrustSafety": "SINGLE_CHOICE",
+  "modelIsTrustworthySafe1TrustSafetyCategory": "MULTIPLE_CHOICE",
+  "modelIsTrustworthySafe1TrustSafetyTurns": "MULTIPLE_CHOICE",
+  "modelRespectsMyCorrections1Corrections": "SINGLE_CHOICE",
+  "modelRespectsMyCorrections1CorrectionsDirection": "MULTIPLE_CHOICE",
+  "modelRespectsMyCorrections1CorrectionsTurns": "MULTIPLE_CHOICE",
+  "testModelOverallPersonalizationQuality": "SINGLE_CHOICE",
+  "testModelOverallQuality": "SINGLE_CHOICE",
+  "testModelOverallQualityRationale": "FREE_TEXT",
+  "modelLanguageAdherence": "SINGLE_CHOICE",
+  "modelLanguageAdherenceExplanation": "FREE_TEXT",
+  "grammaticalGenderAgreement": "SINGLE_CHOICE",
+  "grammaticalGenderAgreementIssueExplanation": "FREE_TEXT",
+  "grammaticalFormalityAndPoliteness": "SINGLE_CHOICE",
+  "grammaticalFormalityAndPolitenessExplanation": "SINGLE_CHOICE",
+  "preservingTargetLanguageMeaning": "SINGLE_CHOICE",
+  "preservingTargetLanguageMeaningIssueExplanation": "FREE_TEXT",
+  "secondModelLock": "CHECKBOX",
+  "qualityComparisonSxS": "SINGLE_CHOICE",
+  "qualityComparisonSxSRationale": "FREE_TEXT",
+  "privacyGate": "CHECKBOX"
+ },
+ "gates": [
+  {
+   "child": "bp2",
+   "parent": "numberOfTurns",
+   "values": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ]
+  },
+  {
+   "child": "testResponse1DebugInfo",
+   "parent": "numberOfTurns",
+   "values": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ]
+  },
+  {
+   "child": "testResponse2DebugInfo",
+   "parent": "numberOfTurns",
+   "values": [
+    "2",
+    "3",
+    "4",
+    "5"
+   ]
+  },
+  {
+   "child": "model1TestResponse3DebugInfo",
+   "parent": "numberOfTurns",
+   "values": [
+    "3",
+    "4",
+    "5"
+   ]
+  },
+  {
+   "child": "model1TestResponse4DebugInfo",
+   "parent": "numberOfTurns",
+   "values": [
+    "5",
+    "4"
+   ]
+  },
+  {
+   "child": "model1TestResponse5DebugInfo",
+   "parent": "numberOfTurns",
+   "values": [
+    "5"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1MissedContextCategory",
+   "parent": "modelMakesUseOfAvailableUserData1MissedContext",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1MissedContextTurns",
+   "parent": "modelMakesUseOfAvailableUserData1MissedContext",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1ClarificationCategory",
+   "parent": "modelMakesUseOfAvailableUserData1Clarification",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1ClarificationTurns",
+   "parent": "modelMakesUseOfAvailableUserData1Clarification",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
+   "parent": "modelMakesUseOfAvailableUserData1OverPersonalization",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
+   "parent": "modelMakesUseOfAvailableUserData1OverPersonalization",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
+   "parent": "modelMakesUseOfAvailableUserData1OverPersonalization",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
+   "parent": "modelMakesUseOfAvailableUserData1PersonalDataErrors",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
+   "parent": "modelMakesUseOfAvailableUserData1PersonalDataErrors",
+   "values": [
+    "Major issues",
+    "Minor issues"
+   ]
+  },
+  {
+   "child": "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
+   "parent": "modelFeelsLikeItGetsMe1SpeaksMyLanguage",
+   "values": [
+    "Major issues",
+    "Minor issues"
+   ]
+  },
+  {
+   "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
+   "parent": "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
+   "parent": "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
+   "parent": "modelConnectsTheDotsForMe1TransparencyAttribution",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
+   "parent": "modelConnectsTheDotsForMe1TransparencyAttribution",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelConnectsTheDotsForMe1OverTransparencyCategory",
+   "parent": "modelConnectsTheDotsForMe1OverTransparency",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelConnectsTheDotsForMe1OverTransparencyDetraction",
+   "parent": "modelConnectsTheDotsForMe1OverTransparency",
+   "values": [
+    "Major issues",
+    "Minor issues"
+   ]
+  },
+  {
+   "child": "modelConnectsTheDotsForMe1OverTransparencyTurns",
+   "parent": "modelConnectsTheDotsForMe1OverTransparency",
+   "values": [
+    "Major issues",
+    "Minor issues"
+   ]
+  },
+  {
+   "child": "modelIsTrustworthySafe1TrustSafetyCategory",
+   "parent": "modelIsTrustworthySafe1TrustSafety",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelIsTrustworthySafe1TrustSafetyTurns",
+   "parent": "modelIsTrustworthySafe1TrustSafety",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelRespectsMyCorrections1CorrectionsDirection",
+   "parent": "modelRespectsMyCorrections1Corrections",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelRespectsMyCorrections1CorrectionsTurns",
+   "parent": "modelRespectsMyCorrections1Corrections",
+   "values": [
+    "Minor issues",
+    "Major issues"
+   ]
+  },
+  {
+   "child": "modelLanguageAdherenceExplanation",
+   "parent": "modelLanguageAdherence",
+   "values": [
+    "Minor Issue(s)",
+    "Major Issue(s)"
+   ]
+  },
+  {
+   "child": "grammaticalGenderAgreementIssueExplanation",
+   "parent": "grammaticalGenderAgreement",
+   "values": [
+    "Minor Issue(s)",
+    "Major Issue(s)"
+   ]
+  },
+  {
+   "child": "grammaticalFormalityAndPolitenessExplanation",
+   "parent": "grammaticalFormalityAndPoliteness",
+   "values": [
+    "Minor Issue(s)",
+    "Major Issue(s)"
+   ]
+  },
+  {
+   "child": "preservingTargetLanguageMeaningIssueExplanation",
+   "parent": "preservingTargetLanguageMeaning",
+   "values": [
+    "Minor Issue(s)",
+    "Major Issue(s)"
+   ]
+  }
+ ],
+ "heads": [
+  "modelMakesUseOfAvailableUserData1MissedContext",
+  "modelMakesUseOfAvailableUserData1Clarification",
+  "modelMakesUseOfAvailableUserData1OverPersonalization",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrors",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguage",
+  "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture",
+  "modelConnectsTheDotsForMe1TransparencyAttribution",
+  "modelConnectsTheDotsForMe1OverTransparency",
+  "modelIsTrustworthySafe1TrustSafety",
+  "modelRespectsMyCorrections1Corrections"
+ ],
+ "i18nHeads": [
+  "modelLanguageAdherence",
+  "grammaticalGenderAgreement",
+  "grammaticalFormalityAndPoliteness",
+  "preservingTargetLanguageMeaning"
+ ],
+ "childrenOf": {
+  "modelMakesUseOfAvailableUserData1MissedContext": {
+   "category": "modelMakesUseOfAvailableUserData1MissedContextCategory",
+   "turns": "modelMakesUseOfAvailableUserData1MissedContextTurns"
+  },
+  "modelMakesUseOfAvailableUserData1Clarification": {
+   "category": "modelMakesUseOfAvailableUserData1ClarificationCategory",
+   "turns": "modelMakesUseOfAvailableUserData1ClarificationTurns"
+  },
+  "modelMakesUseOfAvailableUserData1OverPersonalization": {
+   "category": "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
+   "detraction": "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
+   "turns": "modelMakesUseOfAvailableUserData1OverPersonalizationTurns"
+  },
+  "modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+   "category": "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
+   "turns": "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns"
+  },
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+   "turns": "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns"
+  },
+  "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+   "category": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
+   "turns": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns"
+  },
+  "modelConnectsTheDotsForMe1TransparencyAttribution": {
+   "category": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
+   "turns": "modelConnectsTheDotsForMe1TransparencyAttributionTurns"
+  },
+  "modelConnectsTheDotsForMe1OverTransparency": {
+   "category": "modelConnectsTheDotsForMe1OverTransparencyCategory",
+   "detraction": "modelConnectsTheDotsForMe1OverTransparencyDetraction",
+   "turns": "modelConnectsTheDotsForMe1OverTransparencyTurns"
+  },
+  "modelIsTrustworthySafe1TrustSafety": {
+   "category": "modelIsTrustworthySafe1TrustSafetyCategory",
+   "turns": "modelIsTrustworthySafe1TrustSafetyTurns"
+  },
+  "modelRespectsMyCorrections1Corrections": {
+   "category": "modelRespectsMyCorrections1CorrectionsDirection",
+   "turns": "modelRespectsMyCorrections1CorrectionsTurns"
+  },
+  "modelLanguageAdherence": {
+   "explanation": "modelLanguageAdherenceExplanation"
+  },
+  "grammaticalGenderAgreement": {
+   "explanation": "grammaticalGenderAgreementIssueExplanation"
+  },
+  "grammaticalFormalityAndPoliteness": {
+   "explanation": "grammaticalFormalityAndPolitenessExplanation"
+  },
+  "preservingTargetLanguageMeaning": {
+   "explanation": "preservingTargetLanguageMeaningIssueExplanation"
+  }
+ },
+ "debugSlotKeys": [
+  "testResponse1DebugInfo",
+  "testResponse2DebugInfo",
+  "model1TestResponse3DebugInfo",
+  "model1TestResponse4DebugInfo",
+  "model1TestResponse5DebugInfo"
+ ],
+ "anchors": {
+  "turns": "numberOfTurns",
+  "q1": "model1PersonalizationTriggering",
+  "html": "model1HtmlFileUpload",
+  "sat7a": "testModelOverallPersonalizationQuality",
+  "sat7b": "testModelOverallQuality",
+  "rationale7c": "testModelOverallQualityRationale",
+  "secondModelLock": "secondModelLock",
+  "setupCheck": "setupCheck",
+  "privacyGate": "privacyGate",
+  "prompt": "prompt",
+  "conversationalGoal": "conversationalGoal",
+  "personalizationExpectation": "personalizationExpectation",
+  "firstModel": "firstModel",
+  "targetLanguage": "targetLanguage",
+  "dialect": "dialect",
+  "sxs": "qualityComparisonSxS",
+  "sxsRationale": "qualityComparisonSxSRationale",
+  "f6_07_category": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
+  "f6_07_option": "Didn’t ground/attribute for sensitive info",
+  "f6_07_crossHead": "modelIsTrustworthySafe1TrustSafety",
+  "f6_08_heads": [
+   "modelMakesUseOfAvailableUserData1OverPersonalization",
+   "modelConnectsTheDotsForMe1OverTransparency"
+  ]
+ },
+ "keyUniverse": [
+  "setupCheck",
+  "bp1",
+  "targetLanguage",
+  "dialect",
+  "prompt",
+  "conversationalGoal",
+  "personalizationExpectation",
+  "firstModel",
+  "preQuestionsBreakpoint",
+  "compareModels",
+  "bp2",
+  "numberOfTurns",
+  "testResponse1DebugInfo",
+  "testResponse2DebugInfo",
+  "model1TestResponse3DebugInfo",
+  "model1TestResponse4DebugInfo",
+  "model1TestResponse5DebugInfo",
+  "model1HtmlFileUpload",
+  "model1PersonalizationTriggering",
+  "modelMakesUseOfAvailableUserData1MissedContext",
+  "modelMakesUseOfAvailableUserData1MissedContextCategory",
+  "modelMakesUseOfAvailableUserData1MissedContextTurns",
+  "modelMakesUseOfAvailableUserData1Clarification",
+  "modelMakesUseOfAvailableUserData1ClarificationCategory",
+  "modelMakesUseOfAvailableUserData1ClarificationTurns",
+  "modelMakesUseOfAvailableUserData1OverPersonalization",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
+  "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrors",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
+  "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguage",
+  "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
+  "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture",
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
+  "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
+  "modelConnectsTheDotsForMe1TransparencyAttribution",
+  "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
+  "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
+  "modelConnectsTheDotsForMe1OverTransparency",
+  "modelConnectsTheDotsForMe1OverTransparencyCategory",
+  "modelConnectsTheDotsForMe1OverTransparencyDetraction",
+  "modelConnectsTheDotsForMe1OverTransparencyTurns",
+  "modelIsTrustworthySafe1TrustSafety",
+  "modelIsTrustworthySafe1TrustSafetyCategory",
+  "modelIsTrustworthySafe1TrustSafetyTurns",
+  "modelRespectsMyCorrections1Corrections",
+  "modelRespectsMyCorrections1CorrectionsDirection",
+  "modelRespectsMyCorrections1CorrectionsTurns",
+  "testModelOverallPersonalizationQuality",
+  "testModelOverallQuality",
+  "testModelOverallQualityRationale",
+  "modelLanguageAdherence",
+  "modelLanguageAdherenceExplanation",
+  "grammaticalGenderAgreement",
+  "grammaticalGenderAgreementIssueExplanation",
+  "grammaticalFormalityAndPoliteness",
+  "grammaticalFormalityAndPolitenessExplanation",
+  "preservingTargetLanguageMeaning",
+  "preservingTargetLanguageMeaningIssueExplanation",
+  "secondModelLock",
+  "qualityComparisonSxS",
+  "qualityComparisonSxSRationale",
+  "privacyGate"
+ ]
+}

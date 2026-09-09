@@ -1,0 +1,16 @@
+Agency config id: agency_mode23_v7
+BAS-> route=agency
+Model ID: pcontext_mochi
+LM Prefix:
+<ctrl99>user
+What should I pack for my trip to Lisbon next week?
+<ctrl100>
+<ctrl99>model
+Pack layers, a light rain shell, and comfortable walking shoes.
+<ctrl100>
+<ctrl99>user
+Can you add a packing list for the rainy days?
+<ctrl100>
+<ctrl99>model
+Pack layers, a light rain shell, and comfortable walking shoes.
+<ctrl100>
