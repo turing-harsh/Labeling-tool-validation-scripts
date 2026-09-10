@@ -112,6 +112,14 @@ W("NOT_DEBUG.txt", "Shopping list\n- milk\n- bread\n");
 W("DBG_B1_ORPHAN.txt", dbg([P], { agency: AG_BASE, footprints: 0, tokens: ["ORPHANTOK1"] }));
 W("DBG_B2_ORPHAN.txt", dbg([P, Q2], { agency: AG_BASE, footprints: 0, tokens: ["ORPHANTOK2"] }));
 
+// Defect 2: the debug/page say "ecommerce" while the form says "e-commerce". Same conversation,
+// one character apart -- must not fire under the comparison-only token fold.
+const PH = "He visto videos sobre ecommerce en youtube";
+W("DBG_T1_HYPHEN.txt", dbg([PH], { agency: AG_TEST, footprints: 0, tokens: [T.t1] }));
+W("DBG_B1_HYPHEN.txt", dbg([PH], { agency: AG_BASE, footprints: 0, tokens: [B.t1] }));
+W("HTML_T_HYPHEN.html", html([PH], "Nippon - Mochi - Fast", "convtest01", { agency: AG_TEST, tokens: [T.t1] }));
+W("HTML_B_HYPHEN.html", html([PH], "Nippon - Prod Frozen - Fast", "convbase01", { agency: AG_BASE, tokens: [B.t1] }));
+
 // ---- HTML variants
 W("HTML_T_COPY.html", html([P, Q2], "Nippon - Mochi - Fast", "convtest01", { agency: AG_TEST, tokens: [T.t1, T.t2] }));
 W("HTML_OTHER.html", html(["How do I reset my router?"], "Nippon - Mochi - Fast", "convother1", { agency: AG_TEST, resp: "Open the admin page.", tokens: [T.t1, T.t2] }));

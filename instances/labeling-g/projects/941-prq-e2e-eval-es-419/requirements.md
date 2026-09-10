@@ -150,7 +150,7 @@ Status codes: CARRY (from 939 unchanged), ADAPT (from 939 with a named change), 
 
 | Item | Why it cannot fire on 941/942 |
 |---|---|
-| Q1-gated visibility of the 10 severity heads (939 `condRef: triggering`), both directions | No such displayCondition in the 941/942 config |
+| Q1-gated visibility of the 10 severity heads (939 `condRef: triggering`), both directions | **941 ONLY.** No such displayCondition in the 941 config — nor in 948. **It IS present in 942**, which gates all ten heads on Q1; see §10.6. This row was written before 942's own export existed and was wrong about 942 |
 | Eval Type MT/ST field check | No Eval Type field. Rater-instruction shape check (F6-10) retained, data-driven |
 | Blanket suppression of prompt-mismatch findings (939 v1.1.1) | Client doc: Prompt = starting prompt = Turn 1 on both sides. Suppression removes a real detection class |
 | Side binding from csv Model A / Model B | Run-order columns; sides come from the config names |
@@ -389,3 +389,55 @@ Model ID strings to collect on the first task are now **Mochi's** (not Ramen's).
 
 Suite: 67 fixtures green per project (134 total), up from 65 — the two additions are the F3-09
 name-shape regression pair.
+
+### 10.6 942 is not a copy of 941 — the Q1 cascade (10 Sep 2026)
+
+942's own config export (**review-criteria 3781**) closed escalation 11 with the **opposite**
+answer to the one the lead predicted. The two forms differ in one structural way:
+
+> **All ten severity heads in 942 are gated on Q1** (`model1PersonalizationTriggering`), shown
+> only when Q1 contains a `Personalized (…)` option. With `Not Personalized` alone they are
+> hidden. **941 gates none of them** (nor does 948).
+
+Confirmed on real exports, not inferred: 942/1271023 (Not Personalized) carries **0/10** heads,
+942/1271024 (Personalized) carries 10/10, and 941/1270939 (Not Personalized) carries **10/10**.
+
+Everything else matches: 65 fields in identical order, same model names, 51 per-side keys, i18n
+block present, children still gated on their head's Minor/Major. Four fields carry
+`displayCondition: false` instead of `null` — both falsy, no behavioural difference.
+
+**Consequences, all now implemented in the shared parts:**
+
+| | |
+|---|---|
+| Gate operator | 942 uses **`in`**, shaped `{"in": [VALUE, {"var": KEY}]}` — operands **reversed** from `==`. The builder parses both and still dies on any third shape |
+| Q1-gate assertion | No longer "zero heads gated"; a **per-project expected count** (941: 0, 942: 10, 948: 0), so adding *or* dropping the cascade still fails the build |
+| F1-03 | Requires a head only when `isShown()` says the form displays it |
+| F2-04 | Extends to heads: a hidden head holding a value is a stale hidden answer |
+| **Fact 13** | **941/948 only.** There "Not Personalized + N/A on the heads" is the instructed compliant pattern. On 942 the compliant shape is the heads being **absent**, and N/A values are ten stale hidden answers |
+
+Before this, 942/1271023 produced **20 false errors** — ten heads × two sides of "this required
+answer is missing" on a correct task.
+
+None of it branches per project: `isShown()` reads the gate graph the builder derives, so 941 and
+948 behave exactly as before.
+
+### 10.7 One hyphen blocked a correct task — the comparator fold (10 Sep 2026)
+
+941/1270939 failed with F4-A on all four debug slots. The rater typed `e-commerce` in the Prompt
+field and `ecommerce` in Gemini — the same conversation, one character apart:
+
+| comparator | score |
+|---|---|
+| `softEq` word-Jaccard (F4-A) | **84.6%** → below the 90% tier → **blocked** |
+| `softIn` word-hit-rate (F3-08) | **91.7%** → passed |
+
+Word-level Jaccard is brittle on short prompts: one differing token in twelve costs 15 points.
+Worse, **the two comparators disagreed on the same character**, which was its own defect.
+
+Both now apply a **comparison-only token fold** dropping intra-word hyphens and apostrophes, so
+the two strings are an exact match and no tolerance tier is involved. The fold never touches
+displayed text. Accepted cost: `re-sign`/`resign` and `co-op`/`coop` also collapse — negligible
+against blocking every task where a rater typed a hyphen differently.
+
+Pinned by the real golden plus a synthetic near-miss; reverting the fold fails both.

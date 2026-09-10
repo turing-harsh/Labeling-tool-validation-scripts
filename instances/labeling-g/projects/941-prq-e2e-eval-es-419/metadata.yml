@@ -17,7 +17,7 @@ deployed:
   commit:
 
 script:
-  version: 1.2.0
+  version: 1.3.0
   generated: true                # validation.js is BUILT -- do not hand-edit
   build: node scripts/build-prq.mjs      # builds BOTH 941 and 942
   composed_from:
@@ -25,6 +25,29 @@ script:
     - 941-prq-e2e-eval-es-419/parts/prq-checks.js                 # Layer L1 -> validatePrqL1
     - 941-prq-e2e-eval-es-419/parts/prq-fetch-checks.js           # Layer L2 -> validatePrqFetch
   spec: 941-prq-e2e-eval-es-419/requirements.md
+  notes_v1_3_0: |
+    Both config exports received; two defects found by running the new golden tasks.
+    (1) 942 IS NOT A COPY OF 941. Its own export (rc 3781) gates all ten severity heads on Q1
+        via an "in" clause; 941 gates none. Confirmed on real tasks -- 942/1271023 (Not
+        Personalized) carries 0/10 heads, 942/1271024 carries 10/10, 941/1270939 carries 10/10.
+        Before the fix, 1271023 produced 20 FALSE errors on correct work. Implemented as a
+        generic isShown() visibility evaluator over the derived gate graph (no per-project
+        branching): the builder learned the "in" operator (operands reversed from "=="), the
+        Q1-gate assertion became a per-project expected COUNT so adding or dropping the cascade
+        still fails the build, F1-03 requires a head only when shown, and F2-04 extends to heads.
+        941 Fact 13 is now explicitly 941/948-only. Escalation 11 closes as DIFFERS, and the
+        build machine-diffs 942 against 941 every run.
+    (2) ONE HYPHEN BLOCKED A CORRECT TASK. 941/1270939 failed F4-A on all four debug slots
+        because the rater typed "e-commerce" in the Prompt field and "ecommerce" in Gemini. In a
+        12-word prompt that single token cost 15 points of word-Jaccard: softEq scored 84.6% and
+        blocked while softIn scored 91.7% and passed -- the two comparators disagreeing on one
+        character was itself the bug. Both now apply a comparison-only token fold dropping
+        intra-word hyphens and apostrophes (never applied to displayed text).
+    Fixtures: the generator is now project-profile aware, because the same payload means opposite
+    things on the two forms. The three real goldens are fixtures too -- fixtures/artifacts
+    symlinks each golden artifact so no bytes are duplicated. 83 cases (941) / 84 (942).
+    Reversion-checked: reverting the "in" operator kills the 942 build; reverting the fold fails
+    both 1270939 and the synthetic hyphen near-miss.
   notes_v1_2_0: |
     SEVERITY REVIEW. Errors block, warnings suggest -- every warning site was reviewed against
     "deterministic AND rater-fixable AND the data is otherwise contradictory or unusable".

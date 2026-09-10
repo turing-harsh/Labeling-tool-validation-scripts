@@ -100,6 +100,17 @@ for (const { id, dir } of projects) {
         if (missing.length) problems.push(`missing warnings: ${JSON.stringify(missing)}`);
       }
     }
+    // Negative assertions. Needed to pin "this defect must NOT produce impossible instructions"
+    // -- e.g. a hidden parent holding a stale value must raise ONE actionable finding, never
+    // demands to fill in children the rater cannot see.
+    for (const [field, key] of [["errorsNotContain", "errors"], ["warningsNotContain", "warnings"]]) {
+      if (Array.isArray(exp[field])) {
+        for (const needle of exp[field]) {
+          const hit = (got[key] || []).filter((m) => String(m).includes(needle));
+          if (hit.length) problems.push(`${key} must NOT contain ${JSON.stringify(needle)} but did: ${JSON.stringify(hit)}`);
+        }
+      }
+    }
     for (const [field, key] of [["errorsContain", "errors"], ["warningsContain", "warnings"], ["successesContain", "successes"], ["infosContain", "infos"]]) {
       if (Array.isArray(exp[field])) {
         const missing = containsAll(got[key], exp[field]);

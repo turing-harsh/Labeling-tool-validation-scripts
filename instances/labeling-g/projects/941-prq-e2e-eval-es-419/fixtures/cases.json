@@ -1666,7 +1666,7 @@
   }
  },
  {
-  "name": "NEAR-MISS Not Personalized with N/A on every head that offers it: no finding",
+  "name": "941 NEAR-MISS Not Personalized with N/A on every head that offers it: no finding",
   "conversationData": {
    "conversation": {
     "ratings": {
@@ -1848,6 +1848,163 @@
   "expect": {
    "pass": true,
    "warnings": []
+  }
+ },
+ {
+  "name": "941 Q1 Not Personalized with the heads absent: they are still required",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Spanish"
+     },
+     "dialect": {
+      "value": "LatAm (All Variants)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Not Personalized"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "this required answer is missing"
+   ]
   }
  },
  {
@@ -14466,6 +14623,185 @@
   }
  },
  {
+  "name": "NEAR-MISS hyphen variant in the prompt does not block (e-commerce vs ecommerce)",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Spanish"
+     },
+     "dialect": {
+      "value": "LatAm (All Variants)"
+     },
+     "prompt": {
+      "value": "He visto videos sobre e-commerce en youtube"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "1"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1_HYPHEN/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T_HYPHEN/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] fine."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "1"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1_HYPHEN/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B_HYPHEN/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] fine."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warnings": []
+  }
+ },
+ {
   "name": "F3-09 REGRESSION bare-'>' Test name: correctly labelled page does NOT fire",
   "conversationData": {
    "conversation": {
@@ -14834,6 +15170,826 @@
    "pass": false,
    "errorsContain": [
     "actually the other model's conversation"
+   ]
+  }
+ },
+ {
+  "name": "GOLDEN 1270939 passes; only the legitimate SxS warning survives",
+  "conversationData": {
+   "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+     "batchId": 8714,
+     "batchName": "Batch-1",
+     "projectId": 941,
+     "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | es-419",
+     "revisionId": null
+    }
+   },
+   "conversation": {
+    "input": {
+     "Additional Rater Instruction": "Multi Turn Conversation",
+     "Dialect": "\n         \nLatAm (All Variants)",
+     "First Model": "Mode 23 -> Prod Frozen - Fast",
+     "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+     "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1XYWbK5lTGOIYCiwvKbUKzVYdN8O9oqEK?usp=sharing",
+     "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1wkDPO0c6R9zKyI--tiYxa6U6K0381i82?usp=sharing",
+     "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+     "L1: Use Case - Short": "Explanation",
+     "L2: Sub-Use Case": "General (Explanation)",
+     "L2: Sub-Use Case (extended definition)": "\nThe user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?\n        ",
+     "Model A": "Mode 23 -> Prod Frozen - Fast",
+     "Model A HTML NAME": "M1_D1_025",
+     "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+     "Model B HTML NAME": "M2_D1_025",
+     "Prompt Example": "\n• Walk me through how credit card rewards work. I've got some emails from my card company that might help.\n• I got a few travel insurance options emailed to me. Can you break down the differences?\n• I watched some screenwriting videos on YouTube. Help me understand the three-act structure.\n• There's a SWOT analysis in one of my work emails. Can you explain how it works?\n• I've been watching strength training videos on YouTube. How does progressive overload actually work?\n• Some YouTube videos I watched covered career paths and college majors, what's the connection?\n• My dietitian sent me an email about fats. What's the difference between saturated and unsaturated?\n• I've watched some finance videos on YouTube about saving. How does compound interest really work?\n• I've been watching legal explainer videos on YouTube. Walk me through the appeals process.\n• Someone emailed me about the Five Love Languages. What's the theory behind it?\n• There's a heat pump guide in my Google Drive, can you explain how it works?\n• I got some sourdough tips in an email. Walk me through the fermentation basics.\n        ",
+     "Prompt Type": "Explicit With Source",
+     "Target Language": "Spanish",
+     "__originalKeyOrder": [
+      "Gemini Access Link",
+      "Google Drive Link (HTML)",
+      "Google Drive Link (Debug Info)",
+      "Google Drive Link Instructions",
+      "Model A",
+      "Model A HTML NAME",
+      "Model B",
+      "Model B HTML NAME",
+      "Target Language",
+      "Dialect",
+      "First Model",
+      "Prompt Type",
+      "L1: Use Case - Short",
+      "L2: Sub-Use Case",
+      "L2: Sub-Use Case (extended definition)",
+      "Additional Rater Instruction",
+      "Prompt Example",
+      "metadata",
+      "modelConfig"
+     ],
+     "metadata": {
+      "batchId": 8714,
+      "batchName": "Batch-1",
+      "projectId": 941,
+      "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | es-419"
+     },
+     "modelConfig": {
+      "conversation_id": 1270939,
+      "labeling_tool_url": "https://labeling-g.turing.com"
+     }
+    },
+    "formStage": null,
+    "ratings": {
+     "bp1": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T13:02:28.386Z",
+       "locked": true
+      }
+     },
+     "bp2": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T13:55:20.247Z",
+       "locked": true
+      }
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "Not relevant — The language(s) do not have customary grammatical differences in politeness."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/1ABcdOIYa8kKpW00OzHwU7iZ3b0WDeTG8/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Not Personalized"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "N/A - No personalization needed"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] Clear explanation of what ecommerce is with the 4 pillars well outlined(digital storefront, payment gateway, logistic, etc). The structure with specific examples (shopify, Mercado Paog, dropshipping) made the content concrete. The comparative table of business models was especially useful for understanding the variety.\n[Turn 2] Correctly scaled the complexity. Moved from what is it to how to be competitive. Organized the response in logical phases (strategy, platform, operation, etc) that reflect a real journey. The details were practical (Mobile first, real photos, WhatsApp. The final camparative table sunthesized the concepts well.."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/19uemcT18gKMzpH4bdHfWP1wBFvfhRVJz/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/1KJmQKJtwoltgrUIkU5RDQFv28nxGw31y/view?usp=drive_link"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "Not relevant — The language(s) do not have customary grammatical differences in politeness."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/1GITQK4lon8lxCViVIpPOdzK5BPUiW5Ul/view?usp=drive_link"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Not Personalized"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "Minor issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "N/A"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "N/A - No personalization needed"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "N/A"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "N/A"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "N/A"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] Clear breakdown of how ecommerce works. The  basic architecture section walked through four phases in a way that made sense. The table comparing own stock vs POD vs dropshipping was handy with inventory, margin and risk laid out. Naming local operators like Andreani and Correo Argentino was nice touch for relevance. The only thing: technical terms like front-end, Backoffice, etc felt a bit heavy for someone just watching Youtube videos about ecommerce.\n[Turn 2] Moved better into strategy. Went from how does this work to how do I stand out. The 5 steps felt doable (aesthetic identity, capsule collections, lifestyle photos, unboxing as marketing, keeping it sumple. The table comparing an average store with a branded one made it clear. And the action plan at the end with three conrete things to do actually gave  something to grab onto and start with."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/1ZLxr-TKGK0FY2cxYjcEh-8medBou0QlV/view?usp=drive_link"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/1ibSiKfNDjhZsj4yqXOZBXBqpcTZiTyeU/view?usp=drive_link"
+     },
+     "compareModels.__config__": {
+      "value": {
+       "locked": true
+      }
+     },
+     "conversationalGoal": {
+      "value": "Get clear explanation of how ecommerce actually works, like the main steps and how it differs from regular stores"
+     },
+     "dialect": {
+      "value": "LatAm (All Variants)"
+     },
+     "firstModel": {
+      "value": "Mode 23 -> Prod Frozen - Fast"
+     },
+     "personalizationExpectation": {
+      "value": "Not really — I just need a good answer."
+     },
+     "preQuestionsBreakpoint": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T13:13:56.367Z",
+       "locked": true
+      }
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "prompt": {
+      "value": "He visto videos sobre e-commerce en youtube, me podrias explicar como funciona?"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A and B were about the same"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "Both models gave solid explanations about ecommerce just from different angles. Model A walked through the operational stuff (wich patforms work, how pauments get processed, logistics, etc). Model B focused more on how to actually stand out, like brand identity doing limited drops instead of huge catalogs. Neither is clearly beetter beacuse they are just answering differently. Mods more technicals foundation. Model B is more strategy for not looking like every other store out there.\nModel A stayed pretty consistent with the formal tone throughout. Model b started of heavier with technical terms in turn 1, then loosened up more in turn 2 when it got to the differentiation stuff. That made it easier to digest by the end. If I want to understand how the whole machine actually works, model A covers it well. If I want practical steps on how to build something that actually has personality and doesn't blen in with everyone else, model B gets there faster, especially with that action plan at the end telling me what to do first. Both kept the jargon under control when it mattered and laid things out clearly. Really comes down to whether I care more about understandig how it works behind the scenes or how to make my version stand out from the rest."
+     },
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Spanish"
+     }
+    }
+   },
+   "raw_data": {
+    "metadata": {
+     "turing_task_url": null,
+     "scope_requirements": {
+      "batchId": 8714,
+      "batchName": "Batch-1",
+      "projectId": 941,
+      "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | es-419",
+      "revisionId": null
+     }
+    },
+    "model_config": {
+     "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+     "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "Dialect": "\n         \nLatAm (All Variants)",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1XYWbK5lTGOIYCiwvKbUKzVYdN8O9oqEK?usp=sharing",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1wkDPO0c6R9zKyI--tiYxa6U6K0381i82?usp=sharing",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Explanation",
+      "L2: Sub-Use Case": "General (Explanation)",
+      "L2: Sub-Use Case (extended definition)": "\nThe user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?\n        ",
+      "Model A": "Mode 23 -> Prod Frozen - Fast",
+      "Model A HTML NAME": "M1_D1_025",
+      "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+      "Model B HTML NAME": "M2_D1_025",
+      "Prompt Example": "\n• Walk me through how credit card rewards work. I've got some emails from my card company that might help.\n• I got a few travel insurance options emailed to me. Can you break down the differences?\n• I watched some screenwriting videos on YouTube. Help me understand the three-act structure.\n• There's a SWOT analysis in one of my work emails. Can you explain how it works?\n• I've been watching strength training videos on YouTube. How does progressive overload actually work?\n• Some YouTube videos I watched covered career paths and college majors, what's the connection?\n• My dietitian sent me an email about fats. What's the difference between saturated and unsaturated?\n• I've watched some finance videos on YouTube about saving. How does compound interest really work?\n• I've been watching legal explainer videos on YouTube. Walk me through the appeals process.\n• Someone emailed me about the Five Love Languages. What's the theory behind it?\n• There's a heat pump guide in my Google Drive, can you explain how it works?\n• I got some sourdough tips in an email. Walk me through the fermentation basics.\n        ",
+      "Prompt Type": "Explicit With Source",
+      "Target Language": "Spanish",
+      "__originalKeyOrder": [
+       "Gemini Access Link",
+       "Google Drive Link (HTML)",
+       "Google Drive Link (Debug Info)",
+       "Google Drive Link Instructions",
+       "Model A",
+       "Model A HTML NAME",
+       "Model B",
+       "Model B HTML NAME",
+       "Target Language",
+       "Dialect",
+       "First Model",
+       "Prompt Type",
+       "L1: Use Case - Short",
+       "L2: Sub-Use Case",
+       "L2: Sub-Use Case (extended definition)",
+       "Additional Rater Instruction",
+       "Prompt Example",
+       "metadata",
+       "modelConfig"
+      ],
+      "metadata": {
+       "batchId": 8714,
+       "batchName": "Batch-1",
+       "projectId": 941,
+       "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | es-419"
+      },
+      "modelConfig": {
+       "conversation_id": 1270939,
+       "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+     },
+     "formStage": null,
+     "ratings": {
+      "bp1": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T13:02:28.386Z",
+        "locked": true
+       }
+      },
+      "bp2": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T13:55:20.247Z",
+        "locked": true
+       }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+       "value": "Not relevant — The language(s) do not have customary grammatical differences in politeness."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+       "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1ABcdOIYa8kKpW00OzHwU7iZ3b0WDeTG8/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Not Personalized"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+       "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "N/A - No personalization needed"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+       "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+       "value": "[Turn 1] Clear explanation of what ecommerce is with the 4 pillars well outlined(digital storefront, payment gateway, logistic, etc). The structure with specific examples (shopify, Mercado Paog, dropshipping) made the content concrete. The comparative table of business models was especially useful for understanding the variety.\n[Turn 2] Correctly scaled the complexity. Moved from what is it to how to be competitive. Organized the response in logical phases (strategy, platform, operation, etc) that reflect a real journey. The details were practical (Mobile first, real photos, WhatsApp. The final camparative table sunthesized the concepts well.."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/19uemcT18gKMzpH4bdHfWP1wBFvfhRVJz/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+       "value": "https://drive.google.com/file/d/1KJmQKJtwoltgrUIkU5RDQFv28nxGw31y/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+       "value": "Not relevant — The language(s) do not have customary grammatical differences in politeness."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+       "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1GITQK4lon8lxCViVIpPOdzK5BPUiW5Ul/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Not Personalized"
+       ]
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "Minor issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+       "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "N/A - No personalization needed"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+       "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+       "value": "[Turn 1] Clear breakdown of how ecommerce works. The  basic architecture section walked through four phases in a way that made sense. The table comparing own stock vs POD vs dropshipping was handy with inventory, margin and risk laid out. Naming local operators like Andreani and Correo Argentino was nice touch for relevance. The only thing: technical terms like front-end, Backoffice, etc felt a bit heavy for someone just watching Youtube videos about ecommerce.\n[Turn 2] Moved better into strategy. Went from how does this work to how do I stand out. The 5 steps felt doable (aesthetic identity, capsule collections, lifestyle photos, unboxing as marketing, keeping it sumple. The table comparing an average store with a branded one made it clear. And the action plan at the end with three conrete things to do actually gave  something to grab onto and start with."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/1ZLxr-TKGK0FY2cxYjcEh-8medBou0QlV/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+       "value": "https://drive.google.com/file/d/1ibSiKfNDjhZsj4yqXOZBXBqpcTZiTyeU/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+       "value": {
+        "locked": true
+       }
+      },
+      "conversationalGoal": {
+       "value": "Get clear explanation of how ecommerce actually works, like the main steps and how it differs from regular stores"
+      },
+      "dialect": {
+       "value": "LatAm (All Variants)"
+      },
+      "firstModel": {
+       "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+       "value": "Not really — I just need a good answer."
+      },
+      "preQuestionsBreakpoint": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T13:13:56.367Z",
+        "locked": true
+       }
+      },
+      "privacyGate": {
+       "value": true
+      },
+      "prompt": {
+       "value": "He visto videos sobre e-commerce en youtube, me podrias explicar como funciona?"
+      },
+      "qualityComparisonSxS": {
+       "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+       "value": "Both models gave solid explanations about ecommerce just from different angles. Model A walked through the operational stuff (wich patforms work, how pauments get processed, logistics, etc). Model B focused more on how to actually stand out, like brand identity doing limited drops instead of huge catalogs. Neither is clearly beetter beacuse they are just answering differently. Mods more technicals foundation. Model B is more strategy for not looking like every other store out there.\nModel A stayed pretty consistent with the formal tone throughout. Model b started of heavier with technical terms in turn 1, then loosened up more in turn 2 when it got to the differentiation stuff. That made it easier to digest by the end. If I want to understand how the whole machine actually works, model A covers it well. If I want practical steps on how to build something that actually has personality and doesn't blen in with everyone else, model B gets there faster, especially with that action plan at the end telling me what to do first. Both kept the jargon under control when it mattered and laid things out clearly. Really comes down to whether I care more about understandig how it works behind the scenes or how to make my version stand out from the rest."
+      },
+      "setupCheck": {
+       "value": true
+      },
+      "targetLanguage": {
+       "value": "Spanish"
+      }
+     }
+    }
+   },
+   "task_data": {
+    "metadata": {
+     "turing_task_url": null,
+     "scope_requirements": {
+      "batchId": 8714,
+      "batchName": "Batch-1",
+      "projectId": 941,
+      "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | es-419",
+      "revisionId": null
+     }
+    },
+    "model_config": {
+     "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+     "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "Dialect": "\n         \nLatAm (All Variants)",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1XYWbK5lTGOIYCiwvKbUKzVYdN8O9oqEK?usp=sharing",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1wkDPO0c6R9zKyI--tiYxa6U6K0381i82?usp=sharing",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Explanation",
+      "L2: Sub-Use Case": "General (Explanation)",
+      "L2: Sub-Use Case (extended definition)": "\nThe user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?\n        ",
+      "Model A": "Mode 23 -> Prod Frozen - Fast",
+      "Model A HTML NAME": "M1_D1_025",
+      "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+      "Model B HTML NAME": "M2_D1_025",
+      "Prompt Example": "\n• Walk me through how credit card rewards work. I've got some emails from my card company that might help.\n• I got a few travel insurance options emailed to me. Can you break down the differences?\n• I watched some screenwriting videos on YouTube. Help me understand the three-act structure.\n• There's a SWOT analysis in one of my work emails. Can you explain how it works?\n• I've been watching strength training videos on YouTube. How does progressive overload actually work?\n• Some YouTube videos I watched covered career paths and college majors, what's the connection?\n• My dietitian sent me an email about fats. What's the difference between saturated and unsaturated?\n• I've watched some finance videos on YouTube about saving. How does compound interest really work?\n• I've been watching legal explainer videos on YouTube. Walk me through the appeals process.\n• Someone emailed me about the Five Love Languages. What's the theory behind it?\n• There's a heat pump guide in my Google Drive, can you explain how it works?\n• I got some sourdough tips in an email. Walk me through the fermentation basics.\n        ",
+      "Prompt Type": "Explicit With Source",
+      "Target Language": "Spanish",
+      "__originalKeyOrder": [
+       "Gemini Access Link",
+       "Google Drive Link (HTML)",
+       "Google Drive Link (Debug Info)",
+       "Google Drive Link Instructions",
+       "Model A",
+       "Model A HTML NAME",
+       "Model B",
+       "Model B HTML NAME",
+       "Target Language",
+       "Dialect",
+       "First Model",
+       "Prompt Type",
+       "L1: Use Case - Short",
+       "L2: Sub-Use Case",
+       "L2: Sub-Use Case (extended definition)",
+       "Additional Rater Instruction",
+       "Prompt Example",
+       "metadata",
+       "modelConfig"
+      ],
+      "metadata": {
+       "batchId": 8714,
+       "batchName": "Batch-1",
+       "projectId": 941,
+       "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | es-419"
+      },
+      "modelConfig": {
+       "conversation_id": 1270939,
+       "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+     },
+     "formStage": null,
+     "ratings": {
+      "bp1": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T13:02:28.386Z",
+        "locked": true
+       }
+      },
+      "bp2": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T13:55:20.247Z",
+        "locked": true
+       }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+       "value": "Not relevant — The language(s) do not have customary grammatical differences in politeness."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+       "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1ABcdOIYa8kKpW00OzHwU7iZ3b0WDeTG8/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Not Personalized"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+       "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "N/A - No personalization needed"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+       "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+       "value": "[Turn 1] Clear explanation of what ecommerce is with the 4 pillars well outlined(digital storefront, payment gateway, logistic, etc). The structure with specific examples (shopify, Mercado Paog, dropshipping) made the content concrete. The comparative table of business models was especially useful for understanding the variety.\n[Turn 2] Correctly scaled the complexity. Moved from what is it to how to be competitive. Organized the response in logical phases (strategy, platform, operation, etc) that reflect a real journey. The details were practical (Mobile first, real photos, WhatsApp. The final camparative table sunthesized the concepts well.."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/19uemcT18gKMzpH4bdHfWP1wBFvfhRVJz/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+       "value": "https://drive.google.com/file/d/1KJmQKJtwoltgrUIkU5RDQFv28nxGw31y/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+       "value": "Not relevant — The language(s) do not have customary grammatical differences in politeness."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+       "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1GITQK4lon8lxCViVIpPOdzK5BPUiW5Ul/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Not Personalized"
+       ]
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "Minor issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+       "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "N/A - No personalization needed"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+       "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+       "value": "[Turn 1] Clear breakdown of how ecommerce works. The  basic architecture section walked through four phases in a way that made sense. The table comparing own stock vs POD vs dropshipping was handy with inventory, margin and risk laid out. Naming local operators like Andreani and Correo Argentino was nice touch for relevance. The only thing: technical terms like front-end, Backoffice, etc felt a bit heavy for someone just watching Youtube videos about ecommerce.\n[Turn 2] Moved better into strategy. Went from how does this work to how do I stand out. The 5 steps felt doable (aesthetic identity, capsule collections, lifestyle photos, unboxing as marketing, keeping it sumple. The table comparing an average store with a branded one made it clear. And the action plan at the end with three conrete things to do actually gave  something to grab onto and start with."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/1ZLxr-TKGK0FY2cxYjcEh-8medBou0QlV/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+       "value": "https://drive.google.com/file/d/1ibSiKfNDjhZsj4yqXOZBXBqpcTZiTyeU/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+       "value": {
+        "locked": true
+       }
+      },
+      "conversationalGoal": {
+       "value": "Get clear explanation of how ecommerce actually works, like the main steps and how it differs from regular stores"
+      },
+      "dialect": {
+       "value": "LatAm (All Variants)"
+      },
+      "firstModel": {
+       "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+       "value": "Not really — I just need a good answer."
+      },
+      "preQuestionsBreakpoint": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T13:13:56.367Z",
+        "locked": true
+       }
+      },
+      "privacyGate": {
+       "value": true
+      },
+      "prompt": {
+       "value": "He visto videos sobre e-commerce en youtube, me podrias explicar como funciona?"
+      },
+      "qualityComparisonSxS": {
+       "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+       "value": "Both models gave solid explanations about ecommerce just from different angles. Model A walked through the operational stuff (wich patforms work, how pauments get processed, logistics, etc). Model B focused more on how to actually stand out, like brand identity doing limited drops instead of huge catalogs. Neither is clearly beetter beacuse they are just answering differently. Mods more technicals foundation. Model B is more strategy for not looking like every other store out there.\nModel A stayed pretty consistent with the formal tone throughout. Model b started of heavier with technical terms in turn 1, then loosened up more in turn 2 when it got to the differentiation stuff. That made it easier to digest by the end. If I want to understand how the whole machine actually works, model A covers it well. If I want practical steps on how to build something that actually has personality and doesn't blen in with everyone else, model B gets there faster, especially with that action plan at the end telling me what to do first. Both kept the jargon under control when it mattered and laid things out clearly. Really comes down to whether I care more about understandig how it works behind the scenes or how to make my version stand out from the rest."
+      },
+      "setupCheck": {
+       "value": true
+      },
+      "targetLanguage": {
+       "value": "Spanish"
+      }
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warningsContain": [
+    "rated as about the same, but the per-model ratings differ"
    ]
   }
  }

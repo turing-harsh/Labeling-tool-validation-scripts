@@ -1,0 +1,616 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8715,
+      "batchName": "Batch-1",
+      "projectId": 942,
+      "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "Dialect": "Mainland (Simplified)",
+      "First Model": "PContext Mode 23 (Nippon) > Mochi – Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1-GdsVayAPUTtn6r8txQZz5_qIHJto4bv?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1rQBdfJzctErCtm6Bl-3uRNCtUTkpHnUd?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Explanation",
+      "L2: Sub-Use Case": "General (Explanation)",
+      "L2: Sub-Use Case (extended definition)": "\nThe user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?\n        ",
+      "Model A": "Mode 23 -> Prod Frozen - Fast",
+      "Model A HTML NAME": "M1_D1_027",
+      "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+      "Model B HTML NAME": "M2_D1_027",
+      "Prompt Example": "\n• How do my credit card rewards actually work?\n• Help me understand the travel insurance options for my upcoming international trip.\n• I've been trying to learn screenwriting — break down the three-act structure for me.\n• My teacher assigned a SWOT analysis — how does that work exactly?\n• I've been doing strength training. How does progressive overload fit into my routine?\n• How might my college major affect my career down the road?\n• Some of my recipes call for different fats — what's the difference between saturated and unsaturated?\n• How do my healthcare benefits actually work?\n• I'm dealing with an appeal right now. Walk me through how the process goes.\n• I keep hearing about the Five Love Languages — how can I use that in my daily life?\n• How does my heat pump work?\n• I just got a sourdough starter kit. How does the fermentation process work?\n        ",
+      "Prompt Type": "Explicit Without Source",
+      "Target Language": "Chinese",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "Target Language",
+        "Dialect",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8715,
+        "batchName": "Batch-1",
+        "projectId": 942,
+        "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN"
+      },
+      "modelConfig": {
+        "conversation_id": 1271023,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T09:52:16.498Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T13:09:29.866Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+        "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+        "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1UlbEuQJSHI6pHSDaznB_C6IQwtEUgJLD/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Not Personalized"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+        "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+        "value": "N/A — Not applicable, because the contextual source material is in English or another language."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] The response provided a clear, well-organized general explanation of deload weeks, including their purpose, common methods, and possible warning signs. This appropriately fulfilled the initial general-explanation request without requiring personalization. However, some claims about CNS fatigue, neurotransmitter recovery, hormone regulation, immune suppression, and injury prevention were stated too confidently and without sufficient qualification.\n\n[Turn 2] I requested a plan based on their current training routine, but the model assumed a generic PPL or upper/lower split instead of using an actual known routine. It eventually asked about my training split and primary goal, but only after already presenting the generic plan. Asking these questions before creating the plan would have produced a genuinely tailored response. Nevertheless, the proposed template and adjustment principles were practical and broadly useful."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1k_DTEfq3jicn-18dr6I5btmuIJaxtQve/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1Jn08m0sBAW63mr2_luPmLHIQERsK51uI/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+        "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+        "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1nm1OtQ8CBP5fkfK2LFJaosOHZRRwefeE/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Not Personalized"
+        ]
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+        "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+        "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] The response clearly explained what a deload week is, its general purpose, common implementation methods, and signs that one may be needed. The structured explanation directly supported the conversational goal, and personalization was not necessary for this general explanation. However, some physiological claims, particularly those concerning CNS recovery, hormone changes, “restoring neural synaptic efficiency,” and connective-tissue recovery actually were presented too definitively without sufficient qualification.\n\n[Turn 2] I explicitly requested a deload plan based on my current training routine, but the response did not retrieve or apply an actual routine. Instead, it assumed me followed a common four-day upper/lower or PPL split. Because no relevant routine was available in the retrieved context, the model should have asked for the current schedule rather than building the plan around an unsupported assumption. The resulting template was practical and detailed, but it was not genuinely personalized to my routine."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1nDUxxAF44-hClNc5n5wJx4OTb9-QATfa/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/11_fpVXHpFH2RUn3oA-belQUsg4o7OEtR/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "A clear understanding of what a deload week is, how it works, and why it is used in strength training."
+      },
+      "dialect": {
+        "value": "Mainland (Simplified)"
+      },
+      "firstModel": {
+        "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+      },
+      "personalizationExpectation": {
+        "value": "Somewhat — Personal touches would help, but aren't essential."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T09:56:49.408Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "我最近经常听到力量训练中的“减量周”。你能解释一下什么是减量周、它的原理，以及人们为什么需要安排减量周吗？"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A was slightly better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Both models provided clear and well-structured general explanations that fulfilled the initial goal without requiring personalization. However, Model B made more definitive and potentially overstated claims about neurotransmitter recovery, hormone regulation, immune suppression, and injury prevention. \nModel A was slightly more measured and practically focused. Neither Model A nor Model B genuinely personalized the plan because both assumed a common training split instead of using my actual routine. Model A was nevertheless more useful because it provided a complete four-training-day template, recovery days, consistent workload adjustments, and guidance for returning to normal training.\nModel B asked for the user’s actual split and goal, but only after generating the plan, and its “four-day” template contained only three training sessions. \nTherefore, Model A was slightly better than Model B."
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "Chinese"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8715,
+        "batchName": "Batch-1",
+        "projectId": 942,
+        "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "Dialect": "Mainland (Simplified)",
+        "First Model": "PContext Mode 23 (Nippon) > Mochi – Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1-GdsVayAPUTtn6r8txQZz5_qIHJto4bv?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1rQBdfJzctErCtm6Bl-3uRNCtUTkpHnUd?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Explanation",
+        "L2: Sub-Use Case": "General (Explanation)",
+        "L2: Sub-Use Case (extended definition)": "\nThe user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?\n        ",
+        "Model A": "Mode 23 -> Prod Frozen - Fast",
+        "Model A HTML NAME": "M1_D1_027",
+        "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+        "Model B HTML NAME": "M2_D1_027",
+        "Prompt Example": "\n• How do my credit card rewards actually work?\n• Help me understand the travel insurance options for my upcoming international trip.\n• I've been trying to learn screenwriting — break down the three-act structure for me.\n• My teacher assigned a SWOT analysis — how does that work exactly?\n• I've been doing strength training. How does progressive overload fit into my routine?\n• How might my college major affect my career down the road?\n• Some of my recipes call for different fats — what's the difference between saturated and unsaturated?\n• How do my healthcare benefits actually work?\n• I'm dealing with an appeal right now. Walk me through how the process goes.\n• I keep hearing about the Five Love Languages — how can I use that in my daily life?\n• How does my heat pump work?\n• I just got a sourdough starter kit. How does the fermentation process work?\n        ",
+        "Prompt Type": "Explicit Without Source",
+        "Target Language": "Chinese",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "Target Language",
+          "Dialect",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8715,
+          "batchName": "Batch-1",
+          "projectId": 942,
+          "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN"
+        },
+        "modelConfig": {
+          "conversation_id": 1271023,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T09:52:16.498Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T13:09:29.866Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+          "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1UlbEuQJSHI6pHSDaznB_C6IQwtEUgJLD/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+          "value": "N/A — Not applicable, because the contextual source material is in English or another language."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The response provided a clear, well-organized general explanation of deload weeks, including their purpose, common methods, and possible warning signs. This appropriately fulfilled the initial general-explanation request without requiring personalization. However, some claims about CNS fatigue, neurotransmitter recovery, hormone regulation, immune suppression, and injury prevention were stated too confidently and without sufficient qualification.\n\n[Turn 2] I requested a plan based on their current training routine, but the model assumed a generic PPL or upper/lower split instead of using an actual known routine. It eventually asked about my training split and primary goal, but only after already presenting the generic plan. Asking these questions before creating the plan would have produced a genuinely tailored response. Nevertheless, the proposed template and adjustment principles were practical and broadly useful."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1k_DTEfq3jicn-18dr6I5btmuIJaxtQve/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1Jn08m0sBAW63mr2_luPmLHIQERsK51uI/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+          "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1nm1OtQ8CBP5fkfK2LFJaosOHZRRwefeE/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The response clearly explained what a deload week is, its general purpose, common implementation methods, and signs that one may be needed. The structured explanation directly supported the conversational goal, and personalization was not necessary for this general explanation. However, some physiological claims, particularly those concerning CNS recovery, hormone changes, “restoring neural synaptic efficiency,” and connective-tissue recovery actually were presented too definitively without sufficient qualification.\n\n[Turn 2] I explicitly requested a deload plan based on my current training routine, but the response did not retrieve or apply an actual routine. Instead, it assumed me followed a common four-day upper/lower or PPL split. Because no relevant routine was available in the retrieved context, the model should have asked for the current schedule rather than building the plan around an unsupported assumption. The resulting template was practical and detailed, but it was not genuinely personalized to my routine."
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1nDUxxAF44-hClNc5n5wJx4OTb9-QATfa/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/11_fpVXHpFH2RUn3oA-belQUsg4o7OEtR/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "A clear understanding of what a deload week is, how it works, and why it is used in strength training."
+        },
+        "dialect": {
+          "value": "Mainland (Simplified)"
+        },
+        "firstModel": {
+          "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T09:56:49.408Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "我最近经常听到力量训练中的“减量周”。你能解释一下什么是减量周、它的原理，以及人们为什么需要安排减量周吗？"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Both models provided clear and well-structured general explanations that fulfilled the initial goal without requiring personalization. However, Model B made more definitive and potentially overstated claims about neurotransmitter recovery, hormone regulation, immune suppression, and injury prevention. \nModel A was slightly more measured and practically focused. Neither Model A nor Model B genuinely personalized the plan because both assumed a common training split instead of using my actual routine. Model A was nevertheless more useful because it provided a complete four-training-day template, recovery days, consistent workload adjustments, and guidance for returning to normal training.\nModel B asked for the user’s actual split and goal, but only after generating the plan, and its “four-day” template contained only three training sessions. \nTherefore, Model A was slightly better than Model B."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "Chinese"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8715,
+        "batchName": "Batch-1",
+        "projectId": 942,
+        "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "Dialect": "Mainland (Simplified)",
+        "First Model": "PContext Mode 23 (Nippon) > Mochi – Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1-GdsVayAPUTtn6r8txQZz5_qIHJto4bv?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1rQBdfJzctErCtm6Bl-3uRNCtUTkpHnUd?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Explanation",
+        "L2: Sub-Use Case": "General (Explanation)",
+        "L2: Sub-Use Case (extended definition)": "\nThe user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?\n        ",
+        "Model A": "Mode 23 -> Prod Frozen - Fast",
+        "Model A HTML NAME": "M1_D1_027",
+        "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+        "Model B HTML NAME": "M2_D1_027",
+        "Prompt Example": "\n• How do my credit card rewards actually work?\n• Help me understand the travel insurance options for my upcoming international trip.\n• I've been trying to learn screenwriting — break down the three-act structure for me.\n• My teacher assigned a SWOT analysis — how does that work exactly?\n• I've been doing strength training. How does progressive overload fit into my routine?\n• How might my college major affect my career down the road?\n• Some of my recipes call for different fats — what's the difference between saturated and unsaturated?\n• How do my healthcare benefits actually work?\n• I'm dealing with an appeal right now. Walk me through how the process goes.\n• I keep hearing about the Five Love Languages — how can I use that in my daily life?\n• How does my heat pump work?\n• I just got a sourdough starter kit. How does the fermentation process work?\n        ",
+        "Prompt Type": "Explicit Without Source",
+        "Target Language": "Chinese",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "Target Language",
+          "Dialect",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8715,
+          "batchName": "Batch-1",
+          "projectId": 942,
+          "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN"
+        },
+        "modelConfig": {
+          "conversation_id": 1271023,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T09:52:16.498Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T13:09:29.866Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+          "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1UlbEuQJSHI6pHSDaznB_C6IQwtEUgJLD/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+          "value": "N/A — Not applicable, because the contextual source material is in English or another language."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The response provided a clear, well-organized general explanation of deload weeks, including their purpose, common methods, and possible warning signs. This appropriately fulfilled the initial general-explanation request without requiring personalization. However, some claims about CNS fatigue, neurotransmitter recovery, hormone regulation, immune suppression, and injury prevention were stated too confidently and without sufficient qualification.\n\n[Turn 2] I requested a plan based on their current training routine, but the model assumed a generic PPL or upper/lower split instead of using an actual known routine. It eventually asked about my training split and primary goal, but only after already presenting the generic plan. Asking these questions before creating the plan would have produced a genuinely tailored response. Nevertheless, the proposed template and adjustment principles were practical and broadly useful."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1k_DTEfq3jicn-18dr6I5btmuIJaxtQve/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1Jn08m0sBAW63mr2_luPmLHIQERsK51uI/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+          "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1nm1OtQ8CBP5fkfK2LFJaosOHZRRwefeE/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The response clearly explained what a deload week is, its general purpose, common implementation methods, and signs that one may be needed. The structured explanation directly supported the conversational goal, and personalization was not necessary for this general explanation. However, some physiological claims, particularly those concerning CNS recovery, hormone changes, “restoring neural synaptic efficiency,” and connective-tissue recovery actually were presented too definitively without sufficient qualification.\n\n[Turn 2] I explicitly requested a deload plan based on my current training routine, but the response did not retrieve or apply an actual routine. Instead, it assumed me followed a common four-day upper/lower or PPL split. Because no relevant routine was available in the retrieved context, the model should have asked for the current schedule rather than building the plan around an unsupported assumption. The resulting template was practical and detailed, but it was not genuinely personalized to my routine."
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1nDUxxAF44-hClNc5n5wJx4OTb9-QATfa/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/11_fpVXHpFH2RUn3oA-belQUsg4o7OEtR/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "A clear understanding of what a deload week is, how it works, and why it is used in strength training."
+        },
+        "dialect": {
+          "value": "Mainland (Simplified)"
+        },
+        "firstModel": {
+          "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T09:56:49.408Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "我最近经常听到力量训练中的“减量周”。你能解释一下什么是减量周、它的原理，以及人们为什么需要安排减量周吗？"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Both models provided clear and well-structured general explanations that fulfilled the initial goal without requiring personalization. However, Model B made more definitive and potentially overstated claims about neurotransmitter recovery, hormone regulation, immune suppression, and injury prevention. \nModel A was slightly more measured and practically focused. Neither Model A nor Model B genuinely personalized the plan because both assumed a common training split instead of using my actual routine. Model A was nevertheless more useful because it provided a complete four-training-day template, recovery days, consistent workload adjustments, and guidance for returning to normal training.\nModel B asked for the user’s actual split and goal, but only after generating the plan, and its “four-day” template contained only three training sessions. \nTherefore, Model A was slightly better than Model B."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "Chinese"
+        }
+      }
+    }
+  }
+}

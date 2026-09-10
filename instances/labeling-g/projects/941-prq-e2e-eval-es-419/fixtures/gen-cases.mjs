@@ -16,11 +16,14 @@ const MB = "Mode 23 -> Prod Frozen - Fast";                   // Base  (model_B)
 const link = (id) => `https://drive.google.com/file/d/${id}/view?usp=sharing`;
 const v = (x) => ({ value: x });
 
-// Locale is a parameter: 941 and 942 share this generator and every check but F7-01 is
-// locale-independent.  node fixtures/gen-cases.mjs <out> [es|zh]
-const LOCALE = (process.argv[3] || "es") === "zh"
-  ? { language: "Chinese", dialect: "Mainland (Simplified)" }
-  : { language: "Spanish", dialect: "LatAm (All Variants)" };
+// PROJECT PROFILE.  node fixtures/gen-cases.mjs <out> [es|zh]
+// 941 and 942 share this generator, but they are NOT the same form. 942 gates all ten severity
+// heads on Q1; 941 gates none. That inverts the meaning of one payload, so the generator has to
+// know which form it is writing cases for -- see the two Q1 cases below.
+const PROFILE = (process.argv[3] || "es") === "zh"
+  ? { project: 942, language: "Chinese", dialect: "Mainland (Simplified)", headsGatedOnQ1: true }
+  : { project: 941, language: "Spanish", dialect: "LatAm (All Variants)", headsGatedOnQ1: false };
+const LOCALE = PROFILE;
 
 const PROMPT = "What should I pack for my trip to Lisbon next week?";
 const Q2 = "Can you add a packing list for the rainy days?";
@@ -111,9 +114,15 @@ add("F1-05 declares 2 turns, turn 2 debug empty", { [K.dbg(MA, 2)]: undefined },
 add("F1-06 SxS rationale empty", { qualityComparisonSxSRationale: undefined }, { pass: false, errorsContain: ["side-by-side rationale is empty"] });
 add("F1-07 rationale empty on one side", { [K.r7c(MB)]: undefined }, { pass: false, errorsContain: ["rationale for this model is empty"] });
 
-// ---- Fact 13 near-miss: "Not Personalized" plus N/A on the heads that offer it is the
-// INSTRUCTED compliant pattern. No check may treat it as a defect.
-add("NEAR-MISS Not Personalized with N/A on every head that offers it: no finding", {
+// ---- Q1 and the severity heads. THE SAME PAYLOAD MEANS OPPOSITE THINGS on the two forms, so
+// each project gets the case that is correct for it:
+//   941  heads ungated -> Fact 13 applies: "Not Personalized" plus N/A on the heads that offer
+//        it is the INSTRUCTED compliant pattern, and heads left ABSENT are 10 missing answers.
+//   942  heads gated on Q1 -> with "Not Personalized" the heads are HIDDEN, so absent is the
+//        compliant shape and N/A values are 10 stale hidden answers that submit invisibly.
+// Measured on real tasks: 941/1270939 carries 10/10 heads under Not Personalized, 942/1271023
+// carries 0/10. Before the gate was implemented 1271023 produced 20 false errors.
+const HEAD_NA = {
   [K.q1(MA)]: ["Not Personalized"],
   [K.head(MA, "modelMakesUseOfAvailableUserData1MissedContext")]: "N/A - No personalization needed",
   [K.head(MA, "modelMakesUseOfAvailableUserData1Clarification")]: "N/A",
@@ -125,7 +134,34 @@ add("NEAR-MISS Not Personalized with N/A on every head that offers it: no findin
   [K.head(MA, "modelConnectsTheDotsForMe1OverTransparency")]: "N/A",
   [K.head(MA, "modelIsTrustworthySafe1TrustSafety")]: "N/A",
   [K.head(MA, "modelRespectsMyCorrections1Corrections")]: "N/A",
-}, { pass: true, warnings: [] });
+};
+const HEAD_ABSENT = { [K.q1(MA)]: ["Not Personalized"] };
+for (const h of ["modelMakesUseOfAvailableUserData1MissedContext","modelMakesUseOfAvailableUserData1Clarification",
+                 "modelMakesUseOfAvailableUserData1OverPersonalization","modelMakesUseOfAvailableUserData1PersonalDataErrors",
+                 "modelFeelsLikeItGetsMe1SpeaksMyLanguage","modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture",
+                 "modelConnectsTheDotsForMe1TransparencyAttribution","modelConnectsTheDotsForMe1OverTransparency",
+                 "modelIsTrustworthySafe1TrustSafety","modelRespectsMyCorrections1Corrections"]) HEAD_ABSENT[K.head(MA, h)] = undefined;
+
+if (PROFILE.headsGatedOnQ1) {
+  add("942 Q1 Not Personalized with the heads ABSENT is the compliant shape", HEAD_ABSENT, { pass: true, warnings: [] });
+  add("942 Q1 Not Personalized while the heads still hold N/A: 10 stale hidden answers", HEAD_NA,
+    { pass: false, errorsContain: ["hidden and will still be submitted"] });
+  // A hidden head holding a stale value must raise ONE actionable finding. It must NOT also
+  // demand its Category/Turns children, which are hidden too -- that told the rater to fill in
+  // fields they cannot see. Caught by mutating real task 1271023; the F2 child branch was
+  // testing the head's VALUE instead of the head's VISIBILITY.
+  add("942 hidden head holding a value does not demand its invisible children", {
+    [K.q1(MA)]: ["Not Personalized"],
+    ...Object.fromEntries(Object.keys(HEAD_ABSENT).filter((x) => x !== K.q1(MA)).map((x) => [x, undefined])),
+    [K.head(MA, "modelIsTrustworthySafe1TrustSafety")]: "Minor issues",
+  }, { pass: false,
+       errorsContain: ["hidden and will still be submitted"],
+       errorsNotContain: ["this follow-up is required"] });
+} else {
+  add("941 NEAR-MISS Not Personalized with N/A on every head that offers it: no finding", HEAD_NA, { pass: true, warnings: [] });
+  add("941 Q1 Not Personalized with the heads absent: they are still required", HEAD_ABSENT,
+    { pass: false, errorsContain: ["this required answer is missing"] });
+}
 
 // ================================================================ F2 gate cascades
 add("F2-01 Minor issues with the Category child empty", {
@@ -429,6 +465,20 @@ add("F6-04 still fires on a single-turn side citing turn 3", {
   [K.r7c(MA)]: "[Turn 3] the list was wrong.",
 }, { pass: false, errorsContain: ["past the 1 turn"] });
 
+// Defect 2 regression, PERMANENT. Golden task 1270939 was blocked by ONE hyphen: the rater
+// typed "e-commerce" in the Prompt field and "ecommerce" in Gemini. In a 12-word prompt that
+// single token cost 15 points of word-Jaccard -- F4-A scored 84.6% and failed the 90% tier
+// while F3-08 scored 91.7% and passed, so the two comparators disagreed on one character.
+// The comparison-only token fold makes both an exact match.
+add("NEAR-MISS hyphen variant in the prompt does not block (e-commerce vs ecommerce)", {
+  prompt: "He visto videos sobre e-commerce en youtube",
+  [K.dbg(MA, 1)]: link("DBG_T1_HYPHEN"), [K.dbg(MA, 2)]: undefined, [K.turns(MA)]: "1",
+  [K.html(MA)]: link("HTML_T_HYPHEN"),
+  [K.dbg(MB, 1)]: link("DBG_B1_HYPHEN"), [K.dbg(MB, 2)]: undefined, [K.turns(MB)]: "1",
+  [K.html(MB)]: link("HTML_B_HYPHEN"),
+  [K.r7c(MA)]: "[Turn 1] fine.", [K.r7c(MB)]: "[Turn 1] fine.",
+}, { pass: true, warnings: [] });
+
 // ================================================================ F3-09 name-shape regression
 // PERMANENT. When the Test model was renamed to "PContext Mode 23 (Nippon) > Mochi - Fast", the
 // F3-09 discriminator recognised only {"->", " - "} as separators, so it split first at the
@@ -441,6 +491,37 @@ add("F3-09 REGRESSION a genuinely swapped page still fires under the new Test na
   [K.html(MA)]: link("HTML_B"), [K.html(MB)]: link("HTML_T"),
 }, { pass: false, errorsContain: ["actually the other model's conversation"] });
 
-const out = process.argv[2] || "fixtures/cases.json";
+// ================================================================ REAL golden tasks
+// The strongest regression guard available: actual exports, checked through the same fetch
+// layer as production (fixtures/artifacts symlinks each golden artifact, so no bytes are
+// duplicated). These are the tasks that exposed both defects fixed in v1.3.0.
+import { existsSync, readFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+// Resolve golden/ from the OUTPUT path, not from this file: the generator lives in 941 but also
+// writes 942's cases, and each project's goldens live beside its own cases.json.
+const outArg = process.argv[2] || "fixtures/cases.json";
+const goldenDir = join(dirname(outArg.startsWith("/") ? outArg : join(process.cwd(), outArg)), "..", "golden");
+const golden = (id) => JSON.parse(readFileSync(join(goldenDir, `${id}.txt`), "utf8"));
+const GOLDEN = PROFILE.project === 942
+  ? [
+      // Q1 = Not Personalized, so all ten heads are legitimately ABSENT. Produced 20 false
+      // "this required answer is missing" errors before the Q1 cascade was implemented.
+      { id: "1271023", name: "GOLDEN 1271023 (Q1 Not Personalized, heads hidden) passes clean", expect: { pass: true, warnings: [] } },
+      // Q1 personalized, so the same ten heads are shown and answered.
+      { id: "1271024", name: "GOLDEN 1271024 (Q1 personalized, heads shown) passes clean", expect: { pass: true, warnings: [] } },
+    ]
+  : [
+      // Blocked by a single hyphen (e-commerce vs ecommerce) before the token fold. The one
+      // surviving warning is legitimate: SxS says "about the same" while one side flags an issue.
+      { id: "1270939", name: "GOLDEN 1270939 passes; only the legitimate SxS warning survives",
+        expect: { pass: true, warningsContain: ["rated as about the same, but the per-model ratings differ"] } },
+    ];
+for (const g of GOLDEN) {
+  if (!existsSync(join(goldenDir, `${g.id}.txt`))) continue;
+  cases.push({ name: g.name, conversationData: golden(g.id), expect: g.expect });
+}
+
+const out = outArg;
 writeFileSync(out, JSON.stringify(cases, null, 1));
 console.log(`wrote ${out}: ${cases.length} cases (locale ${LOCALE.language} / ${LOCALE.dialect})`);

@@ -1,6 +1,6 @@
 {
  "projectId": 942,
- "formConfigId": 3780,
+ "formConfigId": 3781,
  "modelA": "PContext Mode 23 (Nippon) > Mochi – Fast",
  "modelB": "Mode 23 -> Prod Frozen - Fast",
  "perSide": [
@@ -597,7 +597,8 @@
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "testResponse1DebugInfo",
@@ -608,7 +609,8 @@
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "testResponse2DebugInfo",
@@ -618,7 +620,8 @@
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse3DebugInfo",
@@ -627,7 +630,8 @@
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse4DebugInfo",
@@ -635,14 +639,26 @@
    "values": [
     "5",
     "4"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse5DebugInfo",
    "parent": "numberOfTurns",
    "values": [
     "5"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1MissedContext",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextCategory",
@@ -650,7 +666,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextTurns",
@@ -658,7 +675,18 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1Clarification",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationCategory",
@@ -666,7 +694,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationTurns",
@@ -674,7 +703,18 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1OverPersonalization",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
@@ -682,7 +722,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
@@ -690,7 +731,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
@@ -698,7 +740,18 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelMakesUseOfAvailableUserData1PersonalDataErrors",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
@@ -706,7 +759,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
@@ -714,7 +768,18 @@
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelFeelsLikeItGetsMe1SpeaksMyLanguage",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
@@ -722,7 +787,18 @@
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
@@ -730,7 +806,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
@@ -738,7 +815,18 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelConnectsTheDotsForMe1TransparencyAttribution",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
@@ -746,7 +834,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
@@ -754,7 +843,18 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelConnectsTheDotsForMe1OverTransparency",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyCategory",
@@ -762,7 +862,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyDetraction",
@@ -770,7 +871,8 @@
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyTurns",
@@ -778,7 +880,18 @@
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelIsTrustworthySafe1TrustSafety",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyCategory",
@@ -786,7 +899,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyTurns",
@@ -794,7 +908,18 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
+  },
+  {
+   "child": "modelRespectsMyCorrections1Corrections",
+   "parent": "model1PersonalizationTriggering",
+   "values": [
+    "Personalized (Personal Data)",
+    "Personalized (Response Preference)",
+    "Personalized (Time & Location)"
+   ],
+   "op": "in"
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsDirection",
@@ -802,7 +927,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsTurns",
@@ -810,7 +936,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelLanguageAdherenceExplanation",
@@ -818,7 +945,8 @@
    "values": [
     "Minor Issue(s)",
     "Major Issue(s)"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "grammaticalGenderAgreementIssueExplanation",
@@ -826,7 +954,8 @@
    "values": [
     "Minor Issue(s)",
     "Major Issue(s)"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "grammaticalFormalityAndPolitenessExplanation",
@@ -834,7 +963,8 @@
    "values": [
     "Minor Issue(s)",
     "Major Issue(s)"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "preservingTargetLanguageMeaningIssueExplanation",
@@ -842,7 +972,8 @@
    "values": [
     "Minor Issue(s)",
     "Major Issue(s)"
-   ]
+   ],
+   "op": "eq"
   }
  ],
  "heads": [

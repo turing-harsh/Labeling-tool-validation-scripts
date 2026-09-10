@@ -1,0 +1,796 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8715,
+      "batchName": "Batch-1",
+      "projectId": 942,
+      "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "Dialect": "Mainland (Simplified)",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1-GdsVayAPUTtn6r8txQZz5_qIHJto4bv?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1rQBdfJzctErCtm6Bl-3uRNCtUTkpHnUd?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Personal Info",
+      "L2: Sub-Use Case": "Retrieval",
+      "L2: Sub-Use Case (extended definition)": "\nThe user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+      "Model A": "Mode 23 -> Prod Frozen - Fast",
+      "Model A HTML NAME": "M1_D1_001",
+      "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+      "Model B HTML NAME": "M2_D1_001",
+      "Prompt Example": "\t\n• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?\n        ",
+      "Prompt Type": "Explicit With Source",
+      "Target Language": "Chinese",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "Target Language",
+        "Dialect",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8715,
+        "batchName": "Batch-1",
+        "projectId": 942,
+        "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN"
+      },
+      "modelConfig": {
+        "conversation_id": 1271024,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T11:47:07.733Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T14:14:34.837Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+        "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+        "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1rscz_Dcs3d43oJOAuwjvroi1RA4p8xjZ/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+        "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+        "value": "No Issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] The model correctly retrieved the specific email from Chisom in Gmail, including the sender, date, subject, and full email body. It was accurate and well-sourced.\n\n[Turn 2] When I asked for my reply, the model correctly retrieved my exact response from the same day, quoted verbatim. Both turns delivered accurate, well-attributed retrieval of the personal facts I asked for. The responses were helpful, precise, and trustworthy."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/18aP6IE3PnH_b1pPJ68U_0RRDytb7aYYv/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1HgXkkg8pEQ4LaUyziBlMcmQVLQWFp5sS/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+        "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+        "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1LqVavHyta55J5CXr6C6sdFGzuF4gS6dm/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)"
+        ]
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+        "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+        "value": "No Issues"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] The model correctly retrieved the email from Chisom in Gmail, including sender, date, subject, and full body. It also added the follow-up reply thread, which was relevant and accurate.\n\n[Turn 2] When I asked for my reply, the model correctly retrieved my exact response, including the timestamp, recipient, and verbatim body. Both turns delivered accurate, well-sourced retrieval of the personal facts I asked for. The responses were helpful, precise, and trustworthy."
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1chFsUDhn8UbbZYGvelTtvZFGE8neSWZL/view?usp=drive_link"
+      },
+      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1uedWtluZpGtVpKM0cKq0im31RL_gKH0A/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "Retrieve Chisom's birthday party email from my Gmail along with its key details."
+      },
+      "dialect": {
+        "value": "Mainland (Simplified)"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T14:11:21.569Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "你能在Gmail里找到Chisom发给我的关于生日派对的邮件吗？"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation B was slightly better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Both models performed the retrieval task accurately and were roughly equal in quality.\n\nIn Turn 1, both Model A and Model B correctly found Chisom's birthday party email in my Gmail, including sender, date, subject, and full body, although Model B added the follow-up reply thread, which was a slight edge in completeness.\n\nIn Turn 2, both Model A and Model B correctly retrieved my exact reply, quoted verbatim with timestamp and recipient.\n\nOverall, Model B was marginally more complete in Turn 1 by including the reply thread unprompted, but the difference was minor and did not meaningfully affect helpfulness. Both Model A and Model B were trustworthy and precise."
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "Chinese"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8715,
+        "batchName": "Batch-1",
+        "projectId": 942,
+        "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "Dialect": "Mainland (Simplified)",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1-GdsVayAPUTtn6r8txQZz5_qIHJto4bv?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1rQBdfJzctErCtm6Bl-3uRNCtUTkpHnUd?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Retrieval",
+        "L2: Sub-Use Case (extended definition)": "\nThe user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+        "Model A": "Mode 23 -> Prod Frozen - Fast",
+        "Model A HTML NAME": "M1_D1_001",
+        "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+        "Model B HTML NAME": "M2_D1_001",
+        "Prompt Example": "\t\n• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?\n        ",
+        "Prompt Type": "Explicit With Source",
+        "Target Language": "Chinese",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "Target Language",
+          "Dialect",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8715,
+          "batchName": "Batch-1",
+          "projectId": 942,
+          "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN"
+        },
+        "modelConfig": {
+          "conversation_id": 1271024,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T11:47:07.733Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T14:14:34.837Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+          "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1rscz_Dcs3d43oJOAuwjvroi1RA4p8xjZ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The model correctly retrieved the specific email from Chisom in Gmail, including the sender, date, subject, and full email body. It was accurate and well-sourced.\n\n[Turn 2] When I asked for my reply, the model correctly retrieved my exact response from the same day, quoted verbatim. Both turns delivered accurate, well-attributed retrieval of the personal facts I asked for. The responses were helpful, precise, and trustworthy."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/18aP6IE3PnH_b1pPJ68U_0RRDytb7aYYv/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1HgXkkg8pEQ4LaUyziBlMcmQVLQWFp5sS/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+          "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1LqVavHyta55J5CXr6C6sdFGzuF4gS6dm/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The model correctly retrieved the email from Chisom in Gmail, including sender, date, subject, and full body. It also added the follow-up reply thread, which was relevant and accurate.\n\n[Turn 2] When I asked for my reply, the model correctly retrieved my exact response, including the timestamp, recipient, and verbatim body. Both turns delivered accurate, well-sourced retrieval of the personal facts I asked for. The responses were helpful, precise, and trustworthy."
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1chFsUDhn8UbbZYGvelTtvZFGE8neSWZL/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1uedWtluZpGtVpKM0cKq0im31RL_gKH0A/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "Retrieve Chisom's birthday party email from my Gmail along with its key details."
+        },
+        "dialect": {
+          "value": "Mainland (Simplified)"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T14:11:21.569Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "你能在Gmail里找到Chisom发给我的关于生日派对的邮件吗？"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Both models performed the retrieval task accurately and were roughly equal in quality.\n\nIn Turn 1, both Model A and Model B correctly found Chisom's birthday party email in my Gmail, including sender, date, subject, and full body, although Model B added the follow-up reply thread, which was a slight edge in completeness.\n\nIn Turn 2, both Model A and Model B correctly retrieved my exact reply, quoted verbatim with timestamp and recipient.\n\nOverall, Model B was marginally more complete in Turn 1 by including the reply thread unprompted, but the difference was minor and did not meaningfully affect helpfulness. Both Model A and Model B were trustworthy and precise."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "Chinese"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8715,
+        "batchName": "Batch-1",
+        "projectId": 942,
+        "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "Dialect": "Mainland (Simplified)",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/1-GdsVayAPUTtn6r8txQZz5_qIHJto4bv?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1rQBdfJzctErCtm6Bl-3uRNCtUTkpHnUd?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata. Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Retrieval",
+        "L2: Sub-Use Case (extended definition)": "\nThe user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+        "Model A": "Mode 23 -> Prod Frozen - Fast",
+        "Model A HTML NAME": "M1_D1_001",
+        "Model B": "PContext Mode 23 (Nippon) > Mochi – Fast",
+        "Model B HTML NAME": "M2_D1_001",
+        "Prompt Example": "\t\n• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?\n        ",
+        "Prompt Type": "Explicit With Source",
+        "Target Language": "Chinese",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "Target Language",
+          "Dialect",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8715,
+          "batchName": "Batch-1",
+          "projectId": 942,
+          "projectName": "[MT Chat] PRQ E2E Eval [0P + 1P] | zh-CN"
+        },
+        "modelConfig": {
+          "conversation_id": 1271024,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T11:47:07.733Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T14:14:34.837Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+          "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1rscz_Dcs3d43oJOAuwjvroi1RA4p8xjZ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+          "value": "No Issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The model correctly retrieved the specific email from Chisom in Gmail, including the sender, date, subject, and full email body. It was accurate and well-sourced.\n\n[Turn 2] When I asked for my reply, the model correctly retrieved my exact response from the same day, quoted verbatim. Both turns delivered accurate, well-attributed retrieval of the personal facts I asked for. The responses were helpful, precise, and trustworthy."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/18aP6IE3PnH_b1pPJ68U_0RRDytb7aYYv/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1HgXkkg8pEQ4LaUyziBlMcmQVLQWFp5sS/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+          "value": "Not relevant — The language(s) do not have grammatical first person gender agreement."
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1LqVavHyta55J5CXr6C6sdFGzuF4gS6dm/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+          "value": "No Issues"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The model correctly retrieved the email from Chisom in Gmail, including sender, date, subject, and full body. It also added the follow-up reply thread, which was relevant and accurate.\n\n[Turn 2] When I asked for my reply, the model correctly retrieved my exact response, including the timestamp, recipient, and verbatim body. Both turns delivered accurate, well-sourced retrieval of the personal facts I asked for. The responses were helpful, precise, and trustworthy."
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1chFsUDhn8UbbZYGvelTtvZFGE8neSWZL/view?usp=drive_link"
+        },
+        "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1uedWtluZpGtVpKM0cKq0im31RL_gKH0A/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "Retrieve Chisom's birthday party email from my Gmail along with its key details."
+        },
+        "dialect": {
+          "value": "Mainland (Simplified)"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T14:11:21.569Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "你能在Gmail里找到Chisom发给我的关于生日派对的邮件吗？"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Both models performed the retrieval task accurately and were roughly equal in quality.\n\nIn Turn 1, both Model A and Model B correctly found Chisom's birthday party email in my Gmail, including sender, date, subject, and full body, although Model B added the follow-up reply thread, which was a slight edge in completeness.\n\nIn Turn 2, both Model A and Model B correctly retrieved my exact reply, quoted verbatim with timestamp and recipient.\n\nOverall, Model B was marginally more complete in Turn 1 by including the reply thread unprompted, but the difference was minor and did not meaningfully affect helpfulness. Both Model A and Model B were trustworthy and precise."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "Chinese"
+        }
+      }
+    }
+  }
+}

@@ -544,7 +544,8 @@
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "testResponse1DebugInfo",
@@ -555,7 +556,8 @@
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "testResponse2DebugInfo",
@@ -565,7 +567,8 @@
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse3DebugInfo",
@@ -574,7 +577,8 @@
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse4DebugInfo",
@@ -582,14 +586,16 @@
    "values": [
     "5",
     "4"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse5DebugInfo",
    "parent": "numberOfTurns",
    "values": [
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextCategory",
@@ -597,7 +603,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextTurns",
@@ -605,7 +612,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationCategory",
@@ -613,7 +621,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationTurns",
@@ -621,7 +630,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
@@ -629,7 +639,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
@@ -637,7 +648,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
@@ -645,7 +657,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
@@ -653,7 +666,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
@@ -661,7 +675,8 @@
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
@@ -669,7 +684,8 @@
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
@@ -677,7 +693,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
@@ -685,7 +702,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
@@ -693,7 +711,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
@@ -701,7 +720,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyCategory",
@@ -709,7 +729,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyDetraction",
@@ -717,7 +738,8 @@
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyTurns",
@@ -725,7 +747,8 @@
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyCategory",
@@ -733,7 +756,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyTurns",
@@ -741,7 +765,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsDirection",
@@ -749,7 +774,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsTurns",
@@ -757,7 +783,8 @@
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   }
  ],
  "heads": [

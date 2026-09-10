@@ -147,11 +147,25 @@ async function validatePrqFetch(conversationData) {
     .replace(/[\u2010-\u2015\u2212\ufe58\ufe63\uff0d]/g, '-')
     .replace(/\s+/g, ' ')
     .trim();
-  const eqN = (a, b) => norm(a) === norm(b);
+  const eqN = (a, b) => norm(a) === norm(b) || foldTokens(a) === foldTokens(b);
+  // COMPARISON-ONLY token fold. Applied when tokenising for the tolerance tier, never to
+  // displayed text. Intra-word hyphens and apostrophes are dropped so "e-commerce" and
+  // "ecommerce" are one token.
+  // Why: golden task 1270939 was BLOCKED by a single hyphen. The rater typed "e-commerce" in
+  // the Prompt field and "ecommerce" in Gemini -- unambiguously the same conversation -- and in
+  // a 12-word prompt that one token cost 15 points of word-Jaccard: F4-A scored 84.6% and
+  // failed the 90% tier while F3-08's word-hit-rate scored 91.7% and passed. The two
+  // comparators disagreeing on one character was itself the bug. With the fold both are an
+  // exact match and no tolerance tier is involved.
+  // Accepted cost: "re-sign"/"resign" and "co-op"/"coop" also collapse. For the question these
+  // comparators ask -- is this the same conversation? -- that is negligible against blocking
+  // every task where a rater typed a hyphen differently.
+  const foldTokens = (s) => norm(s).toLowerCase().replace(/(\w)[-'\u2019](\w)/g, '$1$2');
+
   const OVERLAP_TIER = 90;   // section 5 step 9: word-level Jaccard tolerance; percentage printed
   const overlapPct = (a, b) => {
-    const wa = norm(a).toLowerCase().split(' ').filter(Boolean);
-    const wb = norm(b).toLowerCase().split(' ').filter(Boolean);
+    const wa = foldTokens(a).split(' ').filter(Boolean);
+    const wb = foldTokens(b).split(' ').filter(Boolean);
     if (!wa.length && !wb.length) return 100;
     if (!wa.length || !wb.length) return 0;
     const sa = new Set(wa), sb = new Set(wb);
@@ -171,9 +185,13 @@ async function validatePrqFetch(conversationData) {
     const n = norm(needle), h = norm(hay);
     if (!n) return { ok: true, pct: 100, exact: true };
     if (h.indexOf(n) >= 0) return { ok: true, pct: 100, exact: true };
-    const wn = [...new Set(n.toLowerCase().split(' ').filter(Boolean))];
+    // Containment is tested on the FOLDED text too, so softIn and softEq agree character for
+    // character (they did not before -- see the foldTokens note).
+    const nf = foldTokens(needle), hf = foldTokens(hay);
+    if (nf && hf.indexOf(nf) >= 0) return { ok: true, pct: 100, exact: true };
+    const wn = [...new Set(nf.split(' ').filter(Boolean))];
     if (!wn.length) return { ok: true, pct: 100, exact: true };
-    const hl = h.toLowerCase();
+    const hl = hf;
     let hit = 0;
     for (const w of wn) if (hl.indexOf(w) >= 0) hit++;
     const pct = Math.round((hit / wn.length) * 1000) / 10;

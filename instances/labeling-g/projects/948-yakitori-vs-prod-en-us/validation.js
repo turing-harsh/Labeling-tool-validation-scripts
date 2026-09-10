@@ -594,7 +594,8 @@ async function validatePrqL1(conversationData) {
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "testResponse1DebugInfo",
@@ -605,7 +606,8 @@ async function validatePrqL1(conversationData) {
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "testResponse2DebugInfo",
@@ -615,7 +617,8 @@ async function validatePrqL1(conversationData) {
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse3DebugInfo",
@@ -624,7 +627,8 @@ async function validatePrqL1(conversationData) {
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse4DebugInfo",
@@ -632,14 +636,16 @@ async function validatePrqL1(conversationData) {
    "values": [
     "5",
     "4"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse5DebugInfo",
    "parent": "numberOfTurns",
    "values": [
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextCategory",
@@ -647,7 +653,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextTurns",
@@ -655,7 +662,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationCategory",
@@ -663,7 +671,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationTurns",
@@ -671,7 +680,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
@@ -679,7 +689,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
@@ -687,7 +698,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
@@ -695,7 +707,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
@@ -703,7 +716,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
@@ -711,7 +725,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
@@ -719,7 +734,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
@@ -727,7 +743,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
@@ -735,7 +752,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
@@ -743,7 +761,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
@@ -751,7 +770,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyCategory",
@@ -759,7 +779,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyDetraction",
@@ -767,7 +788,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyTurns",
@@ -775,7 +797,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyCategory",
@@ -783,7 +806,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyTurns",
@@ -791,7 +815,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsDirection",
@@ -799,7 +824,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsTurns",
@@ -807,7 +833,8 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   }
  ],
  "heads": [
@@ -1046,13 +1073,27 @@ async function validatePrqL1(conversationData) {
     .replace(/[\u2010-\u2015\u2212\ufe58\ufe63\uff0d]/g, '-')
     .replace(/\s+/g, ' ')
     .trim();
-  const eqN = (a, b) => norm(a) === norm(b);
+  const eqN = (a, b) => norm(a) === norm(b) || foldTokens(a) === foldTokens(b);
+  // COMPARISON-ONLY token fold. Applied when tokenising for the tolerance tier, never to
+  // displayed text. Intra-word hyphens and apostrophes are dropped so "e-commerce" and
+  // "ecommerce" are one token.
+  // Why: golden task 1270939 was BLOCKED by a single hyphen. The rater typed "e-commerce" in
+  // the Prompt field and "ecommerce" in Gemini -- unambiguously the same conversation -- and in
+  // a 12-word prompt that one token cost 15 points of word-Jaccard: F4-A scored 84.6% and
+  // failed the 90% tier while F3-08's word-hit-rate scored 91.7% and passed. The two
+  // comparators disagreeing on one character was itself the bug. With the fold both are an
+  // exact match and no tolerance tier is involved.
+  // Accepted cost: "re-sign"/"resign" and "co-op"/"coop" also collapse. For the question these
+  // comparators ask -- is this the same conversation? -- that is negligible against blocking
+  // every task where a rater typed a hyphen differently.
+  const foldTokens = (s) => norm(s).toLowerCase().replace(/(\w)[-'\u2019](\w)/g, '$1$2');
+
   const eqCI = (a, b) => norm(a).toLowerCase() === norm(b).toLowerCase();
   // Word-level Jaccard, the section 5 step-9 tolerance tier. Returns a percentage so it can be printed
   // as evidence whenever it decides an outcome.
   const overlapPct = (a, b) => {
-    const wa = norm(a).toLowerCase().split(' ').filter(Boolean);
-    const wb = norm(b).toLowerCase().split(' ').filter(Boolean);
+    const wa = foldTokens(a).split(' ').filter(Boolean);
+    const wb = foldTokens(b).split(' ').filter(Boolean);
     if (!wa.length && !wb.length) return 100;
     if (!wa.length || !wb.length) return 0;
     const sa = new Set(wa), sb = new Set(wb);
@@ -1232,6 +1273,29 @@ async function validatePrqL1(conversationData) {
     return out;
   };
 
+  // ===== gate graph + visibility (used by F1-03 as well as the F2 cascades) =====
+  const gatesByChild = new Map();
+  for (const g of CFG.gates) gatesByChild.set(g.child, g);
+  // VISIBILITY. A field is shown when it has no gate, or when its gate is satisfied by the
+  // parent's answer AND the parent is itself shown. Two operators are live and their semantics
+  // differ (see the builder's parser note):
+  //   eq  the parent's single-choice answer equals one of the gate values
+  //   in  the parent's MULTI-select answer contains one of them
+  // The recursion matters on 942, where the cascade is two deep: Q1 -> severity head -> child.
+  // 941 and 948 gate no head on Q1, so there every head is shown and this reduces to today's
+  // behaviour exactly.
+  const isShown = (key, side, depth) => {
+    if ((depth || 0) > 6) return true;                  // cycle guard; a cyclic config is a build problem
+    const g = gatesByChild.get(key);
+    if (!g) return true;                                 // ungated fields are always shown
+    const parentVal = side ? side.get(g.parent) : T(g.parent);
+    const satisfied = g.op === 'in'
+      ? asArr(parentVal).some((a) => g.values.some((v) => sameOpt(a, v)))
+      : g.values.some((v) => sameOpt(parentVal, v));
+    if (!satisfied) return false;
+    return isShown(g.parent, side, (depth || 0) + 1);
+  };
+
   // ==========================================================================
   // F1  COMPLETENESS
   // ==========================================================================
@@ -1267,13 +1331,20 @@ async function validatePrqL1(conversationData) {
     }
   }
 
-  // F1-03: per-side required heads. All 10 severity heads are ALWAYS shown on 941/942 -- there
-  // is no Q1 gate (939's condRef:triggering cascade is REMOVED-ON-FORK, section 4), and the build
-  // asserts no head is Q1-gated. Fact 13: Q1 = "Not Personalized" followed by N/A on the heads
-  // that offer it is the INSTRUCTED compliant pattern -- an N/A answer is answered, never a gap.
-  const F1_03_ALWAYS = [A.q1, ...CFG.heads, A.sat7a, A.sat7b, ...CFG.i18nHeads, A.html];
+  // F1-03: per-side required answers -- but only the ones the form actually SHOWS.
+  // The projects diverge here and the difference is load-bearing:
+  //   941 / 948  no Q1 gate. Every severity head is always visible, so Fact 13 applies: Q1 =
+  //              "Not Personalized" followed by N/A on the heads is the INSTRUCTED compliant
+  //              pattern, and an N/A answer is answered, never a gap.
+  //   942        all ten heads are gated on Q1. With "Not Personalized" alone they are HIDDEN,
+  //              so requiring them blocks correct work -- measured at 20 false errors on golden
+  //              task 1271023 before this fix. There the compliant pattern is the heads being
+  //              ABSENT, and a head carrying a value instead is F2-04's stale hidden value.
+  // Nothing here branches per project: isShown() reads the gate graph the builder derived.
+  const F1_03_REQUIRED = [A.q1, ...CFG.heads, A.sat7a, A.sat7b, ...CFG.i18nHeads, A.html];
   for (const side of bound) {
-    for (const k of F1_03_ALWAYS) {
+    for (const k of F1_03_REQUIRED) {
+      if (!isShown(k, side)) continue;
       if (isBlank(side.get(k))) {
         err(side.scope, side.keyOf(k), 'this required answer is missing.', 'answer "' + labelOf(k) + '" for this model.');   // F1-03
       }
@@ -1312,8 +1383,6 @@ async function validatePrqL1(conversationData) {
   // the config's displayConditions. No cascade is hand-written, so a config revision cannot
   // silently disable one.
   // ==========================================================================
-  const gatesByChild = new Map();
-  for (const g of CFG.gates) gatesByChild.set(g.child, g);
   const roleOfChild = (head, child) => {
     const c = CFG.childrenOf[head] || {};
     for (const r of ['category', 'turns', 'detraction', 'explanation']) if (c[r] === child) return r;
@@ -1328,13 +1397,26 @@ async function validatePrqL1(conversationData) {
     // ---- rubric heads: Category (F2-01), Turns (F2-02), Detraction (F2-03) + reverse (F2-04)
     for (const head of CFG.heads) {
       const headVal = side.get(head);
+      // F2-04 on the HEAD itself. Only reachable where heads are gated (942): a head answered
+      // before the rater set Q1 to "Not Personalized" is now hidden, and the stale value is
+      // submitted invisibly. Same defect the children have always been checked for.
+      const headGate = gatesByChild.get(head);
+      if (headGate && !isShown(head, side) && filled(headVal)) {
+        err(side.scope, side.keyOf(head), 'this rating holds an answer even though "' + labelOf(headGate.parent) + '" says the response was not personalized, so the answer is hidden and will still be submitted.',
+          'set "' + labelOf(headGate.parent) + '" to one of ' + headGate.values.map((v) => '"' + v + '"').join(' or ') + ' to reveal "' + labelOf(head) + '", clear it, then set "' + labelOf(headGate.parent) + '" back to your real answer.',
+          '"' + labelOf(headGate.parent) + '" = "' + asArr(side.get(headGate.parent)).join(', ') + '"; hidden "' + labelOf(head) + '" = "' + rawStr(headVal) + '".');   // F2-04
+      }
       const kids = CFG.childrenOf[head] || {};
       for (const role of ['category', 'turns', 'detraction']) {
         const child = kids[role];
         if (!child) continue;
         const gate = gatesByChild.get(child);
         if (!gate) continue;
-        const shown = gate.values.some((v) => sameOpt(headVal, v));
+        // isShown() rather than a value-only test: on 942 a head can itself be HIDDEN (Q1 not
+        // personalized) while still carrying a stale value, and a value-only test then demanded
+        // the rater fill in children they cannot see -- three errors for one defect, two of them
+        // impossible to action. Caught by mutating real task 1271023.
+        const shown = isShown(child, side);
         const childVal = side.get(child);
         if (shown && isBlank(childVal)) {
           // F2-01 (category) / F2-02 (turns) / F2-03 (detraction)
@@ -1357,7 +1439,7 @@ async function validatePrqL1(conversationData) {
       const gate = gatesByChild.get(child);
       if (!gate) continue;
       const headVal = side.get(head);
-      const shown = gate.values.some((v) => optCanon(headVal) === optCanon(v));
+      const shown = isShown(child, side);
       const childVal = side.get(child);
       if (shown && isBlank(childVal)) {
         err(side.scope, side.keyOf(child), 'this explanation is required once "' + labelOf(head) + '" is set to "' + rawStr(headVal) + '", but it is empty.',
@@ -2368,7 +2450,8 @@ async function validatePrqFetch(conversationData) {
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "testResponse1DebugInfo",
@@ -2379,7 +2462,8 @@ async function validatePrqFetch(conversationData) {
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "testResponse2DebugInfo",
@@ -2389,7 +2473,8 @@ async function validatePrqFetch(conversationData) {
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse3DebugInfo",
@@ -2398,7 +2483,8 @@ async function validatePrqFetch(conversationData) {
     "3",
     "4",
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse4DebugInfo",
@@ -2406,14 +2492,16 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "5",
     "4"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "model1TestResponse5DebugInfo",
    "parent": "numberOfTurns",
    "values": [
     "5"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextCategory",
@@ -2421,7 +2509,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextTurns",
@@ -2429,7 +2518,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationCategory",
@@ -2437,7 +2527,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationTurns",
@@ -2445,7 +2536,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
@@ -2453,7 +2545,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
@@ -2461,7 +2554,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
@@ -2469,7 +2563,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
@@ -2477,7 +2572,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
@@ -2485,7 +2581,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
@@ -2493,7 +2590,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
@@ -2501,7 +2599,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
@@ -2509,7 +2608,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
@@ -2517,7 +2617,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
@@ -2525,7 +2626,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyCategory",
@@ -2533,7 +2635,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyDetraction",
@@ -2541,7 +2644,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyTurns",
@@ -2549,7 +2653,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyCategory",
@@ -2557,7 +2662,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyTurns",
@@ -2565,7 +2671,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsDirection",
@@ -2573,7 +2680,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsTurns",
@@ -2581,7 +2689,8 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ]
+   ],
+   "op": "eq"
   }
  ],
  "heads": [
@@ -2787,11 +2896,25 @@ async function validatePrqFetch(conversationData) {
     .replace(/[\u2010-\u2015\u2212\ufe58\ufe63\uff0d]/g, '-')
     .replace(/\s+/g, ' ')
     .trim();
-  const eqN = (a, b) => norm(a) === norm(b);
+  const eqN = (a, b) => norm(a) === norm(b) || foldTokens(a) === foldTokens(b);
+  // COMPARISON-ONLY token fold. Applied when tokenising for the tolerance tier, never to
+  // displayed text. Intra-word hyphens and apostrophes are dropped so "e-commerce" and
+  // "ecommerce" are one token.
+  // Why: golden task 1270939 was BLOCKED by a single hyphen. The rater typed "e-commerce" in
+  // the Prompt field and "ecommerce" in Gemini -- unambiguously the same conversation -- and in
+  // a 12-word prompt that one token cost 15 points of word-Jaccard: F4-A scored 84.6% and
+  // failed the 90% tier while F3-08's word-hit-rate scored 91.7% and passed. The two
+  // comparators disagreeing on one character was itself the bug. With the fold both are an
+  // exact match and no tolerance tier is involved.
+  // Accepted cost: "re-sign"/"resign" and "co-op"/"coop" also collapse. For the question these
+  // comparators ask -- is this the same conversation? -- that is negligible against blocking
+  // every task where a rater typed a hyphen differently.
+  const foldTokens = (s) => norm(s).toLowerCase().replace(/(\w)[-'\u2019](\w)/g, '$1$2');
+
   const OVERLAP_TIER = 90;   // section 5 step 9: word-level Jaccard tolerance; percentage printed
   const overlapPct = (a, b) => {
-    const wa = norm(a).toLowerCase().split(' ').filter(Boolean);
-    const wb = norm(b).toLowerCase().split(' ').filter(Boolean);
+    const wa = foldTokens(a).split(' ').filter(Boolean);
+    const wb = foldTokens(b).split(' ').filter(Boolean);
     if (!wa.length && !wb.length) return 100;
     if (!wa.length || !wb.length) return 0;
     const sa = new Set(wa), sb = new Set(wb);
@@ -2811,9 +2934,13 @@ async function validatePrqFetch(conversationData) {
     const n = norm(needle), h = norm(hay);
     if (!n) return { ok: true, pct: 100, exact: true };
     if (h.indexOf(n) >= 0) return { ok: true, pct: 100, exact: true };
-    const wn = [...new Set(n.toLowerCase().split(' ').filter(Boolean))];
+    // Containment is tested on the FOLDED text too, so softIn and softEq agree character for
+    // character (they did not before -- see the foldTokens note).
+    const nf = foldTokens(needle), hf = foldTokens(hay);
+    if (nf && hf.indexOf(nf) >= 0) return { ok: true, pct: 100, exact: true };
+    const wn = [...new Set(nf.split(' ').filter(Boolean))];
     if (!wn.length) return { ok: true, pct: 100, exact: true };
-    const hl = h.toLowerCase();
+    const hl = hf;
     let hit = 0;
     for (const w of wn) if (hl.indexOf(w) >= 0) hit++;
     const pct = Math.round((hit / wn.length) * 1000) / 10;

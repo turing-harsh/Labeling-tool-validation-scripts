@@ -89,17 +89,29 @@ function deriveSpec(configPath, expectProjectId) {
     if (!dc) continue;
     const clauses = Array.isArray(dc.or) ? dc.or : (dc["=="] ? [dc] : null);
     if (!clauses) die(`unreadable displayCondition on "${f.key}": ${JSON.stringify(dc)}`);
-    let parent = null; const values = [];
+    // TWO clause shapes are live, and their OPERANDS ARE REVERSED -- read carefully:
+    //   {"==": [{"var": KEY}, VALUE]}   parent's single-choice answer equals VALUE
+    //   {"in": [VALUE, {"var": KEY}]}   parent's MULTI-select answer contains VALUE
+    // 942 gates all ten severity heads on Q1 with the "in" form; 941 and 948 use only "==".
+    // Anything else still dies: a gate shape we cannot read is a silently disabled F2 check.
+    let parent = null; const values = []; let op = null;
     for (const c of clauses) {
+      let key = null, val = null, thisOp = null;
       const eq = c && c["=="];
-      if (!Array.isArray(eq) || eq.length !== 2 || !eq[0] || typeof eq[0].var !== "string") {
+      const inn = c && c["in"];
+      if (Array.isArray(eq) && eq.length === 2 && eq[0] && typeof eq[0].var === "string") {
+        thisOp = "eq"; key = eq[0].var; val = eq[1];
+      } else if (Array.isArray(inn) && inn.length === 2 && inn[1] && typeof inn[1].var === "string") {
+        thisOp = "in"; key = inn[1].var; val = inn[0];
+      } else {
         die(`unreadable displayCondition clause on "${f.key}": ${JSON.stringify(c)}`);
       }
-      if (parent === null) parent = eq[0].var;
-      else if (parent !== eq[0].var) die(`displayCondition on "${f.key}" mixes parents (${parent} / ${eq[0].var}) -- the F2 cascade model assumes one parent.`);
-      values.push(String(eq[1]));
+      if (parent === null) { parent = key; op = thisOp; }
+      else if (parent !== key) die(`displayCondition on "${f.key}" mixes parents (${parent} / ${key}) -- the F2 cascade model assumes one parent.`);
+      else if (op !== thisOp) die(`displayCondition on "${f.key}" mixes operators (${op} / ${thisOp}) -- one gate, one operator.`);
+      values.push(String(val));
     }
-    gates.push({ child: f.key, parent, values: [...new Set(values)] });
+    gates.push({ child: f.key, parent, values: [...new Set(values)], op });
   }
 
   // ---- head families, derived from the option vocabularies (not from key names).
@@ -212,9 +224,18 @@ function assertFacts(spec, X) {
   a(spec.heads.length === 10, `expected 10 rubric severity heads (Fact 9), found ${spec.heads.length}: ${spec.heads.join(", ")}`);
   // Fact 10 / F2-06
   a(spec.i18nHeads.length === X.i18nHeads, `expected ${X.i18nHeads} i18n heads, found ${spec.i18nHeads.length}: ${spec.i18nHeads.join(", ")}`);
-  // Fact 9: NO Q1 gate on any head (the 939 condRef:triggering cascade is REMOVED-ON-FORK §4).
+  // Q1 CASCADE. 941 and 948 have none (the 939 condRef:triggering cascade really is removed
+  // there); 942 gates all ten severity heads on Q1. Asserting a per-project COUNT rather than
+  // zero keeps the assertion meaningful in both directions -- a config revision that silently
+  // adds or drops the cascade still fails the build instead of disabling F1-03/F2-04 quietly.
   const q1Gated = spec.gates.filter((g) => g.parent === spec.anchors.q1);
-  a(q1Gated.length === 0, `a head is gated on Q1 (${q1Gated.map((g) => g.child).join(", ")}) -- §4 removed that cascade; re-add the check before shipping.`);
+  a(q1Gated.length === X.q1GatedHeads,
+    `expected ${X.q1GatedHeads} head(s) gated on Q1, found ${q1Gated.length}${q1Gated.length ? ": " + q1Gated.map((g) => g.child).join(", ") : ""}. If the form really changed, update this project's expectation -- do not relax the assertion.`);
+  if (q1Gated.length) {
+    const bad = q1Gated.filter((g) => g.op !== "in");
+    a(bad.length === 0, `Q1 gates are expected to use the "in" operator; found "${bad.map((g) => g.op).join(", ")}" on ${bad.map((g) => g.child).join(", ")}.`);
+    console.log(`  Q1 cascade: ${q1Gated.length} severity head(s) hidden unless Q1 contains a Personalized option`);
+  }
   // F2-01: 9 category children (3a has none); F2-02: all 10 heads carry a Turns child;
   // F2-03: exactly 2 detraction children.
   const withRole = (r) => spec.heads.filter((k) => spec.childrenOf[k] && spec.childrenOf[k][r]);
@@ -421,7 +442,7 @@ built[941] = buildOne({
   displayName: "P13n Response Quality E2E Eval (es-419)",
   locale: { language: "Spanish", dialect: "LatAm (All Variants)" },
   configPath: cfg941,
-  expect: { perSide: 51, taskFields: 10, topLevel: 13, i18nHeads: 4 },
+  expect: { perSide: 51, taskFields: 10, topLevel: 13, i18nHeads: 4, q1GatedHeads: 0 },
 });
 
 console.log("== 942 (zh-CN) ==");
@@ -429,17 +450,31 @@ let parityNote = null;
 let cfg942 = cfg941;
 if (existsSync(cfg942own)) {
   cfg942 = cfg942own;
+  // Escalation 11, closed 10 Sep 2026 -- and NOT with the answer that was predicted. Keep the
+  // diff running on every build so the divergence stays visible rather than becoming folklore.
   const strip = (p) => {
     const x = deriveSpec(p, 0);
     return JSON.stringify({ modelA: x.modelA, modelB: x.modelB, perSide: x.perSide, taskFields: x.taskFields,
       options: x.options, types: x.types, gates: x.gates, heads: x.heads, i18nHeads: x.i18nHeads,
       childrenOf: x.childrenOf, debugSlotKeys: x.debugSlotKeys });
   };
+  const s941 = deriveSpec(cfg941, 941), s942 = deriveSpec(cfg942own, 942);
   const same = strip(cfg941) === strip(cfg942own);
-  parityNote = same
-    ? "942 config machine-diffed against 941: IDENTICAL in keys, options, gate graph and model names."
-    : "942 config DIFFERS from 941 (see build output) -- checks are built from 942's own config.";
-  console.log(`  parity vs 941: ${same ? "IDENTICAL" : "DIFFERS -- review the diff before deploying"}`);
+  if (same) {
+    parityNote = "942 config machine-diffed against 941: IDENTICAL in keys, options, gate graph and model names.";
+    console.log("  parity vs 941: IDENTICAL");
+  } else {
+    const g941 = s941.gates.filter((g) => g.parent === s941.anchors.q1).length;
+    const g942 = s942.gates.filter((g) => g.parent === s942.anchors.q1).length;
+    const bits = [];
+    if (g941 !== g942) bits.push(`Q1-gated severity heads ${g941} (941) vs ${g942} (942)`);
+    if (JSON.stringify(s941.perSide) !== JSON.stringify(s942.perSide)) bits.push("per-side key set");
+    if (s941.modelA !== s942.modelA || s941.modelB !== s942.modelB) bits.push("model names");
+    if (JSON.stringify(s941.options) !== JSON.stringify(s942.options)) bits.push("option vocabularies");
+    parityNote = "942 config machine-diffed against 941: DIFFERS -- " + (bits.join("; ") || "see the build log") +
+      ". 942 is built from its OWN config; the two projects are NOT interchangeable.";
+    console.log(`  parity vs 941: DIFFERS -- ${bits.join("; ") || "see spec"}`);
+  }
 } else {
   parityNote = "942's own config export has NOT been received (escalation 11); this build uses 941's config. Re-run the build and re-diff when it lands.";
   console.log("  note: no project-config-id-942.json -- built from 941's config (escalation 11 open).");
@@ -449,13 +484,10 @@ buildOne({
   displayName: "P13n Response Quality E2E Eval (zh-CN)",
   locale: { language: "Chinese", dialect: "Mainland (Simplified)" },
   configPath: cfg942, parityNote,
-  expect: { perSide: 51, taskFields: 10, topLevel: 13, i18nHeads: 4 },
+  // 942 gates all ten severity heads on Q1 -- see requirements. 941 gates none.
+  expect: { perSide: 51, taskFields: 10, topLevel: 13, i18nHeads: 4, q1GatedHeads: 10 },
 });
 
-// 948 is the same form family with the LANGUAGE BLOCK REMOVED (43 per-side, 0 i18n heads), so
-// the shared parts' F2-06 / language checks self-disable off an empty CFG.i18nHeads with no code
-// branch. Its tables are bootstrapped from the previously pasted build until a config export
-// arrives -- see config/form-spec-948.json and the note the builder prints.
 console.log("== 948 (en-US) ==");
 // When the real export arrives, machine-diff it against the bootstrap that was recovered from the
 // pasted build -- otherwise "the bootstrap was right" stays a claim rather than a checked fact.
@@ -465,10 +497,18 @@ if (existsSync(cfg948own)) {
   if (existsSync(bootPath)) {
     const boot = JSON.parse(readFileSync(bootPath, "utf8"));
     const derived = deriveSpec(cfg948own, 948);
-    const shape = (x) => JSON.stringify({ modelA: x.modelA, modelB: x.modelB, perSide: x.perSide,
+    // Compare only what the BOOTSTRAP recorded. The derivation gains fields over time (the
+    // gate "op" was added when 942's "in" operator arrived); a new field must not retroactively
+    // invalidate a recovery that was verified correct. The question this answers is "does the
+    // real export still say everything the bootstrap said?", not "are the files byte-equal".
+    const gateShape = (gs, ref) => {
+      const keys = ref && ref.length ? Object.keys(ref[0]) : ["child", "parent", "values"];
+      return (gs || []).map((g) => { const o = {}; for (const k of keys) o[k] = g[k]; return o; });
+    };
+    const shape = (x, ref) => JSON.stringify({ modelA: x.modelA, modelB: x.modelB, perSide: x.perSide,
       taskFields: x.taskFields, heads: x.heads, i18nHeads: x.i18nHeads || [], childrenOf: x.childrenOf,
-      debugSlotKeys: x.debugSlotKeys, gates: x.gates, options: x.options, types: x.types });
-    const same = shape(boot) === shape(derived);
+      debugSlotKeys: x.debugSlotKeys, gates: gateShape(x.gates, ref), options: x.options, types: x.types });
+    const same = shape(boot, boot.gates) === shape(derived, boot.gates);
     console.log(`  bootstrap parity: ${same ? "IDENTICAL -- the recovered tables matched the real export" : "DIFFERS -- the real export wins; review what the bootstrap got wrong"}`);
     parity948 = same
       ? "948 tables derived from the config export; machine-diffed against the earlier bootstrap: IDENTICAL."
@@ -484,7 +524,7 @@ buildOne({
   configPath: existsSync(cfg948own) ? cfg948own : null,
   specPath: join(P948, "config", "form-spec-948.bootstrap.json"),
   parityNote: parity948,
-  expect: { perSide: 43, taskFields: 10, topLevel: 13, i18nHeads: 0 },
+  expect: { perSide: 43, taskFields: 10, topLevel: 13, i18nHeads: 0, q1GatedHeads: 0 },
 });
 
 console.log(`\nchecks implemented: ${CHECK_REGISTER.length}`);
