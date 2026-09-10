@@ -262,7 +262,7 @@ This section records what the build actually did, where it departed from the sec
 what the config export proved. It is an addendum to the ledger, not a revision of it.
 
 **Where the build lives.** Both projects share ONE checks source, under
-`941-prq-e2e-eval-es-419/`, and `scripts/build-941.mjs` emits BOTH deployables:
+`941-prq-e2e-eval-es-419/`, and `scripts/build-prq.mjs` emits BOTH deployables:
 
 - `parts/prq-checks.js` -> `validatePrqL1` — F1, F2, F5-04, F5-05, F6 (payload-decidable), F7-01/02/04
 - `parts/prq-fetch-checks.js` -> `validatePrqFetch` — F3, F4, F5-01..03, F6-06, F7-03

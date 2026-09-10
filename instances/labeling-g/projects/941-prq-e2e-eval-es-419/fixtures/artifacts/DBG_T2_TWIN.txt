@@ -1,14 +1,14 @@
-Personal Context
-sian_profile {
-  source: SEARCH
-  source: GMAIL
-  source: PHOTOS
-  source: YOUTUBE
-  source: BARD_NOT_PERSONALIZED_USING_FIRST_PARTY_DATA
-}
+You're using the BAS->Agency path.
+Agency config id: "bard/gemini_chat/0.2.170-prod-p13n-memory-strike-0828-stm-v2p5-token-budget-rm-rrf-listwise-top-20-2d-bb-based"
+Recipe ID: models/gemini-v4p1s-rev25-s-raw-thoughts-bard-agency
+Thinking Level: MEDIUM
 num_turns_read_from_footprints: 0
-Model ID: pcontext_mochi
-LM Prefix:
+------ Source Profile: source_name: "DATA_SOURCE_USER_PROFILE_PHOTOS" text_profile: "## profile text for PHOTOS"
+------ Source Profile: source_name: "DATA_SOURCE_USER_PROFILE_BARD_SEARCH" text_profile: "## profile text for BARD_SEARCH"
+------ Source Profile: source_name: "DATA_SOURCE_USER_PROFILE_GMAIL" text_profile: "## profile text for GMAIL"
+Debug link: https://llmdebugger.corp.google.com/agency?s=TESTTOK2
+LM prefix: <ctrl99>system SPECIAL INSTRUCTION
+<ctrl100>
 <ctrl99>user
 What should I pack for my trip to Lisbon next week?
 <ctrl100>

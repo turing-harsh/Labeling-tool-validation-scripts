@@ -30,9 +30,9 @@
 // rejected the script at save time).
 //
 // CHECK IDS IMPLEMENTED HERE:
-//   F3-01 F3-02 F3-03 F3-04 F3-05 F3-06 F3-07 F3-08 F3-09 F3-10 F3-11
+//   F3-01 F3-02 F3-03 F3-04 F3-05 F3-06 F3-07 F3-08 F3-09 F3-10 F3-11 F3-12 F3-13
 //   F4-A F4-B F4-C F4-D F4-E F4-F F4-G F4-H
-//   F5-01 F5-02 F5-03
+//   F5-01 F5-02 F5-03 F5-06 F5-07
 //   F6-06
 //   F7-03
 
@@ -311,8 +311,12 @@ async function validatePrqFetch(conversationData) {
     const url = urls[0];
     const leftover = norm(s.split(url).join(' '));
     if (leftover.length > 0) {
-      warn(side.scope, fieldKey, turn, 'this field holds the link plus extra text.',
-        'delete everything except the link itself.',
+      // ERROR, not a warning: golden task 1271273 (a clean submission on this same batch) holds
+      // ONLY the link in all four debug slots, which settles that commentary here is a rater
+      // deviation and not the protocol. 939's continuity-checks.js:94 treats it as an error too.
+      // The link is still extracted and fetched below, so the content checks all still run.
+      err(side.scope, fieldKey, turn, 'this field holds the link plus other text; it takes the link on its own.',
+        'move your observations into the rationale question and leave only the file link here.',
         'extra text: "' + leftover.slice(0, 120) + '".');   // F3-01
     }
     if (DRIVE_FOLDER_RE.test(url)) {
@@ -331,7 +335,7 @@ async function validatePrqFetch(conversationData) {
           'open the file in Drive, use Share then Copy link, and paste that link here.',
           'link: ' + url + '.');   // F3-01
       } else {
-        warn(side.scope, fieldKey, turn, 'this link is not a Google Drive link, so the file behind it cannot be opened for review.',
+        err(side.scope, fieldKey, turn, 'this link is not a Google Drive link, so the file behind it cannot be opened for review.',
           'upload the file to the batch destination folder in Drive and paste its Drive link here.',
           'link host: ' + url.replace(/^(https?:\/\/[^/]+).*$/, '$1') + '.');   // F3-01
       }
@@ -441,7 +445,11 @@ async function validatePrqFetch(conversationData) {
   // F3-06: slice classification -- FULL / AGENCY-SLICE / ALS-SLICE / UNKNOWN, logged per slot.
   // Drives F6-06 and F5 availability. Three states everywhere downstream: present /
   // absent-from-artifact / out-of-sanctioned-slice; only the first two are reportable.
-  const FULL_MARKERS = ['sian_profile', 'Personal Context', 'num_turns_read_from_footprints'];
+  // "sian_profile" alone is NOT a usable marker: every Mode 23 capture carries the config flag
+  // "enable_sian_profile: true" whether or not any personal context was actually attached, so
+  // matching it classified a share as FULL on the strength of a feature flag. The real evidence
+  // is the personal-context payload itself -- "Source Profile:" blocks and the footprints line.
+  const FULL_MARKERS = ['Source Profile:', 'DATA_SOURCE_USER_PROFILE_', 'Personal Context', 'num_turns_read_from_footprints'];
   const AGENCY_MARKERS = ['Agency config id', 'BAS->', 'agency'];
   const ALS_MARKERS = ['assistant_level_signals', 'als_', 'ALS'];
   const classifySlice = (text) => {
@@ -474,6 +482,56 @@ async function validatePrqFetch(conversationData) {
     const re = /^\s*Model ID:\s*(\S+)\s*$/gm;
     let m;
     while ((m = re.exec(blob)) !== null) out.push(m[1]);
+    return out;
+  };
+  // IDENTITY on Mode 23. The Mode 23 captures carry NO "Model ID:" line at all (verified on
+  // golden tasks 1271273 and 1271348: zero occurrences in all eight debug files), so keying F5
+  // on it left the entire identity family dormant -- a swapped debug pair passed silently.
+  // "Agency config id" IS present, in BOTH the debug and the saved page, and discriminates:
+  //   Yakitori    bard/gemini_chat/0.2.170-prod-p13n-memory-strike-0828-stm-v2p5-token-budget-...
+  //   Prod Frozen bard/gemini_chat/0.2.171-prod-p13n-prod-frozen-baseline
+  // 903 v3.2.32 already used it this way (its lines 1223, 1352, 1482). Model ID / Recipe ID are
+  // kept as secondary signals for batches that do emit them.
+  const extractAgencyIds = (blob) => {
+    const out = [];
+    const re = /Agency config id:\s*"?([^"\n\r]+?)"?\s*$/gim;
+    let m;
+    while ((m = re.exec(blob)) !== null) { const v = m[1].trim(); if (v) out.push(v); }
+    return out;
+  };
+  // Every debug capture and every saved page embeds the llmdebugger session links for the turns
+  // it covers. The token is a per-response session id, so it is a DECISIVE same-chat proof --
+  // far stronger than text overlap, which cannot work here at all because the saved page embeds
+  // the debug dump verbatim (see the visible-conversation note below). 903:1348 does the same.
+  const extractSessionTokens = (blob) => {
+    const out = [];
+    const re = /llmdebugger\.corp\.google\.com\/agency\?s=([^\s"'<>)&]+)/gi;
+    let m;
+    while ((m = re.exec(decodeEntities(rawStr(blob)))) !== null) out.push(m[1]);
+    return [...new Set(out)];
+  };
+  // VISIBLE CONVERSATION. The saved page contains the whole Debug Info dump, so testing the form
+  // prompt against stripTags(whole page) put the debug text INSIDE the haystack and made F3-08 /
+  // F3-10 nearly impossible to fail. Extract only what the reader actually sees -- the
+  // <user-query> and <model-response> elements -- as 903:546-586 does. Verified to return
+  // exactly the 2 questions and 2 responses on all four saved pages across both golden tasks.
+  const htmlToText = (h) => decodeEntities(rawStr(h).replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+  const extractVisiblePrompts = (html) => {
+    const out = [];
+    const re = /<user-query[\s>][\s\S]*?<\/user-query>/gi;
+    let m;
+    while ((m = re.exec(html)) !== null) {
+      const lines = [...m[0].matchAll(/class="[^"]*query-text-line[^"]*"[^>]*>([\s\S]*?)<\/p>/gi)].map((x) => htmlToText(x[1]));
+      const t = (lines.length ? lines.join(' ') : htmlToText(m[0])).trim();
+      if (t) out.push(norm(t));
+    }
+    return out;
+  };
+  const extractVisibleResponses = (html) => {
+    const out = [];
+    const re = /<model-response[\s>][\s\S]*?<\/model-response>/gi;
+    let m;
+    while ((m = re.exec(html)) !== null) { const t = htmlToText(m[0]); if (t) out.push(norm(t)); }
     return out;
   };
   const extractFootprints = (blob) => {
@@ -614,11 +672,13 @@ async function validatePrqFetch(conversationData) {
       }
       const users = extractUserBlocks(text);
       const ids = extractModelIds(text);
+      const agency = extractAgencyIds(text);
+      const tokens = extractSessionTokens(text);
       const fps = extractFootprints(text);
       const slice = classifySlice(text);
-      logs.push('F3-06 ' + c.scope + ' Turn ' + c.turn + ': slice=' + slice + ', user blocks=' + users.length + ', Model ID line(s)=' + ids.length + ', footprints=' + (fps === null ? 'absent' : fps) + (formatNote ? ', format=' + formatNote : '') + '.');
+      logs.push('F3-06 ' + c.scope + ' Turn ' + c.turn + ': slice=' + slice + ', user blocks=' + users.length + ', Model ID line(s)=' + ids.length + ', agency id(s)=' + (agency.length ? agency.map((x) => '"' + x + '"').join(' | ') : 'NONE') + ', session token(s)=' + tokens.length + ', footprints=' + (fps === null ? 'absent' : fps) + (formatNote ? ', format=' + formatNote : '') + '.');
       results.push({ scope: c.scope, role: c.role, slot: c.slot, fieldKey: c.fieldKey, family: c.family, turn: c.turn, url: c.url, id: c.id,
-        ok: true, text: text, users: users, slice: slice, modelIds: ids, footprints: fps, fp: fp });
+        ok: true, text: text, users: users, slice: slice, modelIds: ids, agency: agency, tokens: tokens, footprints: fps, fp: fp });
       continue;
     }
 
@@ -643,12 +703,18 @@ async function validatePrqFetch(conversationData) {
       }
       const modeLabel = extractModeSelector(r.content);
       const convId = extractConversationId(r.content);
-      let text = norm(decodeEntities(stripTags(r.content)));
-      let truncated = false;
-      if (text.length > HTML_TEXT_CAP) { text = text.slice(0, HTML_TEXT_CAP); truncated = true; logs.push('F3 note: ' + c.scope + ' page text truncated to ' + HTML_TEXT_CAP + ' characters for checking (the page is ' + r.content.length + ' bytes).'); }
-      logs.push('F3-09 ' + c.scope + ': page mode-selector label ' + (modeLabel ? '"' + modeLabel + '"' : 'NOT FOUND') + '; conversation id ' + (convId || 'not found') + '.');
+      const agency = extractAgencyIds(r.content);
+      const tokens = extractSessionTokens(r.content);
+      // Only the VISIBLE conversation is retained, never the whole page: the page embeds the
+      // Debug Info dump, so whole-page containment was self-satisfying, and a multi-megabyte
+      // retained string is exactly the isolate-memory shape 944 v2.0.4 died on. A few KB now.
+      const vPrompts = extractVisiblePrompts(r.content);
+      const vResponses = extractVisibleResponses(r.content);
+      const convText = vPrompts.concat(vResponses).join(' \n ').slice(0, HTML_TEXT_CAP);
+      logs.push('F3-09 ' + c.scope + ': page mode-selector label ' + (modeLabel ? '"' + modeLabel + '"' : 'NOT FOUND') + '; conversation id ' + (convId || 'not found') + '; agency id(s)=' + (agency.length ? agency.map((x) => '"' + x + '"').join(' | ') : 'NONE') + '; session token(s)=' + tokens.length + '; visible turns=' + vPrompts.length + ' question(s) / ' + vResponses.length + ' response(s).');
+      if (!vPrompts.length) logs.push('F3 note: ' + c.scope + ' page yielded NO visible questions -- the saved-page markup may have changed; F3-08/F3-10/F3-13 self-skip for this side rather than fire on an extraction failure.');
       results.push({ scope: c.scope, role: c.role, slot: c.slot, fieldKey: c.fieldKey, family: c.family, turn: c.turn, url: c.url, id: c.id,
-        ok: true, text: text, truncated: truncated, modeLabel: modeLabel, convId: convId, fp: fp });
+        ok: true, prompts: vPrompts, responses: vResponses, text: convText, modeLabel: modeLabel, convId: convId, agency: agency, tokens: tokens, fp: fp });
     }
   }
   if (replacementCharTotal) logs.push('A-06: ' + replacementCharTotal + ' replacement character(s) across all fetched files on this task.');
@@ -871,12 +937,14 @@ async function validatePrqFetch(conversationData) {
     if (!h) continue;
     // F3-08: the page carries the form prompt. Redaction placeholders (Fact 8) ride through the
     // overlap tier rather than being special-cased.
-    if (filled(formPrompt)) {
-      const m = softIn(formPrompt, h.text);
-      if (!m.ok) {
+    // Compared against the VISIBLE questions only. Self-skips when extraction found none, so a
+    // markup change degrades to a log rather than accusing the rater.
+    if (filled(formPrompt) && h.prompts.length) {
+      const best = h.prompts.reduce((acc, q) => { const m = softIn(formPrompt, q); return m.pct > acc.pct ? m : acc; }, { ok: false, pct: 0 });
+      if (!best.ok) {
         err(side.scope, h.fieldKey, null, 'the saved page does not contain the prompt you submitted, so it does not look like this task\'s conversation.',
           'save and upload the page for the conversation you actually ran for this task.',
-          'submitted prompt: "' + norm(formPrompt).slice(0, 160) + '"; word overlap with the page ' + m.pct + '% (needs ' + OVERLAP_TIER + '%)' + (h.truncated ? '; only the first ' + HTML_TEXT_CAP + ' characters of the page were checked' : '') + '.');   // F3-08
+          'submitted prompt: "' + norm(formPrompt).slice(0, 160) + '"; the page\'s first question is "' + h.prompts[0].slice(0, 160) + '"; best word overlap ' + best.pct + '% (needs ' + OVERLAP_TIER + '%).');   // F3-08
       }
     }
     // F3-09: the mode selector on the page identifies THIS side's model. Compared on the
@@ -904,17 +972,28 @@ async function validatePrqFetch(conversationData) {
     const missingTurns = [];
     const n = declared.get(side.slot);
     const upto = n === null ? CFG.debugSlotKeys.length : Math.min(n, CFG.debugSlotKeys.length);
-    for (let t = 1; t <= upto; t++) {
-      const d = debugOf(side.slot, t);
-      if (!d || !d.users.length) continue;
-      const q = d.users[d.users.length - 1];
-      const m = softIn(q, h.text);
-      if (!m.ok) missingTurns.push({ t: t, q: q, pct: m.pct });
+    if (h.prompts.length) {
+      for (let t = 1; t <= upto; t++) {
+        const d = debugOf(side.slot, t);
+        if (!d || !d.users.length) continue;
+        const q = d.users[d.users.length - 1];
+        const best = h.prompts.reduce((acc, vq) => { const m = softIn(q, vq); return m.pct > acc.pct ? m : acc; }, { ok: false, pct: 0 });
+        if (!best.ok) missingTurns.push({ t: t, q: q, pct: best.pct });
+      }
     }
     if (missingTurns.length) {
       err(side.scope, h.fieldKey, null, 'the saved page is missing the question' + (missingTurns.length === 1 ? '' : 's') + ' from turn' + (missingTurns.length === 1 ? ' ' + missingTurns[0].t : 's ' + missingTurns.map((x) => x.t).join(', ')) + ', so the page and the debug info are not the same conversation.',
         'save the page again with the whole conversation visible -- expand any collapsed turns first -- and upload that file.',
-        missingTurns.map((x) => 'turn ' + x.t + ' asked "' + x.q.slice(0, 100) + '" (word overlap ' + x.pct + '%)').join('; ') + (h.truncated ? '; only the first ' + HTML_TEXT_CAP + ' characters of the page were checked' : '') + '.');   // F3-10
+        missingTurns.map((x) => 'turn ' + x.t + ' asked "' + x.q.slice(0, 100) + '" (best word overlap against the page\'s questions ' + x.pct + '%)').join('; ') + '.');   // F3-10
+    }
+    // F3-13: the page must show as many questions as the side declares turns. Generalises
+    // 903:1333 (which only caught the declared-1 case) to any turn count.
+    if (h.prompts.length && n !== null && n !== undefined && h.prompts.length !== n) {
+      err(side.scope, h.fieldKey, null, 'the saved page shows ' + h.prompts.length + ' question' + (h.prompts.length === 1 ? '' : 's') + ' but this model declares ' + n + ' turn' + (n === 1 ? '' : 's') + '.',
+        h.prompts.length > n
+          ? 'upload the page for this task\'s conversation only, or raise the turn count if the extra turns were part of it.'
+          : 'save the page again with every turn visible -- expand any collapsed turns first -- or correct the turn count.',
+        'questions visible on the page: ' + h.prompts.map((q) => '"' + q.slice(0, 60) + '"').join('; ') + '.');   // F3-13
     }
   }
   // F3-11: both pages carrying the same prompt AND the same response text = one chat submitted
@@ -923,7 +1002,9 @@ async function validatePrqFetch(conversationData) {
   {
     const a = htmlOf('test'), b = htmlOf('base');
     if (a && b) {
-      const sameText = a.fp === b.fp || overlapPct(a.text, b.text) >= 99;
+      const sameText = a.fp === b.fp
+        || (a.prompts.length && b.prompts.length && a.responses.length && b.responses.length
+            && eqN(a.prompts[0], b.prompts[0]) && overlapPct(a.responses[0], b.responses[0]) >= 99);
       const idsDiffer = !!(a.convId && b.convId && a.convId !== b.convId);
       const labelsDiffer = !!(a.modeLabel && b.modeLabel && discriminator(a.modeLabel) !== discriminator(b.modeLabel));
       if (sameText && !idsDiffer && !labelsDiffer) {
@@ -937,27 +1018,85 @@ async function validatePrqFetch(conversationData) {
   }
 
   // ==========================================================================
+  // F3-12  SAME-CHAT PROOF via llmdebugger session tokens. Each debug capture and each saved
+  // page embeds the session link for every response it covers; the token is a per-response
+  // session id, so a side's debug tokens must all appear in that side's own page. This is
+  // DECISIVE where text is not: the page embeds the debug dump, so text containment cannot
+  // separate "same conversation" from "same words typed twice". Ref 903:1348.
+  //
+  // Evidence it is safe as an error (both golden tasks, all four side-instances):
+  //   1271273 Yakitori    2/2 debug tokens present in its page   OK
+  //   1271273 Prod Frozen 2/2 debug tokens present in its page   OK
+  //   1271348 Yakitori    2/2 debug tokens present in its page   OK
+  //   1271348 Prod Frozen 0/2 -- ZERO overlap, and none with the other side's page either:
+  //                       the conversation was re-run and the page saved from the second run,
+  //                       so the uploaded debug does not document the submitted conversation.
+  // Self-skips with a log whenever either artifact yields no tokens, so a capture format that
+  // stops emitting them degrades to silence rather than blocking every task.
+  // ==========================================================================
+  for (const side of bound) {
+    const h = htmlOf(side.slot);
+    if (!h) continue;
+    const mine = usableDebug.filter((r) => r.slot === side.slot);
+    const dTokens = [...new Set(mine.flatMap((r) => r.tokens || []))];
+    if (!dTokens.length || !(h.tokens || []).length) {
+      logs.push('F3-12 SELF-SKIPPED on ' + side.scope + ': session tokens absent (' + dTokens.length + ' in the debug, ' + (h.tokens || []).length + ' on the page) -- cannot prove or disprove same-chat from tokens here.');
+      continue;
+    }
+    const missing = dTokens.filter((t) => !h.tokens.includes(t));
+    if (missing.length === dTokens.length) {
+      const other = bound.find((x) => x.slot !== side.slot);
+      const oh = other ? htmlOf(other.slot) : null;
+      const inOther = oh && dTokens.some((t) => (oh.tokens || []).includes(t));
+      err(side.scope, h.fieldKey, null, 'the debug files and the saved page for this model are from two different conversations.',
+        inOther
+          ? 'the two models\' saved pages look swapped -- upload each model\'s own page under that model.'
+          : 'upload the saved page for the same conversation the debug info was captured from; if you re-ran the conversation, re-capture the debug info from the run you are submitting.',
+        'none of the ' + dTokens.length + ' debug session id(s) appear on the page. Debug: ' + dTokens.join(', ') + '. Page: ' + h.tokens.join(', ') + '.' + (inOther ? ' They DO appear on the other model\'s page.' : ''));   // F3-12
+    } else if (missing.length) {
+      // Same defect as the fully-disjoint case above, just smaller: the page does not document
+      // every turn the debug covers. Blocking (severity review, 10 Sep 2026).
+      err(side.scope, h.fieldKey, null, 'the saved page is missing ' + missing.length + ' of the ' + dTokens.length + ' turns the debug info covers.',
+        'save the page again with the whole conversation visible, and upload that file.',
+        'debug session id(s) not found on the page: ' + missing.join(', ') + '.');   // F3-12
+    }
+  }
+
+  // ==========================================================================
   // F5  IDENTITY (fetched-debug half). Only live when the sanctioned slice actually carries a
   // Model ID line (F3-06); otherwise identity is DORMANT and says so in the log, rather than
   // silently passing.
   // ==========================================================================
-  // The identity table ships EMPTY and marked unconfirmed (section 9 row 6): the real Model ID strings
-  // for Ramen (top-20) and Prod Frozen on Mode 23 Fast are unknown until the first task.
-  // Populate it from the first captures; F5-03 is promoted from Warning to Error only after the
-  // table is proven on a batch. Every unexpected value is logged with the observed string.
-  const IDENTITY_TABLE = {};   // canonical model name -> [expected Model ID strings]
+  // The identity table ships EMPTY and marked unconfirmed (section 9 row 6): the real identifier
+  // strings for each model on Mode 23 Fast are unknown until they are proven on a batch.
+  // Populate from the first clean captures; promote F5-03 to Error only once proven.
+  //
+  // KEYED ON "Agency config id", not "Model ID:". Mode 23 captures emit no Model ID line at all
+  // (zero occurrences across all eight debug files of golden tasks 1271273 and 1271348), which
+  // left this whole family dormant and let a swapped debug pair pass silently. The agency id is
+  // present in BOTH the debug and the saved page and separates the models cleanly:
+  //   Yakitori    "bard/gemini_chat/0.2.170-prod-p13n-memory-strike-0828-stm-v2p5-token-budget-..."
+  //   Prod Frozen "bard/gemini_chat/0.2.171-prod-p13n-prod-frozen-baseline"
+  // Model ID / Recipe ID stay as fallbacks for batches that do emit them.
+  const IDENTITY_TABLE = {};   // canonical model name -> [expected agency config id strings]
   const idsBySlot = new Map();
+  const idSourceBySlot = new Map();
   for (const side of bound) {
-    const mine = usableDebug.filter((r) => r.slot === side.slot && r.modelIds.length);
-    if (!mine.length) {
-      const seen = usableDebug.filter((r) => r.slot === side.slot).map((r) => 'T' + r.turn + '=' + r.slice).join(', ');
-      logs.push('F5: identity dormant on ' + side.scope + ' -- no Model ID line in any readable slice (slices: ' + (seen || 'none readable') + ').');
+    const mine = usableDebug.filter((r) => r.slot === side.slot);
+    const withAgency = mine.filter((r) => (r.agency || []).length);
+    const withModelId = mine.filter((r) => (r.modelIds || []).length);
+    const source = withAgency.length ? 'agency config id' : (withModelId.length ? 'Model ID' : null);
+    const carriers = withAgency.length ? withAgency : withModelId;
+    if (!source) {
+      const seen = mine.map((r) => 'T' + r.turn + '=' + r.slice).join(', ');
+      logs.push('F5: identity dormant on ' + side.scope + ' -- no agency config id and no Model ID line in any readable slice (slices: ' + (seen || 'none readable') + ').');
       continue;
     }
+    idSourceBySlot.set(side.slot, source);
     const all = [];
-    for (const r of mine) for (const id of r.modelIds) all.push({ turn: r.turn, id: id, field: r.fieldKey });
+    for (const r of carriers) for (const id of (withAgency.length ? r.agency : r.modelIds)) all.push({ turn: r.turn, id: id, field: r.fieldKey });
     const distinct = [...new Set(all.map((x) => x.id))];
-    // F5-01: one model per side, so ONE Model ID across that side's turns.
+    // F5-01: one model per side, so ONE identifier across that side's turns.
     if (distinct.length > 1) {
       const counts = new Map();
       for (const x of all) counts.set(x.id, (counts.get(x.id) || 0) + 1);
@@ -965,17 +1104,27 @@ async function validatePrqFetch(conversationData) {
       const odd = all.filter((x) => x.id !== majority)[0];
       err(side.scope, odd.field, odd.turn, 'the debug files for this model report ' + distinct.length + ' different models, but one model was run for the whole conversation.',
         'confirm each turn\'s debug info came from this model\'s own conversation, and replace any file exported from the other model\'s chat.',
-        'model identifiers found: ' + distinct.map((d) => '"' + d + '"').join(', ') + '; turn ' + odd.turn + ' reports "' + odd.id + '" while the other turns report "' + majority + '".');   // F5-01
+        'model identifiers found (' + source + '): ' + distinct.map((d) => '"' + d + '"').join(', ') + '; turn ' + odd.turn + ' reports "' + odd.id + '" while the other turns report "' + majority + '".');   // F5-01
       idsBySlot.set(side.slot, majority);
     } else {
       idsBySlot.set(side.slot, distinct[0]);
     }
-    // F5-03: against the identity table. Ships EMPTY, so this is a LOG and never a finding
-    // until the table is populated from the first batch.
+    // F5-06: the debug and the saved page must report the SAME model for this side. Ref 903:1352.
+    const h = htmlOf(side.slot);
+    const pageId = h && (h.agency || []).length ? h.agency[0] : null;
+    const debugId = idsBySlot.get(side.slot);
+    if (h && pageId && debugId && source === 'agency config id' && canonModel(pageId) !== canonModel(debugId)) {
+      err(side.scope, h.fieldKey, null, 'the debug files and the saved page for this model were produced by two different models.',
+        'confirm the same model was selected for the conversation you captured and the page you saved, and re-upload whichever is wrong.',
+        'the debug reports "' + debugId + '"; the page reports "' + pageId + '".');   // F5-06
+    } else if (h && !pageId) {
+      logs.push('F5-06 self-skipped on ' + side.scope + ': the saved page carries no agency config id.');
+    }
+    // F5-03: against the identity table. Ships EMPTY, so this is a LOG and never a finding.
     const expected = IDENTITY_TABLE[canonModel(side.name)];
     const observed = idsBySlot.get(side.slot);
     if (!expected || !expected.length) {
-      logs.push('F5-03 ' + side.scope + ': the identity table is EMPTY (unconfirmed) -- observed Model ID "' + observed + '". Record this to populate the table; promote F5-03 to Error only once it is proven on a batch.');
+      logs.push('F5-03 ' + side.scope + ': the identity table is EMPTY (unconfirmed) -- observed ' + source + ' "' + observed + '". Record this to populate the table; promote F5-03 to Error only once it is proven on a batch.');
     } else if (!expected.some((e) => canonModel(e) === canonModel(observed))) {
       const anchor = usableDebug.find((r) => r.slot === side.slot);
       warn(side.scope, anchor ? anchor.fieldKey : side.keyOf(CFG.debugSlotKeys[0]), anchor ? anchor.turn : null,
@@ -984,14 +1133,28 @@ async function validatePrqFetch(conversationData) {
         'observed "' + observed + '"; expected ' + expected.map((e) => '"' + e + '"').join(' or ') + '.');   // F5-03
     }
   }
-  // F5-02: the two variants cannot report the same Model ID.
+  // F5-02: the two variants cannot report the same identifier.
   {
     const ia = idsBySlot.get('test'), ib = idsBySlot.get('base');
     if (ia && ib && canonModel(ia) === canonModel(ib)) {
       const anchor = usableDebug.find((r) => r.slot === 'base') || usableDebug[0];
       err(anchor.scope, anchor.fieldKey, anchor.turn, 'the debug info for both models reports the same model, so one of the two sets of files came from the wrong chat.',
         'check which model each conversation was run with, and replace the files that came from the other model\'s chat.',
-        'both models report "' + ia + '"; the two models compared here cannot produce the same identifier.');   // F5-02
+        'both models report "' + ia + '" (' + (idSourceBySlot.get('base') || idSourceBySlot.get('test')) + '); the two models compared here cannot produce the same identifier.');   // F5-02
+    }
+  }
+  // F5-07: decisive SWAP -- each side's page reports the OTHER side's debug model. Unlike the
+  // mode-selector comparison (F3-09) this needs no name canonicalization at all, so it stands on
+  // its own when the selector label is missing or phrased differently. Ref 903:1482.
+  {
+    const ah = htmlOf('test'), bh = htmlOf('base');
+    const ad = idsBySlot.get('test'), bd = idsBySlot.get('base');
+    const ap = ah && (ah.agency || []).length ? ah.agency[0] : null;
+    const bp = bh && (bh.agency || []).length ? bh.agency[0] : null;
+    if (ap && bp && ad && bd && canonModel(ap) === canonModel(bd) && canonModel(bp) === canonModel(ad)) {
+      err(ah.scope, ah.fieldKey, null, 'the two saved pages are swapped: each model\'s page is filed under the other model.',
+        'swap the two page uploads so each model\'s page sits under that model.',
+        'this slot\'s page reports "' + ap + '", which is the other model\'s; the other slot\'s page reports "' + bp + '".');   // F5-07
     }
   }
 
@@ -1026,29 +1189,40 @@ async function validatePrqFetch(conversationData) {
   // (section 9 row 8).
   // ==========================================================================
   {
-    const REQUIRED_SOURCES = ['SEARCH', 'GMAIL', 'PHOTOS', 'BARD_NOT_PERSONALIZED_USING_FIRST_PARTY_DATA'];
-    const OPTIONAL_SOURCES = ['YOUTUBE'];
-    const testSide = bound.find((s) => s.slot === 'test');
+    // WHAT MODE 23 ACTUALLY EMITS (verified on all four Turn-1 captures across golden tasks
+    // 1271273 and 1271348): there is no "sian_profile" chapter and no "Personal Context" header.
+    // Personal context arrives as blocks of
+    //     Source Profile: source_name: "DATA_SOURCE_USER_PROFILE_<X>" text_profile: "..."
+    // with <X> observed as GMAIL, PHOTOS, BARD_SEARCH, GEMINI_CHAT.
+    //
+    // The inherited expected-list check (SEARCH / GMAIL / PHOTOS /
+    // BARD_NOT_PERSONALIZED_USING_FIRST_PARTY_DATA, from the 0701 template) is WRONG here twice
+    // over: those exact tokens appear in no capture at all, and the set that does appear VARIES
+    // BY TASK because it reflects what the model RETRIEVED for that query, not what the rater
+    // connected during setup -- 1271273 (an email-retrieval task) pulled 4 sources, 1271348 (a
+    // skills question) pulled only GMAIL. Requiring a fixed list would warn on every correct
+    // task, which is the "uniform finding = script defect" trap in requirements section 7.
+    //
+    // So: the only decidable failure is a FULL Test-side share carrying NO personal context at
+    // all -- that really does mean the personalization setup did not reach the model. Which
+    // sources appeared is LOGGED for the client ruling that section 9 row 8 is waiting on.
+    const SOURCE_RE = /source_name:\s*"(DATA_SOURCE_USER_PROFILE_[A-Z0-9_]+)"/g;
+    const testSide = bound.find((s2) => s2.slot === 'test');
     const d = testSide ? debugOf('test', 1) : null;
     if (!testSide) {
       logs.push('F7-03 skipped: the Test model side is not bound.');
     } else if (!d) {
       logs.push('F7-03 skipped: no readable Turn 1 debug on the Test model side.');
     } else if (d.slice !== 'FULL') {
-      logs.push('F7-03 skipped: the Test model\'s Turn 1 debug is a ' + d.slice + ', not a FULL share -- the personal-context chapter is out of the sanctioned slice, which is not reportable.');
-    } else if (d.text.indexOf('sian_profile') < 0) {
-      warn(testSide.scope, d.fieldKey, 1, 'the personal-context section is missing from this model\'s Turn 1 debug, so the setup that makes this model personalized cannot be verified.',
-        'check the setup steps for this model -- the personal data sources must be connected before the conversation -- then re-export and re-upload this turn\'s debug info.',
-        'the debug is a full share but carries no personal-context chapter.');   // F7-03
+      logs.push('F7-03 skipped: the Test model\'s Turn 1 debug is a ' + d.slice + ', not a FULL share -- the personal-context section is out of the sanctioned slice, which is not reportable.');
     } else {
-      const present = REQUIRED_SOURCES.filter((s) => d.text.indexOf(s) >= 0);
-      const missing = REQUIRED_SOURCES.filter((s) => d.text.indexOf(s) < 0);
-      const extras = OPTIONAL_SOURCES.filter((s) => d.text.indexOf(s) >= 0);
-      logs.push('F7-03 Test model Turn 1: personal-context sources present ' + (present.join(', ') || 'none') + (extras.length ? ' (also present, not required: ' + extras.join(', ') + ')' : '') + (missing.length ? '; MISSING ' + missing.join(', ') : '') + '.');
-      if (missing.length) {
-        warn(testSide.scope, d.fieldKey, 1, 'the personal-context section is missing ' + missing.length + ' of the data sources the setup step asks you to verify.',
-          'check this model\'s setup -- each of the listed sources must be connected before the conversation -- then re-export and re-upload this turn\'s debug info.',
-          'expected sources: ' + REQUIRED_SOURCES.join(', ') + '; not found: ' + missing.join(', ') + '.');   // F7-03
+      const found = [...new Set([...d.text.matchAll(SOURCE_RE)].map((m) => m[1]))].sort();
+      if (!found.length) {
+        warn(testSide.scope, d.fieldKey, 1, 'no personal information reached this model, so the setup that makes it personalized cannot be verified.',
+          'check this model\'s setup -- the personal data sources must be connected before you start the conversation -- then re-export and re-upload this turn\'s debug info.',
+          'the debug is a full share but carries no personal-context source at all.');   // F7-03
+      } else {
+        logs.push('F7-03 Test model Turn 1: personal-context sources retrieved = ' + found.join(', ') + '. (Which sources a task SHOULD show is not yet ruled -- the set varies with what the query needs, so only "none at all" is treated as a failure. Section 9 row 8.)');   // F7-03
       }
     }
   }

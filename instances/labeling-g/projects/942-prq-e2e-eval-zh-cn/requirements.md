@@ -20,7 +20,7 @@ Everything in it applies here unchanged. This project differs in exactly two way
 
 Do not edit checks here. Edit
 `../941-prq-e2e-eval-es-419/parts/prq-checks.js` or `.../prq-fetch-checks.js` and rebuild both
-projects with `node scripts/build-941.mjs`.
+projects with `node scripts/build-prq.mjs`.
 
 **Blocking (escalation 11):** 942's own config export has not been received, so this build
 derives its tables from 941's config. See `metadata.yml` -> `parity`.

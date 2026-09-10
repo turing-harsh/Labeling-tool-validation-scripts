@@ -17,14 +17,60 @@ deployed:
   commit:
 
 script:
-  version: 1.0.1
+  version: 1.2.0
   generated: true                # validation.js is BUILT -- do not hand-edit
-  build: node scripts/build-941.mjs      # builds BOTH 941 and 942
+  build: node scripts/build-prq.mjs      # builds BOTH 941 and 942
   composed_from:
     - 941-prq-e2e-eval-es-419/config/project-config-id-941.json   # -> config/form-spec-<id>.json -> injected CFG
     - 941-prq-e2e-eval-es-419/parts/prq-checks.js                 # Layer L1 -> validatePrqL1
     - 941-prq-e2e-eval-es-419/parts/prq-fetch-checks.js           # Layer L2 -> validatePrqFetch
   spec: 941-prq-e2e-eval-es-419/requirements.md
+  notes_v1_2_0: |
+    SEVERITY REVIEW. Errors block, warnings suggest -- every warning site was reviewed against
+    "deterministic AND rater-fixable AND the data is otherwise contradictory or unusable".
+    PROMOTED TO ERROR (11 sites): F7-01 x4 (locale vs project/batch -- lead ruling that the
+    locale is a hard per-project assignment, settling escalation 6), F6-03 (N/A mixed with turn
+    numbers), F6-04 (rationale cites a turn above the declared count), F6-12 (a flagged turn
+    never explained -- the doc requires the explanation), F6-07 (4a sensitive-info vs 5a),
+    F6-08 (Not Personalized vs an over-personalization issue), F3-01 (non-Drive link -- the
+    artifact cannot be read at all), F3-12 partial (page missing some of the debug's turns).
+    STAYING WARNINGS and why: F6-05 is format only and F6-12 already blocks the case that loses
+    information; F6-13 is a legitimate judgment call; F6-10 is allowed by the doc; F4-B is
+    probabilistic; F4-G/H are drifted signals; F3-04 still yields usable content; F5-03 needs a
+    populated identity table; F6-06 rests on unresolved escalations 7/13; F7-03 has never fired
+    on real data.
+    ALSO: F6-11's regex was tightened to the bracketed substitution form -- the old pattern
+    fired on legitimate prompts like "How do I redact a PDF?" (verified) -- and kept as a
+    warning.
+    CONSEQUENCE to watch: golden task 1271588 is otherwise clean work but now FAILS on the
+    dialect alone (India on an en-US project, no dialect column in the batch to arbitrate). If
+    the batch legitimately spans English dialects, widen CFG.locale in scripts/build-prq.mjs
+    rather than softening F7-01.
+  notes_v1_1_2: |
+    From project 948's third golden task. Two shared fixes, both inherited here:
+      * F6-05/F6-12 self-skip on a side that declares a single turn -- a "[Turn N]" citation
+        disambiguates nothing when there is one turn, and warning for it on an otherwise clean
+        task is the always-fires kind of finding that teaches raters to ignore warnings.
+        F6-04 (citation above the declared count) still fires.
+      * scripts/run-tests.mjs now ENFORCES `expect.warnings` -- it was silently ignored, so all
+        13 `warnings: []` near-miss cases here were asserting only "no errors". They all still
+        pass under the stricter runner (so the behaviour was right), but they are now actually
+        checked. Two single-turn cases added; 80 fixtures green.
+  notes_v1_1_0: |
+    Shared-parts upgrade driven by project 948's first real tasks (see
+    948-yakitori-vs-prod-en-us/requirements.md sections 3-4). 941 and 942 inherit every check:
+    F3-12 (debug/page session-token same-chat proof, ERROR), F3-13 (page turn count), F5-06/F5-07
+    (debug-vs-page model, decisive swap), F6-12 (flagged turn never explained), F6-13 (SxS "about
+    the same" vs asymmetric ratings), F7-05/F7-06 (logs). F3-01 link+extra-text raised to ERROR.
+    F3-08/F3-10/F3-11 now read the VISIBLE conversation instead of whole-page text -- the saved
+    page embeds the debug dump, which had made them unfailable. F5-01/F5-02 re-keyed onto
+    "Agency config id" (Mode 23 emits no "Model ID:" line, so identity had been dormant).
+    F7-03 narrowed to the one decidable failure. Slice detection no longer matches the
+    "enable_sian_profile: true" config flag.
+    Fixture artifacts regenerated from the REAL capture and page structure via
+    fixtures/gen-artifacts.mjs -- the old HTML mocks used <div class="user-query"> and would have
+    hidden the visible-conversation change. 78 fixtures green.
+    The builder is now scripts/build-prq.mjs and emits 941, 942 and 948 from one checks source.
   notes_v1_0_1: |
     Model rename carried through from the revised 941 config export (model_A is now
     "PContext Mode 23 (Nippon) > Mochi - Fast"). See 941's metadata.yml notes_v1_0_1 for the
@@ -125,7 +171,7 @@ shape: |
 parity: |
   BLOCKING (requirements escalation 11): 942's OWN config export has not been received. This
   build derives its tables from 941's config. Drop the export at
-  config/project-config-id-942.json and re-run "node scripts/build-941.mjs" -- the builder then
+  config/project-config-id-942.json and re-run "node scripts/build-prq.mjs" -- the builder then
   machine-diffs 942 against 941 (model names, per-side keys, option vocabularies, gate graph,
   head families, debug slots) and prints IDENTICAL or DIFFERS, stamping the result into this
   script's header. Until that runs, "942 is identical to 941" is a claim, not a verified fact.

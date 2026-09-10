@@ -255,16 +255,17 @@ add("F6-03 N/A mixed with turn numbers", {
   [K.head(MA, "modelMakesUseOfAvailableUserData1MissedContext")]: "Minor issues",
   [K.head(MA, "modelMakesUseOfAvailableUserData1MissedContextCategory")]: ["Missed life context"],
   [K.head(MA, "modelMakesUseOfAvailableUserData1MissedContextTurns")]: ["1", "N/A"],
-}, { pass: true, warningsContain: ['"N/A" is selected alongside specific turn numbers'] });
+}, { pass: false, errorsContain: ['"N/A" is selected alongside specific turn numbers'] });
 add("F6-04 the rationale cites a turn past the declared count", {
   [K.r7c(MA)]: "[Turn 5] the list was wrong.",
-}, { pass: true, warningsContain: ["past the 2 turns"] });
+}, { pass: false, errorsContain: ["past the 2 turns"] });
 add("F6-05 the rationale cites no turn at all while a head flags an issue", {
   [K.head(MA, "modelIsTrustworthySafe1TrustSafety")]: "Minor issues",
   [K.head(MA, "modelIsTrustworthySafe1TrustSafetyCategory")]: ["Offensive / intrusive"],
   [K.head(MA, "modelIsTrustworthySafe1TrustSafetyTurns")]: ["2"],
   [K.r7c(MA)]: "It felt intrusive overall.",
-}, { pass: true, warningsContain: ["does not reference any turn"] });
+  // F6-05 still WARNS (format), while F6-12 now ERRORS (turn 2 flagged, never explained).
+}, { pass: false, warningsContain: ["does not reference any turn"], errorsContain: ["never explains"] });
 add("F6-06 dissatisfied with a partial debug slice", {
   [K.sat7a(MA)]: "Very dissatisfied",
   [K.dbg(MA, 1)]: link("DBG_T1_AGENCY"), [K.dbg(MA, 2)]: link("DBG_T2_AGENCY"),
@@ -278,14 +279,14 @@ add("F6-07 sensitive-attribution category flagged while Trust & Safety reports N
   [K.head(MA, "modelConnectsTheDotsForMe1TransparencyAttribution")]: "Minor issues",
   [K.head(MA, "modelConnectsTheDotsForMe1TransparencyAttributionCategory")]: ["Didn’t ground/attribute for sensitive info"],
   [K.head(MA, "modelConnectsTheDotsForMe1TransparencyAttributionTurns")]: ["1"],
-}, { pass: true, warningsContain: ["this rating reports no issue"] });
+}, { pass: false, errorsContain: ["this rating reports no issue"] });
 add("F6-08 Not Personalized only, yet an over-personalization issue is flagged", {
   [K.q1(MA)]: ["Not Personalized"],
   [K.head(MA, "modelMakesUseOfAvailableUserData1OverPersonalization")]: "Minor issues",
   [K.head(MA, "modelMakesUseOfAvailableUserData1OverPersonalizationCategory")]: ["Forced connection"],
   [K.head(MA, "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction")]: "Somewhat",
   [K.head(MA, "modelMakesUseOfAvailableUserData1OverPersonalizationTurns")]: ["1"],
-}, { pass: true, warningsContain: ["was not personalized at all"] });
+}, { pass: false, errorsContain: ["was not personalized at all"] });
 add("F6-09 an answer value this form does not offer routes to the lead", {
   [K.head(MA, "modelIsTrustworthySafe1TrustSafety")]: "Catastrophic issues",
 }, { pass: false, errorsContain: ["[ROUTE TO LEAD]"] });
@@ -298,9 +299,15 @@ add("NEAR-MISS curly-apostrophe option variant is read, never flagged", {
   [K.head(MA, "modelIsTrustworthySafe1TrustSafetyTurns")]: ["1"],
 }, { pass: true, warnings: [] });
 add("F6-10 single-turn assignment but two turns were run", {}, { pass: false, errorsContain: ["assigned as a single-turn conversation"] }, { "Additional Rater Instruction": "This is a single-turn task: ask one question only." });
+// Both sides drop to one turn, so their saved pages must show one question too -- otherwise
+// F3-13 (page turn count vs declared) correctly errors and this case stops testing F6-10.
 add("F6-10 multi-turn assignment with one turn warns, never blocks", {
-  [K.turns(MA)]: "1", [K.dbg(MA, 2)]: undefined,
-  [K.turns(MB)]: "1", [K.dbg(MB, 2)]: undefined,
+  [K.turns(MA)]: "1", [K.dbg(MA, 2)]: undefined, [K.html(MA)]: link("HTML_T_1TURN"),
+  [K.turns(MB)]: "1", [K.dbg(MB, 2)]: undefined, [K.html(MB)]: link("HTML_B_1TURN"),
+  // The base rationale cites [Turn 2]; with one turn declared that is now an F6-04 ERROR, so
+  // give both sides a one-turn rationale and let this case test F6-10 alone.
+  [K.r7c(MA)]: "[Turn 1] the packing list matched my dates.",
+  [K.r7c(MB)]: "[Turn 1] the list was accurate.",
 }, { pass: true, warningsContain: ["assigned as a multi-turn conversation"] }, { "Additional Rater Instruction": "Multi-turn: continue for up to 5 turns." });
 add("F6-11 the bare token 'redacted' used in place of personal information", {
   conversationalGoal: "A packing list for my trip with [redacted].",
@@ -312,7 +319,7 @@ add("NEAR-MISS descriptive redaction placeholders never fire", {
 // ================================================================ F7 batch and metadata
 add("F7-01 the target language is not this project's assigned language", {
   targetLanguage: "Portuguese", dialect: "Brazil",
-}, { pass: true, warningsContain: ["not the language this project is assigned"] });
+}, { pass: false, errorsContain: ["not the language this project is assigned"] });
 
 // ================================================================ adapter
 cases.push({
@@ -347,6 +354,80 @@ add("KNOWN-OPEN zh-CN width-form variant pair (probe records, nothing asserted)"
   prompt: "（下周去里斯本要带什么）",
   [K.dbg(MA, 1)]: link("DBG_ZH_HALF"), [K.dbg(MA, 2)]: undefined, [K.turns(MA)]: "1",
 }, {});
+
+// ================================================================ new checks (v1.1.0)
+// Every one of these was derived from a REAL defect or a real capture shape found on project
+// 948's golden tasks 1271348 (defective) and 1271273 (clean) -- see 948/requirements.md.
+
+// F3-12: a side's debug session tokens appear on no page = debug and page are different chats.
+// This is the 1271348 Prod Frozen defect, reproduced.
+add("F3-12 debug and saved page are different conversations (session tokens disjoint)", {
+  [K.dbg(MB, 1)]: link("DBG_B1_ORPHAN"), [K.dbg(MB, 2)]: link("DBG_B2_ORPHAN"),
+}, { pass: false, errorsContain: ["from two different conversations"] });
+add("NEAR-MISS matching session tokens do not fire F3-12", {}, { pass: true, warnings: [] });
+
+// F3-13: the page must show as many questions as the side declares turns.
+add("F3-13 saved page shows more turns than the side declares", {
+  [K.html(MA)]: link("HTML_T_3TURNS"),
+}, { pass: false, errorsContain: ["questions but this model declares"] });
+
+// F5 re-keyed onto the agency config id (Mode 23 emits no Model ID line at all).
+add("F5-01 one side's turns report two different agency config ids", {
+  [K.dbg(MA, 2)]: link("DBG_T2_OTHERID"),
+}, { pass: false, errorsContain: ["report 2 different models"] });
+add("F5-02 both models report the same agency config id", {
+  [K.dbg(MB, 1)]: link("DBG_B1_SAMEID"), [K.dbg(MB, 2)]: link("DBG_B2_SAMEID"),
+}, { pass: false, errorsContain: ["both models reports the same model"] });
+add("F5-06 debug and saved page report different models for one side", {
+  [K.html(MA)]: link("HTML_T_AGBASE"),
+}, { pass: false, errorsContain: ["produced by two different models"] });
+
+// F6-12: a flagged turn that the rationale never explains.
+add("F6-12 turn flagged with an issue but never explained in the rationale", {
+  [K.head(MA, "modelIsTrustworthySafe1TrustSafety")]: "Minor issues",
+  [K.head(MA, "modelIsTrustworthySafe1TrustSafetyCategory")]: ["Offensive / intrusive"],
+  [K.head(MA, "modelIsTrustworthySafe1TrustSafetyTurns")]: ["2"],
+  [K.r7c(MA)]: "[Turn 1] the packing list matched my dates.",
+}, { pass: false, errorsContain: ["never explains"] });
+
+// F6-05 wording: a turn referenced in PROSE is not "no reference at all".
+add("F6-05 rationale refers to the turn in words, not in brackets", {
+  [K.r7c(MA)]: "The list was too generic in turn 1 and did not use my dates.",
+}, { pass: true, warningsContain: ["in words, but not in the square-bracket form"] });
+
+// F6-13: "about the same" while the per-model ratings differ.
+add("F6-13 SxS says about the same while the ratings differ", {
+  qualityComparisonSxS: "Conversation A and B were about the same",
+  [K.head(MA, "modelIsTrustworthySafe1TrustSafety")]: "Minor issues",
+  [K.head(MA, "modelIsTrustworthySafe1TrustSafetyCategory")]: ["Offensive / intrusive"],
+  [K.head(MA, "modelIsTrustworthySafe1TrustSafetyTurns")]: ["1"],
+  [K.r7c(MA)]: "[Turn 1] it felt intrusive. [Turn 2] fine.",
+}, { pass: true, warningsContain: ["rated as about the same, but the per-model ratings differ"] });
+add("NEAR-MISS about-the-same with identical rating profiles does not fire F6-13", {
+  qualityComparisonSxS: "Conversation A and B were about the same",
+}, { pass: true, warnings: [] });
+
+// F7-03: the ONE decidable personal-context failure -- a full share with no source at all.
+// Which sources a task shows varies with the query, so a missing-source list is never a finding.
+add("F7-03 full debug share carrying no personal context at all", {
+  [K.dbg(MA, 1)]: link("DBG_T1_NOSRC"),
+}, { pass: true, warningsContain: ["no personal information reached this model"] });
+
+// Single-turn relief for F6-05 / F6-12. A "[Turn N]" citation exists to say WHICH turn a point
+// refers to; on a one-turn side there is nothing to disambiguate, so demanding it is an
+// always-fires finding. From golden task 1271588 -- a clean single-turn task that warned on both
+// sides purely for the missing bracket.
+add("NEAR-MISS single-turn side with no [Turn N] citation does not warn", {
+  [K.turns(MA)]: "1", [K.dbg(MA, 2)]: undefined, [K.html(MA)]: link("HTML_T_1TURN"),
+  [K.turns(MB)]: "1", [K.dbg(MB, 2)]: undefined, [K.html(MB)]: link("HTML_B_1TURN"),
+  [K.r7c(MA)]: "The response answered the question correctly and used my saved dates.",
+  [K.r7c(MB)]: "The response was accurate but a little long for the question.",
+}, { pass: true, warnings: [] });
+// ...but a citation ABOVE the declared count is still wrong on a one-turn side.
+add("F6-04 still fires on a single-turn side citing turn 3", {
+  [K.turns(MA)]: "1", [K.dbg(MA, 2)]: undefined, [K.html(MA)]: link("HTML_T_1TURN"),
+  [K.r7c(MA)]: "[Turn 3] the list was wrong.",
+}, { pass: false, errorsContain: ["past the 1 turn"] });
 
 // ================================================================ F3-09 name-shape regression
 // PERMANENT. When the Test model was renamed to "PContext Mode 23 (Nippon) > Mochi - Fast", the

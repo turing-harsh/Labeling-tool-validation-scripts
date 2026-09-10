@@ -1,0 +1,940 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8723,
+      "batchName": "Batch-1",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Recommendation",
+      "L2: Sub-Use Case": "Discovery",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_104",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_104",
+      "Prompt Example": "• What headphones should I buy?\n• Could you suggest where I should go for a quick getaway?\n• What should I watch tonight?\n• What mentorship program should I join?\n• Is there a good workout I should start with?\n• What course should I take to learn coding?\n• What should I cook tonight?\n• hmm where should I put my savings?\n• Know of any good free legal resources for me?\n• Got any first date ideas for me and Sarah?\n• How can I cut down on my energy bills?\n• What hobby should I try next?",
+      "Prompt Type": "Explicit Without Source",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Gemini Conversation History",
+        "Gemini Conversation History Instructions",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8723,
+        "batchName": "Batch-1",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+        "conversation_id": 1271348,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T09:08:53.027Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T10:05:38.877Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1cRoEmiLbN0UxbA787R62-i7DKmxVAMEK/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Response Preference)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": "Under-clarification"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": [
+          "Missed life context"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": [
+          "Cherrypicked details"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": "Somewhat"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": [
+          "Used wrong personal info"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "It would be better to retrieve the context which is also related to the user's ML/ engineering background and learning goals in turn 1 ."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "The response is relevant to my question and gives a clear recommendation to focus on MLOps and production engineering. One flaw is that it may be too focused on MLOps without considering my current skill level or other important ML engineering skills. A better version could mention my background so the recommendation can be more personalized. https://drive.google.com/file/d/1SJGYf9mOdekCVBuHX3NlKCVIkhvlXdnj/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "The response is relevant and gives a useful list of MLOps tools to focus on. One flaw is that the debug info retrieves a lot of unrelated personal profile and shopping data, which isn't needed for this question. It would be better to use only relevant technical context, such as the user's current MLOps experience and tools we already know to personalize the answer. https://drive.google.com/file/d/1FD4nNIEFMdZpgQQo4n3WrxlqgPy62Z_R/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1MdmWMT7FVguRSm8gJDUy_St5EwFwFtek/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Response Preference)"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+        "value": "Under-clarification"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": [
+          "Missed life context"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+        "value": [
+          "Tunnel vision"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+        "value": "Not at all"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+        "value": "The model narrowly focused on one thing about MLOps in turn 1 when my question is about machine learning engineer skills"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+        "value": "The model gives a relevant recommendation for becoming a ML engineer, but the debug info retrieves far more personal profile data than needed, including financial, travel, and shopping details. This could lead to irrelevant personalization or incorrect inference. it should mainly ise relevant technical experience and ML-related background. https://drive.google.com/file/d/1cge1FYcPNH8QxxwUBQhJyEkeOCiSxxeu/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+        "value": "The response is relevant and provides a clear, practical list of MLOps tools with their use cases. The main issue is that the debug info retrieves unrelated personal data, even though it does not appear to affect the final answer. https://drive.google.com/file/d/11cjmg-tsEDikTBZg-ytn0kMqrYzRKu_C/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "To help me choose a skill to learn and create a simple learning plan that i can follow."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "Somewhat — Personal touches would help, but aren't essential."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T09:57:46.308Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "What skill should i learn this year if I'm trying to become a machine learning engineer ? "
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "The response is good, but it focuses too much on MLOps and doesn't cover other important skills needed for an ML engineering role. "
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8723,
+        "batchName": "Batch-1",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Recommendation",
+        "L2: Sub-Use Case": "Discovery",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+        "Model A": "Mode 23 -> Yakitori - Fast",
+        "Model A HTML NAME": "M1_D1_104",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_104",
+        "Prompt Example": "• What headphones should I buy?\n• Could you suggest where I should go for a quick getaway?\n• What should I watch tonight?\n• What mentorship program should I join?\n• Is there a good workout I should start with?\n• What course should I take to learn coding?\n• What should I cook tonight?\n• hmm where should I put my savings?\n• Know of any good free legal resources for me?\n• Got any first date ideas for me and Sarah?\n• How can I cut down on my energy bills?\n• What hobby should I try next?",
+        "Prompt Type": "Explicit Without Source",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8723,
+          "batchName": "Batch-1",
+          "projectId": 948,
+          "projectName": "0909 Yakitori vs Prod (en-US)"
+        },
+        "modelConfig": {
+          "conversation_id": 1271348,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T09:08:53.027Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T10:05:38.877Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1cRoEmiLbN0UxbA787R62-i7DKmxVAMEK/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Response Preference)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": "Under-clarification"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed life context"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Cherrypicked details"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": [
+            "Used wrong personal info"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "It would be better to retrieve the context which is also related to the user's ML/ engineering background and learning goals in turn 1 ."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "The response is relevant to my question and gives a clear recommendation to focus on MLOps and production engineering. One flaw is that it may be too focused on MLOps without considering my current skill level or other important ML engineering skills. A better version could mention my background so the recommendation can be more personalized. https://drive.google.com/file/d/1SJGYf9mOdekCVBuHX3NlKCVIkhvlXdnj/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "The response is relevant and gives a useful list of MLOps tools to focus on. One flaw is that the debug info retrieves a lot of unrelated personal profile and shopping data, which isn't needed for this question. It would be better to use only relevant technical context, such as the user's current MLOps experience and tools we already know to personalize the answer. https://drive.google.com/file/d/1FD4nNIEFMdZpgQQo4n3WrxlqgPy62Z_R/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1MdmWMT7FVguRSm8gJDUy_St5EwFwFtek/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Response Preference)"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": "Under-clarification"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed life context"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Tunnel vision"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Not at all"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+          "value": "The model narrowly focused on one thing about MLOps in turn 1 when my question is about machine learning engineer skills"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+          "value": "The model gives a relevant recommendation for becoming a ML engineer, but the debug info retrieves far more personal profile data than needed, including financial, travel, and shopping details. This could lead to irrelevant personalization or incorrect inference. it should mainly ise relevant technical experience and ML-related background. https://drive.google.com/file/d/1cge1FYcPNH8QxxwUBQhJyEkeOCiSxxeu/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+          "value": "The response is relevant and provides a clear, practical list of MLOps tools with their use cases. The main issue is that the debug info retrieves unrelated personal data, even though it does not appear to affect the final answer. https://drive.google.com/file/d/11cjmg-tsEDikTBZg-ytn0kMqrYzRKu_C/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To help me choose a skill to learn and create a simple learning plan that i can follow."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T09:57:46.308Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "What skill should i learn this year if I'm trying to become a machine learning engineer ? "
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "The response is good, but it focuses too much on MLOps and doesn't cover other important skills needed for an ML engineering role. "
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8723,
+        "batchName": "Batch-1",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Prod Frozen - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Recommendation",
+        "L2: Sub-Use Case": "Discovery",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+        "Model A": "Mode 23 -> Yakitori - Fast",
+        "Model A HTML NAME": "M1_D1_104",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_104",
+        "Prompt Example": "• What headphones should I buy?\n• Could you suggest where I should go for a quick getaway?\n• What should I watch tonight?\n• What mentorship program should I join?\n• Is there a good workout I should start with?\n• What course should I take to learn coding?\n• What should I cook tonight?\n• hmm where should I put my savings?\n• Know of any good free legal resources for me?\n• Got any first date ideas for me and Sarah?\n• How can I cut down on my energy bills?\n• What hobby should I try next?",
+        "Prompt Type": "Explicit Without Source",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8723,
+          "batchName": "Batch-1",
+          "projectId": 948,
+          "projectName": "0909 Yakitori vs Prod (en-US)"
+        },
+        "modelConfig": {
+          "conversation_id": 1271348,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T09:08:53.027Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T10:05:38.877Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1cRoEmiLbN0UxbA787R62-i7DKmxVAMEK/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Response Preference)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": "Under-clarification"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed life context"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Cherrypicked details"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Somewhat"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": [
+            "Used wrong personal info"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "It would be better to retrieve the context which is also related to the user's ML/ engineering background and learning goals in turn 1 ."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "The response is relevant to my question and gives a clear recommendation to focus on MLOps and production engineering. One flaw is that it may be too focused on MLOps without considering my current skill level or other important ML engineering skills. A better version could mention my background so the recommendation can be more personalized. https://drive.google.com/file/d/1SJGYf9mOdekCVBuHX3NlKCVIkhvlXdnj/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "The response is relevant and gives a useful list of MLOps tools to focus on. One flaw is that the debug info retrieves a lot of unrelated personal profile and shopping data, which isn't needed for this question. It would be better to use only relevant technical context, such as the user's current MLOps experience and tools we already know to personalize the answer. https://drive.google.com/file/d/1FD4nNIEFMdZpgQQo4n3WrxlqgPy62Z_R/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1MdmWMT7FVguRSm8gJDUy_St5EwFwFtek/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Response Preference)"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+          "value": "Under-clarification"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed life context"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "Minor issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+          "value": [
+            "Tunnel vision"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+          "value": "Not at all"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+          "value": "The model narrowly focused on one thing about MLOps in turn 1 when my question is about machine learning engineer skills"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+          "value": "The model gives a relevant recommendation for becoming a ML engineer, but the debug info retrieves far more personal profile data than needed, including financial, travel, and shopping details. This could lead to irrelevant personalization or incorrect inference. it should mainly ise relevant technical experience and ML-related background. https://drive.google.com/file/d/1cge1FYcPNH8QxxwUBQhJyEkeOCiSxxeu/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+          "value": "The response is relevant and provides a clear, practical list of MLOps tools with their use cases. The main issue is that the debug info retrieves unrelated personal data, even though it does not appear to affect the final answer. https://drive.google.com/file/d/11cjmg-tsEDikTBZg-ytn0kMqrYzRKu_C/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To help me choose a skill to learn and create a simple learning plan that i can follow."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Prod Frozen - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Somewhat — Personal touches would help, but aren't essential."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T09:57:46.308Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "What skill should i learn this year if I'm trying to become a machine learning engineer ? "
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A and B were about the same"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "The response is good, but it focuses too much on MLOps and doesn't cover other important skills needed for an ML engineering role. "
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

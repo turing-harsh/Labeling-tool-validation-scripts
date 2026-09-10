@@ -1,0 +1,784 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8723,
+      "batchName": "Batch-1",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Yakitori - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Personal Info",
+      "L2: Sub-Use Case": "Retrieval",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_001",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_001",
+      "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+      "Prompt Type": "Explicit With Source",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Gemini Conversation History",
+        "Gemini Conversation History Instructions",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8723,
+        "batchName": "Batch-1",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+        "conversation_id": 1271273,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-09-09T22:56:07.669Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T00:15:00.412Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1Tjznbw_SKx9XaQfZO_fU9bKAdtpx80k2/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I asked the model to retrieved my latest Aliexpress purchase from my emails and it promptly did so, correctly identifying the item and including all the relevant details about the order, like Price, Order Date and Current Status. However, it also retrieved the two prior orders, which was not something I requested. \n[Turn 2] When I asked about the order's expected delivery date, the model proceeded to explain that this information wasn't available in any of the related emails, instead being only accessible through the website's tracking link."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/11_8XuskzW2bpFFvfrwTXaxehnwdL36d0/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1_IjjQfUQqtK0GQsfWm83HfaQ34uEt8-l/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1tKf0KAbGPppykic8HT6yL6ajE3Bq1lMV/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Personal Data)"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "Major issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+        "value": [
+          "Missed requested fact"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "Major issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+        "value": [
+          "Temporal confusion"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+        "value": [
+          "1"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+        "value": "Neither satisfied nor dissatisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I asked the model to access my emails and find the last purchase I made on Aliexpress. Instead of retrieving the actual last one, made last week, the model brought out a purchase concluded over 2 years ago, completely ignoring the most recent available data. \n[Turn 2] After I pointed out that it had the wrong information and asked for it to look again, the model was finally able to to provide a more satisfactory response, which included all the relevant information about the purchase, including Order ID, Order Date and Current Status. However, in the end it also included my past two order before that one, which wasn't expected or desired.  "
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1ksQVBx-u6CS5z4cGjM8BjTU-i8Y-YpSK/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1N6ZK9DboOycHguV1Uv6IryFI-navYiiO/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "To get information on my last Aliexpress purchase."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Yakitori - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T00:12:30.510Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "Can you look through my emails and find my last aliexpress purchase?"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation B was better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Model B was better than Model A because it achieved the desired goal in Turn 1 and didn't include any incorrect information in its response. Model A, on the other hand, had a completely incorrect response in Turn 1, referencing a purchase made over 2 years ago and therefore useless to my goal. In Turn 2, Model A recovered and was able to retrieve the correct information, while Model B precisely explained why it couldn't pinpoint the expected delivery date. Due to the higher quality across the entire conversation, Model B was better. "
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8723,
+        "batchName": "Batch-1",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Yakitori - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Retrieval",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+        "Model A": "Mode 23 -> Yakitori - Fast",
+        "Model A HTML NAME": "M1_D1_001",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_001",
+        "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+        "Prompt Type": "Explicit With Source",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8723,
+          "batchName": "Batch-1",
+          "projectId": 948,
+          "projectName": "0909 Yakitori vs Prod (en-US)"
+        },
+        "modelConfig": {
+          "conversation_id": 1271273,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-09T22:56:07.669Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T00:15:00.412Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Tjznbw_SKx9XaQfZO_fU9bKAdtpx80k2/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked the model to retrieved my latest Aliexpress purchase from my emails and it promptly did so, correctly identifying the item and including all the relevant details about the order, like Price, Order Date and Current Status. However, it also retrieved the two prior orders, which was not something I requested. \n[Turn 2] When I asked about the order's expected delivery date, the model proceeded to explain that this information wasn't available in any of the related emails, instead being only accessible through the website's tracking link."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/11_8XuskzW2bpFFvfrwTXaxehnwdL36d0/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1_IjjQfUQqtK0GQsfWm83HfaQ34uEt8-l/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1tKf0KAbGPppykic8HT6yL6ajE3Bq1lMV/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Major issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed requested fact"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "Major issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": [
+            "Temporal confusion"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked the model to access my emails and find the last purchase I made on Aliexpress. Instead of retrieving the actual last one, made last week, the model brought out a purchase concluded over 2 years ago, completely ignoring the most recent available data. \n[Turn 2] After I pointed out that it had the wrong information and asked for it to look again, the model was finally able to to provide a more satisfactory response, which included all the relevant information about the purchase, including Order ID, Order Date and Current Status. However, in the end it also included my past two order before that one, which wasn't expected or desired.  "
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1ksQVBx-u6CS5z4cGjM8BjTU-i8Y-YpSK/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1N6ZK9DboOycHguV1Uv6IryFI-navYiiO/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To get information on my last Aliexpress purchase."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Yakitori - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T00:12:30.510Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Can you look through my emails and find my last aliexpress purchase?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model B was better than Model A because it achieved the desired goal in Turn 1 and didn't include any incorrect information in its response. Model A, on the other hand, had a completely incorrect response in Turn 1, referencing a purchase made over 2 years ago and therefore useless to my goal. In Turn 2, Model A recovered and was able to retrieve the correct information, while Model B precisely explained why it couldn't pinpoint the expected delivery date. Due to the higher quality across the entire conversation, Model B was better. "
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8723,
+        "batchName": "Batch-1",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Yakitori - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Personal Info",
+        "L2: Sub-Use Case": "Retrieval",
+        "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+        "Model A": "Mode 23 -> Yakitori - Fast",
+        "Model A HTML NAME": "M1_D1_001",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_001",
+        "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+        "Prompt Type": "Explicit With Source",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8723,
+          "batchName": "Batch-1",
+          "projectId": 948,
+          "projectName": "0909 Yakitori vs Prod (en-US)"
+        },
+        "modelConfig": {
+          "conversation_id": 1271273,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-09T22:56:07.669Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T00:15:00.412Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Tjznbw_SKx9XaQfZO_fU9bKAdtpx80k2/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Somewhat satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked the model to retrieved my latest Aliexpress purchase from my emails and it promptly did so, correctly identifying the item and including all the relevant details about the order, like Price, Order Date and Current Status. However, it also retrieved the two prior orders, which was not something I requested. \n[Turn 2] When I asked about the order's expected delivery date, the model proceeded to explain that this information wasn't available in any of the related emails, instead being only accessible through the website's tracking link."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/11_8XuskzW2bpFFvfrwTXaxehnwdL36d0/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1_IjjQfUQqtK0GQsfWm83HfaQ34uEt8-l/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1tKf0KAbGPppykic8HT6yL6ajE3Bq1lMV/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Personal Data)"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "Major issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+          "value": [
+            "Missed requested fact"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "Major issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+          "value": [
+            "Temporal confusion"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+          "value": [
+            "1"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Somewhat dissatisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked the model to access my emails and find the last purchase I made on Aliexpress. Instead of retrieving the actual last one, made last week, the model brought out a purchase concluded over 2 years ago, completely ignoring the most recent available data. \n[Turn 2] After I pointed out that it had the wrong information and asked for it to look again, the model was finally able to to provide a more satisfactory response, which included all the relevant information about the purchase, including Order ID, Order Date and Current Status. However, in the end it also included my past two order before that one, which wasn't expected or desired.  "
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1ksQVBx-u6CS5z4cGjM8BjTU-i8Y-YpSK/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1N6ZK9DboOycHguV1Uv6IryFI-navYiiO/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To get information on my last Aliexpress purchase."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Yakitori - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T00:12:30.510Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "Can you look through my emails and find my last aliexpress purchase?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model B was better than Model A because it achieved the desired goal in Turn 1 and didn't include any incorrect information in its response. Model A, on the other hand, had a completely incorrect response in Turn 1, referencing a purchase made over 2 years ago and therefore useless to my goal. In Turn 2, Model A recovered and was able to retrieve the correct information, while Model B precisely explained why it couldn't pinpoint the expected delivery date. Due to the higher quality across the entire conversation, Model B was better. "
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

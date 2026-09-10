@@ -7,7 +7,7 @@
 // then de-duplicating -- 939's validateContinuity/validate903 composition, 944's L1/L2 pair.
 // Each sub-validator resolves the payload shape for ITSELF; they share no state.
 //
-// EVERY table below is GENERATED from project-config-id-941.json by scripts/build-941.mjs:
+// EVERY table below is GENERATED from project-config-id-941.json by scripts/build-prq.mjs:
 // field keys, on-screen labels, option vocabularies, the gate graph transcribed from
 // displayConditions, and the two model names. Nothing here is hand-typed (requirements A-03,
 // F2 "from R3 displayConditions", F6-09 "the configured option set"). Edit this source, rebuild.
@@ -16,16 +16,16 @@
 //   F1-01 F1-02 F1-03 F1-04 F1-05 F1-06 F1-07
 //   F2-01 F2-02 F2-03 F2-04 F2-05 F2-06 F2-07
 //   F5-04 F5-05
-//   F6-01 F6-02 F6-03 F6-04 F6-05 F6-07 F6-08 F6-09 F6-10 F6-11
-//   F7-01 F7-02 F7-04
+//   F6-01 F6-02 F6-03 F6-04 F6-05 F6-07 F6-08 F6-09 F6-10 F6-11 F6-12 F6-13
+//   F7-01 F7-02 F7-04 F7-05 F7-06
 // (F3, F4, F5-01..03, F6-06, F7-03 need fetched artifact bytes and live in the L2 part.)
 
 async function validatePrqL1(conversationData) {
-  // ===== GENERATED TABLES -- emitted by scripts/build-941.mjs. DO NOT HAND-EDIT. =====
+  // ===== GENERATED TABLES -- emitted by scripts/build-prq.mjs. DO NOT HAND-EDIT. =====
   const CFG = /*__GENERATED_CFG__*/ null;
   // ===== END GENERATED TABLES =====
   if (!CFG) {
-    errors.push('[ROUTE TO LEAD] Validator configuration tables are missing -- rebuild the script with scripts/build-941.mjs before deploying.');
+    errors.push('[ROUTE TO LEAD] Validator configuration tables are missing -- rebuild the script with scripts/build-prq.mjs before deploying.');
     return;
   }
   const VERSION = 'prq-validator-' + CFG.projectId + '-L1-v' + CFG.version;
@@ -329,6 +329,19 @@ async function validatePrqL1(conversationData) {
   // tokens (es "Turno", zh "\u56de\u5408") are NOT accepted yet -- escalation 4 owns that ruling;
   // until it lands F6-04/F6-05 stay warnings so a localized citation never blocks a rater.
   const TURN_CITE_RE = /[\[\uff3b]\s*turn\s*(\d+)\s*[\]\uff3d]/gi;
+  // A turn referenced in PROSE ("in turn 1", "on turn 2") rather than as "[Turn 1]". The doc
+  // requires the bracket form, so this is still a finding -- but the WORDING has to be right:
+  // on golden task 1271348 both rationales say "...in turn 1" and the old message told the
+  // rater "the rationale does not reference any turn", which is plainly false and gets the
+  // finding dismissed. Report what is actually wrong: the format.
+  const proseTurns = (s) => {
+    const out = [];
+    const re = /(?:^|[^\[\uFF3B])\bturns?\s+(\d+)\b/gi;
+    let m;
+    const t = rawStr(s);
+    while ((m = re.exec(t)) !== null) out.push(parseInt(m[1], 10));
+    return [...new Set(out)];
+  };
   const citedTurns = (s) => {
     const out = [];
     const re = new RegExp(TURN_CITE_RE.source, 'gi');
@@ -554,9 +567,11 @@ async function validatePrqL1(conversationData) {
             'turn count ' + n + '; cited ' + picks.join(', ') + '.');   // F6-02
         }
       }
-      // N/A alone on a Minor/Major head stays legal until the client rules otherwise.
+      // N/A ALONE on a Minor/Major head stays legal until the client rules otherwise -- only the
+      // MIXTURE is checked, and that is a straight contradiction: nothing downstream can tell
+      // which turns the issue was on. Blocking (severity review, 10 Sep 2026).
       if (hasNA && nums.length) {
-        warn(side.scope, side.keyOf(child), '"N/A" is selected alongside specific turn numbers.',
+        err(side.scope, side.keyOf(child), '"N/A" is selected alongside specific turn numbers.',
           'keep the turn numbers where the issue appeared, or "N/A" on its own -- not both.',
           'selected: ' + picks.join(', ') + '.');   // F6-03
       }
@@ -570,21 +585,68 @@ async function validatePrqL1(conversationData) {
       if (n !== null && n !== undefined) {
         const over = [...new Set(cites.filter((x) => x > n))];
         if (over.length) {
-          warn(side.scope, side.keyOf(A.rationale7c), 'the rationale references turn' + (over.length === 1 ? ' ' + over[0] : 's ' + over.join(', ')) + ', past the ' + n + ' turn' + (n === 1 ? '' : 's') + ' this model declares.',
+          // Decisive once a bracket citation is detected: the turn does not exist. Blocking.
+          err(side.scope, side.keyOf(A.rationale7c), 'the rationale references turn' + (over.length === 1 ? ' ' + over[0] : 's ' + over.join(', ')) + ', past the ' + n + ' turn' + (n === 1 ? '' : 's') + ' this model declares.',
             'correct the turn number' + (over.length === 1 ? '' : 's') + ' in the rationale, or the turn count if more turns were run.',
             'turn count ' + n + '; referenced ' + over.join(', ') + '.');   // F6-04
         }
       }
-      if (cites.length === 0) {
+      // SINGLE-TURN RELIEF (F6-05 and F6-12). The bracket citation exists so a reader knows
+      // WHICH turn a point refers to. On a side that declares exactly one turn there is no
+      // ambiguity to resolve, so demanding "[Turn 1]" carries no information -- it is the kind
+      // of always-fires finding that teaches raters to ignore warnings. Found on golden task
+      // 1271588: a clean single-turn task whose two rationales are accurate and substantive,
+      // warned on both sides purely for the missing bracket.
+      // F6-04 (a citation ABOVE the declared count) is deliberately NOT relieved -- "[Turn 3]"
+      // on a one-turn task is still wrong.
+      const singleTurn = n === 1;
+      if (singleTurn && cites.length === 0) {
+        logs.push('F6-05/F6-12 self-skipped on ' + side.scope + ': the side declares a single turn, so a "[Turn N]" citation disambiguates nothing.');
+      }
+      if (!singleTurn && cites.length === 0) {
+        const prose = proseTurns(r7c);
         const flagged = CFG.heads.filter((h) => isMinorOrMajor(side.get(h)));
-        if (flagged.length) {
+        const why = flagged.length
+          ? 'issue' + (flagged.length === 1 ? '' : 's') + ' flagged: ' + flagged.map((h) => '"' + labelOf(h) + '" = "' + rawStr(side.get(h)) + '"').join('; ') + '.'
+          : 'no [Turn N] reference found in the rationale.';
+        if (prose.length) {
+          // It DOES reference a turn, just not in the required form. Say that.
+          warn(side.scope, side.keyOf(A.rationale7c), 'the rationale refers to turn' + (prose.length === 1 ? ' ' + prose[0] : 's ' + prose.join(', ')) + ' in words, but not in the square-bracket form the question asks for.',
+            'start each point with the turn number in brackets, e.g. "[Turn ' + prose[0] + '] the response ...".',
+            'the question asks you to "start with the turn number in square brackets (e.g., [Turn 1], [Turn 2])". ' + why);   // F6-05
+        } else if (flagged.length) {
           warn(side.scope, side.keyOf(A.rationale7c), 'the rationale does not reference any turn, but ' + flagged.length + ' rating' + (flagged.length === 1 ? ' on this model flags an issue' : 's on this model flag issues') + ' that the rationale is where you explain.',
-            'start each point with the turn where you saw it, e.g. "[Turn 2] the response repeated ...".',
-            'issue' + (flagged.length === 1 ? '' : 's') + ' flagged: ' + flagged.map((h) => '"' + labelOf(h) + '" = "' + rawStr(side.get(h)) + '"').join('; ') + '.');   // F6-05
+            'start each point with the turn where you saw it, e.g. "[Turn 2] the response repeated ...".', why);   // F6-05
         } else {
           warn(side.scope, side.keyOf(A.rationale7c), 'the rationale does not reference any turn.',
-            'as the question asks, "for each point in your rationale ... start with the turn number in square brackets (e.g., [Turn 1], [Turn 2])".',
-            'no [Turn N] reference found in the rationale.');   // F6-05
+            'as the question asks, "for each point in your rationale ... start with the turn number in square brackets (e.g., [Turn 1], [Turn 2])".', why);   // F6-05
+        }
+      }
+      // F6-12: every turn a rating FLAGS must be explained in the rationale. Byte-decidable:
+      // the flagged-turn set comes from each head's Turns child, the cited set from the
+      // rationale. Length is never checked (requirements F1-07) -- turn coverage is the
+      // decidable proxy for "explain the issues you flagged".
+      // The turns children MUST come from CFG.childrenOf[head].turns and never from a name
+      // pattern like /Turns$/ -- that also matches "numberOfTurns" and silently poisons the
+      // flagged set with the turn COUNT (hit while dry-running this against both goldens).
+      if (!singleTurn) {
+        const flaggedTurns = new Set();
+        for (const head of CFG.heads) {
+          if (!isMinorOrMajor(side.get(head))) continue;
+          const tk = (CFG.childrenOf[head] || {}).turns;
+          if (!tk) continue;
+          for (const v of asArr(side.get(tk))) { const x = intOf(v); if (x !== null) flaggedTurns.add(x); }
+        }
+        const citedSet = new Set(cites);
+        const uncited = [...flaggedTurns].filter((t) => !citedSet.has(t)).sort((x, y) => x - y);
+        if (flaggedTurns.size && uncited.length) {
+          // The doc is explicit: "If you selected Minor or Major issue(s) to any of the questions
+          // above, please also explain in this question." An unexplained flagged issue is a
+          // requirement violation, not a formatting nit -- unlike F6-05, which stays a warning
+          // because there the explanation IS present and only the notation is wrong.
+          err(side.scope, side.keyOf(A.rationale7c), 'turn' + (uncited.length === 1 ? ' ' + uncited[0] + ' is' : 's ' + uncited.join(', ') + ' are') + ' flagged as having issues, but the rationale never explains ' + (uncited.length === 1 ? 'that turn' : 'those turns') + '.',
+            'add a point starting "[Turn ' + uncited[0] + ']" describing what went wrong there.',
+            'turns flagged on the ratings: ' + [...flaggedTurns].sort((x, y) => x - y).join(', ') + '; turns cited in the rationale: ' + (cites.length ? [...citedSet].sort((x, y) => x - y).join(', ') : 'none') + '.');   // F6-12
         }
       }
     }
@@ -596,7 +658,9 @@ async function validatePrqL1(conversationData) {
       const hit = cats.some((c) => sameOpt(c, A.f6_07_option));
       const ts = side.get(A.f6_07_crossHead);
       if (hit && filled(ts) && !isMinorOrMajor(ts)) {
-        warn(side.scope, side.keyOf(A.f6_07_crossHead), 'a sensitive-information grounding problem is flagged under "' + labelOf(A.f6_07_category) + '", but this rating reports no issue.',
+        // The form itself instructs "If you select this, also flag the issue in 5a." The two
+        // answers contradict each other and the rater can reconcile either way. Blocking.
+        err(side.scope, side.keyOf(A.f6_07_crossHead), 'a sensitive-information grounding problem is flagged under "' + labelOf(A.f6_07_category) + '", but this rating reports no issue.',
           'either rate "' + labelOf(A.f6_07_crossHead) + '" as a minor or major issue, or remove that category if it does not apply.',
           'the form\'s own instruction on "' + labelOf(A.f6_07_category) + '" reads "If you select this, also flag the issue in 5a."; "' + labelOf(A.f6_07_crossHead) + '" = "' + rawStr(ts) + '".');   // F6-07
       }
@@ -609,11 +673,50 @@ async function validatePrqL1(conversationData) {
       for (const head of A.f6_08_heads) {
         const v = side.get(head);
         if (isMinorOrMajor(v)) {
-          warn(side.scope, side.keyOf(head), 'this rating flags an over-personalization issue while "' + labelOf(A.q1) + '" says the response was not personalized at all.',
+          // Both "Over-" heads define N/A as "the response wasn't personalized", so this pair is
+          // self-contradictory by the form's own vocabulary. Blocking; the wording stays
+          // symmetric because either answer could be the wrong one.
+          err(side.scope, side.keyOf(head), 'this rating flags an over-personalization issue while "' + labelOf(A.q1) + '" says the response was not personalized at all.',
             'if the response really was not personalized, set this to "N/A"; if it was personalized, correct "' + labelOf(A.q1) + '".',
             '"' + labelOf(A.q1) + '" = "' + q1.join(', ') + '"; "' + labelOf(head) + '" = "' + rawStr(v) + '".');   // F6-08
         }
       }
+    }
+  }
+
+  // F6-13: the side-by-side verdict says the two conversations were about the same, while the
+  // per-model ratings disagree. Deliberately scoped to the "about the same" case ONLY, because
+  // that is the one verdict needing no Conversation-A/B -> Model-A/B mapping -- which is still
+  // unresolved (escalation 3: where the 50:50 presentation flip lands in the export is unknown).
+  // A directional check would have to assume that mapping, so it is not attempted here.
+  {
+    const sxs = T(A.sxs);
+    if (filled(sxs) && /about the same/i.test(norm(sxs)) && bound.length === 2) {
+      const profile = (side) => {
+        const flagged = CFG.heads.filter((h) => isMinorOrMajor(side.get(h)));
+        const major = flagged.filter((h) => sameOpt(side.get(h), MAJOR));
+        return { flagged: flagged, major: major, key: flagged.map((h) => h + '=' + norm(side.get(h))).sort().join('|') };
+      };
+      const pa = profile(bound[0]), pb = profile(bound[1]);
+      if (pa.key !== pb.key) {
+        const delta = Math.abs(pa.flagged.length - pb.flagged.length) + Math.abs(pa.major.length - pb.major.length);
+        if (delta > 0) {
+          warn('Task', A.sxs, 'the two conversations are rated as about the same, but the per-model ratings differ.',
+            'if one conversation really was better, choose that side; if they were genuinely equal, check the per-model ratings that differ.',
+            bound[0].name + ': ' + pa.flagged.length + ' issue(s) flagged (' + pa.major.length + ' major); ' +
+            bound[1].name + ': ' + pb.flagged.length + ' issue(s) flagged (' + pb.major.length + ' major).');   // F6-13
+        }
+      }
+    }
+    // F7-06: record the verdict direction against each side's severity profile and the batch's
+    // Model A / Model B columns, so escalation 3 (does Conversation A always mean Model A?) can
+    // be settled from a real batch instead of assumed. Log only -- never a finding.
+    if (filled(T(A.sxs)) && bound.length === 2) {
+      const cnt = (side) => CFG.heads.filter((h) => isMinorOrMajor(side.get(h))).length;
+      const mA = findMeta('model a'), mB = findMeta('model b');
+      logs.push('F7-06 SxS mapping evidence: verdict "' + rawStr(T(A.sxs)) + '"; issues flagged -- ' +
+        bound.map((x) => x.role + ' (' + x.name + ')=' + cnt(x)).join(', ') +
+        '; batch Model A=' + (mA ? '"' + mA.value + '"' : 'absent') + ', Model B=' + (mB ? '"' + mB.value + '"' : 'absent') + '.');   // F7-06
     }
   }
 
@@ -649,7 +752,12 @@ async function validatePrqL1(conversationData) {
   // placeholders like [full name] / [city] / [granddaughter's name] never fire. The rater
   // decides WHAT to redact; this only checks HOW.
   {
-    const BARE_REDACTED = /(^|[^a-z0-9])[\[\(\uff3b]?\s*redact(?:ed|ion)?\s*[\]\)\uff3d]?([^a-z0-9]|$)/i;
+    // Only the BRACKETED substitution form -- "[redacted]", "(redacted)", "<redacted>" -- which
+    // is what the doc forbids as a replacement for removed personal information. The previous
+    // pattern matched the bare word anywhere, so it fired on legitimate prompts such as
+    // "How do I redact a PDF?" and "What is the best redaction tool" (both verified). Stays a
+    // WARNING even tightened: a rater could be discussing redaction inside brackets.
+    const BARE_REDACTED = /[\[\(<\uff3b]\s*redact(?:ed|ion)?\s*[\]\)>\uff3d]/i;
     const scan = (scope, fullKey, val) => {
       const s = rawStr(val);
       if (!s || !BARE_REDACTED.test(s)) return;
@@ -700,33 +808,50 @@ async function validatePrqL1(conversationData) {
   // ==========================================================================
   // F7  BATCH AND METADATA
   // ==========================================================================
-  // F7-01: locale vs this project's assignment. The config carries NO locale marker -- the
-  // expected value is SUPPLIED by the build, not derived, so this stays a warning until the
-  // client rules the field is a hard assignment (escalation 6).
+  // F7-01: locale vs this project's assignment. BLOCKING as of the 10 Sep 2026 severity review
+  // -- the lead ruled the locale is a hard per-project assignment, which settles escalation 6 in
+  // favour of enforcement. The config carries no locale marker, so the expected value is
+  // SUPPLIED by the build (see CFG.locale) rather than derived.
+  // KNOWN CONSEQUENCE: golden task 1271588 is otherwise clean work but declares dialect "India"
+  // on an en-US project, with no dialect column in the batch to arbitrate -- it now blocks. If
+  // the batch legitimately spans English dialects, widen CFG.locale for that project rather
+  // than softening this check.
   {
     const want = CFG.locale || {};
     const gotL = T(A.targetLanguage), gotD = T(A.dialect);
     if (want.language && filled(gotL) && !sameOpt(gotL, want.language)) {
-      warn('Task', A.targetLanguage, 'the target language is not the language this project is assigned.',
+      err('Task', A.targetLanguage, 'the target language is not the language this project is assigned.',
         'confirm the language you evaluated in and correct "' + labelOf(A.targetLanguage) + '"; if this task really was assigned another language, tell your lead.',
         'this project is assigned ' + want.language + '; submitted "' + rawStr(gotL) + '".');   // F7-01
     }
     if (want.dialect && filled(gotD) && !sameOpt(gotD, want.dialect)) {
-      warn('Task', A.dialect, 'the dialect is not the dialect this project is assigned.',
+      err('Task', A.dialect, 'the dialect is not the dialect this project is assigned.',
         'confirm the dialect you evaluated in and correct "' + labelOf(A.dialect) + '"; if this task really was assigned another dialect, tell your lead.',
-        'this project is assigned ' + want.dialect + '; submitted "' + rawStr(gotD) + '".');   // F7-01
+        'this project is assigned ' + want.dialect + '; submitted "' + rawStr(gotD) + '"' + (findMeta('dialect') ? '' : '. This task carries no assigned-dialect column, so the expectation comes from the project itself') + '.');   // F7-01
     }
     // The assignment half, when the batch sheet carries the columns.
     const mL = findMeta('target language'), mD = findMeta('dialect');
     if (mL && mL.value && filled(gotL) && !sameOpt(mL.value, gotL)) {
-      warn('Task', A.targetLanguage, 'the target language differs from the language this task assigned.',
+      err('Task', A.targetLanguage, 'the target language differs from the language this task assigned.',
         'confirm the language you evaluated in; the assignment sheet may be the stale side.',
         'assigned "' + mL.value + '"; submitted "' + rawStr(gotL) + '".');   // F7-01
     }
     if (mD && mD.value && filled(gotD) && !sameOpt(mD.value, gotD)) {
-      warn('Task', A.dialect, 'the dialect differs from the dialect this task assigned.',
+      err('Task', A.dialect, 'the dialect differs from the dialect this task assigned.',
         'confirm the dialect you evaluated in; the assignment sheet may be the stale side.',
         'assigned "' + mD.value + '"; submitted "' + rawStr(gotD) + '".');   // F7-01
+    }
+  }
+  // F7-05: the batch names the file each side's page should be uploaded as (Model A HTML NAME /
+  // Model B HTML NAME, e.g. "M1_D1_001"). The Drive helper returns file CONTENT and never a
+  // filename, so this genuinely cannot be verified from inside the script -- log the expected
+  // names for a QA to eyeball rather than pretending to check them.
+  {
+    const a = findMeta('model a html name'), b = findMeta('model b html name');
+    if (a || b) {
+      logs.push('F7-05 (not verifiable in-script -- the fetch helper exposes no filename): expected page filenames are Model A "' + (a ? a.value : '?') + '", Model B "' + (b ? b.value : '?') + '".');   // F7-05
+    } else {
+      logs.push('F7-05 SELF-SKIPPED: batch metadata carries no HTML NAME columns.');   // F7-05
     }
   }
   // F7-02: Prompt Type presence only -- whether the prompt FITS its type is QD territory.

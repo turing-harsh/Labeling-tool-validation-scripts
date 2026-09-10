@@ -1,0 +1,706 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8726,
+      "batchName": "Batch-4",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Single turn only",
+      "First Model": "Mode 23 -> Yakitori - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Information Gathering",
+      "L2: Sub-Use Case": "Simple Search",
+      "L2: Sub-Use Case (extended definition)": "Conduct specialized or simple searches to provide a specific fact, data point, or resource. Similar to queries a user might put in a search engine.\n\nBoundary: The answer is a discrete, verifiable fact or a single resource — not a multi-source overview (→ Synthesize Broad Topics) or a curated list compiled from multiple sources (→ Compile). The query is about the external world, not about the user's own stored data (→ Personal Info > Retrieval). If the user is asking Gemini to explain why or how something works, that's understanding (→ Explanation), not search.\n\nThe ultimate test: Could the answer be a single sentence, number, date, name, or link — without needing to aggregate from multiple sources or explain underlying concepts?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_329",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_329",
+      "Prompt Example": "• Google Gemini release date\n• Hypoosmolaity meaning\n• What is wym\n• Example of vertios\n• Is 300 blk subsonic.\n• What is the oldest thing in the White House\n• How much rain did Vancouver get with the last storm?\n• is prostituting legal in Las Vegas\n• can you convert a Google Docs document to a Google Sheets document?\n• how can i make certain email addresses emails go to the \"other\" section in outlook\n• How do i edit my dual voice on the yamaha psr-e373",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Gemini Conversation History",
+        "Gemini Conversation History Instructions",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8726,
+        "batchName": "Batch-4",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+        "conversation_id": 1271588,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T07:34:38.047Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T08:44:18.655Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1bHzq35PjBzYTnj9gK2dszWmc8Y81vvoY/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Time & Location)"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "1"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "The response directly answers the question by stating that the Statue of Unity was officially inaugurated on October 31, 2018. It also uses the Vadodara location appropriately by providing the approximate distance from Vadodara. The additional information about the location, dimensions, and significance is relevant to the topic, although more detailed than necessary for the simple factual question. Overall, the response is accurate, relevant, and useful, with no significant issues."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1O1tpR1gMPudsruf1J2cnxWKxzzqsxmTB/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/16Fwy7mDyCybGUoKH03PTVsaQOh4NRPzN/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Personalized (Time & Location)"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+        "value": "1"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+        "value": "The response directly answered the question by providing the correct inauguration date of October 31, 2018. It also appropriately used the location in Vadodara to provide relevant context about the monument's location. The additional details were relevant and did not distract from the main answer."
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1GdUKhdgXi1G03sJkYdC8xEg9okbMWOc-/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "To get a quick factual answer about when the Statue of Unity was officially inaugurated."
+      },
+      "dialect": {
+        "value": "India"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Yakitori - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T08:21:18.758Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "I live in Vadodara. When was the Statue of Unity officially inaugurated?"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation B was slightly better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Model B is slightly higher quality because it gives the same correct answer as Model A while also using the Vadodara context appropriately. It provides a little more useful information about the location, size, and significance of the Statue of Unity. Model A is also correct, but B feels more complete and useful overall, even though it is somewhat more detailed than necessary for a simple search."
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8726,
+        "batchName": "Batch-4",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Single turn only",
+        "First Model": "Mode 23 -> Yakitori - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Information Gathering",
+        "L2: Sub-Use Case": "Simple Search",
+        "L2: Sub-Use Case (extended definition)": "Conduct specialized or simple searches to provide a specific fact, data point, or resource. Similar to queries a user might put in a search engine.\n\nBoundary: The answer is a discrete, verifiable fact or a single resource — not a multi-source overview (→ Synthesize Broad Topics) or a curated list compiled from multiple sources (→ Compile). The query is about the external world, not about the user's own stored data (→ Personal Info > Retrieval). If the user is asking Gemini to explain why or how something works, that's understanding (→ Explanation), not search.\n\nThe ultimate test: Could the answer be a single sentence, number, date, name, or link — without needing to aggregate from multiple sources or explain underlying concepts?",
+        "Model A": "Mode 23 -> Yakitori - Fast",
+        "Model A HTML NAME": "M1_D1_329",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_329",
+        "Prompt Example": "• Google Gemini release date\n• Hypoosmolaity meaning\n• What is wym\n• Example of vertios\n• Is 300 blk subsonic.\n• What is the oldest thing in the White House\n• How much rain did Vancouver get with the last storm?\n• is prostituting legal in Las Vegas\n• can you convert a Google Docs document to a Google Sheets document?\n• how can i make certain email addresses emails go to the \"other\" section in outlook\n• How do i edit my dual voice on the yamaha psr-e373",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8726,
+          "batchName": "Batch-4",
+          "projectId": 948,
+          "projectName": "0909 Yakitori vs Prod (en-US)"
+        },
+        "modelConfig": {
+          "conversation_id": 1271588,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T07:34:38.047Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T08:44:18.655Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1bHzq35PjBzYTnj9gK2dszWmc8Y81vvoY/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "1"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "The response directly answers the question by stating that the Statue of Unity was officially inaugurated on October 31, 2018. It also uses the Vadodara location appropriately by providing the approximate distance from Vadodara. The additional information about the location, dimensions, and significance is relevant to the topic, although more detailed than necessary for the simple factual question. Overall, the response is accurate, relevant, and useful, with no significant issues."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1O1tpR1gMPudsruf1J2cnxWKxzzqsxmTB/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/16Fwy7mDyCybGUoKH03PTVsaQOh4NRPzN/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+          "value": "1"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+          "value": "The response directly answered the question by providing the correct inauguration date of October 31, 2018. It also appropriately used the location in Vadodara to provide relevant context about the monument's location. The additional details were relevant and did not distract from the main answer."
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1GdUKhdgXi1G03sJkYdC8xEg9okbMWOc-/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To get a quick factual answer about when the Statue of Unity was officially inaugurated."
+        },
+        "dialect": {
+          "value": "India"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Yakitori - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T08:21:18.758Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "I live in Vadodara. When was the Statue of Unity officially inaugurated?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model B is slightly higher quality because it gives the same correct answer as Model A while also using the Vadodara context appropriately. It provides a little more useful information about the location, size, and significance of the Statue of Unity. Model A is also correct, but B feels more complete and useful overall, even though it is somewhat more detailed than necessary for a simple search."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8726,
+        "batchName": "Batch-4",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Single turn only",
+        "First Model": "Mode 23 -> Yakitori - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Information Gathering",
+        "L2: Sub-Use Case": "Simple Search",
+        "L2: Sub-Use Case (extended definition)": "Conduct specialized or simple searches to provide a specific fact, data point, or resource. Similar to queries a user might put in a search engine.\n\nBoundary: The answer is a discrete, verifiable fact or a single resource — not a multi-source overview (→ Synthesize Broad Topics) or a curated list compiled from multiple sources (→ Compile). The query is about the external world, not about the user's own stored data (→ Personal Info > Retrieval). If the user is asking Gemini to explain why or how something works, that's understanding (→ Explanation), not search.\n\nThe ultimate test: Could the answer be a single sentence, number, date, name, or link — without needing to aggregate from multiple sources or explain underlying concepts?",
+        "Model A": "Mode 23 -> Yakitori - Fast",
+        "Model A HTML NAME": "M1_D1_329",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_329",
+        "Prompt Example": "• Google Gemini release date\n• Hypoosmolaity meaning\n• What is wym\n• Example of vertios\n• Is 300 blk subsonic.\n• What is the oldest thing in the White House\n• How much rain did Vancouver get with the last storm?\n• is prostituting legal in Las Vegas\n• can you convert a Google Docs document to a Google Sheets document?\n• how can i make certain email addresses emails go to the \"other\" section in outlook\n• How do i edit my dual voice on the yamaha psr-e373",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8726,
+          "batchName": "Batch-4",
+          "projectId": 948,
+          "projectName": "0909 Yakitori vs Prod (en-US)"
+        },
+        "modelConfig": {
+          "conversation_id": 1271588,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T07:34:38.047Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T08:44:18.655Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1bHzq35PjBzYTnj9gK2dszWmc8Y81vvoY/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "1"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "The response directly answers the question by stating that the Statue of Unity was officially inaugurated on October 31, 2018. It also uses the Vadodara location appropriately by providing the approximate distance from Vadodara. The additional information about the location, dimensions, and significance is relevant to the topic, although more detailed than necessary for the simple factual question. Overall, the response is accurate, relevant, and useful, with no significant issues."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1O1tpR1gMPudsruf1J2cnxWKxzzqsxmTB/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/16Fwy7mDyCybGUoKH03PTVsaQOh4NRPzN/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Personalized (Time & Location)"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+          "value": "1"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+          "value": "The response directly answered the question by providing the correct inauguration date of October 31, 2018. It also appropriately used the location in Vadodara to provide relevant context about the monument's location. The additional details were relevant and did not distract from the main answer."
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1GdUKhdgXi1G03sJkYdC8xEg9okbMWOc-/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "To get a quick factual answer about when the Statue of Unity was officially inaugurated."
+        },
+        "dialect": {
+          "value": "India"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Yakitori - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "A lot — A generic answer would miss important things about my situation."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T08:21:18.758Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "I live in Vadodara. When was the Statue of Unity officially inaugurated?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation B was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Model B is slightly higher quality because it gives the same correct answer as Model A while also using the Vadodara context appropriately. It provides a little more useful information about the location, size, and significance of the Statue of Unity. Model A is also correct, but B feels more complete and useful overall, even though it is somewhat more detailed than necessary for a simple search."
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

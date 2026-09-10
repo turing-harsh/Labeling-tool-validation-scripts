@@ -88,6 +88,18 @@ for (const { id, dir } of projects) {
         if (missing.length) problems.push(`missing errors: ${JSON.stringify(missing)}`);
       }
     }
+    // `expect.warnings` is handled symmetrically with `expect.errors`: an empty array asserts
+    // NO warnings at all. It used to be silently ignored, which made every
+    // `{ pass: true, warnings: [] }` near-miss case assert only "no errors" -- so a check that
+    // was warning on a task it should have stayed quiet on passed its own regression test.
+    if (Array.isArray(exp.warnings)) {
+      if (exp.warnings.length === 0 && got.warnings.length > 0)
+        problems.push(`expected NO warnings but got: ${JSON.stringify(got.warnings)}`);
+      if (exp.warnings.length > 0) {
+        const missing = containsAll(got.warnings, exp.warnings);
+        if (missing.length) problems.push(`missing warnings: ${JSON.stringify(missing)}`);
+      }
+    }
     for (const [field, key] of [["errorsContain", "errors"], ["warningsContain", "warnings"], ["successesContain", "successes"], ["infosContain", "infos"]]) {
       if (Array.isArray(exp[field])) {
         const missing = containsAll(got[key], exp[field]);

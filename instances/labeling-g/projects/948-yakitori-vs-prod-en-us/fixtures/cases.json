@@ -1,0 +1,2463 @@
+[
+ {
+  "name": "GOLDEN 1271588 (clean single-turn task): only the dialect blocks it",
+  "conversationData": {
+   "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+     "batchId": 8726,
+     "batchName": "Batch-4",
+     "projectId": 948,
+     "projectName": "0909 Yakitori vs Prod (en-US)",
+     "revisionId": null
+    }
+   },
+   "conversation": {
+    "input": {
+     "Additional Rater Instruction": "Single turn only",
+     "First Model": "Mode 23 -> Yakitori - Fast",
+     "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+     "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+     "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+     "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+     "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+     "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+     "L1: Use Case - Short": "Information Gathering",
+     "L2: Sub-Use Case": "Simple Search",
+     "L2: Sub-Use Case (extended definition)": "Conduct specialized or simple searches to provide a specific fact, data point, or resource. Similar to queries a user might put in a search engine.\n\nBoundary: The answer is a discrete, verifiable fact or a single resource — not a multi-source overview (→ Synthesize Broad Topics) or a curated list compiled from multiple sources (→ Compile). The query is about the external world, not about the user's own stored data (→ Personal Info > Retrieval). If the user is asking Gemini to explain why or how something works, that's understanding (→ Explanation), not search.\n\nThe ultimate test: Could the answer be a single sentence, number, date, name, or link — without needing to aggregate from multiple sources or explain underlying concepts?",
+     "Model A": "Mode 23 -> Yakitori - Fast",
+     "Model A HTML NAME": "M1_D1_329",
+     "Model B": "Mode 23 -> Prod Frozen - Fast",
+     "Model B HTML NAME": "M2_D1_329",
+     "Prompt Example": "• Google Gemini release date\n• Hypoosmolaity meaning\n• What is wym\n• Example of vertios\n• Is 300 blk subsonic.\n• What is the oldest thing in the White House\n• How much rain did Vancouver get with the last storm?\n• is prostituting legal in Las Vegas\n• can you convert a Google Docs document to a Google Sheets document?\n• how can i make certain email addresses emails go to the \"other\" section in outlook\n• How do i edit my dual voice on the yamaha psr-e373",
+     "Prompt Type": "Implicit",
+     "__originalKeyOrder": [
+      "Gemini Access Link",
+      "Gemini Conversation History",
+      "Gemini Conversation History Instructions",
+      "Google Drive Link (HTML)",
+      "Google Drive Link (Debug Info)",
+      "Google Drive Link Instructions",
+      "Model A",
+      "Model A HTML NAME",
+      "Model B",
+      "Model B HTML NAME",
+      "First Model",
+      "Prompt Type",
+      "L1: Use Case - Short",
+      "L2: Sub-Use Case",
+      "L2: Sub-Use Case (extended definition)",
+      "Additional Rater Instruction",
+      "Prompt Example",
+      "metadata",
+      "modelConfig"
+     ],
+     "metadata": {
+      "batchId": 8726,
+      "batchName": "Batch-4",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)"
+     },
+     "modelConfig": {
+      "conversation_id": 1271588,
+      "labeling_tool_url": "https://labeling-g.turing.com"
+     }
+    },
+    "formStage": null,
+    "ratings": {
+     "bp1": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T07:34:38.047Z",
+       "locked": true
+      }
+     },
+     "bp2": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T08:44:18.655Z",
+       "locked": true
+      }
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/1bHzq35PjBzYTnj9gK2dszWmc8Y81vvoY/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Time & Location)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "1"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "The response directly answers the question by stating that the Statue of Unity was officially inaugurated on October 31, 2018. It also uses the Vadodara location appropriately by providing the approximate distance from Vadodara. The additional information about the location, dimensions, and significance is relevant to the topic, although more detailed than necessary for the simple factual question. Overall, the response is accurate, relevant, and useful, with no significant issues."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/1O1tpR1gMPudsruf1J2cnxWKxzzqsxmTB/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/16Fwy7mDyCybGUoKH03PTVsaQOh4NRPzN/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Time & Location)"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+      "value": "1"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+      "value": "The response directly answered the question by providing the correct inauguration date of October 31, 2018. It also appropriately used the location in Vadodara to provide relevant context about the monument's location. The additional details were relevant and did not distract from the main answer."
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/1GdUKhdgXi1G03sJkYdC8xEg9okbMWOc-/view?usp=drive_link"
+     },
+     "compareModels.__config__": {
+      "value": {
+       "locked": true
+      }
+     },
+     "conversationalGoal": {
+      "value": "To get a quick factual answer about when the Statue of Unity was officially inaugurated."
+     },
+     "dialect": {
+      "value": "India"
+     },
+     "firstModel": {
+      "value": "Mode 23 -> Yakitori - Fast"
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "preQuestionsBreakpoint": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T08:21:18.758Z",
+       "locked": true
+      }
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "prompt": {
+      "value": "I live in Vadodara. When was the Statue of Unity officially inaugurated?"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation B was slightly better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "Model B is slightly higher quality because it gives the same correct answer as Model A while also using the Vadodara context appropriately. It provides a little more useful information about the location, size, and significance of the Statue of Unity. Model A is also correct, but B feels more complete and useful overall, even though it is somewhat more detailed than necessary for a simple search."
+     },
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "English"
+     }
+    }
+   },
+   "raw_data": {
+    "metadata": {
+     "turing_task_url": null,
+     "scope_requirements": {
+      "batchId": 8726,
+      "batchName": "Batch-4",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+     }
+    },
+    "model_config": {
+     "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+     "input": {
+      "Additional Rater Instruction": "Single turn only",
+      "First Model": "Mode 23 -> Yakitori - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Information Gathering",
+      "L2: Sub-Use Case": "Simple Search",
+      "L2: Sub-Use Case (extended definition)": "Conduct specialized or simple searches to provide a specific fact, data point, or resource. Similar to queries a user might put in a search engine.\n\nBoundary: The answer is a discrete, verifiable fact or a single resource — not a multi-source overview (→ Synthesize Broad Topics) or a curated list compiled from multiple sources (→ Compile). The query is about the external world, not about the user's own stored data (→ Personal Info > Retrieval). If the user is asking Gemini to explain why or how something works, that's understanding (→ Explanation), not search.\n\nThe ultimate test: Could the answer be a single sentence, number, date, name, or link — without needing to aggregate from multiple sources or explain underlying concepts?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_329",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_329",
+      "Prompt Example": "• Google Gemini release date\n• Hypoosmolaity meaning\n• What is wym\n• Example of vertios\n• Is 300 blk subsonic.\n• What is the oldest thing in the White House\n• How much rain did Vancouver get with the last storm?\n• is prostituting legal in Las Vegas\n• can you convert a Google Docs document to a Google Sheets document?\n• how can i make certain email addresses emails go to the \"other\" section in outlook\n• How do i edit my dual voice on the yamaha psr-e373",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+       "Gemini Access Link",
+       "Gemini Conversation History",
+       "Gemini Conversation History Instructions",
+       "Google Drive Link (HTML)",
+       "Google Drive Link (Debug Info)",
+       "Google Drive Link Instructions",
+       "Model A",
+       "Model A HTML NAME",
+       "Model B",
+       "Model B HTML NAME",
+       "First Model",
+       "Prompt Type",
+       "L1: Use Case - Short",
+       "L2: Sub-Use Case",
+       "L2: Sub-Use Case (extended definition)",
+       "Additional Rater Instruction",
+       "Prompt Example",
+       "metadata",
+       "modelConfig"
+      ],
+      "metadata": {
+       "batchId": 8726,
+       "batchName": "Batch-4",
+       "projectId": 948,
+       "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+       "conversation_id": 1271588,
+       "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+     },
+     "formStage": null,
+     "ratings": {
+      "bp1": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T07:34:38.047Z",
+        "locked": true
+       }
+      },
+      "bp2": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T08:44:18.655Z",
+        "locked": true
+       }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1bHzq35PjBzYTnj9gK2dszWmc8Y81vvoY/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Time & Location)"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+       "value": "1"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+       "value": "The response directly answers the question by stating that the Statue of Unity was officially inaugurated on October 31, 2018. It also uses the Vadodara location appropriately by providing the approximate distance from Vadodara. The additional information about the location, dimensions, and significance is relevant to the topic, although more detailed than necessary for the simple factual question. Overall, the response is accurate, relevant, and useful, with no significant issues."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/1O1tpR1gMPudsruf1J2cnxWKxzzqsxmTB/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/16Fwy7mDyCybGUoKH03PTVsaQOh4NRPzN/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Time & Location)"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+       "value": "1"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+       "value": "The response directly answered the question by providing the correct inauguration date of October 31, 2018. It also appropriately used the location in Vadodara to provide relevant context about the monument's location. The additional details were relevant and did not distract from the main answer."
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/1GdUKhdgXi1G03sJkYdC8xEg9okbMWOc-/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+       "value": {
+        "locked": true
+       }
+      },
+      "conversationalGoal": {
+       "value": "To get a quick factual answer about when the Statue of Unity was officially inaugurated."
+      },
+      "dialect": {
+       "value": "India"
+      },
+      "firstModel": {
+       "value": "Mode 23 -> Yakitori - Fast"
+      },
+      "personalizationExpectation": {
+       "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T08:21:18.758Z",
+        "locked": true
+       }
+      },
+      "privacyGate": {
+       "value": true
+      },
+      "prompt": {
+       "value": "I live in Vadodara. When was the Statue of Unity officially inaugurated?"
+      },
+      "qualityComparisonSxS": {
+       "value": "Conversation B was slightly better"
+      },
+      "qualityComparisonSxSRationale": {
+       "value": "Model B is slightly higher quality because it gives the same correct answer as Model A while also using the Vadodara context appropriately. It provides a little more useful information about the location, size, and significance of the Statue of Unity. Model A is also correct, but B feels more complete and useful overall, even though it is somewhat more detailed than necessary for a simple search."
+      },
+      "setupCheck": {
+       "value": true
+      },
+      "targetLanguage": {
+       "value": "English"
+      }
+     }
+    }
+   },
+   "task_data": {
+    "metadata": {
+     "turing_task_url": null,
+     "scope_requirements": {
+      "batchId": 8726,
+      "batchName": "Batch-4",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+     }
+    },
+    "model_config": {
+     "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+     "input": {
+      "Additional Rater Instruction": "Single turn only",
+      "First Model": "Mode 23 -> Yakitori - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Information Gathering",
+      "L2: Sub-Use Case": "Simple Search",
+      "L2: Sub-Use Case (extended definition)": "Conduct specialized or simple searches to provide a specific fact, data point, or resource. Similar to queries a user might put in a search engine.\n\nBoundary: The answer is a discrete, verifiable fact or a single resource — not a multi-source overview (→ Synthesize Broad Topics) or a curated list compiled from multiple sources (→ Compile). The query is about the external world, not about the user's own stored data (→ Personal Info > Retrieval). If the user is asking Gemini to explain why or how something works, that's understanding (→ Explanation), not search.\n\nThe ultimate test: Could the answer be a single sentence, number, date, name, or link — without needing to aggregate from multiple sources or explain underlying concepts?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_329",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_329",
+      "Prompt Example": "• Google Gemini release date\n• Hypoosmolaity meaning\n• What is wym\n• Example of vertios\n• Is 300 blk subsonic.\n• What is the oldest thing in the White House\n• How much rain did Vancouver get with the last storm?\n• is prostituting legal in Las Vegas\n• can you convert a Google Docs document to a Google Sheets document?\n• how can i make certain email addresses emails go to the \"other\" section in outlook\n• How do i edit my dual voice on the yamaha psr-e373",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+       "Gemini Access Link",
+       "Gemini Conversation History",
+       "Gemini Conversation History Instructions",
+       "Google Drive Link (HTML)",
+       "Google Drive Link (Debug Info)",
+       "Google Drive Link Instructions",
+       "Model A",
+       "Model A HTML NAME",
+       "Model B",
+       "Model B HTML NAME",
+       "First Model",
+       "Prompt Type",
+       "L1: Use Case - Short",
+       "L2: Sub-Use Case",
+       "L2: Sub-Use Case (extended definition)",
+       "Additional Rater Instruction",
+       "Prompt Example",
+       "metadata",
+       "modelConfig"
+      ],
+      "metadata": {
+       "batchId": 8726,
+       "batchName": "Batch-4",
+       "projectId": 948,
+       "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+       "conversation_id": 1271588,
+       "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+     },
+     "formStage": null,
+     "ratings": {
+      "bp1": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T07:34:38.047Z",
+        "locked": true
+       }
+      },
+      "bp2": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T08:44:18.655Z",
+        "locked": true
+       }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1bHzq35PjBzYTnj9gK2dszWmc8Y81vvoY/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Time & Location)"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+       "value": "1"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+       "value": "The response directly answers the question by stating that the Statue of Unity was officially inaugurated on October 31, 2018. It also uses the Vadodara location appropriately by providing the approximate distance from Vadodara. The additional information about the location, dimensions, and significance is relevant to the topic, although more detailed than necessary for the simple factual question. Overall, the response is accurate, relevant, and useful, with no significant issues."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/1O1tpR1gMPudsruf1J2cnxWKxzzqsxmTB/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/16Fwy7mDyCybGUoKH03PTVsaQOh4NRPzN/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Time & Location)"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+       "value": "1"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+       "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+       "value": "The response directly answered the question by providing the correct inauguration date of October 31, 2018. It also appropriately used the location in Vadodara to provide relevant context about the monument's location. The additional details were relevant and did not distract from the main answer."
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/1GdUKhdgXi1G03sJkYdC8xEg9okbMWOc-/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+       "value": {
+        "locked": true
+       }
+      },
+      "conversationalGoal": {
+       "value": "To get a quick factual answer about when the Statue of Unity was officially inaugurated."
+      },
+      "dialect": {
+       "value": "India"
+      },
+      "firstModel": {
+       "value": "Mode 23 -> Yakitori - Fast"
+      },
+      "personalizationExpectation": {
+       "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T08:21:18.758Z",
+        "locked": true
+       }
+      },
+      "privacyGate": {
+       "value": true
+      },
+      "prompt": {
+       "value": "I live in Vadodara. When was the Statue of Unity officially inaugurated?"
+      },
+      "qualityComparisonSxS": {
+       "value": "Conversation B was slightly better"
+      },
+      "qualityComparisonSxSRationale": {
+       "value": "Model B is slightly higher quality because it gives the same correct answer as Model A while also using the Vadodara context appropriately. It provides a little more useful information about the location, size, and significance of the Statue of Unity. Model A is also correct, but B feels more complete and useful overall, even though it is somewhat more detailed than necessary for a simple search."
+      },
+      "setupCheck": {
+       "value": true
+      },
+      "targetLanguage": {
+       "value": "English"
+      }
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "the dialect is not the dialect this project is assigned"
+   ]
+  }
+ },
+ {
+  "name": "GOLDEN 1271273 (clean task) passes with zero warnings",
+  "conversationData": {
+   "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+     "batchId": 8723,
+     "batchName": "Batch-1",
+     "projectId": 948,
+     "projectName": "0909 Yakitori vs Prod (en-US)",
+     "revisionId": null
+    }
+   },
+   "conversation": {
+    "input": {
+     "Additional Rater Instruction": "Multi Turn Conversation",
+     "First Model": "Mode 23 -> Yakitori - Fast",
+     "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+     "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+     "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+     "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+     "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+     "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+     "L1: Use Case - Short": "Personal Info",
+     "L2: Sub-Use Case": "Retrieval",
+     "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+     "Model A": "Mode 23 -> Yakitori - Fast",
+     "Model A HTML NAME": "M1_D1_001",
+     "Model B": "Mode 23 -> Prod Frozen - Fast",
+     "Model B HTML NAME": "M2_D1_001",
+     "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+     "Prompt Type": "Explicit With Source",
+     "__originalKeyOrder": [
+      "Gemini Access Link",
+      "Gemini Conversation History",
+      "Gemini Conversation History Instructions",
+      "Google Drive Link (HTML)",
+      "Google Drive Link (Debug Info)",
+      "Google Drive Link Instructions",
+      "Model A",
+      "Model A HTML NAME",
+      "Model B",
+      "Model B HTML NAME",
+      "First Model",
+      "Prompt Type",
+      "L1: Use Case - Short",
+      "L2: Sub-Use Case",
+      "L2: Sub-Use Case (extended definition)",
+      "Additional Rater Instruction",
+      "Prompt Example",
+      "metadata",
+      "modelConfig"
+     ],
+     "metadata": {
+      "batchId": 8723,
+      "batchName": "Batch-1",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)"
+     },
+     "modelConfig": {
+      "conversation_id": 1271273,
+      "labeling_tool_url": "https://labeling-g.turing.com"
+     }
+    },
+    "formStage": null,
+    "ratings": {
+     "bp1": {
+      "value": {
+       "lastSubmittedAt": "2026-09-09T22:56:07.669Z",
+       "locked": true
+      }
+     },
+     "bp2": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T00:15:00.412Z",
+       "locked": true
+      }
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/1Tjznbw_SKx9XaQfZO_fU9bKAdtpx80k2/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Somewhat satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Somewhat satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] I asked the model to retrieved my latest Aliexpress purchase from my emails and it promptly did so, correctly identifying the item and including all the relevant details about the order, like Price, Order Date and Current Status. However, it also retrieved the two prior orders, which was not something I requested. \n[Turn 2] When I asked about the order's expected delivery date, the model proceeded to explain that this information wasn't available in any of the related emails, instead being only accessible through the website's tracking link."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/11_8XuskzW2bpFFvfrwTXaxehnwdL36d0/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/1_IjjQfUQqtK0GQsfWm83HfaQ34uEt8-l/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/1tKf0KAbGPppykic8HT6yL6ajE3Bq1lMV/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "Major issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+      "value": [
+       "Missed requested fact"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "Major issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+      "value": [
+       "Temporal confusion"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "N/A"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Somewhat dissatisfied"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+      "value": "Neither satisfied nor dissatisfied"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] I asked the model to access my emails and find the last purchase I made on Aliexpress. Instead of retrieving the actual last one, made last week, the model brought out a purchase concluded over 2 years ago, completely ignoring the most recent available data. \n[Turn 2] After I pointed out that it had the wrong information and asked for it to look again, the model was finally able to to provide a more satisfactory response, which included all the relevant information about the purchase, including Order ID, Order Date and Current Status. However, in the end it also included my past two order before that one, which wasn't expected or desired.  "
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/1ksQVBx-u6CS5z4cGjM8BjTU-i8Y-YpSK/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/1N6ZK9DboOycHguV1Uv6IryFI-navYiiO/view?usp=drive_link"
+     },
+     "compareModels.__config__": {
+      "value": {
+       "locked": true
+      }
+     },
+     "conversationalGoal": {
+      "value": "To get information on my last Aliexpress purchase."
+     },
+     "dialect": {
+      "value": "United States"
+     },
+     "firstModel": {
+      "value": "Mode 23 -> Yakitori - Fast"
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "preQuestionsBreakpoint": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T00:12:30.510Z",
+       "locked": true
+      }
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "prompt": {
+      "value": "Can you look through my emails and find my last aliexpress purchase?"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation B was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "Model B was better than Model A because it achieved the desired goal in Turn 1 and didn't include any incorrect information in its response. Model A, on the other hand, had a completely incorrect response in Turn 1, referencing a purchase made over 2 years ago and therefore useless to my goal. In Turn 2, Model A recovered and was able to retrieve the correct information, while Model B precisely explained why it couldn't pinpoint the expected delivery date. Due to the higher quality across the entire conversation, Model B was better. "
+     },
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "English"
+     }
+    }
+   },
+   "raw_data": {
+    "metadata": {
+     "turing_task_url": null,
+     "scope_requirements": {
+      "batchId": 8723,
+      "batchName": "Batch-1",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+     }
+    },
+    "model_config": {
+     "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+     "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Yakitori - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Personal Info",
+      "L2: Sub-Use Case": "Retrieval",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_001",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_001",
+      "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+      "Prompt Type": "Explicit With Source",
+      "__originalKeyOrder": [
+       "Gemini Access Link",
+       "Gemini Conversation History",
+       "Gemini Conversation History Instructions",
+       "Google Drive Link (HTML)",
+       "Google Drive Link (Debug Info)",
+       "Google Drive Link Instructions",
+       "Model A",
+       "Model A HTML NAME",
+       "Model B",
+       "Model B HTML NAME",
+       "First Model",
+       "Prompt Type",
+       "L1: Use Case - Short",
+       "L2: Sub-Use Case",
+       "L2: Sub-Use Case (extended definition)",
+       "Additional Rater Instruction",
+       "Prompt Example",
+       "metadata",
+       "modelConfig"
+      ],
+      "metadata": {
+       "batchId": 8723,
+       "batchName": "Batch-1",
+       "projectId": 948,
+       "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+       "conversation_id": 1271273,
+       "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+     },
+     "formStage": null,
+     "ratings": {
+      "bp1": {
+       "value": {
+        "lastSubmittedAt": "2026-09-09T22:56:07.669Z",
+        "locked": true
+       }
+      },
+      "bp2": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T00:15:00.412Z",
+        "locked": true
+       }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1Tjznbw_SKx9XaQfZO_fU9bKAdtpx80k2/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Personal Data)"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+       "value": "[Turn 1] I asked the model to retrieved my latest Aliexpress purchase from my emails and it promptly did so, correctly identifying the item and including all the relevant details about the order, like Price, Order Date and Current Status. However, it also retrieved the two prior orders, which was not something I requested. \n[Turn 2] When I asked about the order's expected delivery date, the model proceeded to explain that this information wasn't available in any of the related emails, instead being only accessible through the website's tracking link."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/11_8XuskzW2bpFFvfrwTXaxehnwdL36d0/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+       "value": "https://drive.google.com/file/d/1_IjjQfUQqtK0GQsfWm83HfaQ34uEt8-l/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1tKf0KAbGPppykic8HT6yL6ajE3Bq1lMV/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Personal Data)"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "Major issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+       "value": [
+        "Missed requested fact"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "Major issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+       "value": [
+        "Temporal confusion"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+       "value": "Neither satisfied nor dissatisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+       "value": "[Turn 1] I asked the model to access my emails and find the last purchase I made on Aliexpress. Instead of retrieving the actual last one, made last week, the model brought out a purchase concluded over 2 years ago, completely ignoring the most recent available data. \n[Turn 2] After I pointed out that it had the wrong information and asked for it to look again, the model was finally able to to provide a more satisfactory response, which included all the relevant information about the purchase, including Order ID, Order Date and Current Status. However, in the end it also included my past two order before that one, which wasn't expected or desired.  "
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/1ksQVBx-u6CS5z4cGjM8BjTU-i8Y-YpSK/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+       "value": "https://drive.google.com/file/d/1N6ZK9DboOycHguV1Uv6IryFI-navYiiO/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+       "value": {
+        "locked": true
+       }
+      },
+      "conversationalGoal": {
+       "value": "To get information on my last Aliexpress purchase."
+      },
+      "dialect": {
+       "value": "United States"
+      },
+      "firstModel": {
+       "value": "Mode 23 -> Yakitori - Fast"
+      },
+      "personalizationExpectation": {
+       "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T00:12:30.510Z",
+        "locked": true
+       }
+      },
+      "privacyGate": {
+       "value": true
+      },
+      "prompt": {
+       "value": "Can you look through my emails and find my last aliexpress purchase?"
+      },
+      "qualityComparisonSxS": {
+       "value": "Conversation B was better"
+      },
+      "qualityComparisonSxSRationale": {
+       "value": "Model B was better than Model A because it achieved the desired goal in Turn 1 and didn't include any incorrect information in its response. Model A, on the other hand, had a completely incorrect response in Turn 1, referencing a purchase made over 2 years ago and therefore useless to my goal. In Turn 2, Model A recovered and was able to retrieve the correct information, while Model B precisely explained why it couldn't pinpoint the expected delivery date. Due to the higher quality across the entire conversation, Model B was better. "
+      },
+      "setupCheck": {
+       "value": true
+      },
+      "targetLanguage": {
+       "value": "English"
+      }
+     }
+    }
+   },
+   "task_data": {
+    "metadata": {
+     "turing_task_url": null,
+     "scope_requirements": {
+      "batchId": 8723,
+      "batchName": "Batch-1",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+     }
+    },
+    "model_config": {
+     "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+     "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Yakitori - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Personal Info",
+      "L2: Sub-Use Case": "Retrieval",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to recall and return specific, previously stored personal information as-is.\n\nBoundary: Returns one or a few discrete stored facts without combining, interpreting, or summarizing across topics (→ Synthesis). The user wants information back, not an analysis of it.\n\nThe ultimate test: Could Gemini answer by looking up a single fact or a small set of related facts, without needing to aggregate or interpret?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_001",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_001",
+      "Prompt Example": "• Okay. I've created a tag called Europe 2026/trip expenses. Can you find that in my email? And just list them here before we add them to the spreadsheet, please.\n• Can you read the linked spreadsheets from the email?\n• Can you search my photos for pictures of my succulents from last year by my pond\n• Can you find all the bank account details of my tenants that you can find in our email exchanges please?\n• Go through my search history and tell me do you see something in reference to chatrooms?\n• Search my YouTube history and find YouTube video that explore renaissance technologies and ai\n• Can you pull up where I said I parked from our last conversation?\n• Look up the employee ID I shared in one of our earlier chats.\n• We went over my anniversary date at some point. Can you find that?",
+      "Prompt Type": "Explicit With Source",
+      "__originalKeyOrder": [
+       "Gemini Access Link",
+       "Gemini Conversation History",
+       "Gemini Conversation History Instructions",
+       "Google Drive Link (HTML)",
+       "Google Drive Link (Debug Info)",
+       "Google Drive Link Instructions",
+       "Model A",
+       "Model A HTML NAME",
+       "Model B",
+       "Model B HTML NAME",
+       "First Model",
+       "Prompt Type",
+       "L1: Use Case - Short",
+       "L2: Sub-Use Case",
+       "L2: Sub-Use Case (extended definition)",
+       "Additional Rater Instruction",
+       "Prompt Example",
+       "metadata",
+       "modelConfig"
+      ],
+      "metadata": {
+       "batchId": 8723,
+       "batchName": "Batch-1",
+       "projectId": 948,
+       "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+       "conversation_id": 1271273,
+       "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+     },
+     "formStage": null,
+     "ratings": {
+      "bp1": {
+       "value": {
+        "lastSubmittedAt": "2026-09-09T22:56:07.669Z",
+        "locked": true
+       }
+      },
+      "bp2": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T00:15:00.412Z",
+        "locked": true
+       }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1Tjznbw_SKx9XaQfZO_fU9bKAdtpx80k2/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Personal Data)"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+       "value": "[Turn 1] I asked the model to retrieved my latest Aliexpress purchase from my emails and it promptly did so, correctly identifying the item and including all the relevant details about the order, like Price, Order Date and Current Status. However, it also retrieved the two prior orders, which was not something I requested. \n[Turn 2] When I asked about the order's expected delivery date, the model proceeded to explain that this information wasn't available in any of the related emails, instead being only accessible through the website's tracking link."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/11_8XuskzW2bpFFvfrwTXaxehnwdL36d0/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+       "value": "https://drive.google.com/file/d/1_IjjQfUQqtK0GQsfWm83HfaQ34uEt8-l/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1tKf0KAbGPppykic8HT6yL6ajE3Bq1lMV/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Personal Data)"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "Major issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+       "value": [
+        "Missed requested fact"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "Major issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+       "value": [
+        "Temporal confusion"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Somewhat dissatisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+       "value": "Neither satisfied nor dissatisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+       "value": "[Turn 1] I asked the model to access my emails and find the last purchase I made on Aliexpress. Instead of retrieving the actual last one, made last week, the model brought out a purchase concluded over 2 years ago, completely ignoring the most recent available data. \n[Turn 2] After I pointed out that it had the wrong information and asked for it to look again, the model was finally able to to provide a more satisfactory response, which included all the relevant information about the purchase, including Order ID, Order Date and Current Status. However, in the end it also included my past two order before that one, which wasn't expected or desired.  "
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+       "value": "https://drive.google.com/file/d/1ksQVBx-u6CS5z4cGjM8BjTU-i8Y-YpSK/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+       "value": "https://drive.google.com/file/d/1N6ZK9DboOycHguV1Uv6IryFI-navYiiO/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+       "value": {
+        "locked": true
+       }
+      },
+      "conversationalGoal": {
+       "value": "To get information on my last Aliexpress purchase."
+      },
+      "dialect": {
+       "value": "United States"
+      },
+      "firstModel": {
+       "value": "Mode 23 -> Yakitori - Fast"
+      },
+      "personalizationExpectation": {
+       "value": "A lot — A generic answer would miss important things about my situation."
+      },
+      "preQuestionsBreakpoint": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T00:12:30.510Z",
+        "locked": true
+       }
+      },
+      "privacyGate": {
+       "value": true
+      },
+      "prompt": {
+       "value": "Can you look through my emails and find my last aliexpress purchase?"
+      },
+      "qualityComparisonSxS": {
+       "value": "Conversation B was better"
+      },
+      "qualityComparisonSxSRationale": {
+       "value": "Model B was better than Model A because it achieved the desired goal in Turn 1 and didn't include any incorrect information in its response. Model A, on the other hand, had a completely incorrect response in Turn 1, referencing a purchase made over 2 years ago and therefore useless to my goal. In Turn 2, Model A recovered and was able to retrieve the correct information, while Model B precisely explained why it couldn't pinpoint the expected delivery date. Due to the higher quality across the entire conversation, Model B was better. "
+      },
+      "setupCheck": {
+       "value": true
+      },
+      "targetLanguage": {
+       "value": "English"
+      }
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warnings": []
+  }
+ },
+ {
+  "name": "GOLDEN 1271348 (defective task) fails: debug and saved page are different conversations",
+  "conversationData": {
+   "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+     "batchId": 8723,
+     "batchName": "Batch-1",
+     "projectId": 948,
+     "projectName": "0909 Yakitori vs Prod (en-US)",
+     "revisionId": null
+    }
+   },
+   "conversation": {
+    "input": {
+     "Additional Rater Instruction": "Multi Turn Conversation",
+     "First Model": "Mode 23 -> Prod Frozen - Fast",
+     "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+     "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+     "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+     "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+     "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+     "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+     "L1: Use Case - Short": "Recommendation",
+     "L2: Sub-Use Case": "Discovery",
+     "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+     "Model A": "Mode 23 -> Yakitori - Fast",
+     "Model A HTML NAME": "M1_D1_104",
+     "Model B": "Mode 23 -> Prod Frozen - Fast",
+     "Model B HTML NAME": "M2_D1_104",
+     "Prompt Example": "• What headphones should I buy?\n• Could you suggest where I should go for a quick getaway?\n• What should I watch tonight?\n• What mentorship program should I join?\n• Is there a good workout I should start with?\n• What course should I take to learn coding?\n• What should I cook tonight?\n• hmm where should I put my savings?\n• Know of any good free legal resources for me?\n• Got any first date ideas for me and Sarah?\n• How can I cut down on my energy bills?\n• What hobby should I try next?",
+     "Prompt Type": "Explicit Without Source",
+     "__originalKeyOrder": [
+      "Gemini Access Link",
+      "Gemini Conversation History",
+      "Gemini Conversation History Instructions",
+      "Google Drive Link (HTML)",
+      "Google Drive Link (Debug Info)",
+      "Google Drive Link Instructions",
+      "Model A",
+      "Model A HTML NAME",
+      "Model B",
+      "Model B HTML NAME",
+      "First Model",
+      "Prompt Type",
+      "L1: Use Case - Short",
+      "L2: Sub-Use Case",
+      "L2: Sub-Use Case (extended definition)",
+      "Additional Rater Instruction",
+      "Prompt Example",
+      "metadata",
+      "modelConfig"
+     ],
+     "metadata": {
+      "batchId": 8723,
+      "batchName": "Batch-1",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)"
+     },
+     "modelConfig": {
+      "conversation_id": 1271348,
+      "labeling_tool_url": "https://labeling-g.turing.com"
+     }
+    },
+    "formStage": null,
+    "ratings": {
+     "bp1": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T09:08:53.027Z",
+       "locked": true
+      }
+     },
+     "bp2": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T10:05:38.877Z",
+       "locked": true
+      }
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/1cRoEmiLbN0UxbA787R62-i7DKmxVAMEK/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Response Preference)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "Minor issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+      "value": "Under-clarification"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "Minor issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+      "value": [
+       "Missed life context"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "Minor issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+      "value": [
+       "Cherrypicked details"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+      "value": "Somewhat"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "Minor issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+      "value": [
+       "Used wrong personal info"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Somewhat satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Somewhat satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "It would be better to retrieve the context which is also related to the user's ML/ engineering background and learning goals in turn 1 ."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "The response is relevant to my question and gives a clear recommendation to focus on MLOps and production engineering. One flaw is that it may be too focused on MLOps without considering my current skill level or other important ML engineering skills. A better version could mention my background so the recommendation can be more personalized. https://drive.google.com/file/d/1SJGYf9mOdekCVBuHX3NlKCVIkhvlXdnj/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "The response is relevant and gives a useful list of MLOps tools to focus on. One flaw is that the debug info retrieves a lot of unrelated personal profile and shopping data, which isn't needed for this question. It would be better to use only relevant technical context, such as the user's current MLOps experience and tools we already know to personalize the answer. https://drive.google.com/file/d/1FD4nNIEFMdZpgQQo4n3WrxlqgPy62Z_R/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/1MdmWMT7FVguRSm8gJDUy_St5EwFwFtek/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Response Preference)"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "Minor issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+      "value": "Under-clarification"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "Minor issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+      "value": [
+       "Missed life context"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "Minor issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+      "value": [
+       "Tunnel vision"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+      "value": "Not at all"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+      "value": [
+       "1"
+      ]
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Somewhat satisfied"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+      "value": "Somewhat satisfied"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+      "value": "The model narrowly focused on one thing about MLOps in turn 1 when my question is about machine learning engineer skills"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+      "value": "The model gives a relevant recommendation for becoming a ML engineer, but the debug info retrieves far more personal profile data than needed, including financial, travel, and shopping details. This could lead to irrelevant personalization or incorrect inference. it should mainly ise relevant technical experience and ML-related background. https://drive.google.com/file/d/1cge1FYcPNH8QxxwUBQhJyEkeOCiSxxeu/view?usp=drive_link"
+     },
+     "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+      "value": "The response is relevant and provides a clear, practical list of MLOps tools with their use cases. The main issue is that the debug info retrieves unrelated personal data, even though it does not appear to affect the final answer. https://drive.google.com/file/d/11cjmg-tsEDikTBZg-ytn0kMqrYzRKu_C/view?usp=drive_link"
+     },
+     "compareModels.__config__": {
+      "value": {
+       "locked": true
+      }
+     },
+     "conversationalGoal": {
+      "value": "To help me choose a skill to learn and create a simple learning plan that i can follow."
+     },
+     "dialect": {
+      "value": "United States"
+     },
+     "firstModel": {
+      "value": "Mode 23 -> Prod Frozen - Fast"
+     },
+     "personalizationExpectation": {
+      "value": "Somewhat — Personal touches would help, but aren't essential."
+     },
+     "preQuestionsBreakpoint": {
+      "value": {
+       "lastSubmittedAt": "2026-09-10T09:57:46.308Z",
+       "locked": true
+      }
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "prompt": {
+      "value": "What skill should i learn this year if I'm trying to become a machine learning engineer ? "
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A and B were about the same"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "The response is good, but it focuses too much on MLOps and doesn't cover other important skills needed for an ML engineering role. "
+     },
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "English"
+     }
+    }
+   },
+   "raw_data": {
+    "metadata": {
+     "turing_task_url": null,
+     "scope_requirements": {
+      "batchId": 8723,
+      "batchName": "Batch-1",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+     }
+    },
+    "model_config": {
+     "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+     "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Recommendation",
+      "L2: Sub-Use Case": "Discovery",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_104",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_104",
+      "Prompt Example": "• What headphones should I buy?\n• Could you suggest where I should go for a quick getaway?\n• What should I watch tonight?\n• What mentorship program should I join?\n• Is there a good workout I should start with?\n• What course should I take to learn coding?\n• What should I cook tonight?\n• hmm where should I put my savings?\n• Know of any good free legal resources for me?\n• Got any first date ideas for me and Sarah?\n• How can I cut down on my energy bills?\n• What hobby should I try next?",
+      "Prompt Type": "Explicit Without Source",
+      "__originalKeyOrder": [
+       "Gemini Access Link",
+       "Gemini Conversation History",
+       "Gemini Conversation History Instructions",
+       "Google Drive Link (HTML)",
+       "Google Drive Link (Debug Info)",
+       "Google Drive Link Instructions",
+       "Model A",
+       "Model A HTML NAME",
+       "Model B",
+       "Model B HTML NAME",
+       "First Model",
+       "Prompt Type",
+       "L1: Use Case - Short",
+       "L2: Sub-Use Case",
+       "L2: Sub-Use Case (extended definition)",
+       "Additional Rater Instruction",
+       "Prompt Example",
+       "metadata",
+       "modelConfig"
+      ],
+      "metadata": {
+       "batchId": 8723,
+       "batchName": "Batch-1",
+       "projectId": 948,
+       "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+       "conversation_id": 1271348,
+       "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+     },
+     "formStage": null,
+     "ratings": {
+      "bp1": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T09:08:53.027Z",
+        "locked": true
+       }
+      },
+      "bp2": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T10:05:38.877Z",
+        "locked": true
+       }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1cRoEmiLbN0UxbA787R62-i7DKmxVAMEK/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Response Preference)"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+       "value": "Under-clarification"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+       "value": [
+        "Missed life context"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+       "value": [
+        "Cherrypicked details"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+       "value": "Somewhat"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+       "value": [
+        "Used wrong personal info"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+       "value": "It would be better to retrieve the context which is also related to the user's ML/ engineering background and learning goals in turn 1 ."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+       "value": "The response is relevant to my question and gives a clear recommendation to focus on MLOps and production engineering. One flaw is that it may be too focused on MLOps without considering my current skill level or other important ML engineering skills. A better version could mention my background so the recommendation can be more personalized. https://drive.google.com/file/d/1SJGYf9mOdekCVBuHX3NlKCVIkhvlXdnj/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+       "value": "The response is relevant and gives a useful list of MLOps tools to focus on. One flaw is that the debug info retrieves a lot of unrelated personal profile and shopping data, which isn't needed for this question. It would be better to use only relevant technical context, such as the user's current MLOps experience and tools we already know to personalize the answer. https://drive.google.com/file/d/1FD4nNIEFMdZpgQQo4n3WrxlqgPy62Z_R/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1MdmWMT7FVguRSm8gJDUy_St5EwFwFtek/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Response Preference)"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+       "value": "Under-clarification"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+       "value": [
+        "Missed life context"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+       "value": [
+        "Tunnel vision"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+       "value": "Not at all"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+       "value": "The model narrowly focused on one thing about MLOps in turn 1 when my question is about machine learning engineer skills"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+       "value": "The model gives a relevant recommendation for becoming a ML engineer, but the debug info retrieves far more personal profile data than needed, including financial, travel, and shopping details. This could lead to irrelevant personalization or incorrect inference. it should mainly ise relevant technical experience and ML-related background. https://drive.google.com/file/d/1cge1FYcPNH8QxxwUBQhJyEkeOCiSxxeu/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+       "value": "The response is relevant and provides a clear, practical list of MLOps tools with their use cases. The main issue is that the debug info retrieves unrelated personal data, even though it does not appear to affect the final answer. https://drive.google.com/file/d/11cjmg-tsEDikTBZg-ytn0kMqrYzRKu_C/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+       "value": {
+        "locked": true
+       }
+      },
+      "conversationalGoal": {
+       "value": "To help me choose a skill to learn and create a simple learning plan that i can follow."
+      },
+      "dialect": {
+       "value": "United States"
+      },
+      "firstModel": {
+       "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+       "value": "Somewhat — Personal touches would help, but aren't essential."
+      },
+      "preQuestionsBreakpoint": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T09:57:46.308Z",
+        "locked": true
+       }
+      },
+      "privacyGate": {
+       "value": true
+      },
+      "prompt": {
+       "value": "What skill should i learn this year if I'm trying to become a machine learning engineer ? "
+      },
+      "qualityComparisonSxS": {
+       "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+       "value": "The response is good, but it focuses too much on MLOps and doesn't cover other important skills needed for an ML engineering role. "
+      },
+      "setupCheck": {
+       "value": true
+      },
+      "targetLanguage": {
+       "value": "English"
+      }
+     }
+    }
+   },
+   "task_data": {
+    "metadata": {
+     "turing_task_url": null,
+     "scope_requirements": {
+      "batchId": 8723,
+      "batchName": "Batch-1",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+     }
+    },
+    "model_config": {
+     "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+     "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Prod Frozen - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Recommendation",
+      "L2: Sub-Use Case": "Discovery",
+      "L2: Sub-Use Case (extended definition)": "The user asks Gemini to generate or surface new options the user hasn't yet identified, personalized to their situation.\n\nBoundary: Gemini generates the candidate set — the user has not provided specific options to evaluate (→ Evaluation). The output is a list of concrete, choosable entities, not open-ended advice (→ Advice & Perspective) or a general explanation (→ Explanation).\n\nThe ultimate test: Is the user saying \"suggest things for me\" rather than \"judge these specific things\"?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_104",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_104",
+      "Prompt Example": "• What headphones should I buy?\n• Could you suggest where I should go for a quick getaway?\n• What should I watch tonight?\n• What mentorship program should I join?\n• Is there a good workout I should start with?\n• What course should I take to learn coding?\n• What should I cook tonight?\n• hmm where should I put my savings?\n• Know of any good free legal resources for me?\n• Got any first date ideas for me and Sarah?\n• How can I cut down on my energy bills?\n• What hobby should I try next?",
+      "Prompt Type": "Explicit Without Source",
+      "__originalKeyOrder": [
+       "Gemini Access Link",
+       "Gemini Conversation History",
+       "Gemini Conversation History Instructions",
+       "Google Drive Link (HTML)",
+       "Google Drive Link (Debug Info)",
+       "Google Drive Link Instructions",
+       "Model A",
+       "Model A HTML NAME",
+       "Model B",
+       "Model B HTML NAME",
+       "First Model",
+       "Prompt Type",
+       "L1: Use Case - Short",
+       "L2: Sub-Use Case",
+       "L2: Sub-Use Case (extended definition)",
+       "Additional Rater Instruction",
+       "Prompt Example",
+       "metadata",
+       "modelConfig"
+      ],
+      "metadata": {
+       "batchId": 8723,
+       "batchName": "Batch-1",
+       "projectId": 948,
+       "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+       "conversation_id": 1271348,
+       "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+     },
+     "formStage": null,
+     "ratings": {
+      "bp1": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T09:08:53.027Z",
+        "locked": true
+       }
+      },
+      "bp2": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T10:05:38.877Z",
+        "locked": true
+       }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1cRoEmiLbN0UxbA787R62-i7DKmxVAMEK/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Response Preference)"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+       "value": "Under-clarification"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+       "value": [
+        "Missed life context"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+       "value": [
+        "Cherrypicked details"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+       "value": "Somewhat"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory": {
+       "value": [
+        "Used wrong personal info"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+       "value": "It would be better to retrieve the context which is also related to the user's ML/ engineering background and learning goals in turn 1 ."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+       "value": "The response is relevant to my question and gives a clear recommendation to focus on MLOps and production engineering. One flaw is that it may be too focused on MLOps without considering my current skill level or other important ML engineering skills. A better version could mention my background so the recommendation can be more personalized. https://drive.google.com/file/d/1SJGYf9mOdekCVBuHX3NlKCVIkhvlXdnj/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+       "value": "The response is relevant and gives a useful list of MLOps tools to focus on. One flaw is that the debug info retrieves a lot of unrelated personal profile and shopping data, which isn't needed for this question. It would be better to use only relevant technical context, such as the user's current MLOps experience and tools we already know to personalize the answer. https://drive.google.com/file/d/1FD4nNIEFMdZpgQQo4n3WrxlqgPy62Z_R/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+       "value": "https://drive.google.com/file/d/1MdmWMT7FVguRSm8gJDUy_St5EwFwFtek/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+       "value": [
+        "Personalized (Response Preference)"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationCategory": {
+       "value": "Under-clarification"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1ClarificationTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextCategory": {
+       "value": [
+        "Missed life context"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContextTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+       "value": "Minor issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationCategory": {
+       "value": [
+        "Tunnel vision"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationDetraction": {
+       "value": "Not at all"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalizationTurns": {
+       "value": [
+        "1"
+       ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+       "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+       "value": "2"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+       "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+       "value": "Somewhat satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+       "value": "The model narrowly focused on one thing about MLOps in turn 1 when my question is about machine learning engineer skills"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+       "value": "The model gives a relevant recommendation for becoming a ML engineer, but the debug info retrieves far more personal profile data than needed, including financial, travel, and shopping details. This could lead to irrelevant personalization or incorrect inference. it should mainly ise relevant technical experience and ML-related background. https://drive.google.com/file/d/1cge1FYcPNH8QxxwUBQhJyEkeOCiSxxeu/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+       "value": "The response is relevant and provides a clear, practical list of MLOps tools with their use cases. The main issue is that the debug info retrieves unrelated personal data, even though it does not appear to affect the final answer. https://drive.google.com/file/d/11cjmg-tsEDikTBZg-ytn0kMqrYzRKu_C/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+       "value": {
+        "locked": true
+       }
+      },
+      "conversationalGoal": {
+       "value": "To help me choose a skill to learn and create a simple learning plan that i can follow."
+      },
+      "dialect": {
+       "value": "United States"
+      },
+      "firstModel": {
+       "value": "Mode 23 -> Prod Frozen - Fast"
+      },
+      "personalizationExpectation": {
+       "value": "Somewhat — Personal touches would help, but aren't essential."
+      },
+      "preQuestionsBreakpoint": {
+       "value": {
+        "lastSubmittedAt": "2026-09-10T09:57:46.308Z",
+        "locked": true
+       }
+      },
+      "privacyGate": {
+       "value": true
+      },
+      "prompt": {
+       "value": "What skill should i learn this year if I'm trying to become a machine learning engineer ? "
+      },
+      "qualityComparisonSxS": {
+       "value": "Conversation A and B were about the same"
+      },
+      "qualityComparisonSxSRationale": {
+       "value": "The response is good, but it focuses too much on MLOps and doesn't cover other important skills needed for an ML engineering role. "
+      },
+      "setupCheck": {
+       "value": true
+      },
+      "targetLanguage": {
+       "value": "English"
+      }
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "from two different conversations",
+    "holds the link plus other text",
+    "never explains"
+   ],
+   "warningsContain": [
+    "in words, but not in the square-bracket form",
+    "rated as about the same, but the per-model ratings differ"
+   ]
+  }
+ }
+]

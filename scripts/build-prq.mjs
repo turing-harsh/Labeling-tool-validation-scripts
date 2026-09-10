@@ -15,19 +15,21 @@
 // declare as proven facts, so a config revision that breaks an assumption fails the build
 // instead of silently disabling a check.
 //
-// Re-run after editing any source:  node scripts/build-941.mjs
+// Re-run after editing any source:  node scripts/build-prq.mjs
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const P941 = join(root, "instances", "labeling-g", "projects", "941-prq-e2e-eval-es-419");
-const P942 = join(root, "instances", "labeling-g", "projects", "942-prq-e2e-eval-zh-cn");
-const die = (m) => { console.error("build-941 FAILED: " + m); process.exit(1); };
+const PROJ = (slug) => join(root, "instances", "labeling-g", "projects", slug);
+const P941 = PROJ("941-prq-e2e-eval-es-419");
+const P942 = PROJ("942-prq-e2e-eval-zh-cn");
+const P948 = PROJ("948-yakitori-vs-prod-en-us");
+const die = (m) => { console.error("build-prq FAILED: " + m); process.exit(1); };
 const note = (m) => console.log("  note: " + m);
 
-const VERSION = "1.0.0";
+const VERSION = "1.1.0";
 
 // ---------------------------------------------------------------- derive spec
 function deriveSpec(configPath, expectProjectId) {
@@ -80,7 +82,11 @@ function deriveSpec(configPath, expectProjectId) {
   const gates = [];
   for (const f of fields) {
     const dc = f.displayCondition;
-    if (!dc || !f.key) continue;
+    if (!f.key) continue;
+    // A BOOLEAN displayCondition is "always/never shown", not a gate -- 948's setupCheck carries
+    // `false`. Skip it rather than letting it reach the clause parser, which would die on it.
+    if (typeof dc === "boolean") { if (dc === true) note(`"${f.key}" has displayCondition true (always shown); not a gate.`); continue; }
+    if (!dc) continue;
     const clauses = Array.isArray(dc.or) ? dc.or : (dc["=="] ? [dc] : null);
     if (!clauses) die(`unreadable displayCondition on "${f.key}": ${JSON.stringify(dc)}`);
     let parent = null; const values = [];
@@ -188,22 +194,24 @@ function deriveSpec(configPath, expectProjectId) {
 }
 
 // ---------------------------------------------------------------- assertions
-function assertFacts(spec) {
+function assertFacts(spec, X) {
   const a = (cond, msg) => { if (!cond) die(msg); };
   // Fact 4 / §9 row 1
-  a(spec.perSide.length === 51, `expected 51 per-side keys (Fact 4), found ${spec.perSide.length}.`);
+  a(spec.perSide.length === X.perSide, `expected ${X.perSide} per-side keys, found ${spec.perSide.length}.`);
   // Fact 4 counts 13 top-level keys: the 10 ANSWERABLE task fields plus the 3 breakpoints
   // (bp1, preQuestionsBreakpoint, bp2), with compareModels excluded. taskFields holds only the
   // answerable ten -- breakpoints carry no answer and are never checked for presence.
-  a(spec.taskFields.length === 10, `expected 10 answerable task-level keys, found ${spec.taskFields.length}: ${spec.taskFields.join(", ")}`);
-  const bpCount = spec.keyUniverse.filter((k) => spec.types[k] === "BREAKPOINT").length;
-  a(spec.taskFields.length + bpCount === 13, `expected 13 top-level keys besides compareModels (Fact 4), found ${spec.taskFields.length} answerable + ${bpCount} breakpoints.`);
-  a(spec.perSide.length + spec.taskFields.length + bpCount + 1 === spec.keyUniverse.length,
-    `field accounting does not close: ${spec.perSide.length} per-side + ${spec.taskFields.length} task + ${bpCount} breakpoints + 1 compareModels != ${spec.keyUniverse.length} total.`);
+  a(spec.taskFields.length === X.taskFields, `expected ${X.taskFields} answerable task-level keys, found ${spec.taskFields.length}: ${spec.taskFields.join(", ")}`);
+  if (!spec.bootstrappedFrom) {
+    const bpCount = spec.keyUniverse.filter((k) => spec.types[k] === "BREAKPOINT").length;
+    a(spec.taskFields.length + bpCount === X.topLevel, `expected ${X.topLevel} top-level keys besides compareModels, found ${spec.taskFields.length} answerable + ${bpCount} breakpoints.`);
+    a(spec.perSide.length + spec.taskFields.length + bpCount + 1 === spec.keyUniverse.length,
+      `field accounting does not close: ${spec.perSide.length} per-side + ${spec.taskFields.length} task + ${bpCount} breakpoints + 1 compareModels != ${spec.keyUniverse.length} total.`);
+  }
   // Fact 9 / F1-03
   a(spec.heads.length === 10, `expected 10 rubric severity heads (Fact 9), found ${spec.heads.length}: ${spec.heads.join(", ")}`);
   // Fact 10 / F2-06
-  a(spec.i18nHeads.length === 4, `expected 4 i18n heads (Fact 10), found ${spec.i18nHeads.length}: ${spec.i18nHeads.join(", ")}`);
+  a(spec.i18nHeads.length === X.i18nHeads, `expected ${X.i18nHeads} i18n heads, found ${spec.i18nHeads.length}: ${spec.i18nHeads.join(", ")}`);
   // Fact 9: NO Q1 gate on any head (the 939 condRef:triggering cascade is REMOVED-ON-FORK §4).
   const q1Gated = spec.gates.filter((g) => g.parent === spec.anchors.q1);
   a(q1Gated.length === 0, `a head is gated on Q1 (${q1Gated.map((g) => g.child).join(", ")}) -- §4 removed that cascade; re-add the check before shipping.`);
@@ -218,8 +226,10 @@ function assertFacts(spec) {
     a(spec.childrenOf[h] && spec.childrenOf[h].explanation, `i18n head "${h}" has no explanation child (F2-06).`);
   }
   // Fact 10: 8a has no N/A option.
-  const h8a = spec.i18nHeads.find((k) => (spec.options[k] || []).length === 3);
-  a(h8a, "expected one i18n head with no N/A option (Fact 10: 8a).");
+  if (X.i18nHeads > 0) {
+    const h8a = spec.i18nHeads.find((k) => (spec.options[k] || []).length === 3);
+    a(h8a, "expected one i18n head with no N/A option (Fact 10: 8a).");
+  }
   // F1-04 / F2-05
   a(spec.debugSlotKeys.length === 5, `expected 5 debug slots, found ${spec.debugSlotKeys.length}.`);
   // F5-04: firstModel enum is exactly the two configured names.
@@ -231,7 +241,7 @@ function assertFacts(spec) {
   // F2-07
   a(spec.gates.some((g) => g.child === "bp2" && g.parent === spec.anchors.turns),
     "bp2 no longer references the turn count (F2-07) -- update the log line.");
-  console.log(`  facts asserted: 51 per-side / 13 task / 10 heads / 4 i18n heads / 9+10+2 children / 5 debug slots / firstModel enum`);
+  console.log(`  facts asserted: ${X.perSide} per-side / ${X.taskFields} task / 10 heads / ${X.i18nHeads} i18n heads / 9+10+2 children / 5 debug slots / firstModel enum`);
 }
 
 // ---------------------------------------------------------------- compose
@@ -242,11 +252,11 @@ const L2_ENTRY = "async function validatePrqFetch(conversationData)";
 const CHECK_REGISTER = [
   "F1-01","F1-02","F1-03","F1-04","F1-05","F1-06","F1-07",
   "F2-01","F2-02","F2-03","F2-04","F2-05","F2-06","F2-07",
-  "F3-01","F3-02","F3-03","F3-04","F3-05","F3-06","F3-07","F3-08","F3-09","F3-10","F3-11",
+  "F3-01","F3-02","F3-03","F3-04","F3-05","F3-06","F3-07","F3-08","F3-09","F3-10","F3-11","F3-12","F3-13",
   "F4-A","F4-B","F4-C","F4-D","F4-E","F4-F","F4-G","F4-H",
-  "F5-01","F5-02","F5-03","F5-04","F5-05",
-  "F6-01","F6-02","F6-03","F6-04","F6-05","F6-06","F6-07","F6-08","F6-09","F6-10","F6-11",
-  "F7-01","F7-02","F7-03","F7-04",
+  "F5-01","F5-02","F5-03","F5-04","F5-05","F5-06","F5-07",
+  "F6-01","F6-02","F6-03","F6-04","F6-05","F6-06","F6-07","F6-08","F6-09","F6-10","F6-11","F6-12","F6-13",
+  "F7-01","F7-02","F7-03","F7-04","F7-05","F7-06",
 ];
 
 const asciiEscape = (s) => s.replace(/[^\x00-\x7E]/g, (ch) => {
@@ -298,9 +308,21 @@ function assertNoPhantomKeys(spec) {
   console.log(`  phantom keys: 0 (${seen.size} literal keys, ${usedAnchors.size} anchors referenced)`);
 }
 
-function buildOne({ dir, projectId, slug, displayName, locale, configPath, parityNote }) {
-  const spec = deriveSpec(configPath, projectId);
-  assertFacts(spec);
+function buildOne({ dir, projectId, slug, displayName, locale, configPath, specPath, expect, parityNote }) {
+  // A project builds from a RAW CONFIG EXPORT when one exists, and otherwise from a pre-derived
+  // form-spec bootstrapped out of a previously generated script. The second path is provisional
+  // by construction, so it says so loudly on every build and is stamped into the output header.
+  let spec;
+  if (configPath) {
+    spec = deriveSpec(configPath, projectId);
+  } else if (specPath && existsSync(specPath)) {
+    spec = JSON.parse(readFileSync(specPath, "utf8"));
+    spec.projectId = projectId;
+    note(`BOOTSTRAP: no config export for ${projectId}; tables loaded from ${specPath.split("/").slice(-1)[0]} (${spec.bootstrappedFrom || "provenance unrecorded"}). Re-derive and machine-diff when the export lands.`);
+  } else {
+    die(`project ${projectId} has neither a config export nor a pre-derived spec.`);
+  }
+  assertFacts(spec, expect);
   assertNoPhantomKeys(spec);
   writeFileSync(join(dir, "config", `form-spec-${projectId}.json`), JSON.stringify(spec, null, 1));
 
@@ -309,7 +331,7 @@ function buildOne({ dir, projectId, slug, displayName, locale, configPath, parit
     modelA: spec.modelA, modelB: spec.modelB,
     perSide: spec.perSide, taskFields: spec.taskFields,
     labels: spec.labels, options: spec.options, types: spec.types,
-    gates: spec.gates, heads: spec.heads, i18nHeads: spec.i18nHeads,
+    gates: spec.gates, heads: spec.heads, i18nHeads: spec.i18nHeads || [],
     childrenOf: spec.childrenOf, debugSlotKeys: spec.debugSlotKeys,
     anchors: spec.anchors,
     locale,                       // F7-01: supplied, never derived (no locale marker in config)
@@ -322,7 +344,7 @@ function buildOne({ dir, projectId, slug, displayName, locale, configPath, parit
 
   const HEADER = `// prq-validator-${projectId} v${VERSION} -- ${displayName} (project ${projectId}).
 //
-// GENERATED FILE -- do not edit by hand. Rebuild with: node scripts/build-941.mjs
+// GENERATED FILE -- do not edit by hand. Rebuild with: node scripts/build-prq.mjs
 // Composed from (both live in 941-prq-e2e-eval-es-419/, shared by 941 and 942):
 //   - parts/prq-checks.js        Layer L1, payload-only  -> validatePrqL1
 //   - parts/prq-fetch-checks.js  Layer L2, fetched Drive artifacts -> validatePrqFetch
@@ -384,15 +406,22 @@ async function validate(conversationData) {
 }
 
 // ---------------------------------------------------------------- run
+// One shared checks source, N sibling projects. Each entry says where its form tables come from
+// and what shape they must have; a config revision that breaks the shape fails the build rather
+// than silently disabling a check.
 const cfg941 = join(P941, "config", "project-config-id-941.json");
 const cfg942own = join(P942, "config", "project-config-id-942.json");
+const cfg948own = join(P948, "config", "project-config-id-948.json");
+
+const built = {};
 
 console.log("== 941 (es-419) ==");
-const s941 = buildOne({
+built[941] = buildOne({
   dir: P941, projectId: 941, slug: "941-prq-e2e-eval-es-419",
   displayName: "P13n Response Quality E2E Eval (es-419)",
   locale: { language: "Spanish", dialect: "LatAm (All Variants)" },
   configPath: cfg941,
+  expect: { perSide: 51, taskFields: 10, topLevel: 13, i18nHeads: 4 },
 });
 
 console.log("== 942 (zh-CN) ==");
@@ -400,12 +429,11 @@ let parityNote = null;
 let cfg942 = cfg941;
 if (existsSync(cfg942own)) {
   cfg942 = cfg942own;
-  // Escalation 11: machine-diff 942's config against 941's on receipt.
   const strip = (p) => {
-    const s = deriveSpec(p, 0);
-    return JSON.stringify({ modelA: s.modelA, modelB: s.modelB, perSide: s.perSide, taskFields: s.taskFields,
-      options: s.options, types: s.types, gates: s.gates, heads: s.heads, i18nHeads: s.i18nHeads,
-      childrenOf: s.childrenOf, debugSlotKeys: s.debugSlotKeys });
+    const x = deriveSpec(p, 0);
+    return JSON.stringify({ modelA: x.modelA, modelB: x.modelB, perSide: x.perSide, taskFields: x.taskFields,
+      options: x.options, types: x.types, gates: x.gates, heads: x.heads, i18nHeads: x.i18nHeads,
+      childrenOf: x.childrenOf, debugSlotKeys: x.debugSlotKeys });
   };
   const same = strip(cfg941) === strip(cfg942own);
   parityNote = same
@@ -421,8 +449,43 @@ buildOne({
   displayName: "P13n Response Quality E2E Eval (zh-CN)",
   locale: { language: "Chinese", dialect: "Mainland (Simplified)" },
   configPath: cfg942, parityNote,
+  expect: { perSide: 51, taskFields: 10, topLevel: 13, i18nHeads: 4 },
+});
+
+// 948 is the same form family with the LANGUAGE BLOCK REMOVED (43 per-side, 0 i18n heads), so
+// the shared parts' F2-06 / language checks self-disable off an empty CFG.i18nHeads with no code
+// branch. Its tables are bootstrapped from the previously pasted build until a config export
+// arrives -- see config/form-spec-948.json and the note the builder prints.
+console.log("== 948 (en-US) ==");
+// When the real export arrives, machine-diff it against the bootstrap that was recovered from the
+// pasted build -- otherwise "the bootstrap was right" stays a claim rather than a checked fact.
+let parity948 = "948 tables are BOOTSTRAPPED from the previously pasted build, not from a config export. Drop project-config-id-948.json into config/ and rebuild to re-derive them.";
+if (existsSync(cfg948own)) {
+  const bootPath = join(P948, "config", "form-spec-948.bootstrap.json");
+  if (existsSync(bootPath)) {
+    const boot = JSON.parse(readFileSync(bootPath, "utf8"));
+    const derived = deriveSpec(cfg948own, 948);
+    const shape = (x) => JSON.stringify({ modelA: x.modelA, modelB: x.modelB, perSide: x.perSide,
+      taskFields: x.taskFields, heads: x.heads, i18nHeads: x.i18nHeads || [], childrenOf: x.childrenOf,
+      debugSlotKeys: x.debugSlotKeys, gates: x.gates, options: x.options, types: x.types });
+    const same = shape(boot) === shape(derived);
+    console.log(`  bootstrap parity: ${same ? "IDENTICAL -- the recovered tables matched the real export" : "DIFFERS -- the real export wins; review what the bootstrap got wrong"}`);
+    parity948 = same
+      ? "948 tables derived from the config export; machine-diffed against the earlier bootstrap: IDENTICAL."
+      : "948 tables derived from the config export; they DIFFER from the earlier bootstrap (the export wins).";
+  } else {
+    parity948 = "948 tables derived from the config export.";
+  }
+}
+buildOne({
+  dir: P948, projectId: 948, slug: "948-yakitori-vs-prod-en-us",
+  displayName: "0909 Yakitori vs Prod (en-US)",
+  locale: { language: "English", dialect: "United States" },
+  configPath: existsSync(cfg948own) ? cfg948own : null,
+  specPath: join(P948, "config", "form-spec-948.bootstrap.json"),
+  parityNote: parity948,
+  expect: { perSide: 43, taskFields: 10, topLevel: 13, i18nHeads: 0 },
 });
 
 console.log(`\nchecks implemented: ${CHECK_REGISTER.length}`);
-console.log(`Model A (Test) = "${s941.modelA}"`);
-console.log(`Model B (Base) = "${s941.modelB}"`);
+console.log(`941/942  Test = "${built[941].modelA}"   Base = "${built[941].modelB}"`);

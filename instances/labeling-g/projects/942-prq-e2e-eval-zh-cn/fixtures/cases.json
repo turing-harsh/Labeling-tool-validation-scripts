@@ -8996,8 +8996,8 @@
    }
   },
   "expect": {
-   "pass": true,
-   "warningsContain": [
+   "pass": false,
+   "errorsContain": [
     "\"N/A\" is selected alongside specific turn numbers"
    ]
   }
@@ -9183,8 +9183,8 @@
    }
   },
   "expect": {
-   "pass": true,
-   "warningsContain": [
+   "pass": false,
+   "errorsContain": [
     "past the 2 turns"
    ]
   }
@@ -9380,9 +9380,12 @@
    }
   },
   "expect": {
-   "pass": true,
+   "pass": false,
    "warningsContain": [
     "does not reference any turn"
+   ],
+   "errorsContain": [
+    "never explains"
    ]
   }
  },
@@ -9949,8 +9952,8 @@
    }
   },
   "expect": {
-   "pass": true,
-   "warningsContain": [
+   "pass": false,
+   "errorsContain": [
     "this rating reports no issue"
    ]
   }
@@ -10149,8 +10152,8 @@
    }
   },
   "expect": {
-   "pass": true,
-   "warningsContain": [
+   "pass": false,
+   "errorsContain": [
     "was not personalized at all"
    ]
   }
@@ -10779,7 +10782,7 @@
       "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
      },
      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
-      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+      "value": "https://drive.google.com/file/d/HTML_T_1TURN/view?usp=sharing"
      },
      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
       "value": [
@@ -10823,7 +10826,7 @@
       "value": "Very satisfied"
      },
      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
-      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+      "value": "[Turn 1] the packing list matched my dates."
      },
      "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
       "value": "No Issues"
@@ -10847,7 +10850,7 @@
       "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
      },
      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
-      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+      "value": "https://drive.google.com/file/d/HTML_B_1TURN/view?usp=sharing"
      },
      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
       "value": [
@@ -10891,7 +10894,7 @@
       "value": "Very satisfied"
      },
      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
-      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+      "value": "[Turn 1] the list was accurate."
      },
      "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
       "value": "No Issues"
@@ -11474,8 +11477,8 @@
    }
   },
   "expect": {
-   "pass": true,
-   "warningsContain": [
+   "pass": false,
+   "errorsContain": [
     "not the language this project is assigned"
    ]
   }
@@ -12025,6 +12028,2442 @@
    }
   },
   "expect": {}
+ },
+ {
+  "name": "F3-12 debug and saved page are different conversations (session tokens disjoint)",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1_ORPHAN/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2_ORPHAN/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "from two different conversations"
+   ]
+  }
+ },
+ {
+  "name": "NEAR-MISS matching session tokens do not fire F3-12",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warnings": []
+  }
+ },
+ {
+  "name": "F3-13 saved page shows more turns than the side declares",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T_3TURNS/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "questions but this model declares"
+   ]
+  }
+ },
+ {
+  "name": "F5-01 one side's turns report two different agency config ids",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2_OTHERID/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "report 2 different models"
+   ]
+  }
+ },
+ {
+  "name": "F5-02 both models report the same agency config id",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1_SAMEID/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2_SAMEID/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "both models reports the same model"
+   ]
+  }
+ },
+ {
+  "name": "F5-06 debug and saved page report different models for one side",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T_AGBASE/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "produced by two different models"
+   ]
+  }
+ },
+ {
+  "name": "F6-12 turn flagged with an issue but never explained in the rationale",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "Minor issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+      "value": [
+       "Offensive / intrusive"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+      "value": [
+       "2"
+      ]
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "never explains"
+   ]
+  }
+ },
+ {
+  "name": "F6-05 rationale refers to the turn in words, not in brackets",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "The list was too generic in turn 1 and did not use my dates."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warningsContain": [
+    "in words, but not in the square-bracket form"
+   ]
+  }
+ },
+ {
+  "name": "F6-13 SxS says about the same while the ratings differ",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A and B were about the same"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "Minor issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] it felt intrusive. [Turn 2] fine."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafetyCategory": {
+      "value": [
+       "Offensive / intrusive"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafetyTurns": {
+      "value": [
+       "1"
+      ]
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warningsContain": [
+    "rated as about the same, but the per-model ratings differ"
+   ]
+  }
+ },
+ {
+  "name": "NEAR-MISS about-the-same with identical rating profiles does not fire F6-13",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A and B were about the same"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warnings": []
+  }
+ },
+ {
+  "name": "F7-03 full debug share carrying no personal context at all",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1_NOSRC/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T2/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warningsContain": [
+    "no personal information reached this model"
+   ]
+  }
+ },
+ {
+  "name": "NEAR-MISS single-turn side with no [Turn N] citation does not warn",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "1"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T_1TURN/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "The response answered the question correctly and used my saved dates."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "1"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B_1TURN/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "The response was accurate but a little long for the question."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": true,
+   "warnings": []
+  }
+ },
+ {
+  "name": "F6-04 still fires on a single-turn side citing turn 3",
+  "conversationData": {
+   "conversation": {
+    "ratings": {
+     "setupCheck": {
+      "value": true
+     },
+     "targetLanguage": {
+      "value": "Chinese"
+     },
+     "dialect": {
+      "value": "Mainland (Simplified)"
+     },
+     "prompt": {
+      "value": "What should I pack for my trip to Lisbon next week?"
+     },
+     "conversationalGoal": {
+      "value": "A packing list tailored to the Lisbon weather next week."
+     },
+     "personalizationExpectation": {
+      "value": "A lot — A generic answer would miss important things about my situation."
+     },
+     "firstModel": {
+      "value": "PContext Mode 23 (Nippon) > Mochi – Fast"
+     },
+     "qualityComparisonSxS": {
+      "value": "Conversation A was better"
+     },
+     "qualityComparisonSxSRationale": {
+      "value": "A used my saved trip dates; B asked me to repeat them."
+     },
+     "privacyGate": {
+      "value": true
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.numberOfTurns": {
+      "value": "1"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_T1/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_T_1TURN/view?usp=sharing"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 3] the list was wrong."
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.PContext Mode 23 (Nippon) > Mochi – Fast.secondModelLock": {
+      "value": true
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+      "value": "2"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B1/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+      "value": "https://drive.google.com/file/d/DBG_B2/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+      "value": "https://drive.google.com/file/d/HTML_B/view?usp=sharing"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+      "value": [
+       "Personalized (Personal Data)"
+      ]
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+      "value": "No issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+      "value": "Very satisfied"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+      "value": "[Turn 1] the packing list matched my dates. [Turn 2] the rain section was useful."
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.modelLanguageAdherence": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalGenderAgreement": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.grammaticalFormalityAndPoliteness": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.preservingTargetLanguageMeaning": {
+      "value": "No Issues"
+     },
+     "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+      "value": true
+     }
+    }
+   }
+  },
+  "expect": {
+   "pass": false,
+   "errorsContain": [
+    "past the 1 turn"
+   ]
+  }
  },
  {
   "name": "F3-09 REGRESSION bare-'>' Test name: correctly labelled page does NOT fire",

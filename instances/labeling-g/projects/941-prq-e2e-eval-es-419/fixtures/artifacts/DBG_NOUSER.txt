@@ -1,5 +1,4 @@
-Personal Context
-sian_profile { source: SEARCH }
+You're using the BAS->Agency path.
+Agency config id: "bard/gemini_chat/0.2.170-prod-p13n-memory-strike-0828-stm-v2p5-token-budget-rm-rrf-listwise-top-20-2d-bb-based"
 num_turns_read_from_footprints: 0
-Model ID: pcontext_mochi
-LM Prefix:
+LM prefix:

@@ -12,3 +12,4 @@
 | [944-i18n-continuity-zh-cn](projects/944-i18n-continuity-zh-cn/) | i18n continuity eval (zh-CN, 2-side SxS) — deterministic R/G/U/D/I/C/B | draft | raghav.k1@turing.com |
 | [941-prq-e2e-eval-es-419](projects/941-prq-e2e-eval-es-419/) | P13n response-quality eval (es-419, 2-side SxS) - F1-F7, config-derived | draft | harsh.a@turing.com |
 | [942-prq-e2e-eval-zh-cn](projects/942-prq-e2e-eval-zh-cn/) | P13n response-quality eval (zh-CN, 2-side SxS) - shares 941's checks source | draft | harsh.a@turing.com |
+| [948-yakitori-vs-prod-en-us](projects/948-yakitori-vs-prod-en-us/) | 0909 Yakitori vs Prod (en-US) - shares 941/942 checks source; no language block | ready-to-deploy | harsh.a@turing.com |

@@ -1,0 +1,132 @@
+# Project metadata -- keep in sync with the live tool.
+instance: labeling-g
+slug: 948-yakitori-vs-prod-en-us
+display_name: "0909 Yakitori vs Prod (en-US)"
+task_type: model-comparison-personalization (2-side SxS, 1-5 turns per side)
+language: en-US
+owner: harsh.a@turing.com
+tool_url: https://labeling-g.turing.com/projects/948/view/quality
+tool_project_id: 948
+review_criteria_id: 3787
+status: ready-to-deploy           # 2 real-data fixtures green; both golden tasks behave as intended
+
+deployed:
+  version: 0                      # bump to 1 after the first paste into the tool
+  date:
+  by:
+  commit:
+
+script:
+  version: 1.2.0
+  generated: true                 # validation.js is BUILT -- do not hand-edit
+  build: node scripts/build-prq.mjs        # builds 941, 942 AND 948 from one checks source
+  composed_from:
+    - 948-yakitori-vs-prod-en-us/config/project-config-id-948.json   # real export (rc 3787, 57 fields)
+    - 941-prq-e2e-eval-es-419/parts/prq-checks.js               # Layer L1 -> validatePrqL1
+    - 941-prq-e2e-eval-es-419/parts/prq-fetch-checks.js         # Layer L2 -> validatePrqFetch
+  spec: requirements.md
+  notes_v1_2_0: |
+    SEVERITY REVIEW. Errors block, warnings suggest -- every warning site was reviewed against
+    "deterministic AND rater-fixable AND the data is otherwise contradictory or unusable".
+    PROMOTED TO ERROR (11 sites): F7-01 x4 (locale vs project/batch -- lead ruling that the
+    locale is a hard per-project assignment, settling escalation 6), F6-03 (N/A mixed with turn
+    numbers), F6-04 (rationale cites a turn above the declared count), F6-12 (a flagged turn
+    never explained -- the doc requires the explanation), F6-07 (4a sensitive-info vs 5a),
+    F6-08 (Not Personalized vs an over-personalization issue), F3-01 (non-Drive link -- the
+    artifact cannot be read at all), F3-12 partial (page missing some of the debug's turns).
+    STAYING WARNINGS and why: F6-05 is format only and F6-12 already blocks the case that loses
+    information; F6-13 is a legitimate judgment call; F6-10 is allowed by the doc; F4-B is
+    probabilistic; F4-G/H are drifted signals; F3-04 still yields usable content; F5-03 needs a
+    populated identity table; F6-06 rests on unresolved escalations 7/13; F7-03 has never fired
+    on real data.
+    ALSO: F6-11's regex was tightened to the bracketed substitution form -- the old pattern
+    fired on legitimate prompts like "How do I redact a PDF?" (verified) -- and kept as a
+    warning.
+    CONSEQUENCE to watch: golden task 1271588 is otherwise clean work but now FAILS on the
+    dialect alone (India on an en-US project, no dialect column in the batch to arbitrate). If
+    the batch legitimately spans English dialects, widen CFG.locale in scripts/build-prq.mjs
+    rather than softening F7-01.
+  notes_v1_1_2: |
+    Third golden task (1271588, a clean SINGLE-TURN task) exposed two problems, both fixed:
+      * F6-05/F6-12 warned on both sides of a well-executed task purely because its rationales
+        lacked a "[Turn 1]" bracket -- on a one-turn conversation the citation disambiguates
+        nothing. Both now self-skip when a side declares exactly one turn. F6-04 (a citation
+        ABOVE the declared count) is deliberately not relieved.
+      * The test harness silently IGNORED `expect.warnings`, so every
+        `{ pass: true, warnings: [] }` near-miss case -- including the load-bearing "clean task,
+        zero warnings" assertion -- was only asserting "no errors". A check that warned where it
+        should have stayed quiet passed its own regression test. scripts/run-tests.mjs now
+        handles expect.warnings symmetrically with expect.errors; verified by asserting zero
+        warnings on a case that does warn and confirming it fails. All 80 existing cases still
+        pass under the stricter runner, so the near-misses were genuinely clean.
+    1271588 added as a third real-data fixture. Its remaining dialect warning is genuine: the
+    project is named en-US but the task legitimately evaluates an India-context prompt, and the
+    batch ships no dialect column -- see requirements.md section 6.
+  notes_v1_1_1: |
+    Config export received; 948 now builds from project-config-id-948.json instead of the
+    bootstrap (parity: IDENTICAL -- no table changed, so no check behaviour changed). Model pair
+    confirmed byte-exact: Test "Mode 23 -> Yakitori - Fast", Base "Mode 23 -> Prod Frozen - Fast",
+    both plain ASCII arrows. Builder hardened for a BOOLEAN displayCondition -- 948's setupCheck
+    carries `false`, which is "never shown" rather than a gate; a `true` would previously have
+    reached the clause parser and failed the build.
+  notes_v1_1_0: |
+    Rebuilt after golden task 1271348 returned PASS while carrying a blocking defect, and golden
+    task 1271273 -- a well-executed task -- returned the same verdict. Root causes and the full
+    check list are in requirements.md sections 3 and 4. Headlines:
+      * F3-12 (new, ERROR): a side's debug llmdebugger session tokens must appear on that side's
+        own saved page. This is what 1271348 was hiding -- the Prod Frozen debug and page are two
+        different conversations, tokens completely disjoint, while all four side-instances on the
+        clean task match exactly. Text checks could never see it because the saved page embeds
+        the debug dump verbatim.
+      * F5 re-keyed onto "Agency config id". Mode 23 emits NO "Model ID:" line at all, so the
+        whole identity family had been dormant on every task since launch and a swapped debug
+        pair passed silently. Adds F5-06 (debug vs page agency) and F5-07 (decisive swap).
+      * F3-08/F3-10 now read the VISIBLE conversation (<user-query>/<model-response>) instead of
+        whole-page text, which included the embedded debug dump and made them unfailable.
+      * F7-03 re-derived: the inherited expected-source list appears in no Mode 23 capture, and
+        the sources that do appear vary by task because they reflect what the query retrieved.
+        Only "a FULL share with no personal context at all" is a finding now. Found because the
+        clean task must pass with ZERO warnings -- it was warning on both tasks.
+      * F3-01 raised to ERROR (1271273 holds link-only in all four debug slots, so commentary
+        there is a rater deviation, not the protocol). F6-05 reworded, F6-12/F6-13/F7-05/F7-06
+        added. Slice detection no longer matches the "enable_sian_profile: true" config flag.
+
+coverage: |
+  61 checks, build-asserted one call site each: F1-01..07, F2-01..07, F3-01..13, F4-A..H,
+  F5-01..07, F6-01..13, F7-01..06. F2-06 and the language family self-disable off an empty
+  CFG.i18nHeads -- 948's form has no language block, and that needs no code branch because every
+  table is config-derived.
+
+  Fixtures are the two REAL golden tasks, not mocks (fixtures/artifacts symlinks golden/artifacts):
+  1271273 must PASS with zero warnings, 1271348 must FAIL naming the conversation mismatch.
+  Reversion-checked: neutering F3-12 fails both that fixture and 941's synthetic one.
+
+shape: |
+  Per-side answers namespaced compareModels.<model name>.<questionKey>; 43 per-side keys,
+  10 answerable task keys, 3 breakpoints, 10 severity heads, 0 i18n heads, 5 debug slots.
+  Test = model_A = "Mode 23 -> Yakitori - Fast"
+  Base = model_B = "Mode 23 -> Prod Frozen - Fast"
+  Sides bind by EXACT canonical match of the namespace to a configured model name. Batch metadata
+  at conversation.input carries Model A/B, First Model, Prompt Type, Additional Rater Instruction,
+  Model A/B HTML NAME, and SEPARATE destination folders for debug and HTML.
+
+open_at_deploy: |
+  * (CLOSED 10 Sep 2026) The config export arrived. Tables are now DERIVED from
+    config/project-config-id-948.json (rc 3787, 57 fields). The bootstrap previously recovered
+    from the pasted script was machine-diffed against it: IDENTICAL across model names, per-side
+    keys, task fields, heads, children, debug slots, gates, options and types. The recovered
+    tables are retained at config/form-spec-948.bootstrap.json and the builder re-runs the diff
+    on every build, so the recovery stays auditable rather than merely asserted.
+  * The identity table ships EMPTY; both agency ids are logged every run (F5-03). Populate from a
+    clean batch, then promote F5-03 from log to warning.
+  * The service-account address in the sharing fix text is still "beling-tool-g-svc@..." -- the
+    suspected truncation of "labeling-tool-g-svc@...", inherited from 903/939 and unresolved.
+    ONE constant per part. (The local fetch helper authenticates as "labeling-local-dev@..." --
+    a different account, and not evidence either way.)
+  * F4-G/H fires on 1271348: footprints suggest the models ran in the opposite order to the one
+    recorded. Left a warning; may be the same re-run F3-12 caught.
+
+notes: |
+  948 shares ONE checks source with 941 and 942, under 941-prq-e2e-eval-es-419/parts/. That is
+  deliberate: a _shared/ directory would sit in projects/ without a validation.js and break
+  scripts/run-tests.mjs's project iteration. Edit the parts, then rebuild all three.
