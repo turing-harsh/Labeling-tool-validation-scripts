@@ -441,3 +441,47 @@ displayed text. Accepted cost: `re-sign`/`resign` and `co-op`/`coop` also collap
 against blocking every task where a rater typed a hyphen differently.
 
 Pinned by the real golden plus a synthetic near-miss; reverting the fold fails both.
+
+### 10.8 An 18 MB saved page killed the isolate — whole-blob entity decoding (10 Sep 2026)
+
+948/1271432 failed with `Validation failed: Promise was abandoned` (check key `scriptExecution`).
+That is not a check firing: it is `isolated-vm` disposing the isolate on its **256 MB** limit,
+which rejects the still-pending `Promise.allSettled` over the fetches — so the error surfaces at
+the fetch rather than at the allocation that actually killed the run.
+
+The task is a size outlier. Its two saved pages are **18.54 MB and 17.41 MB**; every other
+golden task on 948 carries pages of 2.1–2.6 MB:
+
+| task | links | artifact bytes | largest page | peak RSS before | after |
+|---|---|---|---|---|---|
+| 1271273 | 6 | 6.27 MB | 2.55 MB | 230 MB | 140 MB |
+| 1271348 | 6 | 5.18 MB | 2.32 MB | — | — |
+| **1271432** | 6 | **36.68 MB** | **18.54 MB** | **1154 MB** | **236 MB** |
+
+The reduce-on-arrival discipline inherited from 944 v2.0.4 was already in place and was not the
+problem. One extractor bypassed it: `extractSessionTokens` ran
+`decodeEntities(rawStr(blob))` over the **whole page** before matching. `decodeEntities` is six
+chained `.replace()` calls, so each call materialised six successive full-size copies —
+measured **185 MB of heap for a single 18.5 MB page**, against ~0 MB for every other extractor
+(`countFFFD`, `hashOf`, `extractAgencyIds`, `extractVisiblePrompts`, `extractVisibleResponses`).
+Two pages per task, and the isolate is gone before a check runs.
+
+The fix scans the **raw** blob and decodes only each captured token. Decoding could never have
+changed the capture: the token's character class already stops at `&`, so an entity in or
+around the URL terminates it identically either way. Verified token-for-token identical against
+all 28 cached artifacts across 941/942/948, and every golden finding in the three projects is
+byte-identical before and after.
+
+**Standing rule for this layer: never transform a fetched blob whole.** Match on the raw bytes
+and transform only what you captured, or work from a bounded `slice`. The existing bounded reads
+(`slice(0, 4096)` for the HTML marker test, `slice(0, 200000)` for the Gemini-page markers,
+`HTML_TEXT_CAP` for the retained visible conversation) are the pattern to follow.
+
+**Headroom is adequate, not generous.** At 236 MB peak, roughly 176 MB is the irreducible cost
+of holding 36.68 MB of fetched text; the script's own work is now ~60 MB. All six artifacts are
+co-resident because they are fetched concurrently. If a task appears that is larger again, the
+next lever is to reduce each blob to its projections inside the promise chain as it settles —
+buffering that slot's findings so replay order stays deterministic — which would cut peak to one
+page plus the projections. Worth asking the lead separately whether an 18.5 MB page is even
+intended: 7x the other tasks suggests "Webpage, Complete" with inlined resources rather than the
+expected export.

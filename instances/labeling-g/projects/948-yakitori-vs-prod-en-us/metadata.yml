@@ -25,6 +25,22 @@ script:
     - 941-prq-e2e-eval-es-419/parts/prq-checks.js               # Layer L1 -> validatePrqL1
     - 941-prq-e2e-eval-es-419/parts/prq-fetch-checks.js         # Layer L2 -> validatePrqFetch
   spec: requirements.md
+  notes_v1_1_1_memory: |
+    ISOLATE MEMORY FIX (948 task 1271432; 941 requirements 10.8). The tool reported
+    "Validation failed: Promise was abandoned" (check key scriptExecution) -- that is
+    isolated-vm disposing the isolate on its 256MB limit, which rejects the still-pending
+    Promise.allSettled over the fetches, so the error surfaces at the fetch and not at the
+    allocation that killed it. 1271432 links 36.68MB of artifacts including saved pages of
+    18.54MB and 17.41MB (every other golden task on 948: 2.1-2.6MB per page). The reduce-on-
+    arrival discipline was already in place; the leak was extractSessionTokens running
+    decodeEntities() over the whole page -- six chained .replace() calls, so six successive
+    full-size copies, measured 185MB of heap for ONE 18.5MB page against ~0MB for every other
+    extractor. It now scans the raw blob and decodes only each captured token; the capture is
+    provably unchanged (the token's character class already stops at '&') and was verified
+    token-for-token identical on all 28 cached artifacts across 941/942/948. Peak RSS on
+    1271432: 1154MB -> 236MB (1271273: 230MB -> 140MB). Every golden finding in all three
+    projects is byte-identical before and after. STANDING RULE: never transform a fetched blob
+    whole -- match on raw bytes and transform only the capture, or work from a bounded slice.
   notes_v1_2_0: |
     SEVERITY REVIEW. Errors block, warnings suggest -- every warning site was reviewed against
     "deterministic AND rater-fixable AND the data is otherwise contradictory or unusable".

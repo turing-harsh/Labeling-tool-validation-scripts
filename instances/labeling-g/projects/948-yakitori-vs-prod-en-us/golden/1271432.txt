@@ -1,0 +1,724 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8724,
+      "batchName": "Batch-2",
+      "projectId": 948,
+      "projectName": "0909 Yakitori vs Prod (en-US)",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Additional Rater Instruction": "Multi Turn Conversation",
+      "First Model": "Mode 23 -> Yakitori - Fast",
+      "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+      "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+      "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+      "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+      "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+      "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+      "L1: Use Case - Short": "Explanation",
+      "L2: Sub-Use Case": "General (Explanation)",
+      "L2: Sub-Use Case (extended definition)": "The user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?",
+      "Model A": "Mode 23 -> Yakitori - Fast",
+      "Model A HTML NAME": "M1_D1_181",
+      "Model B": "Mode 23 -> Prod Frozen - Fast",
+      "Model B HTML NAME": "M2_D1_181",
+      "Prompt Example": "• How do credit card rewards programs work?\n• What's the difference between travel insurance types?\n• Break down the three-act structure in screenwriting.\n• I wonder how a SWOT analysis works.\n• How does progressive overload work in strength training?\n• How do college majors impact career paths?\n• What's the difference between saturated and unsaturated fats?\n• Could you please explain how compound interest works?\n• How does the appeals process work in the US court system?\n• What's the Five Love Languages theory about?\n• How does a heat pump work?\n• Can you explain how does sourdough bread fermentation work?",
+      "Prompt Type": "Implicit",
+      "__originalKeyOrder": [
+        "Gemini Access Link",
+        "Gemini Conversation History",
+        "Gemini Conversation History Instructions",
+        "Google Drive Link (HTML)",
+        "Google Drive Link (Debug Info)",
+        "Google Drive Link Instructions",
+        "Model A",
+        "Model A HTML NAME",
+        "Model B",
+        "Model B HTML NAME",
+        "First Model",
+        "Prompt Type",
+        "L1: Use Case - Short",
+        "L2: Sub-Use Case",
+        "L2: Sub-Use Case (extended definition)",
+        "Additional Rater Instruction",
+        "Prompt Example",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 8724,
+        "batchName": "Batch-2",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)"
+      },
+      "modelConfig": {
+        "conversation_id": 1271432,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T16:20:41.755Z",
+          "locked": true
+        }
+      },
+      "bp2": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T17:27:46.976Z",
+          "locked": true
+        }
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/1Q9Syp7mx0G3zO7CPjA1CfHHiPeRiYCdO/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Not Personalized"
+        ]
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "N/A - No personalization needed"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Neither satisfied nor dissatisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] The question was about why debt grows and the answer covered it well without overcomplicating things. I liked that it broke down four separate reasons rather than just pointing at interest rates and leaving it there. The daily interest calculation was a good addition . It made me realize the balance is actually growing every single day, not just at the end of the month. The closing question asking if I wanted to go deeper into the math or management side felt very natural.\n[Turn 2] was strongest  of the two turns. The explanation of how every payment goes to interest first before touching the principal amount was clear and easy to follow. The example of a $10,000 balance where a $230 payment leaves only $30 for the actual debt, and saying 86% of the payment goes into charges,  made the frustration of paying every month and seeing barely any progress make complete sense. The comparison table showing three different payment approaches side by side was very useful. Seeing the difference between paying the minimum for 20 years compared to a fixed $250 payment clearing the debt in just over 2 years, with the total interest cost laid out for each, made it easy to understand why the payment amount matters very much. The chart showing the two balance curves dropping over time added another important layer that made the gap between strategies immediately obvious without needing to read through those numbers. Everything in this turn was built on Turn 1  and the conversation felt complete by the end."
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1c1Wfosjvk_NR60Wchp0mY-cIDSX6e5Hy/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1iHlfswojbKIK-z1hwHlHygL6vIDtteUZ/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+        "value": "https://drive.google.com/file/d/103ILyHO0rxqV8BO_kG4erwMETpK4EsaN/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+        "value": [
+          "Not Personalized"
+        ]
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+        "value": "No issues"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+        "value": "N/A - No personalization needed"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+        "value": "N/A"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+        "value": "2"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+        "value": true
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+        "value": "Neither satisfied nor dissatisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+        "value": "Very satisfied"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+        "value": "[Turn 1] I asked a simple question and got a good answer. What was uniques about this response was that it did not stop at interest, but it gave five different reasons why debt keeps growing. It was surprising to learn that  people end up putting everyday expenses on credit just because much of their money is already going toward debt payments. The part about missing one payment potentially ballooning your interest rate up and your balance doubling in under three years was alarming in a way that made everything cement.\n[Turn 2] This was the best part of the whole conversation. Seeing exactly where my money goes when I make a payment, and that if I'm paying the minimum, I hand over nearly $300 but only $100 of that reduces the principal amount. That finally explained why it feels like nothing is happening even when I am paying every month. The provided chart made it even clearer. A fixed $400 payment clears a $10,000 debt in three years. The minimum payment after five years still leaves over $4,000. The two lines on that same chart made the difference impossible to ignore. The tip about splitting payments into two smaller ones each month instead of one big one at the end was eye opening and was a nice way to put everything together.\n"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+        "value": "https://drive.google.com/file/d/1Apk6FWifECuTAndg_mUDmZ70zcX5fFlZ/view?usp=drive_link"
+      },
+      "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+        "value": "https://drive.google.com/file/d/1LXbrBxKrqn2pf12gnxh695n869b-hv2i/view?usp=drive_link"
+      },
+      "compareModels.__config__": {
+        "value": {
+          "locked": true
+        }
+      },
+      "conversationalGoal": {
+        "value": "A clear picture of why debt feels like it keeps growing even when you're making payments, so that I can understand what is happening to my money."
+      },
+      "dialect": {
+        "value": "United States"
+      },
+      "firstModel": {
+        "value": "Mode 23 -> Yakitori - Fast"
+      },
+      "personalizationExpectation": {
+        "value": "Not really — I just need a good answer."
+      },
+      "preQuestionsBreakpoint": {
+        "value": {
+          "lastSubmittedAt": "2026-09-10T17:16:58.800Z",
+          "locked": true
+        }
+      },
+      "privacyGate": {
+        "value": true
+      },
+      "prompt": {
+        "value": "I have always wondered why people say debt grows over time. Is it just because of interest, or is there more to it?"
+      },
+      "qualityComparisonSxS": {
+        "value": "Conversation A was slightly better"
+      },
+      "qualityComparisonSxSRationale": {
+        "value": "Both conversations did a good job answering the question and neither one tried to make it personal.\n[Turn 1] Model A went a little deeper. It covered five reasons why debt grows, and included one that Model B did not touch on at all, and that is how people end up using new credit just to pay for basic things when debt is already consuming most of their money. The part about missing one payment and your interest rate going so high that your balance could double in under three years was something that caught my attention. Model B mentioned that interest builds up every single day rather than just at the end of the month, which was detailed, but overall Model A felt more complete here.\n[Turn 2] Both were good but in different ways. Model A broke down exactly where your money goes when you make a payment and the chart showing the minimum payment line still leaving over $4,000 after five years while the fixed payment clears everything at three years was hard to ignore. Conversation B showed a table comparing three payment approaches side by side which was easy to read. Neither was better than the other, but because Model A covered more ground in Turn 1 and brought in points that Model B missed, it is therefore rated as slightly better.\n"
+      },
+      "setupCheck": {
+        "value": true
+      },
+      "targetLanguage": {
+        "value": "English"
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8724,
+        "batchName": "Batch-2",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Yakitori - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Explanation",
+        "L2: Sub-Use Case": "General (Explanation)",
+        "L2: Sub-Use Case (extended definition)": "The user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?",
+        "Model A": "Mode 23 -> Yakitori - Fast",
+        "Model A HTML NAME": "M1_D1_181",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_181",
+        "Prompt Example": "• How do credit card rewards programs work?\n• What's the difference between travel insurance types?\n• Break down the three-act structure in screenwriting.\n• I wonder how a SWOT analysis works.\n• How does progressive overload work in strength training?\n• How do college majors impact career paths?\n• What's the difference between saturated and unsaturated fats?\n• Could you please explain how compound interest works?\n• How does the appeals process work in the US court system?\n• What's the Five Love Languages theory about?\n• How does a heat pump work?\n• Can you explain how does sourdough bread fermentation work?",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8724,
+          "batchName": "Batch-2",
+          "projectId": 948,
+          "projectName": "0909 Yakitori vs Prod (en-US)"
+        },
+        "modelConfig": {
+          "conversation_id": 1271432,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T16:20:41.755Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T17:27:46.976Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Q9Syp7mx0G3zO7CPjA1CfHHiPeRiYCdO/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "N/A - No personalization needed"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The question was about why debt grows and the answer covered it well without overcomplicating things. I liked that it broke down four separate reasons rather than just pointing at interest rates and leaving it there. The daily interest calculation was a good addition . It made me realize the balance is actually growing every single day, not just at the end of the month. The closing question asking if I wanted to go deeper into the math or management side felt very natural.\n[Turn 2] was strongest  of the two turns. The explanation of how every payment goes to interest first before touching the principal amount was clear and easy to follow. The example of a $10,000 balance where a $230 payment leaves only $30 for the actual debt, and saying 86% of the payment goes into charges,  made the frustration of paying every month and seeing barely any progress make complete sense. The comparison table showing three different payment approaches side by side was very useful. Seeing the difference between paying the minimum for 20 years compared to a fixed $250 payment clearing the debt in just over 2 years, with the total interest cost laid out for each, made it easy to understand why the payment amount matters very much. The chart showing the two balance curves dropping over time added another important layer that made the gap between strategies immediately obvious without needing to read through those numbers. Everything in this turn was built on Turn 1  and the conversation felt complete by the end."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1c1Wfosjvk_NR60Wchp0mY-cIDSX6e5Hy/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1iHlfswojbKIK-z1hwHlHygL6vIDtteUZ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/103ILyHO0rxqV8BO_kG4erwMETpK4EsaN/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "N/A - No personalization needed"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked a simple question and got a good answer. What was uniques about this response was that it did not stop at interest, but it gave five different reasons why debt keeps growing. It was surprising to learn that  people end up putting everyday expenses on credit just because much of their money is already going toward debt payments. The part about missing one payment potentially ballooning your interest rate up and your balance doubling in under three years was alarming in a way that made everything cement.\n[Turn 2] This was the best part of the whole conversation. Seeing exactly where my money goes when I make a payment, and that if I'm paying the minimum, I hand over nearly $300 but only $100 of that reduces the principal amount. That finally explained why it feels like nothing is happening even when I am paying every month. The provided chart made it even clearer. A fixed $400 payment clears a $10,000 debt in three years. The minimum payment after five years still leaves over $4,000. The two lines on that same chart made the difference impossible to ignore. The tip about splitting payments into two smaller ones each month instead of one big one at the end was eye opening and was a nice way to put everything together.\n"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1Apk6FWifECuTAndg_mUDmZ70zcX5fFlZ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1LXbrBxKrqn2pf12gnxh695n869b-hv2i/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "A clear picture of why debt feels like it keeps growing even when you're making payments, so that I can understand what is happening to my money."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Yakitori - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Not really — I just need a good answer."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T17:16:58.800Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "I have always wondered why people say debt grows over time. Is it just because of interest, or is there more to it?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Both conversations did a good job answering the question and neither one tried to make it personal.\n[Turn 1] Model A went a little deeper. It covered five reasons why debt grows, and included one that Model B did not touch on at all, and that is how people end up using new credit just to pay for basic things when debt is already consuming most of their money. The part about missing one payment and your interest rate going so high that your balance could double in under three years was something that caught my attention. Model B mentioned that interest builds up every single day rather than just at the end of the month, which was detailed, but overall Model A felt more complete here.\n[Turn 2] Both were good but in different ways. Model A broke down exactly where your money goes when you make a payment and the chart showing the minimum payment line still leaving over $4,000 after five years while the fixed payment clears everything at three years was hard to ignore. Conversation B showed a table comparing three payment approaches side by side which was easy to read. Neither was better than the other, but because Model A covered more ground in Turn 1 and brought in points that Model B missed, it is therefore rated as slightly better.\n"
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8724,
+        "batchName": "Batch-2",
+        "projectId": 948,
+        "projectName": "0909 Yakitori vs Prod (en-US)",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Additional Rater Instruction": "Multi Turn Conversation",
+        "First Model": "Mode 23 -> Yakitori - Fast",
+        "Gemini Access Link": "https://gemini.google.com/app?p13n_unlock_code=gimme_pcontext",
+        "Gemini Conversation History": "https://drive.google.com/drive/folders/1BTYYPGwROJZH5O30aop1ZyixdB0lJ1dn?usp=drive_link",
+        "Gemini Conversation History Instructions": "Takeout upload flow for the LT interface:\n\nCreate a common Google Drive folder for uploading Takeout files.\nFor each task, the rater should creat a subfolder using Task ID + their Name.\nThe trainer will be uploading the the  Takeout file to that task folder and paste the Takeout file link under Gemini Conversation History. For Long-Term and relevant Short-Term, the same existing Takeout can be uploaded across task folders.\nFor Super Short-Term, the rater first creates the required Gemini conversation, then runs Takeout again so the new conversation is included. This updated Takeout should be uploaded to that task folder and link of this takeout file should be copy pasted in Gemini Conversation History.",
+        "Google Drive Link (Debug Info)": "https://drive.google.com/drive/folders/17QwRc-pWv8chFUh993jO7_PDwS3Z161I?usp=drive_link",
+        "Google Drive Link (HTML)": "https://drive.google.com/drive/folders/1qWrRipGffFNiHTIu-aoest38LS-bonuC?usp=drive_link",
+        "Google Drive Link Instructions": "Create a folder in the provided Google Drive link using: [YourName]-[TaskID] Example: JohnDoe-12345 Upload all required files (HTML & Debug Info) to your respective folder. HTML file name: Use the HTML name already provided in the metadata (Column F). Debug TXT file name: Use the format HTMLName_Debuginfo_turn1.",
+        "L1: Use Case - Short": "Explanation",
+        "L2: Sub-Use Case": "General (Explanation)",
+        "L2: Sub-Use Case (extended definition)": "The user seeks to understand a concept, topic, or domain knowledge that would be explained the same way regardless of who is asking. No personal context is required.\n\nBoundary: The explanation is universally applicable — it does not depend on the user's personal situation (→ Applied). The user wants to learn, not to get advice on what to do (→ Thought Partnership).\n\nThe ultimate test: Would the answer be essentially the same for any user asking this question?",
+        "Model A": "Mode 23 -> Yakitori - Fast",
+        "Model A HTML NAME": "M1_D1_181",
+        "Model B": "Mode 23 -> Prod Frozen - Fast",
+        "Model B HTML NAME": "M2_D1_181",
+        "Prompt Example": "• How do credit card rewards programs work?\n• What's the difference between travel insurance types?\n• Break down the three-act structure in screenwriting.\n• I wonder how a SWOT analysis works.\n• How does progressive overload work in strength training?\n• How do college majors impact career paths?\n• What's the difference between saturated and unsaturated fats?\n• Could you please explain how compound interest works?\n• How does the appeals process work in the US court system?\n• What's the Five Love Languages theory about?\n• How does a heat pump work?\n• Can you explain how does sourdough bread fermentation work?",
+        "Prompt Type": "Implicit",
+        "__originalKeyOrder": [
+          "Gemini Access Link",
+          "Gemini Conversation History",
+          "Gemini Conversation History Instructions",
+          "Google Drive Link (HTML)",
+          "Google Drive Link (Debug Info)",
+          "Google Drive Link Instructions",
+          "Model A",
+          "Model A HTML NAME",
+          "Model B",
+          "Model B HTML NAME",
+          "First Model",
+          "Prompt Type",
+          "L1: Use Case - Short",
+          "L2: Sub-Use Case",
+          "L2: Sub-Use Case (extended definition)",
+          "Additional Rater Instruction",
+          "Prompt Example",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 8724,
+          "batchName": "Batch-2",
+          "projectId": 948,
+          "projectName": "0909 Yakitori vs Prod (en-US)"
+        },
+        "modelConfig": {
+          "conversation_id": 1271432,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T16:20:41.755Z",
+            "locked": true
+          }
+        },
+        "bp2": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T17:27:46.976Z",
+            "locked": true
+          }
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/1Q9Syp7mx0G3zO7CPjA1CfHHiPeRiYCdO/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "N/A - No personalization needed"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] The question was about why debt grows and the answer covered it well without overcomplicating things. I liked that it broke down four separate reasons rather than just pointing at interest rates and leaving it there. The daily interest calculation was a good addition . It made me realize the balance is actually growing every single day, not just at the end of the month. The closing question asking if I wanted to go deeper into the math or management side felt very natural.\n[Turn 2] was strongest  of the two turns. The explanation of how every payment goes to interest first before touching the principal amount was clear and easy to follow. The example of a $10,000 balance where a $230 payment leaves only $30 for the actual debt, and saying 86% of the payment goes into charges,  made the frustration of paying every month and seeing barely any progress make complete sense. The comparison table showing three different payment approaches side by side was very useful. Seeing the difference between paying the minimum for 20 years compared to a fixed $250 payment clearing the debt in just over 2 years, with the total interest cost laid out for each, made it easy to understand why the payment amount matters very much. The chart showing the two balance curves dropping over time added another important layer that made the gap between strategies immediately obvious without needing to read through those numbers. Everything in this turn was built on Turn 1  and the conversation felt complete by the end."
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1c1Wfosjvk_NR60Wchp0mY-cIDSX6e5Hy/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Prod Frozen - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1iHlfswojbKIK-z1hwHlHygL6vIDtteUZ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1HtmlFileUpload": {
+          "value": "https://drive.google.com/file/d/103ILyHO0rxqV8BO_kG4erwMETpK4EsaN/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.model1PersonalizationTriggering": {
+          "value": [
+            "Not Personalized"
+          ]
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1OverTransparency": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelConnectsTheDotsForMe1TransparencyAttribution": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1InsightsPatternsAndTheBiggerPicture": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelFeelsLikeItGetsMe1SpeaksMyLanguage": {
+          "value": "No issues"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelIsTrustworthySafe1TrustSafety": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1Clarification": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1MissedContext": {
+          "value": "N/A - No personalization needed"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1OverPersonalization": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelMakesUseOfAvailableUserData1PersonalDataErrors": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.modelRespectsMyCorrections1Corrections": {
+          "value": "N/A"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.numberOfTurns": {
+          "value": "2"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.secondModelLock": {
+          "value": true
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallPersonalizationQuality": {
+          "value": "Neither satisfied nor dissatisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQuality": {
+          "value": "Very satisfied"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testModelOverallQualityRationale": {
+          "value": "[Turn 1] I asked a simple question and got a good answer. What was uniques about this response was that it did not stop at interest, but it gave five different reasons why debt keeps growing. It was surprising to learn that  people end up putting everyday expenses on credit just because much of their money is already going toward debt payments. The part about missing one payment potentially ballooning your interest rate up and your balance doubling in under three years was alarming in a way that made everything cement.\n[Turn 2] This was the best part of the whole conversation. Seeing exactly where my money goes when I make a payment, and that if I'm paying the minimum, I hand over nearly $300 but only $100 of that reduces the principal amount. That finally explained why it feels like nothing is happening even when I am paying every month. The provided chart made it even clearer. A fixed $400 payment clears a $10,000 debt in three years. The minimum payment after five years still leaves over $4,000. The two lines on that same chart made the difference impossible to ignore. The tip about splitting payments into two smaller ones each month instead of one big one at the end was eye opening and was a nice way to put everything together.\n"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse1DebugInfo": {
+          "value": "https://drive.google.com/file/d/1Apk6FWifECuTAndg_mUDmZ70zcX5fFlZ/view?usp=drive_link"
+        },
+        "compareModels.Mode 23 -> Yakitori - Fast.testResponse2DebugInfo": {
+          "value": "https://drive.google.com/file/d/1LXbrBxKrqn2pf12gnxh695n869b-hv2i/view?usp=drive_link"
+        },
+        "compareModels.__config__": {
+          "value": {
+            "locked": true
+          }
+        },
+        "conversationalGoal": {
+          "value": "A clear picture of why debt feels like it keeps growing even when you're making payments, so that I can understand what is happening to my money."
+        },
+        "dialect": {
+          "value": "United States"
+        },
+        "firstModel": {
+          "value": "Mode 23 -> Yakitori - Fast"
+        },
+        "personalizationExpectation": {
+          "value": "Not really — I just need a good answer."
+        },
+        "preQuestionsBreakpoint": {
+          "value": {
+            "lastSubmittedAt": "2026-09-10T17:16:58.800Z",
+            "locked": true
+          }
+        },
+        "privacyGate": {
+          "value": true
+        },
+        "prompt": {
+          "value": "I have always wondered why people say debt grows over time. Is it just because of interest, or is there more to it?"
+        },
+        "qualityComparisonSxS": {
+          "value": "Conversation A was slightly better"
+        },
+        "qualityComparisonSxSRationale": {
+          "value": "Both conversations did a good job answering the question and neither one tried to make it personal.\n[Turn 1] Model A went a little deeper. It covered five reasons why debt grows, and included one that Model B did not touch on at all, and that is how people end up using new credit just to pay for basic things when debt is already consuming most of their money. The part about missing one payment and your interest rate going so high that your balance could double in under three years was something that caught my attention. Model B mentioned that interest builds up every single day rather than just at the end of the month, which was detailed, but overall Model A felt more complete here.\n[Turn 2] Both were good but in different ways. Model A broke down exactly where your money goes when you make a payment and the chart showing the minimum payment line still leaving over $4,000 after five years while the fixed payment clears everything at three years was hard to ignore. Conversation B showed a table comparing three payment approaches side by side which was easy to read. Neither was better than the other, but because Model A covered more ground in Turn 1 and brought in points that Model B missed, it is therefore rated as slightly better.\n"
+        },
+        "setupCheck": {
+          "value": true
+        },
+        "targetLanguage": {
+          "value": "English"
+        }
+      }
+    }
+  }
+}

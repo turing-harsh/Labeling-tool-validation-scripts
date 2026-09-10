@@ -12,6 +12,14 @@
 //   R-01..R-09  G-01..G-13  U-01..U-07  D-01  F-01..F-05  I-01..I-03  C-01..C-16  B-01..B-07
 //
 // CHANGELOG:
+//   v2.0.4 -- isolate memory blowout on task 1264206 ("Promise was abandoned" = isolated-vm
+//     disposing the isolate on its 256MB limit, rejecting the pending fetch promise). That
+//     task links 38.3MB of artifacts (an 18.2MB Takeout export + four 4.6-5.5MB saved pages)
+//     and the script retained content+decoded+normalized for each: 849MB peak RSS. Now
+//     geminiConversationHistory is not fetched at all, non-debug artifacts are reduced on
+//     arrival to a 4096-char prefix + a length:hash fingerprint (F-03 reads the prefix, F-04
+//     compares fingerprints), settled slots are nulled as consumed, and the fetch retry is
+//     deadline-gated at 12s. Peak RSS on 1264206: 849MB -> 118MB.
 //   v2.0.3 -- F-05 false-block fix #2, from the FIRST completed Multi-Turn task (1264388):
 //     debug captures are CUMULATIVE (turn t replays turns 1..t), so summing markers across a
 //     side's files gives 1+2+...+declared, not declared -- both sides of a correct MT

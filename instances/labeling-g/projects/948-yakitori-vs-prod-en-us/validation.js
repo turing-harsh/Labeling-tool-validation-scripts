@@ -1,4 +1,10 @@
-// prq-validator-948 v1.1.0 -- 0909 Yakitori vs Prod (en-US) (project 948).
+// prq-validator-948 v1.2.0 -- 0909 Yakitori vs Prod (en-US) (project 948).
+//
+// v1.2.0 (10 Sep 2026, incident 1271267 / 1271254 on Batch-Attribution): attribution branch mode is
+// now APPLIED in both layers, not merely detected -- branched side derived from First Model, its
+// Turn 1 not required, Prompt anchored on the second question, cross-side branch check F4-I, and
+// the shared-turn-1 adjustments to F3-02/F3-11/F3-12/F4-D/F4-E/F4-F/F4-G/F4-H/F5-01/F5-06/F5-07/
+// F7-03. Also: F4-B inversion fixed (warns on EQUALITY, per W3); "[Turn-1]" accepted as a citation.
 //
 // GENERATED FILE -- do not edit by hand. Rebuild with: node scripts/build-prq.mjs
 // Composed from (both live in 941-prq-e2e-eval-es-419/, shared by 941 and 942):
@@ -49,7 +55,7 @@
 async function validatePrqL1(conversationData) {
   // ===== GENERATED TABLES -- emitted by scripts/build-prq.mjs. DO NOT HAND-EDIT. =====
   const CFG = {
- "version": "1.1.0",
+ "version": "1.2.1",
  "projectId": 948,
  "modelA": "Mode 23 -> Yakitori - Fast",
  "modelB": "Mode 23 -> Prod Frozen - Fast",
@@ -594,8 +600,7 @@ async function validatePrqL1(conversationData) {
     "3",
     "4",
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "testResponse1DebugInfo",
@@ -606,8 +611,7 @@ async function validatePrqL1(conversationData) {
     "3",
     "4",
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "testResponse2DebugInfo",
@@ -617,8 +621,7 @@ async function validatePrqL1(conversationData) {
     "3",
     "4",
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "model1TestResponse3DebugInfo",
@@ -627,8 +630,7 @@ async function validatePrqL1(conversationData) {
     "3",
     "4",
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "model1TestResponse4DebugInfo",
@@ -636,16 +638,14 @@ async function validatePrqL1(conversationData) {
    "values": [
     "5",
     "4"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "model1TestResponse5DebugInfo",
    "parent": "numberOfTurns",
    "values": [
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextCategory",
@@ -653,8 +653,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextTurns",
@@ -662,8 +661,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationCategory",
@@ -671,8 +669,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationTurns",
@@ -680,8 +677,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
@@ -689,8 +685,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
@@ -698,8 +693,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
@@ -707,8 +701,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
@@ -716,8 +709,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
@@ -725,8 +717,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
@@ -734,8 +725,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
@@ -743,8 +733,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
@@ -752,8 +741,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
@@ -761,8 +749,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
@@ -770,8 +757,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyCategory",
@@ -779,8 +765,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyDetraction",
@@ -788,8 +773,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyTurns",
@@ -797,8 +781,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyCategory",
@@ -806,8 +789,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyTurns",
@@ -815,8 +797,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsDirection",
@@ -824,8 +805,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsTurns",
@@ -833,8 +813,7 @@ async function validatePrqL1(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   }
  ],
  "heads": [
@@ -1073,27 +1052,13 @@ async function validatePrqL1(conversationData) {
     .replace(/[\u2010-\u2015\u2212\ufe58\ufe63\uff0d]/g, '-')
     .replace(/\s+/g, ' ')
     .trim();
-  const eqN = (a, b) => norm(a) === norm(b) || foldTokens(a) === foldTokens(b);
-  // COMPARISON-ONLY token fold. Applied when tokenising for the tolerance tier, never to
-  // displayed text. Intra-word hyphens and apostrophes are dropped so "e-commerce" and
-  // "ecommerce" are one token.
-  // Why: golden task 1270939 was BLOCKED by a single hyphen. The rater typed "e-commerce" in
-  // the Prompt field and "ecommerce" in Gemini -- unambiguously the same conversation -- and in
-  // a 12-word prompt that one token cost 15 points of word-Jaccard: F4-A scored 84.6% and
-  // failed the 90% tier while F3-08's word-hit-rate scored 91.7% and passed. The two
-  // comparators disagreeing on one character was itself the bug. With the fold both are an
-  // exact match and no tolerance tier is involved.
-  // Accepted cost: "re-sign"/"resign" and "co-op"/"coop" also collapse. For the question these
-  // comparators ask -- is this the same conversation? -- that is negligible against blocking
-  // every task where a rater typed a hyphen differently.
-  const foldTokens = (s) => norm(s).toLowerCase().replace(/(\w)[-'\u2019](\w)/g, '$1$2');
-
+  const eqN = (a, b) => norm(a) === norm(b);
   const eqCI = (a, b) => norm(a).toLowerCase() === norm(b).toLowerCase();
   // Word-level Jaccard, the section 5 step-9 tolerance tier. Returns a percentage so it can be printed
   // as evidence whenever it decides an outcome.
   const overlapPct = (a, b) => {
-    const wa = foldTokens(a).split(' ').filter(Boolean);
-    const wb = foldTokens(b).split(' ').filter(Boolean);
+    const wa = norm(a).toLowerCase().split(' ').filter(Boolean);
+    const wb = norm(b).toLowerCase().split(' ').filter(Boolean);
     if (!wa.length && !wb.length) return 100;
     if (!wa.length || !wb.length) return 0;
     const sa = new Set(wa), sb = new Set(wb);
@@ -1250,7 +1215,9 @@ async function validatePrqL1(conversationData) {
   // Turn citation regex: half- and full-width brackets, case-insensitive "turn". Localized
   // tokens (es "Turno", zh "\u56de\u5408") are NOT accepted yet -- escalation 4 owns that ruling;
   // until it lands F6-04/F6-05 stay warnings so a localized citation never blocks a rater.
-  const TURN_CITE_RE = /[\[\uff3b]\s*turn\s*(\d+)\s*[\]\uff3d]/gi;
+  // "[Turn-1]", "[Turn_1]", "[Turn:1]" are accepted: seen verbatim on task 1271254 ("[Turn-1] This reply
+  // does a nice job..."), where the strict form read a cited rationale as citing nothing.
+  const TURN_CITE_RE = /[\[\uff3b]\s*turn\s*[-_:.]?\s*(\d+)\s*[\]\uff3d]/gi;
   // A turn referenced in PROSE ("in turn 1", "on turn 2") rather than as "[Turn 1]". The doc
   // requires the bracket form, so this is still a finding -- but the WORDING has to be right:
   // on golden task 1271348 both rationales say "...in turn 1" and the old message told the
@@ -1273,29 +1240,6 @@ async function validatePrqL1(conversationData) {
     return out;
   };
 
-  // ===== gate graph + visibility (used by F1-03 as well as the F2 cascades) =====
-  const gatesByChild = new Map();
-  for (const g of CFG.gates) gatesByChild.set(g.child, g);
-  // VISIBILITY. A field is shown when it has no gate, or when its gate is satisfied by the
-  // parent's answer AND the parent is itself shown. Two operators are live and their semantics
-  // differ (see the builder's parser note):
-  //   eq  the parent's single-choice answer equals one of the gate values
-  //   in  the parent's MULTI-select answer contains one of them
-  // The recursion matters on 942, where the cascade is two deep: Q1 -> severity head -> child.
-  // 941 and 948 gate no head on Q1, so there every head is shown and this reduces to today's
-  // behaviour exactly.
-  const isShown = (key, side, depth) => {
-    if ((depth || 0) > 6) return true;                  // cycle guard; a cyclic config is a build problem
-    const g = gatesByChild.get(key);
-    if (!g) return true;                                 // ungated fields are always shown
-    const parentVal = side ? side.get(g.parent) : T(g.parent);
-    const satisfied = g.op === 'in'
-      ? asArr(parentVal).some((a) => g.values.some((v) => sameOpt(a, v)))
-      : g.values.some((v) => sameOpt(parentVal, v));
-    if (!satisfied) return false;
-    return isShown(g.parent, side, (depth || 0) + 1);
-  };
-
   // ==========================================================================
   // F1  COMPLETENESS
   // ==========================================================================
@@ -1314,6 +1258,37 @@ async function validatePrqL1(conversationData) {
   if (T(A.setupCheck) !== true) err('Task', A.setupCheck, 'the "' + labelOf(A.setupCheck) + '" confirmation is not checked.', 'confirm your settings and the selected model, then tick "' + labelOf(A.setupCheck) + '".');   // F1-02
   if (T(A.privacyGate) !== true) err('Task', A.privacyGate, 'the "' + labelOf(A.privacyGate) + '" confirmation is not checked.', 're-read each privacy statement, confirm the HTML preview renders and carries no personal information, then tick "' + labelOf(A.privacyGate) + '".');   // F1-02
 
+  // ---- F7-04 ATTRIBUTION BRANCH MODE, derived here because F1-05 consumes it. Detected from the
+  // batch metadata (rater instruction / L2 row: a branch instruction plus attribution or
+  // second-turn scope). The BRANCHED side is the side that is NOT the recorded First Model: the
+  // instruction says the SECOND model is created with "Branch from this conversation" from the end
+  // of turn 1, so it has no turn 1 of its own. Read from the form's own First Model answer,
+  // falling back to the batch's First Model column; if neither is readable the mode stays active
+  // but the branched side is unknown, and turn-1 requirements relax on BOTH sides rather than
+  // guessing. v1.1.0 detected this mode and consumed it nowhere -- incident 1271267/1271254.
+  const attribution = (() => {
+    const m = findMeta('rater instruction');
+    const l2 = findMeta('l2');
+    const txt = ((m && m.value) || '') + ' ' + ((l2 && l2.value) || '');
+    const active = /\bbranch(ed|ing)?\b/i.test(txt) && /attribution|second turn|2nd turn/i.test(txt);
+    if (!active) return { active: false, branchedSlot: null, firstSlot: null, source: null };
+    let firstSlot = null, source = null;
+    const fm = T(A.firstModel);
+    if (filled(fm)) {
+      if (canonModel(fm) === canonModel(CFG.modelA)) { firstSlot = 'test'; source = 'form'; }
+      else if (canonModel(fm) === canonModel(CFG.modelB)) { firstSlot = 'base'; source = 'form'; }
+    }
+    if (!firstSlot) {
+      const mm = findMeta('first model');
+      if (mm && mm.value) {
+        if (canonModel(mm.value) === canonModel(CFG.modelA)) { firstSlot = 'test'; source = 'metadata'; }
+        else if (canonModel(mm.value) === canonModel(CFG.modelB)) { firstSlot = 'base'; source = 'metadata'; }
+      }
+    }
+    const branchedSlot = firstSlot ? (firstSlot === 'test' ? 'base' : 'test') : null;
+    return { active: true, branchedSlot: branchedSlot, firstSlot: firstSlot, source: source };
+  })();
+
   // ---- per-side turn count first: it is the prerequisite for F1-05, F2-05, F6-02, F6-04.
   const declared = new Map();
   for (const side of bound) {
@@ -1331,20 +1306,13 @@ async function validatePrqL1(conversationData) {
     }
   }
 
-  // F1-03: per-side required answers -- but only the ones the form actually SHOWS.
-  // The projects diverge here and the difference is load-bearing:
-  //   941 / 948  no Q1 gate. Every severity head is always visible, so Fact 13 applies: Q1 =
-  //              "Not Personalized" followed by N/A on the heads is the INSTRUCTED compliant
-  //              pattern, and an N/A answer is answered, never a gap.
-  //   942        all ten heads are gated on Q1. With "Not Personalized" alone they are HIDDEN,
-  //              so requiring them blocks correct work -- measured at 20 false errors on golden
-  //              task 1271023 before this fix. There the compliant pattern is the heads being
-  //              ABSENT, and a head carrying a value instead is F2-04's stale hidden value.
-  // Nothing here branches per project: isShown() reads the gate graph the builder derived.
-  const F1_03_REQUIRED = [A.q1, ...CFG.heads, A.sat7a, A.sat7b, ...CFG.i18nHeads, A.html];
+  // F1-03: per-side required heads. All 10 severity heads are ALWAYS shown on 941/942 -- there
+  // is no Q1 gate (939's condRef:triggering cascade is REMOVED-ON-FORK, section 4), and the build
+  // asserts no head is Q1-gated. Fact 13: Q1 = "Not Personalized" followed by N/A on the heads
+  // that offer it is the INSTRUCTED compliant pattern -- an N/A answer is answered, never a gap.
+  const F1_03_ALWAYS = [A.q1, ...CFG.heads, A.sat7a, A.sat7b, ...CFG.i18nHeads, A.html];
   for (const side of bound) {
-    for (const k of F1_03_REQUIRED) {
-      if (!isShown(k, side)) continue;
+    for (const k of F1_03_ALWAYS) {
       if (isBlank(side.get(k))) {
         err(side.scope, side.keyOf(k), 'this required answer is missing.', 'answer "' + labelOf(k) + '" for this model.');   // F1-03
       }
@@ -1361,13 +1329,22 @@ async function validatePrqL1(conversationData) {
 
     // F1-05: declared N turns but debug slots 1..N are not all filled -- ONE consolidated
     // per-side finding listing the empty turns. Turn 1 is required (939's optional-Turn-1 spec
-    // is not carried, section 4).
+    // is not carried, section 4) EXCEPT on the branched side of an attribution task, whose turn 1
+    // belongs to the first model's chat and has no capture of its own (F7-04). When the mode is
+    // active but the branched side is unknown, turn 1 relaxes on both sides with a log.
     const n = declared.get(side.slot);
+    const turn1Optional = attribution.active && (attribution.branchedSlot === null || attribution.branchedSlot === side.slot);
     if (n !== null && n !== undefined) {
       const missing = [];
       for (let t = 1; t <= n; t++) {
         const k = CFG.debugSlotKeys[t - 1];
-        if (k && isBlank(side.get(k))) missing.push(t);
+        if (k && isBlank(side.get(k))) {
+          if (t === 1 && turn1Optional) { logs.push('F1-05 ' + side.scope + ': Turn 1 debug is empty and NOT required -- attribution branch mode, this side' + (attribution.branchedSlot === side.slot ? ' is the branched model' : '\'s role is unresolved') + '.'); continue; }
+          missing.push(t);
+        }
+      }
+      if (attribution.active && attribution.branchedSlot === side.slot && !missing.includes(1) && filled(side.get(CFG.debugSlotKeys[0]))) {
+        logs.push('F1-05 ' + side.scope + ': Turn 1 debug IS filled on the branched side -- allowed (a capture taken in the branched chat); F3/F4/F5 treat it as the first model\'s turn 1.');
       }
       if (missing.length) {
         err(side.scope, side.keyOf(CFG.debugSlotKeys[missing[0] - 1]),
@@ -1383,6 +1360,8 @@ async function validatePrqL1(conversationData) {
   // the config's displayConditions. No cascade is hand-written, so a config revision cannot
   // silently disable one.
   // ==========================================================================
+  const gatesByChild = new Map();
+  for (const g of CFG.gates) gatesByChild.set(g.child, g);
   const roleOfChild = (head, child) => {
     const c = CFG.childrenOf[head] || {};
     for (const r of ['category', 'turns', 'detraction', 'explanation']) if (c[r] === child) return r;
@@ -1397,26 +1376,13 @@ async function validatePrqL1(conversationData) {
     // ---- rubric heads: Category (F2-01), Turns (F2-02), Detraction (F2-03) + reverse (F2-04)
     for (const head of CFG.heads) {
       const headVal = side.get(head);
-      // F2-04 on the HEAD itself. Only reachable where heads are gated (942): a head answered
-      // before the rater set Q1 to "Not Personalized" is now hidden, and the stale value is
-      // submitted invisibly. Same defect the children have always been checked for.
-      const headGate = gatesByChild.get(head);
-      if (headGate && !isShown(head, side) && filled(headVal)) {
-        err(side.scope, side.keyOf(head), 'this rating holds an answer even though "' + labelOf(headGate.parent) + '" says the response was not personalized, so the answer is hidden and will still be submitted.',
-          'set "' + labelOf(headGate.parent) + '" to one of ' + headGate.values.map((v) => '"' + v + '"').join(' or ') + ' to reveal "' + labelOf(head) + '", clear it, then set "' + labelOf(headGate.parent) + '" back to your real answer.',
-          '"' + labelOf(headGate.parent) + '" = "' + asArr(side.get(headGate.parent)).join(', ') + '"; hidden "' + labelOf(head) + '" = "' + rawStr(headVal) + '".');   // F2-04
-      }
       const kids = CFG.childrenOf[head] || {};
       for (const role of ['category', 'turns', 'detraction']) {
         const child = kids[role];
         if (!child) continue;
         const gate = gatesByChild.get(child);
         if (!gate) continue;
-        // isShown() rather than a value-only test: on 942 a head can itself be HIDDEN (Q1 not
-        // personalized) while still carrying a stale value, and a value-only test then demanded
-        // the rater fill in children they cannot see -- three errors for one defect, two of them
-        // impossible to action. Caught by mutating real task 1271023.
-        const shown = isShown(child, side);
+        const shown = gate.values.some((v) => sameOpt(headVal, v));
         const childVal = side.get(child);
         if (shown && isBlank(childVal)) {
           // F2-01 (category) / F2-02 (turns) / F2-03 (detraction)
@@ -1439,7 +1405,7 @@ async function validatePrqL1(conversationData) {
       const gate = gatesByChild.get(child);
       if (!gate) continue;
       const headVal = side.get(head);
-      const shown = isShown(child, side);
+      const shown = gate.values.some((v) => optCanon(headVal) === optCanon(v));
       const childVal = side.get(child);
       if (shown && isBlank(childVal)) {
         err(side.scope, side.keyOf(child), 'this explanation is required once "' + labelOf(head) + '" is set to "' + rawStr(headVal) + '", but it is empty.',
@@ -1822,15 +1788,24 @@ async function validatePrqL1(conversationData) {
     const m = findMeta('prompt type');
     logs.push('F7-02: assigned Prompt Type ' + (m && m.value ? '= "' + m.value + '".' : 'NOT PRESENT in batch metadata -- a platform/metadata issue, never a rater finding.'));   // F7-02
   }
-  // F7-04: Attribution branch mode. Data-driven and dormant unless the metadata says so; when
-  // active, the branched side has no Turn 1 of its own and the L2 layer exempts its Turn 1
-  // checks. Both layers detect this independently from the same metadata.
-  {
-    const m = findMeta('rater instruction');
-    const l2 = findMeta('l2');
-    const txt = ((m && m.value) || '') + ' ' + ((l2 && l2.value) || '');
-    const branch = /\bbranch(ed|ing)?\b/i.test(txt) && /attribution|second turn|2nd turn/i.test(txt);
-    logs.push('F7-04: attribution branch mode ' + (branch ? 'ACTIVE (metadata mentions a branch plus attribution/second-turn scope) -- Turn 1 anchoring is exempt on the branched side.' : 'dormant (no branch instruction in metadata).'));   // F7-04
+  // F7-04: Attribution branch mode (derived above, before F1). Data-driven and dormant unless the
+  // metadata says so. When active: F1-05 relaxes turn 1 on the branched side, and the instruction's
+  // own protocol -- a second turn asking how or why the model used personal data -- makes fewer
+  // than 2 declared turns on either side a protocol violation (ERROR). Both layers derive the
+  // mode independently from the same metadata and the same First Model answer.
+  if (!attribution.active) {
+    logs.push('F7-04: attribution branch mode dormant (no branch instruction in metadata).');   // F7-04
+  } else {
+    const bs = bound.find((s) => s.slot === attribution.branchedSlot);
+    logs.push('F7-04: attribution branch mode ACTIVE -- first model = ' + (attribution.firstSlot ? (attribution.firstSlot === 'test' ? CFG.modelA : CFG.modelB) + ' (from ' + attribution.source + ')' : 'UNRESOLVED') + '; branched side = ' + (bs ? bs.name : 'UNRESOLVED') + '. Branched Turn 1 not required; Prompt anchored on the second question; cross-side branch check live.');   // F7-04
+    for (const side of bound) {
+      const n = declared.get(side.slot);
+      if (n !== null && n !== undefined && n < 2) {
+        err(side.scope, side.keyOf(A.turns), 'this task asks for a second turn in which you ask the model how or why it used your personal data, but only 1 turn is declared for this model.',
+          'continue this model\'s conversation with the second-turn question, capture that turn\'s debug info and set the number of turns to 2 -- or correct the turn count if the second turn was run.',
+          'assigned instruction: "' + ((findMeta('rater instruction') || {}).value || '').slice(0, 160) + '"; turn count ' + n + '.');   // F7-04
+      }
+    }
   }
 
   // ==========================================================================
@@ -1905,7 +1880,7 @@ async function validatePrqL1(conversationData) {
 
 async function validatePrqFetch(conversationData) {
   const CFG = {
- "version": "1.1.0",
+ "version": "1.2.1",
  "projectId": 948,
  "modelA": "Mode 23 -> Yakitori - Fast",
  "modelB": "Mode 23 -> Prod Frozen - Fast",
@@ -2450,8 +2425,7 @@ async function validatePrqFetch(conversationData) {
     "3",
     "4",
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "testResponse1DebugInfo",
@@ -2462,8 +2436,7 @@ async function validatePrqFetch(conversationData) {
     "3",
     "4",
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "testResponse2DebugInfo",
@@ -2473,8 +2446,7 @@ async function validatePrqFetch(conversationData) {
     "3",
     "4",
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "model1TestResponse3DebugInfo",
@@ -2483,8 +2455,7 @@ async function validatePrqFetch(conversationData) {
     "3",
     "4",
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "model1TestResponse4DebugInfo",
@@ -2492,16 +2463,14 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "5",
     "4"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "model1TestResponse5DebugInfo",
    "parent": "numberOfTurns",
    "values": [
     "5"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextCategory",
@@ -2509,8 +2478,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1MissedContextTurns",
@@ -2518,8 +2486,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationCategory",
@@ -2527,8 +2494,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1ClarificationTurns",
@@ -2536,8 +2502,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationCategory",
@@ -2545,8 +2510,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationDetraction",
@@ -2554,8 +2518,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1OverPersonalizationTurns",
@@ -2563,8 +2526,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsCategory",
@@ -2572,8 +2534,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelMakesUseOfAvailableUserData1PersonalDataErrorsTurns",
@@ -2581,8 +2542,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelFeelsLikeItGetsMe1SpeaksMyLanguageTurns",
@@ -2590,8 +2550,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureCategory",
@@ -2599,8 +2558,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelFeelsLikeItGetsMe1InsightsPatternsTheBiggerPictureTurns",
@@ -2608,8 +2566,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionCategory",
@@ -2617,8 +2574,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1TransparencyAttributionTurns",
@@ -2626,8 +2582,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyCategory",
@@ -2635,8 +2590,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyDetraction",
@@ -2644,8 +2598,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelConnectsTheDotsForMe1OverTransparencyTurns",
@@ -2653,8 +2606,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Major issues",
     "Minor issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyCategory",
@@ -2662,8 +2614,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelIsTrustworthySafe1TrustSafetyTurns",
@@ -2671,8 +2622,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsDirection",
@@ -2680,8 +2630,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   },
   {
    "child": "modelRespectsMyCorrections1CorrectionsTurns",
@@ -2689,8 +2638,7 @@ async function validatePrqFetch(conversationData) {
    "values": [
     "Minor issues",
     "Major issues"
-   ],
-   "op": "eq"
+   ]
   }
  ],
  "heads": [
@@ -2896,25 +2844,11 @@ async function validatePrqFetch(conversationData) {
     .replace(/[\u2010-\u2015\u2212\ufe58\ufe63\uff0d]/g, '-')
     .replace(/\s+/g, ' ')
     .trim();
-  const eqN = (a, b) => norm(a) === norm(b) || foldTokens(a) === foldTokens(b);
-  // COMPARISON-ONLY token fold. Applied when tokenising for the tolerance tier, never to
-  // displayed text. Intra-word hyphens and apostrophes are dropped so "e-commerce" and
-  // "ecommerce" are one token.
-  // Why: golden task 1270939 was BLOCKED by a single hyphen. The rater typed "e-commerce" in
-  // the Prompt field and "ecommerce" in Gemini -- unambiguously the same conversation -- and in
-  // a 12-word prompt that one token cost 15 points of word-Jaccard: F4-A scored 84.6% and
-  // failed the 90% tier while F3-08's word-hit-rate scored 91.7% and passed. The two
-  // comparators disagreeing on one character was itself the bug. With the fold both are an
-  // exact match and no tolerance tier is involved.
-  // Accepted cost: "re-sign"/"resign" and "co-op"/"coop" also collapse. For the question these
-  // comparators ask -- is this the same conversation? -- that is negligible against blocking
-  // every task where a rater typed a hyphen differently.
-  const foldTokens = (s) => norm(s).toLowerCase().replace(/(\w)[-'\u2019](\w)/g, '$1$2');
-
+  const eqN = (a, b) => norm(a) === norm(b);
   const OVERLAP_TIER = 90;   // section 5 step 9: word-level Jaccard tolerance; percentage printed
   const overlapPct = (a, b) => {
-    const wa = foldTokens(a).split(' ').filter(Boolean);
-    const wb = foldTokens(b).split(' ').filter(Boolean);
+    const wa = norm(a).toLowerCase().split(' ').filter(Boolean);
+    const wb = norm(b).toLowerCase().split(' ').filter(Boolean);
     if (!wa.length && !wb.length) return 100;
     if (!wa.length || !wb.length) return 0;
     const sa = new Set(wa), sb = new Set(wb);
@@ -2934,13 +2868,9 @@ async function validatePrqFetch(conversationData) {
     const n = norm(needle), h = norm(hay);
     if (!n) return { ok: true, pct: 100, exact: true };
     if (h.indexOf(n) >= 0) return { ok: true, pct: 100, exact: true };
-    // Containment is tested on the FOLDED text too, so softIn and softEq agree character for
-    // character (they did not before -- see the foldTokens note).
-    const nf = foldTokens(needle), hf = foldTokens(hay);
-    if (nf && hf.indexOf(nf) >= 0) return { ok: true, pct: 100, exact: true };
-    const wn = [...new Set(nf.split(' ').filter(Boolean))];
+    const wn = [...new Set(n.toLowerCase().split(' ').filter(Boolean))];
     if (!wn.length) return { ok: true, pct: 100, exact: true };
-    const hl = hf;
+    const hl = h.toLowerCase();
     let hit = 0;
     for (const w of wn) if (hl.indexOf(w) >= 0) hit++;
     const pct = Math.round((hit / wn.length) * 1000) / 10;
@@ -3001,6 +2931,34 @@ async function validatePrqFetch(conversationData) {
   });
   const bound = sides.filter((s) => s.present);
   if (!bound.length) { logs.push(VERSION + ': no side bound -- L1 reports this; artifact layer self-skips.'); return; }
+
+  // F7-04: ATTRIBUTION BRANCH MODE (same derivation as L1, duplicated by design). The branched
+  // side is the side that is NOT the recorded First Model -- never hard-coded to Base (v1.1.0's
+  // defect: on task 1271258 Base ran first, so the exemption landed on the wrong side). When the
+  // First Model is unreadable the mode stays active with the branched side UNKNOWN: turn-1
+  // exemptions then apply to neither side's identity checks and the cross-side branch check skips.
+  const branchMeta = ((findMeta('rater instruction') || {}).value || '') + ' ' + ((findMeta('l2') || {}).value || '');
+  const branchActive = /\bbranch(ed|ing)?\b/i.test(branchMeta) && /attribution|second turn|2nd turn/i.test(branchMeta);
+  let firstSlotAttr = null;
+  if (branchActive) {
+    const fm = byKey[A.firstModel];
+    if (filled(fm) && canonModel(fm) === canonModel(CFG.modelA)) firstSlotAttr = 'test';
+    else if (filled(fm) && canonModel(fm) === canonModel(CFG.modelB)) firstSlotAttr = 'base';
+    if (!firstSlotAttr) {
+      const mm = findMeta('first model');
+      if (mm && mm.value && canonModel(mm.value) === canonModel(CFG.modelA)) firstSlotAttr = 'test';
+      else if (mm && mm.value && canonModel(mm.value) === canonModel(CFG.modelB)) firstSlotAttr = 'base';
+    }
+  }
+  const branchedSlot = branchActive && firstSlotAttr ? (firstSlotAttr === 'test' ? 'base' : 'test') : null;
+  const isBranched = (slot) => branchActive && branchedSlot === slot;
+  // When the mode is active but the First Model is unreadable, the shared-turn-1 leniencies apply
+  // to BOTH sides rather than guessing which one branched (same rule as L1's F1-05).
+  const isBranchedOrUnknown = (slot) => branchActive && (branchedSlot === null || branchedSlot === slot);
+  if (branchActive) {
+    const bs = bound.find((s) => s.slot === branchedSlot);
+    logs.push('F7-04 ACTIVE: attribution branch mode -- first model ' + (firstSlotAttr ? (firstSlotAttr === 'test' ? CFG.modelA : CFG.modelB) : 'UNRESOLVED') + ', branched side ' + (bs ? bs.name : 'UNRESOLVED') + '. Prompt is anchored on the SECOND question of every capture on both sides; the branched conversation must open with the first model\'s turn-1 question (F4-I); turn-1 same-file / same-chat / identity compares treat the branched turn 1 as the first model\'s.');
+  }
 
   // ===== section 6 message contract =====
   const labelOf = (k) => labelByKey[k] || CFG.labels[baseOf(k)] || k;
@@ -3132,6 +3090,12 @@ async function validatePrqFetch(conversationData) {
       const where = group.map((g) => '[' + g.scope + (g.turn ? ' Turn ' + g.turn : '') + ' - "' + labelOf(g.fieldKey) + '"]').join(' and ');
       const crossSide = new Set(group.map((g) => g.slot)).size > 1;
       const crossFamily = new Set(group.map((g) => g.family)).size > 1;
+      // Attribution: the branched side's Turn 1 IS the first model's turn 1, so re-linking that one
+      // file under the branched Turn 1 slot is not a duplicate-upload defect. Only that exact pair.
+      if (branchActive && group.length === 2 && crossSide && !crossFamily && group.every((g) => g.turn === 1)) {
+        logs.push('F3-02 tolerated: the same Turn 1 debug file is linked on both sides -- attribution branch mode, the branched turn 1 is the first model\'s turn 1.');
+        continue;
+      }
       const anchor = group[group.length - 1];
       err(anchor.scope, anchor.fieldKey, anchor.turn,
         'the same Drive file is linked in ' + group.length + ' places: ' + where + '.'
@@ -3270,11 +3234,20 @@ async function validatePrqFetch(conversationData) {
   // it covers. The token is a per-response session id, so it is a DECISIVE same-chat proof --
   // far stronger than text overlap, which cannot work here at all because the saved page embeds
   // the debug dump verbatim (see the visible-conversation note below). 903:1348 does the same.
+  // Scan the RAW blob and decode only each captured token -- never decodeEntities() the whole
+  // page. decodeEntities is six chained .replace() calls, so on a multi-megabyte saved page it
+  // materialises six successive full-size copies: measured 185MB of heap for ONE 18.5MB page
+  // (task 1271432, project 948), and with two such pages on a task that alone overruns the
+  // 256MB isolate -- the isolate is disposed and the tool reports "Promise was abandoned".
+  // Decoding cannot change the capture anyway: the token's character class already stops at
+  // '&', so an entity in or around the URL terminates it identically either way. Verified
+  // token-for-token identical against all 28 cached artifacts across 941/942/948.
   const extractSessionTokens = (blob) => {
     const out = [];
-    const re = /llmdebugger\.corp\.google\.com\/agency\?s=([^\s"'<>)&]+)/gi;
+    const re = /llmdebugger\.corp\.google\.com\/agency\?s=([^\s"'<>)&;]+)/gi;
+    const s = rawStr(blob);
     let m;
-    while ((m = re.exec(decodeEntities(rawStr(blob)))) !== null) out.push(m[1]);
+    while ((m = re.exec(s)) !== null) { const v = decodeEntities(m[1]).trim(); if (v) out.push(v); }
     return [...new Set(out)];
   };
   // VISIBLE CONVERSATION. The saved page contains the whole Debug Info dump, so testing the form
@@ -3492,11 +3465,8 @@ async function validatePrqFetch(conversationData) {
   const htmlOf = (slot) => okHtml.find((r) => r.slot === slot) || null;
   const formPrompt = byKey[A.prompt];
 
-  // F7-04: branch mode -- the branched side has no Turn 1 of its own, so Turn 1 anchoring is
-  // exempt there. Data-driven and dormant unless the metadata triggers it; logged when active.
-  const branchMeta = ((findMeta('rater instruction') || {}).value || '') + ' ' + ((findMeta('l2') || {}).value || '');
-  const branchActive = /\bbranch(ed|ing)?\b/i.test(branchMeta) && /attribution|second turn|2nd turn/i.test(branchMeta);
-  if (branchActive) logs.push('F7-04 ACTIVE: attribution branch mode -- Turn 1 prompt anchoring (F4-A and F4-D on Turn 1) is exempt on the branched side.');
+  // F7-04: attribution branch mode is derived ONCE, right after side binding (branchActive,
+  // branchedSlot, isBranched, isBranchedOrUnknown) -- F3-02 runs before this point and consumes it.
 
   // ==========================================================================
   // F3-05  Header markers present but ZERO <ctrl99>user blocks. BOTH sanctioned slices carry
@@ -3547,10 +3517,11 @@ async function validatePrqFetch(conversationData) {
   // Turn 1 anchoring (F4-A, F4-D) is unconditional on every shape, so a wrong Turn 1 conversation
   // is still caught either way. See metadata.yml: this scoping is a NAMED DEVIATION from the
   // literal requirement text and wants a ruling with the first real export (section 9 row 5).
+  let attrPromptIsTurn1Warned = false;
   for (const side of bound) {
     const n = declared.get(side.slot);
     const upto = n === null ? CFG.debugSlotKeys.length : Math.min(n, CFG.debugSlotKeys.length);
-    const exemptTurn1 = branchActive && side.slot === 'base';
+    const exemptTurn1 = isBranched(side.slot) || (branchActive && branchedSlot === null);
     const mine = [];
     for (let t = 1; t <= upto; t++) { const d = debugOf(side.slot, t); if (d && d.users.length) mine.push(d); }
     if (!mine.length) continue;
@@ -3558,7 +3529,7 @@ async function validatePrqFetch(conversationData) {
     const cumulative = later.length > 0 && later.every((d) => d.users.length >= d.turn);
     const flat = later.length > 0 && later.every((d) => d.users.length === 1);
     const shape = cumulative ? 'CUMULATIVE' : (flat ? 'FLAT' : (later.length ? 'MIXED' : 'SINGLE-TURN'));
-    logs.push('F4 export shape on ' + side.scope + ': ' + shape + ' (user blocks per turn: ' + mine.map((d) => 'T' + d.turn + '=' + d.users.length).join(', ') + '). F4-A on turn 1' + (cumulative ? ' and all later turns' : ' only') + '; F4-B ' + (flat ? 'live' : 'skipped') + '; F4-C ' + (cumulative ? 'live' : 'skipped') + '.');
+    logs.push('F4 export shape on ' + side.scope + ': ' + shape + ' (user blocks per turn: ' + mine.map((d) => 'T' + d.turn + '=' + d.users.length).join(', ') + '). ' + (branchActive ? 'F4-A anchored on the SECOND question (attribution)' : 'F4-A on turn 1' + (cumulative ? ' and all later turns' : ' only')) + '; F4-B ' + (flat && !branchActive ? 'live' : (flat ? 'live on turns > 2' : 'skipped')) + '; F4-C ' + (cumulative ? 'live' : 'skipped') + '.');
     if (shape === 'MIXED' && later.length) {
       logs.push('F4 note: ' + side.scope + ' fits neither export shape cleanly -- cross-turn continuity (F4-C) and the later-turn prompt anchor (F4-A) are both skipped for this side rather than guessed. Turn 1 anchoring still applies.');
     }
@@ -3567,12 +3538,51 @@ async function validatePrqFetch(conversationData) {
       const t = d.turn;
       const first = d.users[0], last = d.users[d.users.length - 1];
 
+      // F4-A (attribution mode): on Batch-Attribution the batch instruction says "Prompt Type and
+      // Examples are for the second turn" -- turn 1 is an arbitrary warm-up prompt and the
+      // attribution question is turn 2. So the Prompt is anchored on the SECOND question of every
+      // capture, on BOTH sides (the same second-turn question is asked in each conversation).
+      //   second question == Prompt            -> pass (the instructed reading)
+      //   FIRST question == Prompt             -> WARNING, once per task: the rater put the turn-1
+      //                                           question in the field (task 1271254 did exactly
+      //                                           this); still this task's conversation, so not
+      //                                           blocked -- a ruling on the field's meaning is
+      //                                           pending, promote to error only if it lands strict
+      //   neither                              -> ERROR, the wrong-conversation class F4-A exists for
+      //   turn-1-only capture (no second question) -> not judged here
+      if (branchActive && filled(formPrompt)) {
+        const q1 = first;
+        const q2 = d.users.length >= 2 ? d.users[1] : (t === 2 && d.users.length === 1 ? d.users[0] : null);
+        if (q2 !== null) {
+          const m2 = softEq(q2, formPrompt);
+          if (m2.ok) {
+            logs.push('F4-A (attribution) ' + side.scope + ' Turn ' + t + ': second question matches the Prompt (overlap ' + m2.pct + '%).');
+          } else {
+            const m1 = softEq(q1, formPrompt);
+            if (m1.ok) {
+              if (!attrPromptIsTurn1Warned) {
+                attrPromptIsTurn1Warned = true;
+                warn('Task', A.prompt, null, 'on this task the "' + labelOf(A.prompt) + '" field holds your FIRST question, but the batch instruction assigns the prompt type and examples to the SECOND turn (the question asking how or why the model used your personal data).',
+                  'replace "' + labelOf(A.prompt) + '" with the exact question you asked in turn 2 of both conversations.',
+                  'submitted prompt: "' + norm(formPrompt).slice(0, 140) + '" = the first question in the debug; the second question is "' + q2.slice(0, 140) + '".');   // F4-A
+              }
+            } else {
+              err(side.scope, d.fieldKey, t, 'neither question in this turn\'s conversation matches the "' + labelOf(A.prompt) + '" you submitted, so this file does not look like this task\'s conversation.',
+                'confirm the debug info is from the conversation you ran for this task, and that "' + labelOf(A.prompt) + '" holds the second-turn question you actually asked -- correct whichever one is wrong.',
+                'submitted prompt: "' + norm(formPrompt).slice(0, 140) + '"; this file\'s first question: "' + q1.slice(0, 100) + '" (overlap ' + m1.pct + '%); second question: "' + q2.slice(0, 100) + '" (overlap ' + m2.pct + '%; needs ' + OVERLAP_TIER + '%).');   // F4-A
+            }
+          }
+        } else {
+          logs.push('F4-A (attribution) ' + side.scope + ' Turn ' + t + ': turn-1-only capture, the Prompt is the second-turn question -- not judged against this file.');
+        }
+      }
+
       // F4-A: the conversation's FIRST question is the starting prompt. The client doc is
       // explicit (Prompt = the starting prompt, ONE Pre-Conversation block per task), so this
       // is LIVE on 941/942 -- 939's blanket suppression is not carried (section 4). It also
       // enforces cross-side Turn 1 identity transitively. Symmetric wording: either the Prompt
-      // field or the capture could be the wrong one.
-      if (filled(formPrompt) && !(exemptTurn1 && t === 1) && (t === 1 || cumulative)) {
+      // field or the capture could be the wrong one. Not in attribution mode (anchored above).
+      if (!branchActive && filled(formPrompt) && !(exemptTurn1 && t === 1) && (t === 1 || cumulative)) {
         const m = softEq(first, formPrompt);
         if (!m.ok) {
           err(side.scope, d.fieldKey, t, 'this turn\'s conversation starts with a different question than the "' + labelOf(A.prompt) + '" you submitted.',
@@ -3591,16 +3601,18 @@ async function validatePrqFetch(conversationData) {
         }
       }
 
-      // F4-B: on a FLAT export a later turn's file holds only that turn's question, and the
-      // doc has the same starting prompt opening both sides -- so a flat later-turn file whose
-      // question is not the prompt is either the wrong file or a retyped question. A rater may
-      // legitimately retype, so this WARNS: 898's error severity is not inherited.
-      if (t > 1 && flat && filled(formPrompt)) {
+      // F4-B (the doc's W3): on a FLAT export a later turn's file holds only that turn's question.
+      // A later turn whose question EQUALS the starting prompt means the prompt was re-asked or
+      // turn 1's file was linked under a later slot -- that is the finding. v1.1.0 had this
+      // inverted (it warned when the later question DIFFERED, i.e. on every normal multi-turn
+      // conversation). A rater may legitimately repeat a question, so this WARNS. In attribution
+      // mode turn 2 IS the Prompt by design, so turn 2 is skipped there.
+      if (t > 1 && flat && filled(formPrompt) && !(branchActive && t === 2)) {
         const m = softEq(last, formPrompt);
-        if (!m.ok) {
-          warn(side.scope, d.fieldKey, t, 'the question in this turn\'s debug is not the prompt you submitted.',
-            'check this is the right turn\'s debug info; if you re-worded the question during the conversation, no change is needed.',
-            'submitted prompt: "' + norm(formPrompt).slice(0, 140) + '"; question in this file: "' + last.slice(0, 140) + '"; word overlap ' + m.pct + '%.');   // F4-B
+        if (m.ok) {
+          warn(side.scope, d.fieldKey, t, 'the question in this turn\'s debug is the same as the starting prompt you submitted.',
+            'check this is the right turn\'s debug info (not turn 1\'s file again); if you deliberately asked the same question twice, no change is needed.',
+            'submitted prompt: "' + norm(formPrompt).slice(0, 140) + '"; question in this turn ' + t + ' file: "' + last.slice(0, 140) + '"; word overlap ' + m.pct + '%.');   // F4-B
         }
       }
 
@@ -3623,6 +3635,40 @@ async function validatePrqFetch(conversationData) {
     }
   }
 
+  // F4-I (attribution mode only): the branched conversation must OPEN with the first model's
+  // turn-1 question -- that is what "Branch from this conversation" guarantees, and it is the
+  // one thing that makes the two sides comparable on this batch. First question of the branched
+  // side's earliest readable capture vs first question of the first model's earliest capture;
+  // falls back to the two saved pages' first visible question when the debug cannot decide.
+  if (branchActive && branchedSlot !== null) {
+    const firstSlot = branchedSlot === 'test' ? 'base' : 'test';
+    // Only a capture that carries the OPENING question can decide: turn 1, or a CUMULATIVE later
+    // turn (block count >= turn). A FLAT later-turn capture holds only its own question.
+    const firstOf = (slot) => { const mine = usableDebug.filter((r) => r.slot === slot && (r.turn === 1 || r.users.length >= r.turn)).sort((x, y) => x.turn - y.turn); return mine.length ? { q: mine[0].users[0], r: mine[0] } : null; };
+    let a = firstOf(firstSlot), b = firstOf(branchedSlot);
+    let via = 'debug';
+    if (!a || !b) {
+      const ha = htmlOf(firstSlot), hb = htmlOf(branchedSlot);
+      if (ha && hb && ha.prompts.length && hb.prompts.length) { a = { q: ha.prompts[0], r: hb }; b = { q: hb.prompts[0], r: hb }; via = 'saved pages'; }
+    }
+    if (!a || !b) {
+      logs.push('F4-I skipped: no readable capture or page on one side to compare the opening questions.');
+    } else {
+      const m = softEq(a.q, b.q);
+      const bSide = bound.find((s) => s.slot === branchedSlot);
+      const fSide = bound.find((s) => s.slot === firstSlot);
+      if (!m.ok) {
+        err(b.r.scope, b.r.fieldKey, b.r.turn || null, 'this model\'s conversation does not start with the same first question as ' + (fSide ? fSide.name : 'the first model') + '\'s conversation, so it was not branched from it.',
+          'for the second model, open the first model\'s chat, use "Branch from this conversation" at the end of turn 1, ask the second-turn question there, then capture the debug info and save the page from that branched chat.',
+          'first model opened with "' + a.q.slice(0, 120) + '"; this conversation opened with "' + b.q.slice(0, 120) + '"; word overlap ' + m.pct + '% (needs ' + OVERLAP_TIER + '%); compared via ' + via + '.');   // F4-I
+      } else {
+        logs.push('F4-I: branched side ' + (bSide ? bSide.name : branchedSlot) + ' opens with the first model\'s turn-1 question (overlap ' + m.pct + '%, via ' + via + ').');
+      }
+    }
+  } else if (branchActive) {
+    logs.push('F4-I skipped: attribution mode is active but the first model is unresolved, so the branched side is unknown.');
+  }
+
   // F4-E: two debug slots with byte-identical fetched content. The culprit is chosen by
   // CONTENT -- whichever slot's block count does not fit its own expected position.
   {
@@ -3630,6 +3676,12 @@ async function validatePrqFetch(conversationData) {
     for (const r of usableDebug) { if (!byFp.has(r.fp)) byFp.set(r.fp, []); byFp.get(r.fp).push(r); }
     for (const group of byFp.values()) {
       if (group.length < 2) continue;
+      // Attribution: the branched Turn 1 re-linked as the first model's Turn 1 is the same file by
+      // design (see F3-02); only that exact cross-side turn-1 pair is tolerated.
+      if (branchActive && group.length === 2 && group.every((g) => g.turn === 1) && new Set(group.map((g) => g.slot)).size === 2) {
+        logs.push('F4-E tolerated: identical Turn 1 debug on both sides -- attribution branch mode, shared turn 1.');
+        continue;
+      }
       const blocks = group[0].users.length;
       const culprit = group.find((g) => g.turn !== blocks) || group[group.length - 1];
       const others = group.filter((g) => g !== culprit).map((g) => '[' + g.scope + ' Turn ' + g.turn + ']').join(' and ');
@@ -3642,7 +3694,9 @@ async function validatePrqFetch(conversationData) {
   // F4-F: both sides' Turn 1 debug identical in prompt AND response = one chat used for both
   // models. Suppressed by the same decisive rule as F3-11: a different Model ID makes text
   // identity a coincidence, not a defect.
-  {
+  if (branchActive) {
+    if (debugOf('test', 1) && debugOf('base', 1)) logs.push('F4-F skipped: attribution branch mode -- the branched conversation shares turn 1 with the first model by design, so identical Turn 1 content is expected, not a defect.');
+  } else {
     const a = debugOf('test', 1), b = debugOf('base', 1);
     if (a && b && a.users.length && b.users.length) {
       const same = a.fp === b.fp || (eqN(a.users[0], b.users[0]) && overlapPct(a.text, b.text) >= 99);
@@ -3672,7 +3726,9 @@ async function validatePrqFetch(conversationData) {
       if (canonModel(fm) === canonModel(CFG.modelA)) firstSlot = 'test';
       else if (canonModel(fm) === canonModel(CFG.modelB)) firstSlot = 'base';
     }
-    if (firstSlot === null) {
+    if (branchActive) {
+      logs.push('F4-G/F4-H skipped: attribution branch mode -- a branched chat inherits the first model\'s history by design, so a footprints delta between the sides carries no contamination signal.');
+    } else if (firstSlot === null) {
       logs.push('F4-G/F4-H skipped: the run order is not readable from "' + labelOf(A.firstModel) + '".');
     } else {
       const secondSlot = firstSlot === 'test' ? 'base' : 'test';
@@ -3711,7 +3767,7 @@ async function validatePrqFetch(conversationData) {
       if (!best.ok) {
         err(side.scope, h.fieldKey, null, 'the saved page does not contain the prompt you submitted, so it does not look like this task\'s conversation.',
           'save and upload the page for the conversation you actually ran for this task.',
-          'submitted prompt: "' + norm(formPrompt).slice(0, 160) + '"; the page\'s first question is "' + h.prompts[0].slice(0, 160) + '"; best word overlap ' + best.pct + '% (needs ' + OVERLAP_TIER + '%).');   // F3-08
+          'submitted prompt: "' + norm(formPrompt).slice(0, 160) + '"; ' + (branchActive ? 'the page\'s question' + (h.prompts.length === 1 ? ' is ' : 's are ') + h.prompts.slice(0, 3).map((q) => '"' + q.slice(0, 100) + '"').join(', ') : 'the page\'s first question is "' + h.prompts[0].slice(0, 160) + '"') + '; best word overlap ' + best.pct + '% (needs ' + OVERLAP_TIER + '%).');   // F3-08
       }
     }
     // F3-09: the mode selector on the page identifies THIS side's model. Compared on the
@@ -3769,9 +3825,13 @@ async function validatePrqFetch(conversationData) {
   {
     const a = htmlOf('test'), b = htmlOf('base');
     if (a && b) {
+      // Attribution: turn 1 (question AND response) is shared by design, so identity is judged on
+      // the SECOND question and response; with fewer than two of either on a page, text identity
+      // is undecidable and only byte-identical pages count.
+      const ix = branchActive ? 1 : 0;
       const sameText = a.fp === b.fp
-        || (a.prompts.length && b.prompts.length && a.responses.length && b.responses.length
-            && eqN(a.prompts[0], b.prompts[0]) && overlapPct(a.responses[0], b.responses[0]) >= 99);
+        || (a.prompts.length > ix && b.prompts.length > ix && a.responses.length > ix && b.responses.length > ix
+            && eqN(a.prompts[ix], b.prompts[ix]) && overlapPct(a.responses[ix], b.responses[ix]) >= 99);
       const idsDiffer = !!(a.convId && b.convId && a.convId !== b.convId);
       const labelsDiffer = !!(a.modeLabel && b.modeLabel && discriminator(a.modeLabel) !== discriminator(b.modeLabel));
       if (sameText && !idsDiffer && !labelsDiffer) {
@@ -3820,6 +3880,11 @@ async function validatePrqFetch(conversationData) {
           ? 'the two models\' saved pages look swapped -- upload each model\'s own page under that model.'
           : 'upload the saved page for the same conversation the debug info was captured from; if you re-ran the conversation, re-capture the debug info from the run you are submitting.',
         'none of the ' + dTokens.length + ' debug session id(s) appear on the page. Debug: ' + dTokens.join(', ') + '. Page: ' + h.tokens.join(', ') + '.' + (inOther ? ' They DO appear on the other model\'s page.' : ''));   // F3-12
+    } else if (missing.length && isBranchedOrUnknown(side.slot)) {
+      // Attribution: the branched side's cumulative capture may carry the first model's turn-1
+      // session link, which the branched page need not embed. Partial coverage is expected here;
+      // only the fully-disjoint case above is a finding on the branched side.
+      logs.push('F3-12 ' + side.scope + ': ' + missing.length + ' of ' + dTokens.length + ' debug session id(s) not on the page -- attribution branch mode, the shared turn 1 explains this; no finding.');
     } else if (missing.length) {
       // Same defect as the fully-disjoint case above, just smaller: the page does not document
       // every turn the debug covers. Blocking (severity review, 10 Sep 2026).
@@ -3849,7 +3914,12 @@ async function validatePrqFetch(conversationData) {
   const idsBySlot = new Map();
   const idSourceBySlot = new Map();
   for (const side of bound) {
-    const mine = usableDebug.filter((r) => r.slot === side.slot);
+    // Attribution, branched side: the shared turn 1 (if linked) is the FIRST model's capture and a
+    // cumulative turn-2 capture may replay the first model's agency id inside it -- so identity is
+    // read from the HEADER id (first occurrence) of each own capture, turn 1 excluded.
+    const mine = usableDebug.filter((r) => r.slot === side.slot && !(isBranchedOrUnknown(side.slot) && r.turn === 1))
+      .map((r) => (isBranchedOrUnknown(side.slot) && (r.agency || []).length > 1) ? Object.assign({}, r, { agency: [r.agency[0]] }) : r);
+    if (isBranchedOrUnknown(side.slot) && usableDebug.some((r) => r.slot === side.slot && (r.turn === 1 || (r.agency || []).length > 1))) logs.push('F5 ' + side.scope + ': attribution branch mode -- identity read from each own capture\'s header id; the shared turn 1 is excluded.');
     const withAgency = mine.filter((r) => (r.agency || []).length);
     const withModelId = mine.filter((r) => (r.modelIds || []).length);
     const source = withAgency.length ? 'agency config id' : (withModelId.length ? 'Model ID' : null);
@@ -3878,8 +3948,12 @@ async function validatePrqFetch(conversationData) {
     }
     // F5-06: the debug and the saved page must report the SAME model for this side. Ref 903:1352.
     const h = htmlOf(side.slot);
-    const pageId = h && (h.agency || []).length ? h.agency[0] : null;
+    // Attribution, branched side: the page's turn-1 block carries the FIRST model's id by design, so
+    // the page is judged as a SET -- the own debug id must appear somewhere on it.
+    const pageIds = h ? (h.agency || []) : [];
     const debugId = idsBySlot.get(side.slot);
+    const pageHasDebugId = !!(debugId && pageIds.some((p) => canonModel(p) === canonModel(debugId)));
+    const pageId = isBranchedOrUnknown(side.slot) ? (pageIds.length ? (pageHasDebugId ? debugId : pageIds[pageIds.length - 1]) : null) : (pageIds.length ? pageIds[0] : null);
     if (h && pageId && debugId && source === 'agency config id' && canonModel(pageId) !== canonModel(debugId)) {
       err(side.scope, h.fieldKey, null, 'the debug files and the saved page for this model were produced by two different models.',
         'confirm the same model was selected for the conversation you captured and the page you saved, and re-upload whichever is wrong.',
@@ -3916,8 +3990,11 @@ async function validatePrqFetch(conversationData) {
   {
     const ah = htmlOf('test'), bh = htmlOf('base');
     const ad = idsBySlot.get('test'), bd = idsBySlot.get('base');
-    const ap = ah && (ah.agency || []).length ? ah.agency[0] : null;
-    const bp = bh && (bh.agency || []).length ? bh.agency[0] : null;
+    // Attribution: a page whose id SET contains its own debug id is not swapped, whatever its first
+    // block says (the branched page opens with the first model's turn 1).
+    const has = (h, id) => !!(h && id && (h.agency || []).some((x) => canonModel(x) === canonModel(id)));
+    const ap = ah && (ah.agency || []).length ? (branchActive && has(ah, ad) ? ad : ah.agency[0]) : null;
+    const bp = bh && (bh.agency || []).length ? (branchActive && has(bh, bd) ? bd : bh.agency[0]) : null;
     if (ap && bp && ad && bd && canonModel(ap) === canonModel(bd) && canonModel(bp) === canonModel(ad)) {
       err(ah.scope, ah.fieldKey, null, 'the two saved pages are swapped: each model\'s page is filed under the other model.',
         'swap the two page uploads so each model\'s page sits under that model.',
@@ -3975,7 +4052,13 @@ async function validatePrqFetch(conversationData) {
     // sources appeared is LOGGED for the client ruling that section 9 row 8 is waiting on.
     const SOURCE_RE = /source_name:\s*"(DATA_SOURCE_USER_PROFILE_[A-Z0-9_]+)"/g;
     const testSide = bound.find((s2) => s2.slot === 'test');
-    const d = testSide ? debugOf('test', 1) : null;
+    let d = testSide ? debugOf('test', 1) : null;
+    if (testSide && isBranched('test')) {
+      // The branched Test side has no turn 1 of its own; its earliest own capture is the evidence.
+      const own = usableDebug.filter((r) => r.slot === 'test' && r.turn > 1).sort((x, y) => x.turn - y.turn);
+      d = own.length ? own[0] : null;
+      if (d) logs.push('F7-03: Test model is the branched side (attribution) -- personal-context evidence read from its Turn ' + d.turn + ' capture.');
+    }
     if (!testSide) {
       logs.push('F7-03 skipped: the Test model side is not bound.');
     } else if (!d) {
@@ -3985,11 +4068,11 @@ async function validatePrqFetch(conversationData) {
     } else {
       const found = [...new Set([...d.text.matchAll(SOURCE_RE)].map((m) => m[1]))].sort();
       if (!found.length) {
-        warn(testSide.scope, d.fieldKey, 1, 'no personal information reached this model, so the setup that makes it personalized cannot be verified.',
+        warn(testSide.scope, d.fieldKey, d.turn, 'no personal information reached this model, so the setup that makes it personalized cannot be verified.',
           'check this model\'s setup -- the personal data sources must be connected before you start the conversation -- then re-export and re-upload this turn\'s debug info.',
           'the debug is a full share but carries no personal-context source at all.');   // F7-03
       } else {
-        logs.push('F7-03 Test model Turn 1: personal-context sources retrieved = ' + found.join(', ') + '. (Which sources a task SHOULD show is not yet ruled -- the set varies with what the query needs, so only "none at all" is treated as a failure. Section 9 row 8.)');   // F7-03
+        logs.push('F7-03 Test model Turn ' + d.turn + ': personal-context sources retrieved = ' + found.join(', ') + '. (Which sources a task SHOULD show is not yet ruled -- the set varies with what the query needs, so only "none at all" is treated as a failure. Section 9 row 8.)');   // F7-03
       }
     }
   }
@@ -4000,7 +4083,7 @@ async function validatePrqFetch(conversationData) {
   // whether half/full-width folding belongs in the ladder. Folding is added only if this probe
   // shows it in real data, with the probe as the incident citation.
   // ==========================================================================
-  if (filled(formPrompt)) {
+  if (filled(formPrompt) && !branchActive) {
     const WIDE_RE = /[\uff01-\uff5e\u3000-\u303f]/;
     const foldWidth = (s) => norm(s).replace(/[\uff01-\uff5e]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0)).replace(/\u3000/g, ' ');
     for (const r of usableDebug) {

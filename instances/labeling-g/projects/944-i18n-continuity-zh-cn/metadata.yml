@@ -7,7 +7,7 @@ language: zh-CN
 owner: raghav.k1@turing.com
 tool_url: https://labeling-g.turing.com/projects/944/view/quality
 tool_project_id: 944
-status: ready-to-deploy          # requirements.md at v2.0.3; validation.js rebuilt off it, 79 fixtures + golden 1264318/1264388 green
+status: ready-to-deploy          # requirements.md at v2.0.4; validation.js rebuilt off it, 79 fixtures + golden 1264318/1264388/1264206 green
 
 deployed:
   version: 0                     # bump to 1 after first paste into the tool
@@ -16,9 +16,25 @@ deployed:
   commit:
 
 script:
-  version: 2.0.3
+  version: 2.0.4
   generated: true                # validation.js is BUILT — do not hand-edit
   build: node scripts/build-944.mjs
+  notes_v2_0_4: |
+    ISOLATE MEMORY BLOWOUT on task 1264206. The tool reported "Validation failed: Promise was
+    abandoned" (check key scriptExecution) -- isolated-vm disposing the isolate on its 256MB
+    limit, which rejects the still-pending Promise.allSettled over the fetches, so the error
+    surfaces at the fetch and not at the allocation that killed it. 1264206 links 38.3MB of
+    artifacts across 9 files (an 18.20MB Takeout export and four 4.6-5.5MB saved conversation
+    pages) and the script retained THREE full UTF-16 copies of each (content, decoded,
+    normalized): measured peak RSS 849MB. Fixes: (1) geminiConversationHistory is no longer
+    fetched -- Takeout size is unbounded and the helper JSON.parses it before handoff; F-03's
+    Takeout half is withdrawn, link-shape checks still cover the field. (2) Only the debug
+    family retains its text (F-02/F-05 need all of it; 25-175KB per file); every other artifact
+    is reduced on arrival to a 4096-char prefix + a length:hash fingerprint, and each settled
+    slot is nulled as the loop consumes it. F-03 reads the prefix; F-04 compares fingerprints
+    (raw-byte identity now, not post-normalisation identity). (3) The fetch retry is
+    deadline-gated at 12s. Peak RSS on 1264206: 849MB -> 118MB. Fixture "F-03 takeout" replaced
+    by a not-fetched non-fire.
   notes_v2_0_3: |
     F-05 false-block fix #2, from the FIRST completed Multi-Turn task (1264388). Gemini debug
     captures are CUMULATIVE: turn t's capture replays turns 1..t, so it carries t
@@ -95,7 +111,7 @@ coverage: |
     G-01..G-13  gate cascades (required-when-shown + empty-when-hidden), transcribed from config displayConditions
     U-01..U-07  artifact URL integrity (pasted debug/HTML, no link, multi-link, folder, host)
     D-01        artifact identity (same Drive file id across slots)
-    F-01..F-05  fetched-artifact content (fetch failure, debug/HTML sanity, cross-artifact byte-identity, turn-count vs debug) — v2.0.0, Layer L2
+    F-01..F-05  fetched-artifact content (fetch failure, debug/HTML sanity, cross-artifact fingerprint identity, turn-count vs debug) — v2.0.0, Layer L2
     I-01..I-03  namespace / ranking identity
     C-01..C-16  coherence (cold-start gate cascade, satisfaction anchor C-11, English-thread exception C-06, MT ranking coherence)
     B-01..B-07  assignment vs submission (batch axes)

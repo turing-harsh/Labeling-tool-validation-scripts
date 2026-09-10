@@ -521,11 +521,20 @@ async function validatePrqFetch(conversationData) {
   // it covers. The token is a per-response session id, so it is a DECISIVE same-chat proof --
   // far stronger than text overlap, which cannot work here at all because the saved page embeds
   // the debug dump verbatim (see the visible-conversation note below). 903:1348 does the same.
+  // Scan the RAW blob and decode only each captured token -- never decodeEntities() the whole
+  // page. decodeEntities is six chained .replace() calls, so on a multi-megabyte saved page it
+  // materialises six successive full-size copies: measured 185MB of heap for ONE 18.5MB page
+  // (task 1271432, project 948), and with two such pages on a task that alone overruns the
+  // 256MB isolate -- the isolate is disposed and the tool reports "Promise was abandoned".
+  // Decoding cannot change the capture anyway: the token's character class already stops at
+  // '&', so an entity in or around the URL terminates it identically either way. Verified
+  // token-for-token identical against all 28 cached artifacts across 941/942/948.
   const extractSessionTokens = (blob) => {
     const out = [];
-    const re = /llmdebugger\.corp\.google\.com\/agency\?s=([^\s"'<>)&]+)/gi;
+    const re = /llmdebugger\.corp\.google\.com\/agency\?s=([^\s"'<>)&;]+)/gi;
+    const s = rawStr(blob);
     let m;
-    while ((m = re.exec(decodeEntities(rawStr(blob)))) !== null) out.push(m[1]);
+    while ((m = re.exec(s)) !== null) { const v = decodeEntities(m[1]).trim(); if (v) out.push(v); }
     return [...new Set(out)];
   };
   // VISIBLE CONVERSATION. The saved page contains the whole Debug Info dump, so testing the form

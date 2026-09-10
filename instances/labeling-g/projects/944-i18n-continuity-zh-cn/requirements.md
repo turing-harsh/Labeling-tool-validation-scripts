@@ -18,7 +18,7 @@
 | Model B | `Pcontext Mode 23 (Nippon) > Ramen (top 20) - Fast` |
 | Task types | Single Turn and Multi Turn, in one batch, on one form |
 | Locales | 53 `targetLanguage` × 50 `dialect` options |
-| Artifacts | Google Drive links — debug, conversation HTML, thread HTML, Takeout — **fetched and content-checked**, not just link-shape-checked (§8–§9) |
+| Artifacts | Google Drive links — debug, conversation HTML, thread HTML **fetched and content-checked** (§8–§9); the Takeout export is link-shape-checked only (size, §8) |
 | Per-side key shape | `compareModels.<model name>.<questionKey>` |
 | Batch/input root | task-sheet columns: `Task Type`, `First Model`, `Conversation Track`, `Model A`, `Model B`, `Target Language`, `Dialect`, `Time Gap`, `Context Relevance`, `Prompt Explicitness` |
 

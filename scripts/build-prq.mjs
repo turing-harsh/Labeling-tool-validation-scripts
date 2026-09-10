@@ -15,6 +15,17 @@
 // declare as proven facts, so a config revision that breaks an assumption fails the build
 // instead of silently disabling a check.
 //
+// CHANGELOG:
+//   v1.1.1 -- isolate memory fix (948/1271432, requirements 10.8). The task links 36.68MB of
+//     artifacts, including saved pages of 18.54MB and 17.41MB, and the tool reported
+//     "Validation failed: Promise was abandoned" -- isolated-vm disposing the isolate on its
+//     256MB limit, which rejects the pending Promise.allSettled over the fetches.
+//     extractSessionTokens was running decodeEntities() over the WHOLE page (six chained
+//     .replace() calls = six full-size copies: 185MB of heap for one 18.5MB page). It now
+//     scans the raw blob and decodes only each captured token -- the token's character class
+//     already stops at '&', so the capture is unchanged. Peak RSS on 1271432: 1154MB -> 236MB;
+//     golden findings byte-identical across 941/942/948.
+//
 // Re-run after editing any source:  node scripts/build-prq.mjs
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -29,7 +40,7 @@ const P948 = PROJ("948-yakitori-vs-prod-en-us");
 const die = (m) => { console.error("build-prq FAILED: " + m); process.exit(1); };
 const note = (m) => console.log("  note: " + m);
 
-const VERSION = "1.1.0";
+const VERSION = "1.1.1";
 
 // ---------------------------------------------------------------- derive spec
 function deriveSpec(configPath, expectProjectId) {
