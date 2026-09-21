@@ -2,8 +2,12 @@ node_modules/
 .DS_Store
 *.log
 
-# Local Drive-fetched artifacts (client data + tokens) — never commit
+# Locally fetched golden fixtures (real client data + tokens) — never commit.
+# Their fixtures/ counterparts hold synthetic data and ARE committed.
 **/golden/artifacts/
+**/golden/gcs/
+**/golden/zips/
+**/golden/folders/
 # Service-account keys / secrets
 credentials.json
 *.sa.json

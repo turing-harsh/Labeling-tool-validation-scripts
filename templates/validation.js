@@ -7,6 +7,12 @@
 //     warnings[]   -> non-blocking
 //     infos[] successes[] logs[]
 //   PASS = errors.length === 0. Plain script only: no import/export/require.
+//
+//   To read a linked file, folder or ZIP:
+//     await fetchDriveData(link, { as: 'file' | 'zip' | 'folder' })   // omitted `as` = one file
+//     await fetchGcsData(link,   { as: 'file' | 'zip' | 'folder' })
+//   Both return { sourceType, files, data, sizes, meta } — check `meta.truncated` before
+//   calling a file missing. See docs/CONVENTIONS.md § Fetching linked files.
 
 async function validate(conversationData) {
   const byKey = {};

@@ -32,9 +32,9 @@ async function validate(conversationData) {
 | `infos` | string[] | Informational notes. |
 | `successes` | string[] | Positive confirmations ("X checks out"). |
 | `logs` | string[] | Debug logs. |
-| `fetchDataFromDriveLink(link)` | async fn | Available in the tool; **throws locally**. |
-| `fetchDataFromDriveZip(link)` | async fn | Available in the tool; **throws locally**. |
-| `fetchDataFromGcsLink(link)` | async fn | Available in the tool; **throws locally**. |
+| `fetchDriveData(link, options)` | async fn | Read a Google Drive link as a file, a ZIP, or a folder. See [Fetching linked files](#fetching-linked-files). |
+| `fetchGcsData(link, options)` | async fn | Same for a GCS link (`gs://`, `storage.googleapis.com`, `storage.cloud.google.com`). |
+| `fetchDataFromDriveLink/Zip`, `fetchDataFromGcsLink/Zip` | async fn | Retained aliases over the two above — still supported, see [Retained aliases](#retained-aliases). |
 
 ### Rules
 
@@ -110,6 +110,109 @@ Each case is a `conversationData` plus expectations on the collected arrays:
 - `expect.errorsContain: [...]` asserts each substring appears in some error.
 - `expect.warningsContain: [...]` / `expect.successesContain: [...]` work the same way.
 - Add a case per rule in `requirements.md`, plus real edge cases you've hit in batches.
+
+## Fetching linked files
+
+Two functions cover every source and shape:
+
+```js
+await fetchDriveData(link, { as: 'file' | 'zip' | 'folder' })   // Google Drive
+await fetchGcsData(link,   { as: 'file' | 'zip' | 'folder' })   // GCS
+```
+
+**Pass the shape explicitly.** Nothing is guessed — not even from a `.zip` suffix — because
+detecting it would cost an extra metadata round trip and gets ambiguous mime types wrong.
+An omitted `as` reads a **single file**; pointing that at a folder link fails with an error
+telling you to pass `{ as: 'folder' }`.
+
+Both return the same envelope:
+
+```js
+{
+  sourceType,  // 'drive_file' | 'drive_zip' | 'drive_folder' | 'gcs_file' | 'gcs_zip' | 'gcs_folder'
+  files,       // { "<path>": parsedJsonOrText } — one key for a single file
+  data,        // single-file shapes only: the one parsed value
+  sizes,       // { "<path>": bytes }
+  meta: {
+    fileCount, totalBytes,
+    truncated,   // true = a cap or the deadline stopped us; `files` is partial
+    skipped,     // [{ path, reason, mimeType }]
+    mimeTypes,   // { "<path>": mimeType }
+  },
+}
+```
+
+### Rules that bite
+
+- **Always check `meta.truncated`** before concluding a file is missing — a large folder may
+  have been cut short at the time or size budget. Report it as a warning, not as a defect.
+- **A single file's one key is not its name:** the Drive file id for Drive, the object's
+  basename for GCS (reading the real Drive name would cost another API call). Use `data`.
+- **`.json` is auto-parsed**; a malformed `.json` arrives as **raw text** so the script can
+  report it instead of crashing. A single file is JSON-parsed whatever its extension, with the
+  same raw-text fallback.
+- **Everything is decoded as UTF-8**, so binary files (`.npz`, images, …) arrive as mojibake.
+  Use `meta.mimeTypes` to skip them rather than asserting on their contents.
+- **Folder keys are paths relative to the folder**, so `tests/kitf.py` and `solution/kitf.py`
+  stay distinct.
+- Drive folder walks follow shortcuts, skip Google Workspace files (no binary content) and
+  record both in `meta.skipped`.
+- Drive files must be shared with `beling-tool-g-svc@turing-gpt.iam.gserviceaccount.com`.
+- Wrap fetches in `try`/`catch` and turn a failure into a finding — a throw that escapes
+  `validate` becomes one opaque `Validation error:` line.
+- **Don't `await` fetches serially in a loop.** One task can carry 20+ links against a 30s
+  script budget; issue them together with `Promise.allSettled`.
+
+**Limits** (run-checks-api defaults): extracted ZIP/folder bytes ≤ 50MB · ≤ 500 files per
+folder · Drive folder depth ≤ 10 (GCS keys are flat) · Drive fetch 30s, GCS fetch 10s, folder
+walk 20s · 8 downloads in parallel.
+
+### Retained aliases
+
+The four older helpers still work — they pin `as` and unwrap the envelope, so existing scripts
+need no edit:
+
+| Alias | Equivalent to | Returns |
+|-------|---------------|---------|
+| `fetchDataFromDriveLink(link)` | `fetchDriveData(link, { as: 'file' })` | `result.data` |
+| `fetchDataFromDriveZip(link)` | `fetchDriveData(link, { as: 'zip' })` | `{ ...result.files, __sizes: result.sizes }` |
+| `fetchDataFromGcsLink(link)` | `fetchGcsData(link, { as: 'file' })` | `result.data` |
+| `fetchDataFromGcsZip(link)` | `fetchGcsData(link, { as: 'zip' })` | `{ ...result.files, __sizes: result.sizes }` |
+
+New code should use `fetchDriveData` / `fetchGcsData`: only they expose `meta.truncated`,
+`meta.skipped` and `meta.mimeTypes`, and only they can read a folder.
+
+## Local fetch mocks
+
+These folders stand in for the tool's fetch layer so cases and golden runs work offline. Put
+them under a project's `fixtures/` (for `npm test`) or `golden/` (for `npm run golden`):
+
+| Folder | Serves | Lookup key |
+|--------|--------|------------|
+| `artifacts/` | `fetchDriveData` as `'file'` | `<driveFileId>.txt` / `.html` / `.json` (any extension works) |
+| `artifacts/` | `fetchDriveData` as `'zip'` | `<driveFileId>.zip` |
+| `gcs/` | `fetchGcsData` as `'file'` | `<objectBasename>` — `form-v2/abc123.json?Expires=…` → `abc123.json` |
+| `zips/` | `fetchGcsData` as `'zip'` | `<objectBasename>.zip` — `form-v2/abc123.zip?Expires=…` → `abc123.zip` |
+| `folders/<key>/…` | either, as `'folder'` | the Drive folder id, or a GCS prefix's last segment (`gs://b/runs/r42` → `r42`) |
+
+A folder fixture is walked recursively and keyed the same way production keys it. An optional
+`folders/<key>/.mimetypes.json` (`{ "<relative path>": "<mimeType>" }`) fills `meta.mimeTypes`
+for a **Drive** folder, and a `application/vnd.google-apps.*` entry there lands in
+`meta.skipped` exactly as a real Workspace file does. GCS prefix listings carry no mime types
+in production either, so the sidecar is ignored for them.
+
+A folder that doesn't exist leaves that shape **unavailable**: the call throws, rather than
+quietly reading nothing. `scripts/wrapper.mjs` unpacks zips with `node:zlib` (stored +
+deflate, no Zip64) and mirrors `drive-fetcher.ts` / `gcs-fetcher.ts` / `folder-loader.ts` —
+envelope shape, `sizes`, `skipped` reasons, size/file/depth caps and error text included.
+
+**Two deliberate local divergences**, both documented at their definition in the wrapper:
+
+- Drive link parsing is permissive, so fixtures can use short synthetic ids
+  (`file/d/DBG_A1`, `drive/folders/FOLDER1`). The tool needs a real 25+ character Drive id.
+- There is no network, so the wall-clock budgets (fetch timeouts, folder deadline) and
+  `concurrency` have no local effect. Only the size, file-count and depth caps are enforced,
+  so `meta.truncated` is reproducible but never time-driven.
 
 ## Testing against real batches
 

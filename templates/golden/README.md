@@ -25,3 +25,10 @@ Also accepted: a **JSON array** of `conversationData` (runs each), or a **batch 
 npm run golden -- <INSTANCE>/<PROJECT>                 # all golden files
 npm run golden -- <INSTANCE>/<PROJECT> golden/one.txt  # a single file
 ```
+
+## Fetching
+
+If the script calls `fetchDriveData` / `fetchGcsData`, drop stand-ins beside this README so the
+run stays offline: `artifacts/<driveFileId>.<ext>`, `gcs/<objectBasename>`,
+`zips/<objectBasename>.zip`, `folders/<folderIdOrPrefix>/…`. The runner prints which mocks it
+activated. See [docs/CONVENTIONS.md](../../../../../docs/CONVENTIONS.md) § Local fetch mocks.

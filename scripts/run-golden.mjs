@@ -7,7 +7,7 @@
 import { readdirSync, existsSync, readFileSync, statSync } from "node:fs";
 import { join, dirname, basename, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
-import { runValidation } from "./wrapper.mjs";
+import { fetchMockDirs, runValidation } from "./wrapper.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const target = process.argv[2];
@@ -33,9 +33,19 @@ if (!existsSync(goldenDir)) {
 }
 
 const userScript = readFileSync(scriptPath, "utf8");
-const artifactsDir = join(goldenDir, "artifacts");
-const fetchDir = existsSync(artifactsDir) ? artifactsDir : undefined;
-if (fetchDir) console.log(`(fetch-mock active: resolving Drive links from ${artifactsDir})`);
+
+// Stand-ins for the tool's fetch layer, so a golden run works offline. See
+// docs/CONVENTIONS.md for what each folder serves.
+const mocks = fetchMockDirs(goldenDir);
+const mockLabels = {
+  driveDir: "Drive files and zips (fetchDriveData)",
+  gcsDir: "GCS objects (fetchGcsData)",
+  zipDir: "GCS zips (fetchGcsData as 'zip')",
+  folderDir: "Drive folders and GCS prefixes (fetchDriveData/fetchGcsData as 'folder')",
+};
+for (const [key, label] of Object.entries(mockLabels)) {
+  if (mocks[key]) console.log(`(fetch-mock active: ${label} from ${mocks[key]})`);
+}
 
 // Collect golden files (skip README and dotfiles), or the one requested.
 let files;
@@ -93,7 +103,7 @@ for (const file of files) {
 
   for (const task of toTasks(name, data)) {
     ran++;
-    const r = await runValidation(userScript, task.conversationData ?? {}, { fetchDir });
+    const r = await runValidation(userScript, task.conversationData ?? {}, mocks);
     const status = r.errors.length === 0 ? "PASS" : "FAIL";
     if (status === "FAIL") failed++;
     console.log(`\n=== ${task.label} — ${status} (${r.errors.length} error, ${r.warnings.length} warning) ===`);

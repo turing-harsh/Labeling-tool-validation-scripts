@@ -26,6 +26,11 @@ rejects it at save time otherwise). Full contract, globals, and data shapes:
 [docs/CONVENTIONS.md](docs/CONVENTIONS.md). Our local wrapper
 ([scripts/wrapper.mjs](scripts/wrapper.mjs)) mirrors the tool's sandbox so local == production.
 
+Scripts that read linked artifacts use the sandbox's two fetch functions —
+`fetchDriveData(link, { as })` and `fetchGcsData(link, { as })`, where `as` is `'file'`,
+`'zip'` or `'folder'`. Local fixture folders stand in for them so tests run offline; both are
+covered in [docs/CONVENTIONS.md](docs/CONVENTIONS.md).
+
 ## Layout
 
 ```
@@ -38,7 +43,9 @@ instances/
         requirements.md        what the validation must enforce (the spec)
         metadata.yml           owner, tool URL/id, task type, status, deploy info
         fixtures/cases.json    conversationData samples + expected errors/warnings
+        fixtures/{artifacts,gcs,zips,folders}/   offline stand-ins for the fetch layer
         golden/                sample task payloads (.txt) to run & eyeball — no assertions
+        golden/{artifacts,gcs,zips,folders}/     same stand-ins for golden runs
 templates/                     scaffold copied when creating a new project
 scripts/
   new-project.mjs              scaffold a new project

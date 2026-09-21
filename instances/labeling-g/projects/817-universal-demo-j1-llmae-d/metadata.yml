@@ -1,0 +1,29 @@
+# Project metadata — keep in sync with the live tool.
+instance: labeling-g
+slug: 817-universal-demo-j1-llmae-d
+display_name: universal-demo-J1-LLMAE-D-test
+task_type: harbor-task-package-validation
+owner: harsh.a@turing.com
+tool_url: https://labeling-g.turing.com
+tool_project_id: 817
+status: draft
+
+deployed:
+  version: 0                    # bump each time you paste into the tool
+  date:
+  by:
+  commit:
+
+notes: |
+  Deterministic port of Harbor's checks/deterministic_task_validation.py — see
+  requirements.md for the rule table, the three profiles and the four documented
+  divergences. Reads the package ZIP from ratings.taskFolder with
+  fetchDataFromGcsZip, which was added to run-checks-api for this project
+  (apps/run-checks-api/src/app/run-checks/gcs-fetcher.ts, fetchAndTrackZip):
+  the older fetchDataFromGcsLink returns the ZIP bytes decoded as UTF-8, which
+  destroys ~40% of a deflated archive, so only entry names survived it.
+
+  Batch 8647's sample package is pre-finalization (no qc_report.html, no
+  client_qc*, no evaluations/platform), so it passes `upload` with 14 advisories
+  and fails `audit`/`delivery`. Confirm which profile this project should gate on
+  before setting PROFILE and deploying.

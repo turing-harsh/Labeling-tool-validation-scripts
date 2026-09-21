@@ -1,0 +1,225 @@
+[
+  {
+    "name": "delivery-complete package passes at upload",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/complete.zip?Expires=1&Signature=x",
+        "validationProfile": "upload"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warnings": [],
+      "successesContain": ["passes the deterministic upload checks"],
+      "infosContain": ["family: native", "classification: with-runs", "difficulty: 2/4 trials passed"]
+    }
+  },
+  {
+    "name": "delivery-complete package passes at delivery",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/complete.zip",
+        "validationProfile": "delivery"
+      }
+    },
+    "expect": { "errors": [], "warnings": [], "successesContain": ["passes the deterministic delivery checks"] }
+  },
+  {
+    "name": "missing grader spec fails even at upload",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "gs://form-v2-prod/form-v2/no-grader-spec.zip",
+        "validationProfile": "upload"
+      }
+    },
+    "expect": { "errorsContain": ["no grader spec: expected tests/verifier.json"] }
+  },
+  {
+    "name": "empty solution folder fails even at upload",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/empty-solution.zip",
+        "validationProfile": "upload"
+      }
+    },
+    "expect": { "errorsContain": ["solution/ holds no content"] }
+  },
+  {
+    "name": "_app mirror drift on a graded path fails",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/mirror-drift.zip",
+        "validationProfile": "upload"
+      }
+    },
+    "expect": { "errorsContain": ["environment/_app mirror disagrees with the root in graded paths: task.toml"] }
+  },
+  {
+    "name": "a package nested inside another is rejected",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/nested-package.zip",
+        "validationProfile": "upload"
+      }
+    },
+    "expect": { "errorsContain": ["this task package sits inside another package"] }
+  },
+  {
+    "name": "unparseable evaluation artifact is advisory at upload",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/bad-evaluation-json.zip",
+        "validationProfile": "upload"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warningsContain": ["ADVISORY", "T0.evaluation-json: unparseable evaluation artifact(s): evaluations/difficulty/r1/verifier/reward_detail.json"]
+    }
+  },
+  {
+    "name": "unparseable evaluation artifact blocks at audit",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/bad-evaluation-json.zip",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": { "errorsContain": ["T0.evaluation-json: unparseable evaluation artifact(s)"] }
+  },
+  {
+    "name": "three difficulty trials is short of the required four",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/three-difficulty-trials.zip",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": { "errorsContain": ["T0.difficulty-count: requires four or five difficulty trials; found 3"] }
+  },
+  {
+    "name": "3/4 difficulty passes breaches the 2/4 delivery limit",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/too-easy.zip",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": { "errorsContain": ["T2.difficulty-score: 3/4 difficulty trials passed"] }
+  },
+  {
+    "name": "a difficulty trial on the wrong model is invalid",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/wrong-model.zip",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": { "errorsContain": ["T0.difficulty-trials: invalid difficulty trials: r2 (not GLM-5.2)"] }
+  },
+  {
+    "name": "stability regrades with a differing lock.json are rejected",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/stability-lock-drift.zip",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": {
+      "errorsContain": ["T0.stability-lock: stability lock.json files are missing or differ"],
+      "errorsNotContain": ["T0.stability-identity", "T0.stability-reward"]
+    }
+  },
+  {
+    "name": "missing qc_report.html reports both the root gap and the certificate gap",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/no-certificate.zip",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "T0.root-missing: final package is missing qc_report.html",
+        "T0.certificate-missing: qc_report.html is missing"
+      ]
+    }
+  },
+  {
+    "name": "a missing platform axis is advisory at upload",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/no-platform-axis.zip",
+        "validationProfile": "upload"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warningsContain": ["T0.evaluation-axis-missing: evaluations/platform/ missing"]
+    }
+  },
+  {
+    "name": "a missing platform axis blocks delivery",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/no-platform-axis.zip",
+        "validationProfile": "delivery"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "T0.evaluation-axis-missing: evaluations/platform/ missing",
+        "T0.platform-layout: evaluations/platform/e2b/oracle requires exactly one run; found 0"
+      ]
+    }
+  },
+  {
+    "name": "a task-only package passes at upload",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/task-only.zip",
+        "validationProfile": "upload"
+      }
+    },
+    "expect": { "errors": [], "warnings": [], "infosContain": ["classification: task-only"] }
+  },
+  {
+    "name": "a task-only package cannot be delivered",
+    "conversationData": {
+      "ratings": {
+        "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/task-only.zip",
+        "validationProfile": "delivery"
+      }
+    },
+    "expect": { "errorsContain": ["T0.delivery-evaluations-missing: evaluations/ is required for a delivery package"] }
+  },
+  {
+    "name": "missing taskFolder is reported, not crashed on",
+    "conversationData": { "ratings": {} },
+    "expect": { "errorsContain": ["the task package link is missing"] }
+  },
+  {
+    "name": "a non-GCS taskFolder link is reported",
+    "conversationData": { "ratings": { "taskFolder": "https://drive.google.com/drive/folders/abc" } },
+    "expect": { "errorsContain": ["taskFolder is not a GCS link"] }
+  },
+  {
+    "name": "a package that cannot be downloaded is reported",
+    "conversationData": { "ratings": { "taskFolder": "https://storage.googleapis.com/form-v2-prod/form-v2/does-not-exist.zip" } },
+    "expect": { "errorsContain": ["the package ZIP could not be downloaded or extracted"] }
+  },
+  {
+    "name": "array-shaped form ratings are located too",
+    "conversationData": {
+      "task_data": {
+        "formData": {
+          "ratings": [
+            { "key": "taskFolder", "human_input_value": "https://storage.googleapis.com/form-v2-prod/form-v2/complete.zip" },
+            { "key": "validationProfile", "human_input_value": "audit" }
+          ]
+        }
+      }
+    },
+    "expect": { "errors": [], "successesContain": ["passes the deterministic audit checks"] }
+  }
+]

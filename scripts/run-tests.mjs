@@ -7,7 +7,7 @@
 import { readdirSync, existsSync, readFileSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { runValidation } from "./wrapper.mjs";
+import { fetchMockDirs, runValidation } from "./wrapper.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const filter = process.argv[2] || "";
@@ -44,11 +44,9 @@ for (const { id, dir } of projects) {
     continue;
   }
 
-  // Mock fetchDataFromDriveLink for fixtures that exercise a fetch layer -- same convention
-  // as run-golden.mjs's golden/artifacts/: <driveFileId>.<txt|html|json> files under
-  // fixtures/artifacts/ stand in for a real Drive fetch.
-  const artifactsDir = join(dir, "fixtures", "artifacts");
-  const fetchDir = existsSync(artifactsDir) ? artifactsDir : undefined;
+  // Stand-ins for the tool's fetch layer, so fixtures that fetch run offline -- same
+  // convention as run-golden.mjs's golden/<dir>/. See docs/CONVENTIONS.md.
+  const mocks = fetchMockDirs(join(dir, "fixtures"));
 
   const userScript = readFileSync(scriptPath, "utf8");
 
@@ -76,7 +74,7 @@ for (const { id, dir } of projects) {
 
   for (const c of cases) {
     totalCases++;
-    const got = await runValidation(userScript, c.conversationData ?? {}, { fetchDir });
+    const got = await runValidation(userScript, c.conversationData ?? {}, mocks);
     const exp = c.expect || {};
     const problems = [];
 
