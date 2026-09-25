@@ -31,6 +31,14 @@ export const driveFileId = (link) => {
   m = String(link).match(/[?&]id=([^&#\s]+)/i); return m ? m[1] : null;
 };
 
+export const driveFolderId = (link) => {
+  const m = String(link).match(/\/folders\/([^/?#\s]+)/i);
+  return m ? m[1] : null;
+};
+
+export const DRIVE_FOLDER_MIME = "application/vnd.google-apps.folder";
+export const SHORTCUT_MIME = "application/vnd.google-apps.shortcut";
+
 export function loadCredentials(credPath) {
   if (!credPath || !existsSync(credPath)) throw new Error(`credentials not found at ${credPath}`);
   return JSON.parse(readFileSync(credPath, "utf8"));
@@ -47,6 +55,63 @@ export async function fetchDriveFile(cred, fileId) {
     throw new Error(`drive ${r.status}: ${body.slice(0, 200)}`);
   }
   return await r.text();
+}
+
+// Fetch a Drive file's raw bytes — needed for binaries the tool would hand over as mojibake.
+export async function fetchDriveBytes(cred, fileId) {
+  const token = await getToken(cred);
+  const r = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&supportsAllDrives=true`, {
+    headers: { authorization: `Bearer ${token}` },
+  });
+  if (r.status !== 200) {
+    const body = await r.text();
+    throw new Error(`drive ${r.status}: ${body.slice(0, 200)}`);
+  }
+  return Buffer.from(await r.arrayBuffer());
+}
+
+// One directory listing, same fields run-checks-api's DriveFetcher#walk asks for.
+export async function listDriveFolder(cred, folderId) {
+  const token = await getToken(cred);
+  const rows = [];
+  let pageToken;
+  do {
+    const params = new URLSearchParams({
+      q: `'${folderId}' in parents and trashed = false`,
+      pageSize: "1000",
+      fields: "nextPageToken, files(id, name, mimeType, size, shortcutDetails)",
+      supportsAllDrives: "true",
+      includeItemsFromAllDrives: "true",
+    });
+    if (pageToken) params.set("pageToken", pageToken);
+    const r = await fetch(`https://www.googleapis.com/drive/v3/files?${params}`, {
+      headers: { authorization: `Bearer ${token}` },
+    });
+    const body = await r.json();
+    if (r.status !== 200) {
+      throw new Error(`drive list ${r.status}: ${JSON.stringify(body.error?.message || body).slice(0, 200)}`);
+    }
+    for (const row of body.files || []) rows.push(row);
+    pageToken = body.nextPageToken;
+  } while (pageToken);
+  return rows;
+}
+
+// Metadata for one id, so a link can be classified (folder vs file) before walking it.
+export async function driveMetadata(cred, fileId) {
+  const token = await getToken(cred);
+  const params = new URLSearchParams({
+    fields: "id, name, mimeType, size, driveId",
+    supportsAllDrives: "true",
+  });
+  const r = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?${params}`, {
+    headers: { authorization: `Bearer ${token}` },
+  });
+  const body = await r.json();
+  if (r.status !== 200) {
+    throw new Error(`drive meta ${r.status}: ${JSON.stringify(body.error?.message || body).slice(0, 200)}`);
+  }
+  return body;
 }
 
 // CLI: node scripts/drive-fetch.mjs <credPath> <fileIdOrLink>  (prints metadata only)

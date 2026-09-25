@@ -1,0 +1,46 @@
+{
+  "model": "dx_i/dt = (x_{i+1} - x_{i-2}) * x_{i-1} - x_i + F_i",
+  "K": 40,
+  "F_box": [
+    5,
+    12
+  ],
+  "noise_std": 0.18,
+  "clock_offset_max": 0.05,
+  "scoring": {
+    "reward": "BINARY, either 0 or 1.",
+    "validity": {
+      "state_bound": 40,
+      "degenerate_fit": 25,
+      "tau_sum_tol": 0.01
+    },
+    "metrics": {
+      "obs_fit": {
+        "definition": "mean per-sensor residual in units of the disclosed noise",
+        "bar": 1.3
+      },
+      "dyn": {
+        "definition": "one-step dynamical residual under the submitted forcing",
+        "bar": 0.015
+      },
+      "forecast": {
+        "definition": "obs_fit on the held-out continuation",
+        "bar": 4
+      },
+      "forcing_structure": {
+        "definition": "relative error of the forcing anomaly",
+        "bar": 0.3
+      },
+      "state_recovery": {
+        "definition": "relative Frobenius error of the state",
+        "bar": 0.22
+      }
+    }
+  },
+  "output": {
+    "path": "/app/result.npz",
+    "F": "length K",
+    "state": "(Ntime, K)",
+    "tau": "length S"
+  }
+}

@@ -1,0 +1,231 @@
+[
+  {
+    "name": "A: complete package passes at upload",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/COMPLETE" } },
+    "expect": {
+      "errors": [],
+      "warnings": [],
+      "successesContain": ["passes the deterministic upload checks"],
+      "infosContain": ["classification: task-only", "authoring record: present", "canary GUID: 26b5c67b"]
+    }
+  },
+  {
+    "name": "A: complete package passes at audit (advisories become blocking)",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/COMPLETE",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": { "errors": [], "successesContain": ["passes the deterministic audit checks"] }
+  },
+  {
+    "name": "A: a package one folder down is found too",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/SUBFOLDER" } },
+    "expect": { "errors": [], "warnings": [], "successesContain": ["demo-assimilation"] }
+  },
+  {
+    "name": "A: the real task shape — task field read from conversation.ratings",
+    "conversationData": {
+      "conversation": { "ratings": { "task": "https://drive.google.com/drive/folders/COMPLETE" } }
+    },
+    "expect": { "errors": [] }
+  },
+  {
+    "name": "A: missing task link fails",
+    "conversationData": { "ratings": { "evaluationComment": { "value": "test" } } },
+    "expect": { "errorsContain": ["the task package link is missing"] }
+  },
+  {
+    "name": "A: a Drive FILE link is rejected with a pointed message",
+    "conversationData": {
+      "ratings": { "task": "https://drive.google.com/file/d/1aNCMUaRh4jLKevQhrcEHWlvhOYHIPaNs/view" }
+    },
+    "expect": { "errorsContain": ["it points at a single Drive file", "/drive/folders/"] }
+  },
+  {
+    "name": "A: a non-Drive link is rejected",
+    "conversationData": { "ratings": { "task": "https://example.com/packages/task.zip" } },
+    "expect": { "errorsContain": ["is not a Drive folder link"] }
+  },
+  {
+    "name": "A: an unreadable folder is reported, not crashed on",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOSUCHFOLDER" } },
+    "expect": { "errorsContain": ["the Drive folder could not be read"] }
+  },
+  {
+    "name": "A: an empty folder is reported",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/EMPTYFOLDER" } },
+    "expect": { "errorsContain": ["holds no readable files"] }
+  },
+
+  {
+    "name": "B: no task.toml anywhere fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOTASKTOML" } },
+    "expect": { "errorsContain": ["no task package found"] }
+  },
+  {
+    "name": "B: a package nested inside another is rejected",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NESTED" } },
+    "expect": { "errorsContain": ["this task package sits inside another package"] }
+  },
+
+  {
+    "name": "C: an empty task.toml fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/EMPTYTASKTOML" } },
+    "expect": { "errorsContain": ["task.toml missing or empty"] }
+  },
+  {
+    "name": "C: task.toml without a [task] name fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOTASKNAME" } },
+    "expect": { "errorsContain": ["task.toml has no [task] name"] }
+  },
+  {
+    "name": "C: an unsafe folder name fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/BADNAME" } },
+    "expect": { "errorsContain": ["folder name is not a safe path segment"] }
+  },
+  {
+    "name": "C: an empty solution/ fails even at upload",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/EMPTYSOLUTION" } },
+    "expect": { "errorsContain": ["solution/ holds no content"] }
+  },
+  {
+    "name": "C: a missing instruction.md warns but does not block",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOINSTRUCTION" } },
+    "expect": { "errors": [], "warningsContain": ["instruction.md missing"] }
+  },
+
+  {
+    "name": "D: a missing verifier entry point fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOTESTSH" } },
+    "expect": { "errorsContain": ["tests/test.sh missing or empty"] }
+  },
+  {
+    "name": "D: a missing oracle entry point fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOSOLVESH" } },
+    "expect": { "errorsContain": ["solution/solve.sh missing or empty"] }
+  },
+  {
+    "name": "D: missing tests/reference.json fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOREFERENCE" } },
+    "expect": { "errorsContain": ["tests/reference.json missing"] }
+  },
+  {
+    "name": "D: an unparseable tests/reference.json fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/BADREFERENCE" } },
+    "expect": { "errorsContain": ["tests/reference.json does not parse as JSON"] }
+  },
+  {
+    "name": "D: a missing agent-facing spec.json fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOSPEC" } },
+    "expect": { "errorsContain": ["environment/data/spec.json missing"] }
+  },
+  {
+    "name": "D: environment_mode=separate without tests/Dockerfile fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOVERIFIERIMAGE" } },
+    "expect": { "errorsContain": ["environment_mode = \"separate\" but tests/Dockerfile is missing"] }
+  },
+
+  {
+    "name": "F: a published bar that differs from the graded bar fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/BARDRIFT" } },
+    "expect": {
+      "errorsContain": ["the published scoring contract disagrees", "state_recovery.bar 0.5 vs rec_good 0.22"]
+    }
+  },
+  {
+    "name": "F: a published validity threshold that differs fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/VALIDITYDRIFT" } },
+    "expect": { "errorsContain": ["validity.tau_sum_tol 0.05 vs 0.01"] }
+  },
+  {
+    "name": "F: publishing a partial-credit surface to the agent fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/PARTIALCREDIT" } },
+    "expect": {
+      "errorsContain": ["publishes a partial-credit surface to the agent", "still publishes a \"bad\" value"]
+    }
+  },
+  {
+    "name": "F: task.toml artifacts disagreeing with the published output path fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/ARTIFACTDRIFT" } },
+    "expect": { "errorsContain": ["tells the agent to write /app/answer.npz"] }
+  },
+
+  {
+    "name": "G: two different canary GUIDs in one package fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/GUIDDRIFT" } },
+    "expect": { "errorsContain": ["different harbor-canary GUIDs"] }
+  },
+  {
+    "name": "G: a task.toml with no canary fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOCANARY" } },
+    "expect": { "errorsContain": ["the canary header is missing from task.toml"] }
+  },
+  {
+    "name": "G: a non-defining source file with no canary only warns",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/CANARYWARN" } },
+    "expect": {
+      "errors": [],
+      "warningsContain": ["source file(s) carry no canary header", "tests/kitf.py"]
+    }
+  },
+
+  {
+    "name": "H: a missing authoring record is advisory at upload",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOAUTHORING" } },
+    "expect": {
+      "errors": [],
+      "warningsContain": ["ADVISORY", "T0.authoring-missing", "authoring/provenance/ is missing"]
+    }
+  },
+  {
+    "name": "H: the same missing authoring record blocks at audit",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/NOAUTHORING",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": { "errorsContain": ["T0.authoring-missing", "authoring/evidence/ is missing"] }
+  },
+  {
+    "name": "H: missing authoring/evidence alone is reported",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/NOEVIDENCE",
+        "validationProfile": "audit"
+      }
+    },
+    "expect": { "errorsContain": ["authoring/evidence/ is missing or holds no content"] }
+  },
+  {
+    "name": "H: an incomplete [metadata] block is advisory at upload",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NOMETADATA" } },
+    "expect": { "errors": [], "warningsContain": ["T0.metadata-missing", "author_name"] }
+  },
+  {
+    "name": "H: an undeclared verifier network_mode is advisory at upload",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/NONETWORKMODE" } },
+    "expect": {
+      "errors": [],
+      "warningsContain": ["T0.network-mode-undeclared", "[verifier.environment]"]
+    }
+  },
+  {
+    "name": "H: a task-only package needs evaluations/ only at delivery",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/COMPLETE",
+        "validationProfile": "delivery"
+      }
+    },
+    "expect": { "errorsContain": ["T0.delivery-evaluations-missing"] }
+  },
+
+  {
+    "name": "I: a module drifting between tests/ and solution/ fails",
+    "conversationData": { "ratings": { "task": "https://drive.google.com/drive/folders/MIRRORDRIFT" } },
+    "expect": { "errorsContain": ["shipped to both tests/ and solution/ have drifted apart: kitf.py"] }
+  }
+]

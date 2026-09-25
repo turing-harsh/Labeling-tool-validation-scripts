@@ -263,7 +263,10 @@ function loadFolderEnvelope(sourceType, rootDir, maxDepth) {
     const subdirs = [];
     for (const name of readdirSync(dir).sort()) {
       if (stop) return;
-      if (name.startsWith(".")) continue; // the mime sidecar and editor cruft
+      // Only the sidecar is ours to hide. Production's DriveFetcher#walk skips nothing by
+      // name -- it filters on mimeType alone -- so a blanket dotfile skip here would hide
+      // .DS_Store, .git/ and .ipynb_checkpoints from checks that exist to find them.
+      if (name === MIME_SIDECAR) continue;
 
       const abs = join(dir, name);
       const path = prefix ? `${prefix}/${name}` : name;

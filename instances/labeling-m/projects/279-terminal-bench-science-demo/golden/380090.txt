@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 3633,
+      "batchName": "life-sciences",
+      "projectId": 198,
+      "projectName": "Terminal Bench Science",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Domain": "life-sciences",
+      "__originalKeyOrder": [
+        "Domain",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 3633,
+        "batchName": "life-sciences",
+        "projectId": 198,
+        "projectName": "Terminal Bench Science"
+      },
+      "modelConfig": {
+        "conversation_id": 380090,
+        "labeling_tool_url": "https://eval.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "oracle_check": {
+        "value": {
+          "locked": false
+        }
+      },
+      "pass5Eval": {
+        "value": {
+          "locked": false
+        }
+      },
+      "qualityChecks": {
+        "value": {
+          "locked": false,
+          "scriptValidationRunIds": [
+            160,
+            159,
+            158,
+            156,
+            153,
+            151,
+            147,
+            146
+          ],
+          "scriptValidationSkipped": false
+        }
+      },
+      "task": "https://drive.google.com/drive/folders/1UGxsZv02s4tRa8kBA8_iCnfyHRNHTcbS"
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 3633,
+        "batchName": "life-sciences",
+        "projectId": 198,
+        "projectName": "Terminal Bench Science",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://eval.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Domain": "life-sciences",
+        "__originalKeyOrder": [
+          "Domain",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 3633,
+          "batchName": "life-sciences",
+          "projectId": 198,
+          "projectName": "Terminal Bench Science"
+        },
+        "modelConfig": {
+          "conversation_id": 380090,
+          "labeling_tool_url": "https://eval.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "oracle_check": {
+          "value": {
+            "locked": false
+          }
+        },
+        "pass5Eval": {
+          "value": {
+            "locked": false
+          }
+        },
+        "qualityChecks": {
+          "value": {
+            "locked": false,
+            "scriptValidationRunIds": [
+              160,
+              159,
+              158,
+              156,
+              153,
+              151,
+              147,
+              146
+            ],
+            "scriptValidationSkipped": false
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/1UGxsZv02s4tRa8kBA8_iCnfyHRNHTcbS"
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 3633,
+        "batchName": "life-sciences",
+        "projectId": 198,
+        "projectName": "Terminal Bench Science",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://eval.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Domain": "life-sciences",
+        "__originalKeyOrder": [
+          "Domain",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 3633,
+          "batchName": "life-sciences",
+          "projectId": 198,
+          "projectName": "Terminal Bench Science"
+        },
+        "modelConfig": {
+          "conversation_id": 380090,
+          "labeling_tool_url": "https://eval.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "oracle_check": {
+          "value": {
+            "locked": false
+          }
+        },
+        "pass5Eval": {
+          "value": {
+            "locked": false
+          }
+        },
+        "qualityChecks": {
+          "value": {
+            "locked": false,
+            "scriptValidationRunIds": [
+              160,
+              159,
+              158,
+              156,
+              153,
+              151,
+              147,
+              146
+            ],
+            "scriptValidationSkipped": false
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/1UGxsZv02s4tRa8kBA8_iCnfyHRNHTcbS"
+      }
+    }
+  }
+}
