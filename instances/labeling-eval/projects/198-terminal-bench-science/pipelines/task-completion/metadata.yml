@@ -1,0 +1,28 @@
+# Pipeline metadata — keep in sync with the live tool.
+instance: labeling-eval
+slug: 198-terminal-bench-science
+pipeline: task-completion
+display_name: "[STEM] Terminal Bench Science — Task Completion"
+task_type: terminal-bench-science-task-completion-gate
+owner: harsh.a@turing.com
+tool_url: https://eval.turing.com
+tool_project_id: 198
+tool_pipeline_id:               # fill in once the completion trigger exists in the tool
+status: draft
+
+deployed:
+  version: 0                    # bump each time you paste into the tool
+  date:
+  by:
+  commit:
+
+notes: |
+  GENERATED. validation.js is composed by scripts/build-198-task-completion.mjs from the three
+  pipeline scripts of this project, embedded verbatim. Never edit it by hand: edit the pipeline
+  script, rebuild, and run both that pipeline's suite and this one.
+
+  Runs once, at task completion, and needs all three inputs on the completed task:
+  ratings.task (Drive folder), ratings.oracle_check, ratings.pass5Eval.
+
+  147 KB, over the 100 KB default script limit. labeling-g runs scripts up to ~216 KB, so
+  instances can raise it -- CONFIRM labeling-eval's run-checks-api maxScriptSize before deploying.

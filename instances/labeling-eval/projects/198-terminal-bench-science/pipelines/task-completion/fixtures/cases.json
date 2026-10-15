@@ -1,0 +1,1411 @@
+[
+  {
+    "name": "all three gates pass",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/COMPLETE",
+        "oracle_check": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "o1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "o1",
+                "status": "SUCCESS",
+                "updatedAt": "2026-10-02T07:48:16.000Z",
+                "result": {
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "name": "harbor_trial",
+                      "status": "success",
+                      "output": {
+                        "agent": "oracle",
+                        "n_trials": 1,
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "7000001__task__oracle"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "pass5Eval": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "v1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "v1",
+                "status": "SUCCESS",
+                "apiId": "api-1",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "result": {
+                  "run_id": 7000001,
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "id": "allbroken1",
+                      "name": "harbor_trial_1",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "reasoning_effort": "xhigh",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken1__task__Ab0"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allbroken1__task__Ab0"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allbroken1__task__Ab0",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken1.zip"
+                      }
+                    },
+                    {
+                      "id": "allbroken2",
+                      "name": "harbor_trial_2",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "reasoning_effort": "low",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken2__task__Ab1"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allbroken2__task__Ab1"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allbroken2__task__Ab1",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken2.zip"
+                      }
+                    }
+                  ],
+                  "evaluations_failed": 0
+                }
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "api-1",
+                "apiName": "meta",
+                "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    "expect": {
+      "errors": [],
+      "successesContain": [
+        "passes the deterministic upload checks",
+        "DETERMINISTIC PASS",
+        "all 3 gates pass"
+      ],
+      "infosContain": [
+        "oracle trial in the latest current-version run completed with reward 1",
+        "Task data validation (1128): PASS",
+        "Oracle validation (1183): PASS",
+        "Pass eval reward validation (1180): PASS"
+      ]
+    }
+  },
+  {
+    "name": "the real task shape -- ratings read from conversation.ratings",
+    "conversationData": {
+      "conversation": {
+        "ratings": {
+          "task": "https://drive.google.com/drive/folders/COMPLETE",
+          "oracle_check": {
+            "value": {
+              "locked": true,
+              "versionIds": [
+                "o1"
+              ],
+              "versionsData": [
+                {
+                  "versionId": "o1",
+                  "status": "SUCCESS",
+                  "updatedAt": "2026-10-02T07:48:16.000Z",
+                  "result": {
+                    "status": "success",
+                    "evaluations": [
+                      {
+                        "name": "harbor_trial",
+                        "status": "success",
+                        "output": {
+                          "agent": "oracle",
+                          "n_trials": 1,
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": true,
+                              "reward": 1,
+                              "rewards": {
+                                "reward": 1
+                              },
+                              "trial_name": "7000001__task__oracle"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "pass5Eval": {
+            "value": {
+              "locked": true,
+              "versionIds": [
+                "v1"
+              ],
+              "versionsData": [
+                {
+                  "versionId": "v1",
+                  "status": "SUCCESS",
+                  "apiId": "api-1",
+                  "updatedAt": "2026-10-02T05:08:42.000Z",
+                  "result": {
+                    "run_id": 7000001,
+                    "status": "success",
+                    "evaluations": [
+                      {
+                        "id": "allbroken1",
+                        "name": "harbor_trial_1",
+                        "status": "success",
+                        "output": {
+                          "agent": "terminus-2",
+                          "model": "openai/gpt-6-sol",
+                          "reasoning_effort": "xhigh",
+                          "cheat_mode": false,
+                          "reward": {
+                            "reward": 0,
+                            "source": "result.json",
+                            "trials": [
+                              {
+                                "valid": true,
+                                "passed": false,
+                                "reward": 0,
+                                "rewards": {
+                                  "reward": 0
+                                },
+                                "trial_name": "7000001_allbroken1__task__Ab0"
+                              }
+                            ],
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "n_passed": 0,
+                            "n_trials": 1,
+                            "pass_at_1": 0,
+                            "pass_at_k": {
+                              "1": 0
+                            },
+                            "n_attempts": 1,
+                            "n_valid_trials": 1,
+                            "valid_rollouts": 1,
+                            "correct_rollouts": 0,
+                            "invalid_rollouts": 0,
+                            "n_invalid_trials": 0,
+                            "pass_threshold": 1
+                          },
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken1__task__Ab0"
+                            }
+                          ],
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1,
+                          "trial_name": "7000001_allbroken1__task__Ab0",
+                          "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken1.zip"
+                        }
+                      },
+                      {
+                        "id": "allbroken2",
+                        "name": "harbor_trial_2",
+                        "status": "success",
+                        "output": {
+                          "agent": "terminus-2",
+                          "model": "anthropic/claude-opus-5-5",
+                          "reasoning_effort": "low",
+                          "cheat_mode": false,
+                          "reward": {
+                            "reward": 0,
+                            "source": "result.json",
+                            "trials": [
+                              {
+                                "valid": true,
+                                "passed": false,
+                                "reward": 0,
+                                "rewards": {
+                                  "reward": 0
+                                },
+                                "trial_name": "7000001_allbroken2__task__Ab1"
+                              }
+                            ],
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "n_passed": 0,
+                            "n_trials": 1,
+                            "pass_at_1": 0,
+                            "pass_at_k": {
+                              "1": 0
+                            },
+                            "n_attempts": 1,
+                            "n_valid_trials": 1,
+                            "valid_rollouts": 1,
+                            "correct_rollouts": 0,
+                            "invalid_rollouts": 0,
+                            "n_invalid_trials": 0,
+                            "pass_threshold": 1
+                          },
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken2__task__Ab1"
+                            }
+                          ],
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1,
+                          "trial_name": "7000001_allbroken2__task__Ab1",
+                          "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken2.zip"
+                        }
+                      }
+                    ],
+                    "evaluations_failed": 0
+                  }
+                }
+              ],
+              "customData": [
+                {
+                  "apiId": "api-1",
+                  "apiName": "meta",
+                  "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                  "rewardBlockCriteria": true,
+                  "rewardBlockCriteriaMaxReward": 0.4
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errors": [],
+      "successesContain": [
+        "all 3 gates pass"
+      ]
+    }
+  },
+  {
+    "name": "task data fails alone: the other two still report PASS",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/JUNK",
+        "oracle_check": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "o1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "o1",
+                "status": "SUCCESS",
+                "updatedAt": "2026-10-02T07:48:16.000Z",
+                "result": {
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "name": "harbor_trial",
+                      "status": "success",
+                      "output": {
+                        "agent": "oracle",
+                        "n_trials": 1,
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "7000001__task__oracle"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "pass5Eval": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "v1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "v1",
+                "status": "SUCCESS",
+                "apiId": "api-1",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "result": {
+                  "run_id": 7000001,
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "id": "allbroken1",
+                      "name": "harbor_trial_1",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "reasoning_effort": "xhigh",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken1__task__Ab0"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allbroken1__task__Ab0"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allbroken1__task__Ab0",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken1.zip"
+                      }
+                    },
+                    {
+                      "id": "allbroken2",
+                      "name": "harbor_trial_2",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "reasoning_effort": "low",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken2__task__Ab1"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allbroken2__task__Ab1"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allbroken2__task__Ab1",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken2.zip"
+                      }
+                    }
+                  ],
+                  "evaluations_failed": 0
+                }
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "api-1",
+                "apiName": "meta",
+                "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "ships working material: .DS_Store"
+      ],
+      "successesContain": [
+        "DETERMINISTIC PASS"
+      ],
+      "infosContain": [
+        "oracle trial in the latest current-version run completed with reward 1",
+        "Task data validation (1128): FAIL (1 error)",
+        "Pass eval reward validation (1180): PASS"
+      ],
+      "errorsNotContain": [
+        "Oracle Check",
+        "pass5Eval"
+      ]
+    }
+  },
+  {
+    "name": "oracle fails alone: an oracle trial scored 0",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/COMPLETE",
+        "oracle_check": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "o1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "o1",
+                "status": "SUCCESS",
+                "updatedAt": "2026-10-02T07:48:16.000Z",
+                "result": {
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "name": "harbor_trial",
+                      "status": "success",
+                      "output": {
+                        "agent": "oracle",
+                        "n_trials": 1,
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001__task__oracle"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "pass5Eval": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "v1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "v1",
+                "status": "SUCCESS",
+                "apiId": "api-1",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "result": {
+                  "run_id": 7000001,
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "id": "allbroken1",
+                      "name": "harbor_trial_1",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "reasoning_effort": "xhigh",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken1__task__Ab0"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allbroken1__task__Ab0"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allbroken1__task__Ab0",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken1.zip"
+                      }
+                    },
+                    {
+                      "id": "allbroken2",
+                      "name": "harbor_trial_2",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "reasoning_effort": "low",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken2__task__Ab1"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allbroken2__task__Ab1"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allbroken2__task__Ab1",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken2.zip"
+                      }
+                    }
+                  ],
+                  "evaluations_failed": 0
+                }
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "api-1",
+                "apiName": "meta",
+                "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "every oracle trial must have reward 1"
+      ],
+      "successesContain": [
+        "passes the deterministic upload checks",
+        "DETERMINISTIC PASS"
+      ],
+      "infosContain": [
+        "Oracle validation (1183): FAIL (1 error)"
+      ]
+    }
+  },
+  {
+    "name": "pass eval fails alone: every model solved the task",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/COMPLETE",
+        "oracle_check": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "o1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "o1",
+                "status": "SUCCESS",
+                "updatedAt": "2026-10-02T07:48:16.000Z",
+                "result": {
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "name": "harbor_trial",
+                      "status": "success",
+                      "output": {
+                        "agent": "oracle",
+                        "n_trials": 1,
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "7000001__task__oracle"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "pass5Eval": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "v1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "v1",
+                "status": "SUCCESS",
+                "apiId": "api-1",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "result": {
+                  "run_id": 7000001,
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "id": "nonebroken1",
+                      "name": "harbor_trial_1",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "reasoning_effort": "xhigh",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 1,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": true,
+                              "reward": 1,
+                              "rewards": {
+                                "reward": 1
+                              },
+                              "trial_name": "7000001_nonebroken1__task__Ab0"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 1
+                          },
+                          "n_passed": 1,
+                          "n_trials": 1,
+                          "pass_at_1": 1,
+                          "pass_at_k": {
+                            "1": 1
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 1,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "7000001_nonebroken1__task__Ab0"
+                          }
+                        ],
+                        "n_passed": 1,
+                        "n_trials": 1,
+                        "pass_at_1": 1,
+                        "pass_at_k": {
+                          "1": 1
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 1,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_nonebroken1__task__Ab0",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_nonebroken1.zip"
+                      }
+                    },
+                    {
+                      "id": "nonebroken2",
+                      "name": "harbor_trial_2",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "reasoning_effort": "low",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 1,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": true,
+                              "reward": 1,
+                              "rewards": {
+                                "reward": 1
+                              },
+                              "trial_name": "7000001_nonebroken2__task__Ab1"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 1
+                          },
+                          "n_passed": 1,
+                          "n_trials": 1,
+                          "pass_at_1": 1,
+                          "pass_at_k": {
+                            "1": 1
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 1,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "7000001_nonebroken2__task__Ab1"
+                          }
+                        ],
+                        "n_passed": 1,
+                        "n_trials": 1,
+                        "pass_at_1": 1,
+                        "pass_at_k": {
+                          "1": 1
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 1,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_nonebroken2__task__Ab1",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_nonebroken2.zip"
+                      }
+                    },
+                    {
+                      "id": "nonebroken3",
+                      "name": "harbor_trial_3",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "qwen/qwen3.8-max-0902",
+                        "reasoning_effort": "high",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 1,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": true,
+                              "reward": 1,
+                              "rewards": {
+                                "reward": 1
+                              },
+                              "trial_name": "7000001_nonebroken3__task__Ab2"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 1
+                          },
+                          "n_passed": 1,
+                          "n_trials": 1,
+                          "pass_at_1": 1,
+                          "pass_at_k": {
+                            "1": 1
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 1,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "7000001_nonebroken3__task__Ab2"
+                          }
+                        ],
+                        "n_passed": 1,
+                        "n_trials": 1,
+                        "pass_at_1": 1,
+                        "pass_at_k": {
+                          "1": 1
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 1,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_nonebroken3__task__Ab2",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_nonebroken3.zip"
+                      }
+                    }
+                  ],
+                  "evaluations_failed": 0
+                }
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "api-1",
+                "apiName": "meta",
+                "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"qwen/qwen3.8-max-0902\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"high\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "not every model was broken"
+      ],
+      "successesContain": [
+        "passes the deterministic upload checks"
+      ],
+      "infosContain": [
+        "oracle trial in the latest current-version run completed with reward 1",
+        "Pass eval reward validation (1180): FAIL"
+      ]
+    }
+  },
+  {
+    "name": "the Oracle Check was never run",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/COMPLETE",
+        "pass5Eval": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "v1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "v1",
+                "status": "SUCCESS",
+                "apiId": "api-1",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "result": {
+                  "run_id": 7000001,
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "id": "allbroken1",
+                      "name": "harbor_trial_1",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "reasoning_effort": "xhigh",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken1__task__Ab0"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allbroken1__task__Ab0"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allbroken1__task__Ab0",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken1.zip"
+                      }
+                    },
+                    {
+                      "id": "allbroken2",
+                      "name": "harbor_trial_2",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "reasoning_effort": "low",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allbroken2__task__Ab1"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allbroken2__task__Ab1"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allbroken2__task__Ab1",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allbroken2.zip"
+                      }
+                    }
+                  ],
+                  "evaluations_failed": 0
+                }
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "api-1",
+                "apiName": "meta",
+                "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "the Oracle Check is missing or has not been run"
+      ],
+      "successesContain": [
+        "passes the deterministic upload checks",
+        "DETERMINISTIC PASS"
+      ]
+    }
+  },
+  {
+    "name": "an empty submission fails all three gates",
+    "conversationData": {
+      "ratings": {}
+    },
+    "expect": {
+      "errorsContain": [
+        "the task package link is missing",
+        "the Oracle Check is missing or has not been run",
+        "pass5Eval"
+      ],
+      "infosContain": [
+        "Task data validation (1128): FAIL",
+        "Oracle validation (1183): FAIL",
+        "Pass eval reward validation (1180): FAIL"
+      ]
+    }
+  }
+]
