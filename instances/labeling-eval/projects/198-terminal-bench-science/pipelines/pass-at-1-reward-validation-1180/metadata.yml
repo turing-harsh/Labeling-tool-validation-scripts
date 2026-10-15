@@ -1,0 +1,30 @@
+# Pipeline metadata — keep in sync with the live tool.
+instance: labeling-eval
+slug: 198-terminal-bench-science
+pipeline: pass-at-1-reward-validation-1180
+display_name: "[STEM] Terminal Bench Science — Pass5 Reward Validation"
+task_type: terminal-bench-science-post-eval-reward-validation
+owner: harsh.a@turing.com       # who maintains this script
+tool_url: https://eval.turing.com
+tool_project_id: 198
+tool_pipeline_id: 1180
+status: draft                   # draft | active | deprecated
+
+deployed:
+  version: 0                    # bump each time you paste into the tool
+  date:                         # YYYY-MM-DD it was last pasted
+  by:                           # who deployed it
+  commit:                       # git commit that was deployed (git rev-parse --short HEAD)
+
+notes: |
+  Runs at breakpoint pass5RewardValidation (trigger 1180) over the result stored by pass5Eval.
+  2026-10-02: pass5Eval moved from one model x 5 attempts to a model roster x 1 attempt
+  (harbor_trial_1..N, one bundle each). Gate is now "break at least one model". See requirements.md.
+
+  Run 6637059 (conversation 380316) was captured on test project 201, where the breakpoint is
+  stored as "bp1". golden/test-project-201-bp1.json keeps that key, and golden/run-6637059.json
+  is the same run renamed to "pass5Eval" (the project 198 shape). When "pass5Eval" is absent, the
+  script finds the breakpoint by content: the one rating whose payload runs harbor_trial over
+  non-oracle model inputs.
+  Its zips in golden/zips/ are gitignored and were rebuilt from the extracted bundles.
+  Fixtures are synthetic: regenerate them with fixtures/make-fixtures.mjs.

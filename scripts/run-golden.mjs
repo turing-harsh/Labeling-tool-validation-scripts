@@ -2,24 +2,23 @@
 // Run a project's golden sample data through its validation script and print findings.
 // Golden files are sample task payloads (no assertions) — see <project>/golden/README.md.
 // Usage:
-//   node scripts/run-golden.mjs <instance/slug>            # all golden files
-//   node scripts/run-golden.mjs <instance/slug> <file>     # one file (path or golden/<name>)
+//   node scripts/run-golden.mjs <instance/project[/pipeline]>          # all golden files
+//   node scripts/run-golden.mjs <instance/project[/pipeline]> <file>   # one file (path or golden/<name>)
 import { readdirSync, existsSync, readFileSync, statSync } from "node:fs";
 import { join, dirname, basename, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 import { fetchMockDirs, runValidation } from "./wrapper.mjs";
+import { TARGET_USAGE, targetDir } from "./targets.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const target = process.argv[2];
 const oneFile = process.argv[3];
 
-if (!target || !target.includes("/")) {
-  console.error("Usage: node scripts/run-golden.mjs <instance/slug> [file]");
+const projDir = targetDir(root, target);
+if (!projDir) {
+  console.error(`Usage: node scripts/run-golden.mjs ${TARGET_USAGE} [file]`);
   process.exit(1);
 }
-
-const [instance, slug] = target.split("/");
-const projDir = join(root, "instances", instance, "projects", slug);
 const scriptPath = join(projDir, "validation.js");
 const goldenDir = join(projDir, "golden");
 

@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 4065,
+      "batchName": "test-1",
+      "projectId": 279,
+      "projectName": "Terminal bench science - demo",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "metadata": { "batchId": 4065, "batchName": "test-1", "projectId": 279, "projectName": "Terminal bench science - demo" },
+      "modelConfig": { "conversation_id": 1961550, "labeling_tool_url": "https://labeling-m.turing.com" }
+    },
+    "formStage": null,
+    "ratings": {
+      "evaluationComment": { "value": "test" },
+      "qualityChecks": { "value": { "lastSubmittedAt": "2026-09-21T10:53:36.210Z", "locked": true } },
+      "task": "https://drive.google.com/drive/folders/1aNCMUaRh4jLKevQhrcEHWlvhOYHIPaNs"
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 4065, "batchName": "test-1", "projectId": 279,
+        "projectName": "Terminal bench science - demo", "revisionId": null
+      }
+    },
+    "model_config": { "labeling_tool_url": "https://labeling-m.turing.com" },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "metadata": { "batchId": 4065, "batchName": "test-1", "projectId": 279, "projectName": "Terminal bench science - demo" },
+        "modelConfig": { "conversation_id": 1961550, "labeling_tool_url": "https://labeling-m.turing.com" }
+      },
+      "formStage": null,
+      "ratings": {
+        "evaluationComment": { "value": "test" },
+        "qualityChecks": { "value": { "lastSubmittedAt": "2026-09-21T10:53:36.210Z", "locked": true } },
+        "task": "https://drive.google.com/drive/folders/1aNCMUaRh4jLKevQhrcEHWlvhOYHIPaNs"
+      }
+    }
+  }
+}

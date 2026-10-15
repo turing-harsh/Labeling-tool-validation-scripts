@@ -3,24 +3,24 @@
 // using a service-account key, so the offline fetch-mock can serve them to the validator.
 // Content is written straight to disk (never echoed). Artifacts are gitignored.
 // Usage:
-//   node scripts/fetch-artifacts.mjs <instance/slug> <golden-file> [credPath]
+//   node scripts/fetch-artifacts.mjs <instance/project[/pipeline]> <golden-file> [credPath]
 // credPath defaults to $LABELING_CREDENTIALS or the labeling-tool dev credentials.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadCredentials, fetchDriveFile } from "./drive-fetch.mjs";
+import { TARGET_USAGE, targetDir } from "./targets.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const [target, goldenArg, credArg] = process.argv.slice(2);
-if (!target || !target.includes("/") || !goldenArg) {
-  console.error("Usage: node scripts/fetch-artifacts.mjs <instance/slug> <golden-file> [credPath]");
+const projDir = targetDir(root, target);
+if (!projDir || !goldenArg) {
+  console.error(`Usage: node scripts/fetch-artifacts.mjs ${TARGET_USAGE} <golden-file> [credPath]`);
   process.exit(1);
 }
 const credPath = credArg || process.env.LABELING_CREDENTIALS ||
   "/Users/harshagrawal/work/labeling-tool/apps/labeling-tool-api/credentials.json";
 
-const [instance, slug] = target.split("/");
-const projDir = join(root, "instances", instance, "projects", slug);
 const goldenPath = goldenArg.includes("/") ? join(root, goldenArg) : join(projDir, "golden", goldenArg);
 const artifactsDir = join(projDir, "golden", "artifacts");
 

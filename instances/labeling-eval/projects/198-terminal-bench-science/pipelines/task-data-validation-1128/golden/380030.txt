@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 3630,
+      "batchName": "mathematical-sciences",
+      "projectId": 198,
+      "projectName": "Terminal Bench Science",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "Domain": "mathematical-sciences",
+      "__originalKeyOrder": [
+        "Domain",
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "batchId": 3630,
+        "batchName": "Batch - 1",
+        "projectId": 198,
+        "projectName": "Terminal Bench Science"
+      },
+      "modelConfig": {
+        "conversation_id": 380030,
+        "labeling_tool_url": "https://eval.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "evaluationComment": {
+        "value": "All the failures are genuine. "
+      },
+      "oracle_check": {
+        "value": {
+          "lastSubmittedAt": "2026-09-25T12:32:05.193Z",
+          "locked": true,
+          "versionIds": [
+            "366c7a59-164a-4f82-a25b-170f6bc7a410",
+            "c680ebb1-7220-4d14-be36-53cf85fb6438",
+            "f6b163d0-aacd-460c-835a-d9b8ff90ad6b"
+          ]
+        }
+      },
+      "pass5Eval": {
+        "value": {
+          "lastSubmittedAt": "2026-09-25T12:46:45.676Z",
+          "locked": true,
+          "versionIds": [
+            "1f096ba0-080d-4c89-b4de-fcbcfeccfee6",
+            "8de2948b-289e-4e0d-a6c7-1655139376ec",
+            "7fb64bd2-e817-4724-bb01-282a26808d54"
+          ]
+        }
+      },
+      "qualityChecks": {
+        "value": {
+          "autoReviewRunIds": [
+            6607068,
+            6606999
+          ],
+          "lastSubmittedAt": "2026-09-25T11:19:51.602Z",
+          "locked": true,
+          "scriptValidationRunIds": [
+            234,
+            232
+          ],
+          "scriptValidationSkipped": false
+        }
+      },
+      "task": "https://drive.google.com/drive/folders/1-TGbHak1rdCQou02OSicVepyKInfCc9N"
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 3630,
+        "batchName": "mathematical-sciences",
+        "projectId": 198,
+        "projectName": "Terminal Bench Science",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://eval.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Domain": "mathematical-sciences",
+        "__originalKeyOrder": [
+          "Domain",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 3630,
+          "batchName": "Batch - 1",
+          "projectId": 198,
+          "projectName": "Terminal Bench Science"
+        },
+        "modelConfig": {
+          "conversation_id": 380030,
+          "labeling_tool_url": "https://eval.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "evaluationComment": {
+          "value": "All the failures are genuine. "
+        },
+        "oracle_check": {
+          "value": {
+            "lastSubmittedAt": "2026-09-25T12:32:05.193Z",
+            "locked": true,
+            "versionIds": [
+              "366c7a59-164a-4f82-a25b-170f6bc7a410",
+              "c680ebb1-7220-4d14-be36-53cf85fb6438",
+              "f6b163d0-aacd-460c-835a-d9b8ff90ad6b"
+            ]
+          }
+        },
+        "pass5Eval": {
+          "value": {
+            "lastSubmittedAt": "2026-09-25T12:46:45.676Z",
+            "locked": true,
+            "versionIds": [
+              "1f096ba0-080d-4c89-b4de-fcbcfeccfee6",
+              "8de2948b-289e-4e0d-a6c7-1655139376ec",
+              "7fb64bd2-e817-4724-bb01-282a26808d54"
+            ]
+          }
+        },
+        "qualityChecks": {
+          "value": {
+            "autoReviewRunIds": [
+              6607068,
+              6606999
+            ],
+            "lastSubmittedAt": "2026-09-25T11:19:51.602Z",
+            "locked": true,
+            "scriptValidationRunIds": [
+              234,
+              232
+            ],
+            "scriptValidationSkipped": false
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/1-TGbHak1rdCQou02OSicVepyKInfCc9N"
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 3630,
+        "batchName": "mathematical-sciences",
+        "projectId": 198,
+        "projectName": "Terminal Bench Science",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://eval.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "Domain": "mathematical-sciences",
+        "__originalKeyOrder": [
+          "Domain",
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "batchId": 3630,
+          "batchName": "Batch - 1",
+          "projectId": 198,
+          "projectName": "Terminal Bench Science"
+        },
+        "modelConfig": {
+          "conversation_id": 380030,
+          "labeling_tool_url": "https://eval.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "evaluationComment": {
+          "value": "All the failures are genuine. "
+        },
+        "oracle_check": {
+          "value": {
+            "lastSubmittedAt": "2026-09-25T12:32:05.193Z",
+            "locked": true,
+            "versionIds": [
+              "366c7a59-164a-4f82-a25b-170f6bc7a410",
+              "c680ebb1-7220-4d14-be36-53cf85fb6438",
+              "f6b163d0-aacd-460c-835a-d9b8ff90ad6b"
+            ]
+          }
+        },
+        "pass5Eval": {
+          "value": {
+            "lastSubmittedAt": "2026-09-25T12:46:45.676Z",
+            "locked": true,
+            "versionIds": [
+              "1f096ba0-080d-4c89-b4de-fcbcfeccfee6",
+              "8de2948b-289e-4e0d-a6c7-1655139376ec",
+              "7fb64bd2-e817-4724-bb01-282a26808d54"
+            ]
+          }
+        },
+        "qualityChecks": {
+          "value": {
+            "autoReviewRunIds": [
+              6607068,
+              6606999
+            ],
+            "lastSubmittedAt": "2026-09-25T11:19:51.602Z",
+            "locked": true,
+            "scriptValidationRunIds": [
+              234,
+              232
+            ],
+            "scriptValidationSkipped": false
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/1-TGbHak1rdCQou02OSicVepyKInfCc9N"
+      }
+    }
+  }
+}

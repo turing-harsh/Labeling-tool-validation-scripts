@@ -1,0 +1,2947 @@
+{
+  "metadata": {
+    "turing_task_url": null,
+    "scope_requirements": {
+      "batchId": 8817,
+      "batchName": "Batch 1",
+      "projectId": 952,
+      "projectName": "Google-CODE-Harbor-Tasks-Scale-Up",
+      "revisionId": null
+    }
+  },
+  "conversation": {
+    "input": {
+      "__originalKeyOrder": [
+        "metadata",
+        "modelConfig"
+      ],
+      "metadata": {
+        "Drive Link": "https://drive.google.com/open?id=1ianbpSZAgzrxPIu5tJGFMl9SCQ5hfkwq&usp=drive_copy",
+        "Programming Language": "Python",
+        "Task Domain": "MLE",
+        "Task ID": "11",
+        "Task Idea": "A meeting diarization evaluator assigns overlapping speech to the wrong speakers after a segmentation-cache optimization. Diagnose timestamp units, collar handling, overlap representation, embedding-cache keys, clustering thresholds, speaker permutation, and diarization error-rate computation. Hidden synthetic conversations verify segment ownership, overlap scoring, stable speaker identities, and deterministic reports without audio-model inference.",
+        "Task Name": "speech_diarization_overlap_debug",
+        "Task Sub-Domain": "MLE Debugging",
+        "batchId": 8817,
+        "batchName": "Batch 1",
+        "projectId": 952,
+        "projectName": "Google-CODE-Harbor-Tasks-Scale-Up"
+      },
+      "modelConfig": {
+        "conversation_id": 1287090,
+        "labeling_tool_url": "https://labeling-g.turing.com"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "additionalComments": {
+        "value": "Models failing tasks."
+      },
+      "additionalModelRunEvaluations": {
+        "value": {
+          "lastSubmittedAt": "2026-10-01T15:46:42.152Z",
+          "locked": true,
+          "versionIds": [
+            "d2189581-fdc4-4bf9-8a1a-83a7c833e39f",
+            "083f7f97-61ea-43a9-929f-463f8dcb27c3"
+          ],
+          "versionsData": [
+            {
+              "createdAt": "2026-10-01T15:26:00.269Z",
+              "updatedAt": "2026-10-01T15:46:42.000Z",
+              "id": "7b07597f-5da8-4c19-aa43-092611ba67bd",
+              "currentStageId": 24361,
+              "contributorId": 491,
+              "status": "SUCCESS",
+              "apiId": "a37ee856-703c-4ae0-baf3-2df7f3a0abd5",
+              "requestIds": [
+                6633727
+              ],
+              "versionId": "083f7f97-61ea-43a9-929f-463f8dcb27c3",
+              "result": {
+                "run_id": 6633727,
+                "status": "success",
+                "progress": null,
+                "created_at": "2026-10-01T15:26:00Z",
+                "error_code": null,
+                "updated_at": "2026-10-01T15:46:36Z",
+                "evaluations": [
+                  {
+                    "id": 26701530,
+                    "name": "harbor_trial",
+                    "output": {
+                      "agent": "terminus-2",
+                      "model": "gemini/gemini-3.8-flash",
+                      "usage": {
+                        "cost_usd": 5.488616324999999,
+                        "n_cache_tokens": 30055061,
+                        "n_input_tokens": 32348340,
+                        "n_output_tokens": 403874,
+                        "n_reasoning_tokens": null
+                      },
+                      "reward": {
+                        "source": "result.json",
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__4L7Vnte"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__SjP5nUf"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__TUeCW3q"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__x2KNXFq"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 4,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0,
+                          "4": 0
+                        },
+                        "n_attempts": 4,
+                        "n_valid_trials": 4,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 4,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "trials": [
+                        {
+                          "valid": true,
+                          "passed": false,
+                          "reward": 0,
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "trial_name": "6633727__task__4L7Vnte"
+                        },
+                        {
+                          "valid": true,
+                          "passed": false,
+                          "reward": 0,
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "trial_name": "6633727__task__SjP5nUf"
+                        },
+                        {
+                          "valid": true,
+                          "passed": false,
+                          "reward": 0,
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "trial_name": "6633727__task__TUeCW3q"
+                        },
+                        {
+                          "valid": true,
+                          "passed": false,
+                          "reward": 0,
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "trial_name": "6633727__task__x2KNXFq"
+                        }
+                      ],
+                      "cost_usd": 5.488616324999999,
+                      "n_passed": 0,
+                      "n_trials": 4,
+                      "pass_at_1": 0,
+                      "pass_at_k": {
+                        "1": 0,
+                        "4": 0
+                      },
+                      "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633727.zip",
+                      "cheat_mode": false,
+                      "n_attempts": 4,
+                      "trial_name": "6633727__task__4L7Vnte",
+                      "n_valid_trials": 4,
+                      "pass_threshold": 1,
+                      "valid_rollouts": 4,
+                      "correct_rollouts": 0,
+                      "invalid_rollouts": 0,
+                      "n_invalid_trials": 0
+                    },
+                    "status": "success",
+                    "error_code": null,
+                    "fail_reason": null,
+                    "evaluator_id": 258,
+                    "utilized_tokens": {
+                      "prompt": 32348340,
+                      "generate": 403874
+                    },
+                    "evaluation_latency": 1234,
+                    "utilized_tokens_cost": {
+                      "total": 86.929,
+                      "prompt": 80.8708,
+                      "generate": 6.05811
+                    },
+                    "is_used_for_aggregation": false
+                  }
+                ],
+                "fail_reason": null,
+                "project_name": "hcast-harbor-tasks",
+                "engagement_id": 12,
+                "item_metadata": {
+                  "is_bulk": false,
+                  "trace_id": "1e04c317-3a4d-4295-81f9-d326e90a9dc3",
+                  "submitted_at": "2026-10-01T15:26:00.360495+00:00"
+                },
+                "secs_since_update": 0,
+                "evaluations_failed": 0,
+                "aggregated_evaluations": [],
+                "aggregated_evaluations_failed": 0
+              },
+              "error": null,
+              "attempts": 116,
+              "lastAttemptAt": "2026-10-01T15:46:42.000Z",
+              "lastSuccessAt": "2026-10-01T15:46:42.000Z"
+            }
+          ],
+          "customData": [
+            {
+              "apiId": "a37ee856-703c-4ae0-baf3-2df7f3a0abd5",
+              "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+              "apiName": "API Endpoint 1",
+              "headers": [],
+              "apiKeyId": "924106dc-ebf6-4a73-9ccd-516d5d12f785",
+              "isPolling": true,
+              "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"terminus-2\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 4\n      }\n    }\n  ],\n  \"parse\": false\n}",
+              "pollingOptions": {
+                "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                "requestIdKey": "run_id"
+              },
+              "rewardBlockCriteria": false,
+              "selectedReviewCriterias": [
+                "task"
+              ]
+            }
+          ]
+        }
+      },
+      "modelRunEvaluation": {
+        "value": {
+          "lastSubmittedAt": "2026-10-01T14:55:43.314Z",
+          "locked": true,
+          "versionIds": [
+            "d3d29fb7-cb72-4dae-b2b2-b24a83b60203",
+            "e639ccf9-f759-4eed-a36c-9561ac86f48d",
+            "afba09f8-ed51-4f66-9249-f027c49580d1",
+            "62d74cc4-d3b2-4bf5-944d-eb3e21cee0ec"
+          ],
+          "versionsData": [
+            {
+              "createdAt": "2026-10-01T14:23:40.161Z",
+              "updatedAt": "2026-10-01T14:55:43.000Z",
+              "id": "a1639554-dd1a-47b3-be0d-68e6f8410627",
+              "currentStageId": 24361,
+              "contributorId": 491,
+              "status": "SUCCESS",
+              "apiId": "f5486c26-dfb7-4b80-844a-6afca5c3c9b4",
+              "requestIds": [
+                6633301
+              ],
+              "versionId": "62d74cc4-d3b2-4bf5-944d-eb3e21cee0ec",
+              "result": {
+                "run_id": 6633301,
+                "status": "success",
+                "progress": null,
+                "created_at": "2026-10-01T14:23:40Z",
+                "error_code": null,
+                "updated_at": "2026-10-01T14:55:34Z",
+                "evaluations": [
+                  {
+                    "id": 26700133,
+                    "name": "harbor_trial",
+                    "output": {
+                      "agent": "terminus-2",
+                      "model": "gemini/gemini-3.8-flash",
+                      "usage": {
+                        "cost_usd": 3.5626515000000007,
+                        "n_cache_tokens": 24083210,
+                        "n_input_tokens": 24986826,
+                        "n_output_tokens": 287653,
+                        "n_reasoning_tokens": null
+                      },
+                      "reward": {
+                        "reward": 0,
+                        "source": "result.json",
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633301__task__FPtmVhC"
+                          }
+                        ],
+                        "rewards": {
+                          "reward": 0
+                        },
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "trials": [
+                        {
+                          "valid": true,
+                          "passed": false,
+                          "reward": 0,
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "trial_name": "6633301__task__FPtmVhC"
+                        }
+                      ],
+                      "cost_usd": 3.5626515000000007,
+                      "n_passed": 0,
+                      "n_trials": 1,
+                      "pass_at_1": 0,
+                      "pass_at_k": {
+                        "1": 0
+                      },
+                      "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633301.zip",
+                      "cheat_mode": false,
+                      "n_attempts": 1,
+                      "trial_name": "6633301__task__FPtmVhC",
+                      "n_valid_trials": 1,
+                      "pass_threshold": 1,
+                      "valid_rollouts": 1,
+                      "correct_rollouts": 0,
+                      "invalid_rollouts": 0,
+                      "n_invalid_trials": 0
+                    },
+                    "status": "success",
+                    "error_code": null,
+                    "fail_reason": null,
+                    "evaluator_id": 258,
+                    "utilized_tokens": {
+                      "prompt": 24986826,
+                      "generate": 287653
+                    },
+                    "evaluation_latency": 1913,
+                    "utilized_tokens_cost": {
+                      "total": 66.7819,
+                      "prompt": 62.4671,
+                      "generate": 4.3148
+                    },
+                    "is_used_for_aggregation": false
+                  }
+                ],
+                "fail_reason": null,
+                "project_name": "hcast-harbor-tasks",
+                "engagement_id": 12,
+                "item_metadata": {
+                  "is_bulk": false,
+                  "trace_id": "f27a193c-0a75-455a-99f0-d250e412c3ff",
+                  "submitted_at": "2026-10-01T14:23:40.356313+00:00"
+                },
+                "secs_since_update": 0,
+                "evaluations_failed": 0,
+                "aggregated_evaluations": [],
+                "aggregated_evaluations_failed": 0
+              },
+              "error": null,
+              "attempts": 137,
+              "lastAttemptAt": "2026-10-01T14:55:43.000Z",
+              "lastSuccessAt": "2026-10-01T14:55:43.000Z"
+            }
+          ],
+          "customData": [
+            {
+              "apiId": "f5486c26-dfb7-4b80-844a-6afca5c3c9b4",
+              "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+              "apiName": "API Endpoint 1",
+              "headers": [],
+              "apiKeyId": "9a467b95-2a58-4359-b015-3d2ef3e2e466",
+              "isPolling": true,
+              "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"terminus-2\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+              "pollingOptions": {
+                "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                "requestIdKey": "run_id"
+              },
+              "rewardBlockCriteria": false,
+              "selectedReviewCriterias": [
+                "task"
+              ]
+            }
+          ]
+        }
+      },
+      "modelRunEvaluationComplete": {
+        "value": "True"
+      },
+      "oracleEvaluation": {
+        "value": {
+          "lastSubmittedAt": "2026-10-01T14:22:59.032Z",
+          "locked": true,
+          "versionIds": [
+            "addfb15d-24dd-4419-a124-1a5a0ec0f5fb",
+            "563d9a15-6284-4078-93ac-fcebc460ed04",
+            "3c294aae-a507-4e35-a1ef-6808352e376c",
+            "1df68965-7d8f-418f-936d-c46027281a25"
+          ],
+          "versionsData": [
+            {
+              "createdAt": "2026-10-01T14:21:14.029Z",
+              "updatedAt": "2026-10-01T14:22:58.000Z",
+              "id": "4a3547a7-7467-45c5-b76c-045a93539e9f",
+              "currentStageId": null,
+              "contributorId": 491,
+              "status": "SUCCESS",
+              "apiId": "8cbe4346-47f3-4498-9017-ae1c9e83640b",
+              "requestIds": [
+                6633290
+              ],
+              "versionId": "1df68965-7d8f-418f-936d-c46027281a25",
+              "result": {
+                "run_id": 6633290,
+                "status": "success",
+                "progress": null,
+                "created_at": "2026-10-01T14:21:14Z",
+                "error_code": null,
+                "updated_at": "2026-10-01T14:22:53Z",
+                "evaluations": [
+                  {
+                    "id": 26700090,
+                    "name": "harbor_trial",
+                    "output": {
+                      "agent": "oracle",
+                      "model": "gemini/gemini-3.8-flash",
+                      "usage": {
+                        "cost_usd": null,
+                        "n_cache_tokens": null,
+                        "n_input_tokens": null,
+                        "n_output_tokens": null,
+                        "n_reasoning_tokens": null
+                      },
+                      "reward": {
+                        "reward": 1,
+                        "source": "result.json",
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "6633290__task__PontZo2"
+                          }
+                        ],
+                        "rewards": {
+                          "reward": 1
+                        },
+                        "n_passed": 1,
+                        "n_trials": 1,
+                        "pass_at_1": 1,
+                        "pass_at_k": {
+                          "1": 1
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 1,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "trials": [
+                        {
+                          "valid": true,
+                          "passed": true,
+                          "reward": 1,
+                          "rewards": {
+                            "reward": 1
+                          },
+                          "trial_name": "6633290__task__PontZo2"
+                        }
+                      ],
+                      "cost_usd": null,
+                      "n_passed": 1,
+                      "n_trials": 1,
+                      "pass_at_1": 1,
+                      "pass_at_k": {
+                        "1": 1
+                      },
+                      "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633290.zip",
+                      "cheat_mode": false,
+                      "n_attempts": 1,
+                      "trial_name": "6633290__task__PontZo2",
+                      "n_valid_trials": 1,
+                      "pass_threshold": 1,
+                      "valid_rollouts": 1,
+                      "correct_rollouts": 1,
+                      "invalid_rollouts": 0,
+                      "n_invalid_trials": 0
+                    },
+                    "status": "success",
+                    "error_code": null,
+                    "fail_reason": null,
+                    "evaluator_id": 258,
+                    "utilized_tokens": {
+                      "prompt": 0,
+                      "generate": 0
+                    },
+                    "evaluation_latency": 98,
+                    "utilized_tokens_cost": {
+                      "total": 0,
+                      "prompt": 0,
+                      "generate": 0
+                    },
+                    "is_used_for_aggregation": false
+                  }
+                ],
+                "fail_reason": null,
+                "project_name": "hcast-harbor-tasks",
+                "engagement_id": 12,
+                "item_metadata": {
+                  "is_bulk": false,
+                  "trace_id": "bb448d64-f936-4824-8a45-467cffaee5ce",
+                  "submitted_at": "2026-10-01T14:21:14.203204+00:00"
+                },
+                "secs_since_update": 0,
+                "evaluations_failed": 0,
+                "aggregated_evaluations": [],
+                "aggregated_evaluations_failed": 0
+              },
+              "error": null,
+              "attempts": 12,
+              "lastAttemptAt": "2026-10-01T14:22:59.000Z",
+              "lastSuccessAt": "2026-10-01T14:22:59.000Z"
+            }
+          ],
+          "customData": [
+            {
+              "apiId": "8cbe4346-47f3-4498-9017-ae1c9e83640b",
+              "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+              "apiName": "API Endpoint 1",
+              "headers": [],
+              "apiKeyId": "9c07d960-fd67-4126-9b38-da7a386e9506",
+              "isPolling": true,
+              "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"oracle\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+              "pollingOptions": {
+                "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                "requestIdKey": "run_id"
+              },
+              "rewardBlockCriteria": false,
+              "selectedReviewCriterias": [
+                "task"
+              ]
+            }
+          ]
+        }
+      },
+      "oracleEvaluationComplete": {
+        "value": {
+          "lastSubmittedAt": "2026-10-01T14:23:33.543Z",
+          "locked": true,
+          "scriptValidationRunIds": [
+            71223,
+            71195,
+            71094
+          ],
+          "scriptValidationSkipped": false
+        }
+      },
+      "task": {
+        "value": {
+          "googleDriveFolderLink": "https://drive.google.com/drive/folders/1IhG9sG9Gses3zmZtmKOm0WojRXM-v4aJ",
+          "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+          "renderFolderData": [
+            {
+              "children": [
+                {
+                  "driveFileId": "FILE000000000000000000000000000281",
+                  "id": "node-281",
+                  "mimeType": "application/octet-stream",
+                  "modified": "10/1/2026",
+                  "name": ".dockerignore",
+                  "size": "89 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000281"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000282",
+                  "id": "node-282",
+                  "mimeType": "application/octet-stream",
+                  "modified": "10/1/2026",
+                  "name": "Dockerfile",
+                  "size": "682 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000282"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000284",
+                      "id": "node-284",
+                      "mimeType": "text/markdown",
+                      "modified": "10/1/2026",
+                      "name": "IMPLEMENTATION.md",
+                      "size": "325 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000284"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000285",
+                      "id": "node-285",
+                      "mimeType": "text/markdown",
+                      "modified": "10/1/2026",
+                      "name": "README.md",
+                      "size": "427 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000285"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000286",
+                      "id": "node-286",
+                      "mimeType": "text/markdown",
+                      "modified": "10/1/2026",
+                      "name": "SPEC.md",
+                      "size": "14.4 KB",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000286"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000288",
+                          "id": "node-288",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "__init__.py",
+                          "size": "69 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000288"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000289",
+                          "id": "node-289",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "handler.py",
+                          "size": "237 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000289"
+                        }
+                      ],
+                      "id": "node-287",
+                      "name": "api",
+                      "type": "folder"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "driveFileId": "FILE000000000000000000000000000292",
+                              "id": "node-292",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "broadcast_news.json",
+                              "size": "180 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000292"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000293",
+                              "id": "node-293",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "contact_center.json",
+                              "size": "169 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000293"
+                            }
+                          ],
+                          "id": "node-291",
+                          "name": "evaluators",
+                          "type": "folder"
+                        },
+                        {
+                          "children": [
+                            {
+                              "driveFileId": "FILE000000000000000000000000000295",
+                              "id": "node-295",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "embedding_v3.json",
+                              "size": "208 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000295"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000296",
+                              "id": "node-296",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "meeting_v2.json",
+                              "size": "203 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000296"
+                            }
+                          ],
+                          "id": "node-294",
+                          "name": "models",
+                          "type": "folder"
+                        }
+                      ],
+                      "id": "node-290",
+                      "name": "config",
+                      "type": "folder"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "driveFileId": "FILE000000000000000000000000000299",
+                              "id": "node-299",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_001_perfect.json",
+                              "size": "422 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000299"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000300",
+                              "id": "node-300",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_014_permuted_speakers.json",
+                              "size": "533 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000300"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000301",
+                              "id": "node-301",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_027_overlap.json",
+                              "size": "524 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000301"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000302",
+                              "id": "node-302",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_033_milliseconds.json",
+                              "size": "380 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000302"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000303",
+                              "id": "node-303",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_041_boundary_collar.json",
+                              "size": "395 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000303"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000304",
+                              "id": "node-304",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_058_error_components.json",
+                              "size": "441 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000304"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000305",
+                              "id": "node-305",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_072_zero_reference.json",
+                              "size": "261 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000305"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000306",
+                              "id": "node-306",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_089_cache_bounds.json",
+                              "size": "309 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000306"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000307",
+                              "id": "node-307",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_096_evaluation_map.json",
+                              "size": "342 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000307"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000308",
+                              "id": "node-308",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_104_overlap_guard.json",
+                              "size": "407 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000308"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000309",
+                              "id": "node-309",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_117_revision_reduction.json",
+                              "size": "501 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000309"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000310",
+                              "id": "node-310",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_126_tombstone.json",
+                              "size": "352 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000310"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000311",
+                              "id": "node-311",
+                              "mimeType": "application/json",
+                              "modified": "10/1/2026",
+                              "name": "case_139_reviewer_constraints.json",
+                              "size": "758 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000311"
+                            }
+                          ],
+                          "id": "node-298",
+                          "name": "scenarios",
+                          "type": "folder"
+                        }
+                      ],
+                      "id": "node-297",
+                      "name": "data",
+                      "type": "folder"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000313",
+                          "id": "node-313",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "__init__.py",
+                          "size": "97 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000313"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000314",
+                          "id": "node-314",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "assignment.py",
+                          "size": "622 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000314"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000315",
+                          "id": "node-315",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "cache.py",
+                          "size": "749 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000315"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000316",
+                          "id": "node-316",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "clustering.py",
+                          "size": "1.3 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000316"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000317",
+                          "id": "node-317",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "config.py",
+                          "size": "3.3 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000317"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000318",
+                          "id": "node-318",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "constraints.py",
+                          "size": "1.2 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000318"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000319",
+                          "id": "node-319",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "ledger.py",
+                          "size": "1.2 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000319"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000320",
+                          "id": "node-320",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "metrics.py",
+                          "size": "682 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000320"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000321",
+                          "id": "node-321",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "model.py",
+                          "size": "6.3 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000321"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000322",
+                          "id": "node-322",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "registry.py",
+                          "size": "215 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000322"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000323",
+                          "id": "node-323",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "report.py",
+                          "size": "3.7 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000323"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000324",
+                          "id": "node-324",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "state.py",
+                          "size": "628 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000324"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000325",
+                          "id": "node-325",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "timeline.py",
+                          "size": "887 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000325"
+                        }
+                      ],
+                      "id": "node-312",
+                      "name": "diarization",
+                      "type": "folder"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000327",
+                          "id": "node-327",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "architecture.md",
+                          "size": "1.6 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000327"
+                        },
+                        {
+                          "children": [
+                            {
+                              "driveFileId": "FILE000000000000000000000000000329",
+                              "id": "node-329",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "INC-331-overlap-flattening.md",
+                              "size": "357 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000329"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000330",
+                              "id": "node-330",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "INC-347-cache-collision.md",
+                              "size": "367 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000330"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000331",
+                              "id": "node-331",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "INC-362-region-leak.md",
+                              "size": "415 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000331"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000332",
+                              "id": "node-332",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "INC-371-worker-cache-pressure.md",
+                              "size": "415 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000332"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000333",
+                              "id": "node-333",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "INC-384-stale-resurrection.md",
+                              "size": "482 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000333"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000334",
+                              "id": "node-334",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "INC-392-worker-restart-drift.md",
+                              "size": "646 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000334"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000335",
+                              "id": "node-335",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "INC-405-reviewer-constraint-drift.md",
+                              "size": "1.1 KB",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000335"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000336",
+                              "id": "node-336",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "INC-417-checkpoint-profile-drift.md",
+                              "size": "1.2 KB",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000336"
+                            }
+                          ],
+                          "id": "node-328",
+                          "name": "incidents",
+                          "type": "folder"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000337",
+                          "id": "node-337",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "metric_notes.md",
+                          "size": "321 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000337"
+                        },
+                        {
+                          "children": [
+                            {
+                              "driveFileId": "FILE000000000000000000000000000339",
+                              "id": "node-339",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "runbook.md",
+                              "size": "269 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000339"
+                            }
+                          ],
+                          "id": "node-338",
+                          "name": "operations",
+                          "type": "folder"
+                        }
+                      ],
+                      "id": "node-326",
+                      "name": "docs",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000340",
+                      "id": "node-340",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "engine.py",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000340"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000342",
+                          "id": "node-342",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "__init__.py",
+                          "size": "31 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000342"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000343",
+                          "id": "node-343",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "replay.py",
+                          "size": "576 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000343"
+                        }
+                      ],
+                      "id": "node-341",
+                      "name": "operations",
+                      "type": "folder"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000345",
+                          "id": "node-345",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "__init__.py",
+                          "size": "62 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000345"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000346",
+                          "id": "node-346",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "report_store.py",
+                          "size": "391 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000346"
+                        }
+                      ],
+                      "id": "node-344",
+                      "name": "persistence",
+                      "type": "folder"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000348",
+                          "id": "node-348",
+                          "mimeType": "application/json",
+                          "modified": "10/1/2026",
+                          "name": "evaluation-input.schema.json",
+                          "size": "2.9 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000348"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000349",
+                          "id": "node-349",
+                          "mimeType": "application/json",
+                          "modified": "10/1/2026",
+                          "name": "evaluation-report.schema.json",
+                          "size": "2.8 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000349"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000350",
+                          "id": "node-350",
+                          "mimeType": "application/json",
+                          "modified": "10/1/2026",
+                          "name": "service-state.schema.json",
+                          "size": "5.6 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000350"
+                        }
+                      ],
+                      "id": "node-347",
+                      "name": "schemas",
+                      "type": "folder"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000352",
+                          "id": "node-352",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "__init__.py",
+                          "size": "72 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000352"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000353",
+                          "id": "node-353",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "evaluation.py",
+                          "size": "1.2 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000353"
+                        }
+                      ],
+                      "id": "node-351",
+                      "name": "services",
+                      "type": "folder"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000355",
+                          "id": "node-355",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "main.py",
+                          "size": "764 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000355"
+                        }
+                      ],
+                      "id": "node-354",
+                      "name": "src",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-283",
+                  "name": "project",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000356",
+                  "id": "node-356",
+                  "mimeType": "text/plain",
+                  "modified": "10/1/2026",
+                  "name": "requirements.txt",
+                  "size": "39 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000356"
+                }
+              ],
+              "id": "node-280",
+              "name": "environment",
+              "type": "folder"
+            },
+            {
+              "driveFileId": "FILE000000000000000000000000000357",
+              "id": "node-357",
+              "mimeType": "text/markdown",
+              "modified": "10/1/2026",
+              "name": "instruction.md",
+              "size": "2.9 KB",
+              "type": "file",
+              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000357"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000361",
+                          "id": "node-361",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "__init__.py",
+                          "size": "97 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000361"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000362",
+                          "id": "node-362",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "assignment.py",
+                          "size": "1.4 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000362"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000363",
+                          "id": "node-363",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "cache.py",
+                          "size": "1.5 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000363"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000364",
+                          "id": "node-364",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "clustering.py",
+                          "size": "5.0 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000364"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000365",
+                          "id": "node-365",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "config.py",
+                          "size": "3.3 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000365"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000366",
+                          "id": "node-366",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "constraints.py",
+                          "size": "2.7 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000366"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000367",
+                          "id": "node-367",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "ledger.py",
+                          "size": "2.9 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000367"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000368",
+                          "id": "node-368",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "metrics.py",
+                          "size": "682 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000368"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000369",
+                          "id": "node-369",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "model.py",
+                          "size": "8.5 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000369"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000370",
+                          "id": "node-370",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "registry.py",
+                          "size": "2.0 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000370"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000371",
+                          "id": "node-371",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "report.py",
+                          "size": "5.1 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000371"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000372",
+                          "id": "node-372",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "state.py",
+                          "size": "16.6 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000372"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000373",
+                          "id": "node-373",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "timeline.py",
+                          "size": "1.2 KB",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000373"
+                        }
+                      ],
+                      "id": "node-360",
+                      "name": "diarization",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000374",
+                      "id": "node-374",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "engine.py",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000374"
+                    }
+                  ],
+                  "id": "node-359",
+                  "name": "reference",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000375",
+                  "id": "node-375",
+                  "mimeType": "text/x-sh",
+                  "modified": "10/1/2026",
+                  "name": "solve.sh",
+                  "size": "294 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000375"
+                }
+              ],
+              "id": "node-358",
+              "name": "solution",
+              "type": "folder"
+            },
+            {
+              "driveFileId": "FILE000000000000000000000000000376",
+              "id": "node-376",
+              "mimeType": "application/octet-stream",
+              "modified": "10/1/2026",
+              "name": "task.toml",
+              "size": "1.9 KB",
+              "type": "file",
+              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000376"
+            },
+            {
+              "children": [
+                {
+                  "driveFileId": "FILE000000000000000000000000000378",
+                  "id": "node-378",
+                  "mimeType": "application/octet-stream",
+                  "modified": "10/1/2026",
+                  "name": "Dockerfile",
+                  "size": "264 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000378"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000379",
+                  "id": "node-379",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "helpers.py",
+                  "size": "1.4 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000379"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000380",
+                  "id": "node-380",
+                  "mimeType": "application/octet-stream",
+                  "modified": "10/1/2026",
+                  "name": "read_only_tree.sha256",
+                  "size": "65 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000380"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000381",
+                  "id": "node-381",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "run_all.py",
+                  "size": "1.7 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000381"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000382",
+                  "id": "node-382",
+                  "mimeType": "text/x-sh",
+                  "modified": "10/1/2026",
+                  "name": "test.sh",
+                  "size": "599 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000382"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000383",
+                  "id": "node-383",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_cache_service.py",
+                  "size": "7.2 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000383"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000384",
+                  "id": "node-384",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_clustering.py",
+                  "size": "5.3 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000384"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000385",
+                  "id": "node-385",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_contract_integrity.py",
+                  "size": "720 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000385"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000386",
+                  "id": "node-386",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_diarization.py",
+                  "size": "2.8 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000386"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000387",
+                  "id": "node-387",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_diarization_metrics.py",
+                  "size": "4.1 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000387"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000388",
+                  "id": "node-388",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_diarization_reporting.py",
+                  "size": "2.9 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000388"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000389",
+                  "id": "node-389",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_diarization_validation.py",
+                  "size": "5.8 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000389"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000390",
+                  "id": "node-390",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_evaluation_map.py",
+                  "size": "3.4 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000390"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000391",
+                  "id": "node-391",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_repository_scenarios.py",
+                  "size": "5.9 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000391"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000392",
+                  "id": "node-392",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_revision_ledger.py",
+                  "size": "6.3 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000392"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000393",
+                  "id": "node-393",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_service_state.py",
+                  "size": "17.5 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000393"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000394",
+                  "id": "node-394",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_speaker_constraints.py",
+                  "size": "15.0 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000394"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000395",
+                  "id": "node-395",
+                  "mimeType": "text/x-python-script",
+                  "modified": "10/1/2026",
+                  "name": "test_speaker_registry.py",
+                  "size": "5.4 KB",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000395"
+                }
+              ],
+              "id": "node-377",
+              "name": "tests",
+              "type": "folder"
+            }
+          ]
+        }
+      },
+      "taskQualityEvaluation": {
+        "value": {
+          "autoReviewRunIds": [
+            6633482,
+            6632971,
+            6626809,
+            6626615,
+            6623929,
+            6623899,
+            6623672,
+            6622207,
+            6621895,
+            6618065
+          ],
+          "lastSubmittedAt": "2026-10-01T15:25:55.949Z",
+          "locked": true,
+          "scriptValidationSkipped": true
+        }
+      }
+    }
+  },
+  "raw_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8817,
+        "batchName": "Batch 1",
+        "projectId": 952,
+        "projectName": "Google-CODE-Harbor-Tasks-Scale-Up",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "__originalKeyOrder": [
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "Drive Link": "https://drive.google.com/open?id=1ianbpSZAgzrxPIu5tJGFMl9SCQ5hfkwq&usp=drive_copy",
+          "Programming Language": "Python",
+          "Task Domain": "MLE",
+          "Task ID": "11",
+          "Task Idea": "A meeting diarization evaluator assigns overlapping speech to the wrong speakers after a segmentation-cache optimization. Diagnose timestamp units, collar handling, overlap representation, embedding-cache keys, clustering thresholds, speaker permutation, and diarization error-rate computation. Hidden synthetic conversations verify segment ownership, overlap scoring, stable speaker identities, and deterministic reports without audio-model inference.",
+          "Task Name": "speech_diarization_overlap_debug",
+          "Task Sub-Domain": "MLE Debugging",
+          "batchId": 8817,
+          "batchName": "Batch 1",
+          "projectId": 952,
+          "projectName": "Google-CODE-Harbor-Tasks-Scale-Up"
+        },
+        "modelConfig": {
+          "conversation_id": 1287090,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "additionalComments": {
+          "value": "Models failing tasks."
+        },
+        "additionalModelRunEvaluations": {
+          "value": {
+            "lastSubmittedAt": "2026-10-01T15:46:42.152Z",
+            "locked": true,
+            "versionIds": [
+              "d2189581-fdc4-4bf9-8a1a-83a7c833e39f",
+              "083f7f97-61ea-43a9-929f-463f8dcb27c3"
+            ],
+            "versionsData": [
+              {
+                "createdAt": "2026-10-01T15:26:00.269Z",
+                "updatedAt": "2026-10-01T15:46:42.000Z",
+                "id": "7b07597f-5da8-4c19-aa43-092611ba67bd",
+                "currentStageId": 24361,
+                "contributorId": 491,
+                "status": "SUCCESS",
+                "apiId": "a37ee856-703c-4ae0-baf3-2df7f3a0abd5",
+                "requestIds": [
+                  6633727
+                ],
+                "versionId": "083f7f97-61ea-43a9-929f-463f8dcb27c3",
+                "result": {
+                  "run_id": 6633727,
+                  "status": "success",
+                  "progress": null,
+                  "created_at": "2026-10-01T15:26:00Z",
+                  "error_code": null,
+                  "updated_at": "2026-10-01T15:46:36Z",
+                  "evaluations": [
+                    {
+                      "id": 26701530,
+                      "name": "harbor_trial",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "gemini/gemini-3.8-flash",
+                        "usage": {
+                          "cost_usd": 5.488616324999999,
+                          "n_cache_tokens": 30055061,
+                          "n_input_tokens": 32348340,
+                          "n_output_tokens": 403874,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633727__task__4L7Vnte"
+                            },
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633727__task__SjP5nUf"
+                            },
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633727__task__TUeCW3q"
+                            },
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633727__task__x2KNXFq"
+                            }
+                          ],
+                          "n_passed": 0,
+                          "n_trials": 4,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0,
+                            "4": 0
+                          },
+                          "n_attempts": 4,
+                          "n_valid_trials": 4,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 4,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__4L7Vnte"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__SjP5nUf"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__TUeCW3q"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__x2KNXFq"
+                          }
+                        ],
+                        "cost_usd": 5.488616324999999,
+                        "n_passed": 0,
+                        "n_trials": 4,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0,
+                          "4": 0
+                        },
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633727.zip",
+                        "cheat_mode": false,
+                        "n_attempts": 4,
+                        "trial_name": "6633727__task__4L7Vnte",
+                        "n_valid_trials": 4,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 4,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 32348340,
+                        "generate": 403874
+                      },
+                      "evaluation_latency": 1234,
+                      "utilized_tokens_cost": {
+                        "total": 86.929,
+                        "prompt": 80.8708,
+                        "generate": 6.05811
+                      },
+                      "is_used_for_aggregation": false
+                    }
+                  ],
+                  "fail_reason": null,
+                  "project_name": "hcast-harbor-tasks",
+                  "engagement_id": 12,
+                  "item_metadata": {
+                    "is_bulk": false,
+                    "trace_id": "1e04c317-3a4d-4295-81f9-d326e90a9dc3",
+                    "submitted_at": "2026-10-01T15:26:00.360495+00:00"
+                  },
+                  "secs_since_update": 0,
+                  "evaluations_failed": 0,
+                  "aggregated_evaluations": [],
+                  "aggregated_evaluations_failed": 0
+                },
+                "error": null,
+                "attempts": 116,
+                "lastAttemptAt": "2026-10-01T15:46:42.000Z",
+                "lastSuccessAt": "2026-10-01T15:46:42.000Z"
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "a37ee856-703c-4ae0-baf3-2df7f3a0abd5",
+                "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+                "apiName": "API Endpoint 1",
+                "headers": [],
+                "apiKeyId": "924106dc-ebf6-4a73-9ccd-516d5d12f785",
+                "isPolling": true,
+                "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"terminus-2\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 4\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "pollingOptions": {
+                  "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                  "requestIdKey": "run_id"
+                },
+                "rewardBlockCriteria": false,
+                "selectedReviewCriterias": [
+                  "task"
+                ]
+              }
+            ]
+          }
+        },
+        "modelRunEvaluation": {
+          "value": {
+            "lastSubmittedAt": "2026-10-01T14:55:43.314Z",
+            "locked": true,
+            "versionIds": [
+              "d3d29fb7-cb72-4dae-b2b2-b24a83b60203",
+              "e639ccf9-f759-4eed-a36c-9561ac86f48d",
+              "afba09f8-ed51-4f66-9249-f027c49580d1",
+              "62d74cc4-d3b2-4bf5-944d-eb3e21cee0ec"
+            ],
+            "versionsData": [
+              {
+                "createdAt": "2026-10-01T14:23:40.161Z",
+                "updatedAt": "2026-10-01T14:55:43.000Z",
+                "id": "a1639554-dd1a-47b3-be0d-68e6f8410627",
+                "currentStageId": 24361,
+                "contributorId": 491,
+                "status": "SUCCESS",
+                "apiId": "f5486c26-dfb7-4b80-844a-6afca5c3c9b4",
+                "requestIds": [
+                  6633301
+                ],
+                "versionId": "62d74cc4-d3b2-4bf5-944d-eb3e21cee0ec",
+                "result": {
+                  "run_id": 6633301,
+                  "status": "success",
+                  "progress": null,
+                  "created_at": "2026-10-01T14:23:40Z",
+                  "error_code": null,
+                  "updated_at": "2026-10-01T14:55:34Z",
+                  "evaluations": [
+                    {
+                      "id": 26700133,
+                      "name": "harbor_trial",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "gemini/gemini-3.8-flash",
+                        "usage": {
+                          "cost_usd": 3.5626515000000007,
+                          "n_cache_tokens": 24083210,
+                          "n_input_tokens": 24986826,
+                          "n_output_tokens": 287653,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633301__task__FPtmVhC"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633301__task__FPtmVhC"
+                          }
+                        ],
+                        "cost_usd": 3.5626515000000007,
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633301.zip",
+                        "cheat_mode": false,
+                        "n_attempts": 1,
+                        "trial_name": "6633301__task__FPtmVhC",
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 24986826,
+                        "generate": 287653
+                      },
+                      "evaluation_latency": 1913,
+                      "utilized_tokens_cost": {
+                        "total": 66.7819,
+                        "prompt": 62.4671,
+                        "generate": 4.3148
+                      },
+                      "is_used_for_aggregation": false
+                    }
+                  ],
+                  "fail_reason": null,
+                  "project_name": "hcast-harbor-tasks",
+                  "engagement_id": 12,
+                  "item_metadata": {
+                    "is_bulk": false,
+                    "trace_id": "f27a193c-0a75-455a-99f0-d250e412c3ff",
+                    "submitted_at": "2026-10-01T14:23:40.356313+00:00"
+                  },
+                  "secs_since_update": 0,
+                  "evaluations_failed": 0,
+                  "aggregated_evaluations": [],
+                  "aggregated_evaluations_failed": 0
+                },
+                "error": null,
+                "attempts": 137,
+                "lastAttemptAt": "2026-10-01T14:55:43.000Z",
+                "lastSuccessAt": "2026-10-01T14:55:43.000Z"
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "f5486c26-dfb7-4b80-844a-6afca5c3c9b4",
+                "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+                "apiName": "API Endpoint 1",
+                "headers": [],
+                "apiKeyId": "9a467b95-2a58-4359-b015-3d2ef3e2e466",
+                "isPolling": true,
+                "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"terminus-2\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "pollingOptions": {
+                  "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                  "requestIdKey": "run_id"
+                },
+                "rewardBlockCriteria": false,
+                "selectedReviewCriterias": [
+                  "task"
+                ]
+              }
+            ]
+          }
+        },
+        "modelRunEvaluationComplete": {
+          "value": "True"
+        },
+        "oracleEvaluation": {
+          "value": {
+            "lastSubmittedAt": "2026-10-01T14:22:59.032Z",
+            "locked": true,
+            "versionIds": [
+              "addfb15d-24dd-4419-a124-1a5a0ec0f5fb",
+              "563d9a15-6284-4078-93ac-fcebc460ed04",
+              "3c294aae-a507-4e35-a1ef-6808352e376c",
+              "1df68965-7d8f-418f-936d-c46027281a25"
+            ],
+            "versionsData": [
+              {
+                "createdAt": "2026-10-01T14:21:14.029Z",
+                "updatedAt": "2026-10-01T14:22:58.000Z",
+                "id": "4a3547a7-7467-45c5-b76c-045a93539e9f",
+                "currentStageId": null,
+                "contributorId": 491,
+                "status": "SUCCESS",
+                "apiId": "8cbe4346-47f3-4498-9017-ae1c9e83640b",
+                "requestIds": [
+                  6633290
+                ],
+                "versionId": "1df68965-7d8f-418f-936d-c46027281a25",
+                "result": {
+                  "run_id": 6633290,
+                  "status": "success",
+                  "progress": null,
+                  "created_at": "2026-10-01T14:21:14Z",
+                  "error_code": null,
+                  "updated_at": "2026-10-01T14:22:53Z",
+                  "evaluations": [
+                    {
+                      "id": 26700090,
+                      "name": "harbor_trial",
+                      "output": {
+                        "agent": "oracle",
+                        "model": "gemini/gemini-3.8-flash",
+                        "usage": {
+                          "cost_usd": null,
+                          "n_cache_tokens": null,
+                          "n_input_tokens": null,
+                          "n_output_tokens": null,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "reward": 1,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": true,
+                              "reward": 1,
+                              "rewards": {
+                                "reward": 1
+                              },
+                              "trial_name": "6633290__task__PontZo2"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 1
+                          },
+                          "n_passed": 1,
+                          "n_trials": 1,
+                          "pass_at_1": 1,
+                          "pass_at_k": {
+                            "1": 1
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 1,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "6633290__task__PontZo2"
+                          }
+                        ],
+                        "cost_usd": null,
+                        "n_passed": 1,
+                        "n_trials": 1,
+                        "pass_at_1": 1,
+                        "pass_at_k": {
+                          "1": 1
+                        },
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633290.zip",
+                        "cheat_mode": false,
+                        "n_attempts": 1,
+                        "trial_name": "6633290__task__PontZo2",
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 1,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 0,
+                        "generate": 0
+                      },
+                      "evaluation_latency": 98,
+                      "utilized_tokens_cost": {
+                        "total": 0,
+                        "prompt": 0,
+                        "generate": 0
+                      },
+                      "is_used_for_aggregation": false
+                    }
+                  ],
+                  "fail_reason": null,
+                  "project_name": "hcast-harbor-tasks",
+                  "engagement_id": 12,
+                  "item_metadata": {
+                    "is_bulk": false,
+                    "trace_id": "bb448d64-f936-4824-8a45-467cffaee5ce",
+                    "submitted_at": "2026-10-01T14:21:14.203204+00:00"
+                  },
+                  "secs_since_update": 0,
+                  "evaluations_failed": 0,
+                  "aggregated_evaluations": [],
+                  "aggregated_evaluations_failed": 0
+                },
+                "error": null,
+                "attempts": 12,
+                "lastAttemptAt": "2026-10-01T14:22:59.000Z",
+                "lastSuccessAt": "2026-10-01T14:22:59.000Z"
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "8cbe4346-47f3-4498-9017-ae1c9e83640b",
+                "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+                "apiName": "API Endpoint 1",
+                "headers": [],
+                "apiKeyId": "9c07d960-fd67-4126-9b38-da7a386e9506",
+                "isPolling": true,
+                "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"oracle\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "pollingOptions": {
+                  "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                  "requestIdKey": "run_id"
+                },
+                "rewardBlockCriteria": false,
+                "selectedReviewCriterias": [
+                  "task"
+                ]
+              }
+            ]
+          }
+        },
+        "oracleEvaluationComplete": {
+          "value": {
+            "lastSubmittedAt": "2026-10-01T14:23:33.543Z",
+            "locked": true,
+            "scriptValidationRunIds": [
+              71223,
+              71195,
+              71094
+            ],
+            "scriptValidationSkipped": false
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/1IhG9sG9Gses3zmZtmKOm0WojRXM-v4aJ",
+        "taskQualityEvaluation": {
+          "value": {
+            "autoReviewRunIds": [
+              6633482,
+              6632971,
+              6626809,
+              6626615,
+              6623929,
+              6623899,
+              6623672,
+              6622207,
+              6621895,
+              6618065
+            ],
+            "lastSubmittedAt": "2026-10-01T15:25:55.949Z",
+            "locked": true,
+            "scriptValidationSkipped": true
+          }
+        }
+      }
+    }
+  },
+  "task_data": {
+    "metadata": {
+      "turing_task_url": null,
+      "scope_requirements": {
+        "batchId": 8817,
+        "batchName": "Batch 1",
+        "projectId": 952,
+        "projectName": "Google-CODE-Harbor-Tasks-Scale-Up",
+        "revisionId": null
+      }
+    },
+    "model_config": {
+      "labeling_tool_url": "https://labeling-g.turing.com"
+    },
+    "messages": [],
+    "variantMessages": [],
+    "formData": {
+      "input": {
+        "__originalKeyOrder": [
+          "metadata",
+          "modelConfig"
+        ],
+        "metadata": {
+          "Drive Link": "https://drive.google.com/open?id=1ianbpSZAgzrxPIu5tJGFMl9SCQ5hfkwq&usp=drive_copy",
+          "Programming Language": "Python",
+          "Task Domain": "MLE",
+          "Task ID": "11",
+          "Task Idea": "A meeting diarization evaluator assigns overlapping speech to the wrong speakers after a segmentation-cache optimization. Diagnose timestamp units, collar handling, overlap representation, embedding-cache keys, clustering thresholds, speaker permutation, and diarization error-rate computation. Hidden synthetic conversations verify segment ownership, overlap scoring, stable speaker identities, and deterministic reports without audio-model inference.",
+          "Task Name": "speech_diarization_overlap_debug",
+          "Task Sub-Domain": "MLE Debugging",
+          "batchId": 8817,
+          "batchName": "Batch 1",
+          "projectId": 952,
+          "projectName": "Google-CODE-Harbor-Tasks-Scale-Up"
+        },
+        "modelConfig": {
+          "conversation_id": 1287090,
+          "labeling_tool_url": "https://labeling-g.turing.com"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "additionalComments": {
+          "value": "Models failing tasks."
+        },
+        "additionalModelRunEvaluations": {
+          "value": {
+            "lastSubmittedAt": "2026-10-01T15:46:42.152Z",
+            "locked": true,
+            "versionIds": [
+              "d2189581-fdc4-4bf9-8a1a-83a7c833e39f",
+              "083f7f97-61ea-43a9-929f-463f8dcb27c3"
+            ],
+            "versionsData": [
+              {
+                "createdAt": "2026-10-01T15:26:00.269Z",
+                "updatedAt": "2026-10-01T15:46:42.000Z",
+                "id": "7b07597f-5da8-4c19-aa43-092611ba67bd",
+                "currentStageId": 24361,
+                "contributorId": 491,
+                "status": "SUCCESS",
+                "apiId": "a37ee856-703c-4ae0-baf3-2df7f3a0abd5",
+                "requestIds": [
+                  6633727
+                ],
+                "versionId": "083f7f97-61ea-43a9-929f-463f8dcb27c3",
+                "result": {
+                  "run_id": 6633727,
+                  "status": "success",
+                  "progress": null,
+                  "created_at": "2026-10-01T15:26:00Z",
+                  "error_code": null,
+                  "updated_at": "2026-10-01T15:46:36Z",
+                  "evaluations": [
+                    {
+                      "id": 26701530,
+                      "name": "harbor_trial",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "gemini/gemini-3.8-flash",
+                        "usage": {
+                          "cost_usd": 5.488616324999999,
+                          "n_cache_tokens": 30055061,
+                          "n_input_tokens": 32348340,
+                          "n_output_tokens": 403874,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633727__task__4L7Vnte"
+                            },
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633727__task__SjP5nUf"
+                            },
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633727__task__TUeCW3q"
+                            },
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633727__task__x2KNXFq"
+                            }
+                          ],
+                          "n_passed": 0,
+                          "n_trials": 4,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0,
+                            "4": 0
+                          },
+                          "n_attempts": 4,
+                          "n_valid_trials": 4,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 4,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__4L7Vnte"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__SjP5nUf"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__TUeCW3q"
+                          },
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633727__task__x2KNXFq"
+                          }
+                        ],
+                        "cost_usd": 5.488616324999999,
+                        "n_passed": 0,
+                        "n_trials": 4,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0,
+                          "4": 0
+                        },
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633727.zip",
+                        "cheat_mode": false,
+                        "n_attempts": 4,
+                        "trial_name": "6633727__task__4L7Vnte",
+                        "n_valid_trials": 4,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 4,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 32348340,
+                        "generate": 403874
+                      },
+                      "evaluation_latency": 1234,
+                      "utilized_tokens_cost": {
+                        "total": 86.929,
+                        "prompt": 80.8708,
+                        "generate": 6.05811
+                      },
+                      "is_used_for_aggregation": false
+                    }
+                  ],
+                  "fail_reason": null,
+                  "project_name": "hcast-harbor-tasks",
+                  "engagement_id": 12,
+                  "item_metadata": {
+                    "is_bulk": false,
+                    "trace_id": "1e04c317-3a4d-4295-81f9-d326e90a9dc3",
+                    "submitted_at": "2026-10-01T15:26:00.360495+00:00"
+                  },
+                  "secs_since_update": 0,
+                  "evaluations_failed": 0,
+                  "aggregated_evaluations": [],
+                  "aggregated_evaluations_failed": 0
+                },
+                "error": null,
+                "attempts": 116,
+                "lastAttemptAt": "2026-10-01T15:46:42.000Z",
+                "lastSuccessAt": "2026-10-01T15:46:42.000Z"
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "a37ee856-703c-4ae0-baf3-2df7f3a0abd5",
+                "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+                "apiName": "API Endpoint 1",
+                "headers": [],
+                "apiKeyId": "924106dc-ebf6-4a73-9ccd-516d5d12f785",
+                "isPolling": true,
+                "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"terminus-2\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 4\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "pollingOptions": {
+                  "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                  "requestIdKey": "run_id"
+                },
+                "rewardBlockCriteria": false,
+                "selectedReviewCriterias": [
+                  "task"
+                ]
+              }
+            ]
+          }
+        },
+        "modelRunEvaluation": {
+          "value": {
+            "lastSubmittedAt": "2026-10-01T14:55:43.314Z",
+            "locked": true,
+            "versionIds": [
+              "d3d29fb7-cb72-4dae-b2b2-b24a83b60203",
+              "e639ccf9-f759-4eed-a36c-9561ac86f48d",
+              "afba09f8-ed51-4f66-9249-f027c49580d1",
+              "62d74cc4-d3b2-4bf5-944d-eb3e21cee0ec"
+            ],
+            "versionsData": [
+              {
+                "createdAt": "2026-10-01T14:23:40.161Z",
+                "updatedAt": "2026-10-01T14:55:43.000Z",
+                "id": "a1639554-dd1a-47b3-be0d-68e6f8410627",
+                "currentStageId": 24361,
+                "contributorId": 491,
+                "status": "SUCCESS",
+                "apiId": "f5486c26-dfb7-4b80-844a-6afca5c3c9b4",
+                "requestIds": [
+                  6633301
+                ],
+                "versionId": "62d74cc4-d3b2-4bf5-944d-eb3e21cee0ec",
+                "result": {
+                  "run_id": 6633301,
+                  "status": "success",
+                  "progress": null,
+                  "created_at": "2026-10-01T14:23:40Z",
+                  "error_code": null,
+                  "updated_at": "2026-10-01T14:55:34Z",
+                  "evaluations": [
+                    {
+                      "id": 26700133,
+                      "name": "harbor_trial",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "gemini/gemini-3.8-flash",
+                        "usage": {
+                          "cost_usd": 3.5626515000000007,
+                          "n_cache_tokens": 24083210,
+                          "n_input_tokens": 24986826,
+                          "n_output_tokens": 287653,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6633301__task__FPtmVhC"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6633301__task__FPtmVhC"
+                          }
+                        ],
+                        "cost_usd": 3.5626515000000007,
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633301.zip",
+                        "cheat_mode": false,
+                        "n_attempts": 1,
+                        "trial_name": "6633301__task__FPtmVhC",
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 24986826,
+                        "generate": 287653
+                      },
+                      "evaluation_latency": 1913,
+                      "utilized_tokens_cost": {
+                        "total": 66.7819,
+                        "prompt": 62.4671,
+                        "generate": 4.3148
+                      },
+                      "is_used_for_aggregation": false
+                    }
+                  ],
+                  "fail_reason": null,
+                  "project_name": "hcast-harbor-tasks",
+                  "engagement_id": 12,
+                  "item_metadata": {
+                    "is_bulk": false,
+                    "trace_id": "f27a193c-0a75-455a-99f0-d250e412c3ff",
+                    "submitted_at": "2026-10-01T14:23:40.356313+00:00"
+                  },
+                  "secs_since_update": 0,
+                  "evaluations_failed": 0,
+                  "aggregated_evaluations": [],
+                  "aggregated_evaluations_failed": 0
+                },
+                "error": null,
+                "attempts": 137,
+                "lastAttemptAt": "2026-10-01T14:55:43.000Z",
+                "lastSuccessAt": "2026-10-01T14:55:43.000Z"
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "f5486c26-dfb7-4b80-844a-6afca5c3c9b4",
+                "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+                "apiName": "API Endpoint 1",
+                "headers": [],
+                "apiKeyId": "9a467b95-2a58-4359-b015-3d2ef3e2e466",
+                "isPolling": true,
+                "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"terminus-2\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "pollingOptions": {
+                  "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                  "requestIdKey": "run_id"
+                },
+                "rewardBlockCriteria": false,
+                "selectedReviewCriterias": [
+                  "task"
+                ]
+              }
+            ]
+          }
+        },
+        "modelRunEvaluationComplete": {
+          "value": "True"
+        },
+        "oracleEvaluation": {
+          "value": {
+            "lastSubmittedAt": "2026-10-01T14:22:59.032Z",
+            "locked": true,
+            "versionIds": [
+              "addfb15d-24dd-4419-a124-1a5a0ec0f5fb",
+              "563d9a15-6284-4078-93ac-fcebc460ed04",
+              "3c294aae-a507-4e35-a1ef-6808352e376c",
+              "1df68965-7d8f-418f-936d-c46027281a25"
+            ],
+            "versionsData": [
+              {
+                "createdAt": "2026-10-01T14:21:14.029Z",
+                "updatedAt": "2026-10-01T14:22:58.000Z",
+                "id": "4a3547a7-7467-45c5-b76c-045a93539e9f",
+                "currentStageId": null,
+                "contributorId": 491,
+                "status": "SUCCESS",
+                "apiId": "8cbe4346-47f3-4498-9017-ae1c9e83640b",
+                "requestIds": [
+                  6633290
+                ],
+                "versionId": "1df68965-7d8f-418f-936d-c46027281a25",
+                "result": {
+                  "run_id": 6633290,
+                  "status": "success",
+                  "progress": null,
+                  "created_at": "2026-10-01T14:21:14Z",
+                  "error_code": null,
+                  "updated_at": "2026-10-01T14:22:53Z",
+                  "evaluations": [
+                    {
+                      "id": 26700090,
+                      "name": "harbor_trial",
+                      "output": {
+                        "agent": "oracle",
+                        "model": "gemini/gemini-3.8-flash",
+                        "usage": {
+                          "cost_usd": null,
+                          "n_cache_tokens": null,
+                          "n_input_tokens": null,
+                          "n_output_tokens": null,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "reward": 1,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": true,
+                              "reward": 1,
+                              "rewards": {
+                                "reward": 1
+                              },
+                              "trial_name": "6633290__task__PontZo2"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 1
+                          },
+                          "n_passed": 1,
+                          "n_trials": 1,
+                          "pass_at_1": 1,
+                          "pass_at_k": {
+                            "1": 1
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 1,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "6633290__task__PontZo2"
+                          }
+                        ],
+                        "cost_usd": null,
+                        "n_passed": 1,
+                        "n_trials": 1,
+                        "pass_at_1": 1,
+                        "pass_at_k": {
+                          "1": 1
+                        },
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6633290.zip",
+                        "cheat_mode": false,
+                        "n_attempts": 1,
+                        "trial_name": "6633290__task__PontZo2",
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 1,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 0,
+                        "generate": 0
+                      },
+                      "evaluation_latency": 98,
+                      "utilized_tokens_cost": {
+                        "total": 0,
+                        "prompt": 0,
+                        "generate": 0
+                      },
+                      "is_used_for_aggregation": false
+                    }
+                  ],
+                  "fail_reason": null,
+                  "project_name": "hcast-harbor-tasks",
+                  "engagement_id": 12,
+                  "item_metadata": {
+                    "is_bulk": false,
+                    "trace_id": "bb448d64-f936-4824-8a45-467cffaee5ce",
+                    "submitted_at": "2026-10-01T14:21:14.203204+00:00"
+                  },
+                  "secs_since_update": 0,
+                  "evaluations_failed": 0,
+                  "aggregated_evaluations": [],
+                  "aggregated_evaluations_failed": 0
+                },
+                "error": null,
+                "attempts": 12,
+                "lastAttemptAt": "2026-10-01T14:22:59.000Z",
+                "lastSuccessAt": "2026-10-01T14:22:59.000Z"
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "8cbe4346-47f3-4498-9017-ae1c9e83640b",
+                "apiUrl": "https://labeling-g.turing.com/api/llm-as-eval/start-run",
+                "apiName": "API Endpoint 1",
+                "headers": [],
+                "apiKeyId": "9c07d960-fd67-4126-9b38-da7a386e9506",
+                "isPolling": true,
+                "defaultPayload": "{\n  \"batch_name\": \"hcast-scaleup-project\",\n  \"engagement_name\": \"google\",\n  \"project_name\": \"hcast-harbor-tasks\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"gemini/gemini-3.8-flash\",\n      \"agent\": \"oracle\"\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n          \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "pollingOptions": {
+                  "url": "https://labeling-g.turing.com/api/llm-as-eval/poll-run",
+                  "requestIdKey": "run_id"
+                },
+                "rewardBlockCriteria": false,
+                "selectedReviewCriterias": [
+                  "task"
+                ]
+              }
+            ]
+          }
+        },
+        "oracleEvaluationComplete": {
+          "value": {
+            "lastSubmittedAt": "2026-10-01T14:23:33.543Z",
+            "locked": true,
+            "scriptValidationRunIds": [
+              71223,
+              71195,
+              71094
+            ],
+            "scriptValidationSkipped": false
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/1IhG9sG9Gses3zmZtmKOm0WojRXM-v4aJ",
+        "taskQualityEvaluation": {
+          "value": {
+            "autoReviewRunIds": [
+              6633482,
+              6632971,
+              6626809,
+              6626615,
+              6623929,
+              6623899,
+              6623672,
+              6622207,
+              6621895,
+              6618065
+            ],
+            "lastSubmittedAt": "2026-10-01T15:25:55.949Z",
+            "locked": true,
+            "scriptValidationSkipped": true
+          }
+        }
+      }
+    }
+  }
+}

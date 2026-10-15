@@ -1,31 +1,21 @@
 #!/usr/bin/env node
-// Run every project's fixtures through the sandbox wrapper (same one the tool uses).
+// Run every script's fixtures through the sandbox wrapper (same one the tool uses).
 // Usage:
-//   node scripts/run-tests.mjs                     # all projects
-//   node scripts/run-tests.mjs labeling-g          # one instance
-//   node scripts/run-tests.mjs labeling-g/my-proj  # one project
-import { readdirSync, existsSync, readFileSync, statSync } from "node:fs";
+//   node scripts/run-tests.mjs                                   # everything
+//   node scripts/run-tests.mjs labeling-g                        # one instance
+//   node scripts/run-tests.mjs labeling-g/my-proj                # one project (and all its pipelines)
+//   node scripts/run-tests.mjs labeling-eval/my-proj/my-pipeline # one pipeline
+import { existsSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { fetchMockDirs, runValidation } from "./wrapper.mjs";
+import { discoverTargets } from "./targets.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const filter = process.argv[2] || "";
 
-// Discover instances/<instance>/projects/<slug>.
-const projects = [];
-const instancesDir = join(root, "instances");
-for (const instance of readdirSync(instancesDir)) {
-  const projectsDir = join(instancesDir, instance, "projects");
-  if (!existsSync(projectsDir)) continue;
-  for (const slug of readdirSync(projectsDir)) {
-    const dir = join(projectsDir, slug);
-    if (!statSync(dir).isDirectory()) continue;
-    const id = `${instance}/${slug}`;
-    if (filter && !id.startsWith(filter)) continue;
-    projects.push({ id, dir });
-  }
-}
+// Discover every project- and pipeline-level script (see targets.mjs).
+const projects = discoverTargets(root).filter(({ id }) => !filter || id.startsWith(filter));
 
 if (projects.length === 0) {
   console.log(filter ? `No projects match "${filter}".` : "No projects yet.");

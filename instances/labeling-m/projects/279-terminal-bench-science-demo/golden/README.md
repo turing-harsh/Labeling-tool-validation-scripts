@@ -34,8 +34,19 @@ authoring/    provenance/build_instance.py
 
 ## Expected today
 
-PASS at the default `upload` profile with **0 errors and 0 warnings**, and the same at `audit`.
-Add `"validationProfile": "delivery"` to the ratings object to see the one finding it does
-produce: `T0.delivery-evaluations-missing` — the package is task-only, with no `evaluations/`.
+**FAIL, with 8 errors and 1 warning.** The gate admits only the ideal structure, and this demo
+package predates it:
+
+- it ships `authoring/` and `harbor-canary` markers, which are both forbidden
+- `solution/solve.sh` has no shebang
+- the verifier is not pytest: `test.sh` runs `python3 /tests/test_outputs.py` without
+  `set -e`, there is no `def test_...`, and `tests/Dockerfile` installs no pytest pins and
+  does not create `/logs/verifier`
+- the warning is advisory: `[agent] timeout_sec = 28800` is above the 18000 cap
+
+`380030.txt` and `380090.txt` report "could not be read" offline because their folders are not
+mirrored here. The mirrored folders `379987/` and `380056/` have no `.txt` beside them. Run them
+with a ratings object that links `…/drive/folders/379987` or `…/380056`: 379987 fails on
+`tests/authoring/` and a `.DS_Store`, and 380056 on one unspaced math delimiter.
 
 Unit fixtures live in `../fixtures/folders/` and are synthetic (see `../requirements.md`).

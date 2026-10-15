@@ -9,7 +9,7 @@
 //
 // Content is written straight to disk (never echoed) and golden/folders/ is gitignored.
 // Usage:
-//   node scripts/fetch-folder.mjs <instance/slug> <folderLinkOrId> [--fixtures] [credPath]
+//   node scripts/fetch-folder.mjs <instance/project[/pipeline]> <folderLinkOrId> [--fixtures] [credPath]
 // credPath defaults to $LABELING_CREDENTIALS or the labeling-tool dev credentials.
 import { mkdirSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -23,6 +23,7 @@ import {
   listDriveFolder,
   loadCredentials,
 } from "./drive-fetch.mjs";
+import { TARGET_USAGE, targetDir } from "./targets.mjs";
 
 const GOOGLE_APPS_PREFIX = "application/vnd.google-apps.";
 // run-checks-api's folderLimits — mirrored so a fixture cannot hide a real truncation.
@@ -35,16 +36,15 @@ const args = process.argv.slice(2);
 const intoFixtures = args.includes("--fixtures");
 const [target, linkArg, credArg] = args.filter((a) => a !== "--fixtures");
 
-if (!target || !target.includes("/") || !linkArg) {
-  console.error("Usage: node scripts/fetch-folder.mjs <instance/slug> <folderLinkOrId> [--fixtures] [credPath]");
+const projDir = targetDir(root, target);
+if (!projDir || !linkArg) {
+  console.error(`Usage: node scripts/fetch-folder.mjs ${TARGET_USAGE} <folderLinkOrId> [--fixtures] [credPath]`);
   process.exit(1);
 }
 
 const credPath = credArg || process.env.LABELING_CREDENTIALS ||
   "/Users/harshagrawal/work/labeling-tool/apps/labeling-tool-api/credentials.json";
 
-const [instance, slug] = target.split("/");
-const projDir = join(root, "instances", instance, "projects", slug);
 if (!existsSync(projDir)) {
   console.error(`No project at ${projDir}`);
   process.exit(1);

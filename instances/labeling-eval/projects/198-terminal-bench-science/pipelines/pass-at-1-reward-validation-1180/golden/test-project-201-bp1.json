@@ -1,0 +1,773 @@
+{
+  "metadata": {
+    "scope_requirements": {
+      "batchId": 3636,
+      "batchName": "bb2",
+      "projectId": 201,
+      "projectName": "universal-Testing-reward-agents"
+    }
+  },
+  "conversation": {
+    "input": {
+      "metadata": {
+        "batchId": 3636,
+        "batchName": "bb2",
+        "projectId": 201,
+        "projectName": "universal-Testing-reward-agents"
+      }
+    },
+    "formStage": null,
+    "ratings": {
+      "bp1": {
+        "value": {
+          "lastSubmittedAt": "2026-10-02T05:08:42.739Z",
+          "locked": true,
+          "versionIds": [
+            "c619d90e-4891-4101-9552-a286b2cec7b5"
+          ],
+          "versionsData": [
+            {
+              "createdAt": "2026-10-02T04:00:04.230Z",
+              "updatedAt": "2026-10-02T05:08:42.000Z",
+              "id": "a67a0aad-267d-4525-8639-394503c3fe11",
+              "status": "SUCCESS",
+              "apiId": "81f279e0-a809-495c-972d-35d37ebd578e",
+              "requestIds": [
+                6637059
+              ],
+              "versionId": "c619d90e-4891-4101-9552-a286b2cec7b5",
+              "result": {
+                "run_id": 6637059,
+                "status": "success",
+                "created_at": "2026-10-02T04:00:04Z",
+                "updated_at": "2026-10-02T04:53:00Z",
+                "evaluations": [
+                  {
+                    "id": 26713309,
+                    "name": "harbor_trial_1",
+                    "output": {
+                      "agent": "terminus-2",
+                      "model": "openai/gpt-6-sol",
+                      "usage": {
+                        "cost_usd": 0.9820518,
+                        "n_cache_tokens": 2537389,
+                        "n_input_tokens": 2601996,
+                        "n_output_tokens": 34536,
+                        "n_reasoning_tokens": null
+                      },
+                      "reward": {
+                        "reward": 0,
+                        "source": "result.json",
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6637059_26713309__task__BrxDVck"
+                          }
+                        ],
+                        "rewards": {
+                          "reward": 0
+                        },
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "trials": [
+                        {
+                          "valid": true,
+                          "passed": false,
+                          "reward": 0,
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "trial_name": "6637059_26713309__task__BrxDVck"
+                        }
+                      ],
+                      "cost_usd": 0.9820518,
+                      "n_passed": 0,
+                      "n_trials": 1,
+                      "pass_at_1": 0,
+                      "pass_at_k": {
+                        "1": 0
+                      },
+                      "n_attempts": 1,
+                      "n_valid_trials": 1,
+                      "pass_threshold": 1,
+                      "valid_rollouts": 1,
+                      "correct_rollouts": 0,
+                      "invalid_rollouts": 0,
+                      "n_invalid_trials": 0,
+                      "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6637059_26713309.zip",
+                      "cheat_mode": false,
+                      "trial_name": "6637059_26713309__task__BrxDVck",
+                      "reasoning_effort": "xhigh"
+                    },
+                    "status": "success",
+                    "error_code": null,
+                    "fail_reason": null,
+                    "evaluator_id": 258,
+                    "utilized_tokens": {
+                      "prompt": 2601996,
+                      "generate": 34536
+                    },
+                    "evaluation_latency": 2820,
+                    "is_used_for_aggregation": false
+                  },
+                  {
+                    "id": 26713310,
+                    "name": "harbor_trial_2",
+                    "output": {
+                      "agent": "terminus-2",
+                      "model": "anthropic/claude-opus-5-5",
+                      "usage": {
+                        "cost_usd": 1.4682978,
+                        "n_cache_tokens": 1381734,
+                        "n_input_tokens": 1442045,
+                        "n_output_tokens": 44528,
+                        "n_reasoning_tokens": null
+                      },
+                      "reward": {
+                        "reward": 0,
+                        "source": "result.json",
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6637059_26713310__task__fXBsfeB"
+                          }
+                        ],
+                        "rewards": {
+                          "reward": 0
+                        },
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0
+                      },
+                      "trials": [
+                        {
+                          "valid": true,
+                          "passed": false,
+                          "reward": 0,
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "trial_name": "6637059_26713310__task__fXBsfeB"
+                        }
+                      ],
+                      "cost_usd": 1.4682978,
+                      "n_passed": 0,
+                      "n_trials": 1,
+                      "pass_at_1": 0,
+                      "pass_at_k": {
+                        "1": 0
+                      },
+                      "n_attempts": 1,
+                      "n_valid_trials": 1,
+                      "pass_threshold": 1,
+                      "valid_rollouts": 1,
+                      "correct_rollouts": 0,
+                      "invalid_rollouts": 0,
+                      "n_invalid_trials": 0,
+                      "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6637059_26713310.zip",
+                      "cheat_mode": false,
+                      "trial_name": "6637059_26713310__task__fXBsfeB",
+                      "reasoning_effort": "low"
+                    },
+                    "status": "success",
+                    "error_code": null,
+                    "fail_reason": null,
+                    "evaluator_id": 258,
+                    "utilized_tokens": {
+                      "prompt": 1442045,
+                      "generate": 44528
+                    },
+                    "evaluation_latency": 3175,
+                    "is_used_for_aggregation": false
+                  }
+                ],
+                "fail_reason": null,
+                "project_name": "[STEM] Terminal Bench Science",
+                "evaluations_failed": 0,
+                "aggregated_evaluations": [],
+                "aggregated_evaluations_failed": 0
+              },
+              "error": null,
+              "attempts": 46,
+              "lastAttemptAt": "2026-10-02T05:08:42.000Z",
+              "lastSuccessAt": "2026-10-02T05:08:42.000Z"
+            }
+          ],
+          "customData": [
+            {
+              "apiId": "81f279e0-a809-495c-972d-35d37ebd578e",
+              "apiUrl": "https://eval.turing.com/api/llm-as-eval/start-run",
+              "apiName": "meta",
+              "isPolling": true,
+              "defaultPayload": "{\n  \"batch_name\": \"terminus-2-tb-science-evals\",\n  \"engagement_name\": \"meta\",\n  \"project_name\": \"[STEM] Terminal Bench Science\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+              "rewardBlockCriteria": true,
+              "selectedReviewCriterias": [
+                "task"
+              ],
+              "rewardBlockCriteriaMaxReward": 0.4
+            }
+          ]
+        }
+      },
+      "cheatValidation": {
+        "value": {
+          "locked": false
+        }
+      },
+      "task": "https://drive.google.com/drive/folders/13L8eCICmE01eDRwNLghX4em4pgOR4JO2",
+      "validation": {
+        "value": {
+          "lastSubmittedAt": "2026-10-02T03:59:59.991Z",
+          "locked": true,
+          "scriptValidationRunIds": [
+            6404,
+            6400
+          ],
+          "scriptValidationSkipped": false
+        }
+      }
+    }
+  },
+  "raw_data": {
+    "formData": {
+      "input": {
+        "metadata": {
+          "batchId": 3636,
+          "batchName": "bb2",
+          "projectId": 201,
+          "projectName": "universal-Testing-reward-agents"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-10-02T05:08:42.739Z",
+            "locked": true,
+            "versionIds": [
+              "c619d90e-4891-4101-9552-a286b2cec7b5"
+            ],
+            "versionsData": [
+              {
+                "createdAt": "2026-10-02T04:00:04.230Z",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "id": "a67a0aad-267d-4525-8639-394503c3fe11",
+                "status": "SUCCESS",
+                "apiId": "81f279e0-a809-495c-972d-35d37ebd578e",
+                "requestIds": [
+                  6637059
+                ],
+                "versionId": "c619d90e-4891-4101-9552-a286b2cec7b5",
+                "result": {
+                  "run_id": 6637059,
+                  "status": "success",
+                  "created_at": "2026-10-02T04:00:04Z",
+                  "updated_at": "2026-10-02T04:53:00Z",
+                  "evaluations": [
+                    {
+                      "id": 26713309,
+                      "name": "harbor_trial_1",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "usage": {
+                          "cost_usd": 0.9820518,
+                          "n_cache_tokens": 2537389,
+                          "n_input_tokens": 2601996,
+                          "n_output_tokens": 34536,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6637059_26713309__task__BrxDVck"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6637059_26713309__task__BrxDVck"
+                          }
+                        ],
+                        "cost_usd": 0.9820518,
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6637059_26713309.zip",
+                        "cheat_mode": false,
+                        "trial_name": "6637059_26713309__task__BrxDVck",
+                        "reasoning_effort": "xhigh"
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 2601996,
+                        "generate": 34536
+                      },
+                      "evaluation_latency": 2820,
+                      "is_used_for_aggregation": false
+                    },
+                    {
+                      "id": 26713310,
+                      "name": "harbor_trial_2",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "usage": {
+                          "cost_usd": 1.4682978,
+                          "n_cache_tokens": 1381734,
+                          "n_input_tokens": 1442045,
+                          "n_output_tokens": 44528,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6637059_26713310__task__fXBsfeB"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6637059_26713310__task__fXBsfeB"
+                          }
+                        ],
+                        "cost_usd": 1.4682978,
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6637059_26713310.zip",
+                        "cheat_mode": false,
+                        "trial_name": "6637059_26713310__task__fXBsfeB",
+                        "reasoning_effort": "low"
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 1442045,
+                        "generate": 44528
+                      },
+                      "evaluation_latency": 3175,
+                      "is_used_for_aggregation": false
+                    }
+                  ],
+                  "fail_reason": null,
+                  "project_name": "[STEM] Terminal Bench Science",
+                  "evaluations_failed": 0,
+                  "aggregated_evaluations": [],
+                  "aggregated_evaluations_failed": 0
+                },
+                "error": null,
+                "attempts": 46,
+                "lastAttemptAt": "2026-10-02T05:08:42.000Z",
+                "lastSuccessAt": "2026-10-02T05:08:42.000Z"
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "81f279e0-a809-495c-972d-35d37ebd578e",
+                "apiUrl": "https://eval.turing.com/api/llm-as-eval/start-run",
+                "apiName": "meta",
+                "isPolling": true,
+                "defaultPayload": "{\n  \"batch_name\": \"terminus-2-tb-science-evals\",\n  \"engagement_name\": \"meta\",\n  \"project_name\": \"[STEM] Terminal Bench Science\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "selectedReviewCriterias": [
+                  "task"
+                ],
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        },
+        "cheatValidation": {
+          "value": {
+            "locked": false
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/13L8eCICmE01eDRwNLghX4em4pgOR4JO2",
+        "validation": {
+          "value": {
+            "lastSubmittedAt": "2026-10-02T03:59:59.991Z",
+            "locked": true,
+            "scriptValidationRunIds": [
+              6404,
+              6400
+            ],
+            "scriptValidationSkipped": false
+          }
+        }
+      }
+    }
+  },
+  "task_data": {
+    "formData": {
+      "input": {
+        "metadata": {
+          "batchId": 3636,
+          "batchName": "bb2",
+          "projectId": 201,
+          "projectName": "universal-Testing-reward-agents"
+        }
+      },
+      "formStage": null,
+      "ratings": {
+        "bp1": {
+          "value": {
+            "lastSubmittedAt": "2026-10-02T05:08:42.739Z",
+            "locked": true,
+            "versionIds": [
+              "c619d90e-4891-4101-9552-a286b2cec7b5"
+            ],
+            "versionsData": [
+              {
+                "createdAt": "2026-10-02T04:00:04.230Z",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "id": "a67a0aad-267d-4525-8639-394503c3fe11",
+                "status": "SUCCESS",
+                "apiId": "81f279e0-a809-495c-972d-35d37ebd578e",
+                "requestIds": [
+                  6637059
+                ],
+                "versionId": "c619d90e-4891-4101-9552-a286b2cec7b5",
+                "result": {
+                  "run_id": 6637059,
+                  "status": "success",
+                  "created_at": "2026-10-02T04:00:04Z",
+                  "updated_at": "2026-10-02T04:53:00Z",
+                  "evaluations": [
+                    {
+                      "id": 26713309,
+                      "name": "harbor_trial_1",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "usage": {
+                          "cost_usd": 0.9820518,
+                          "n_cache_tokens": 2537389,
+                          "n_input_tokens": 2601996,
+                          "n_output_tokens": 34536,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6637059_26713309__task__BrxDVck"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6637059_26713309__task__BrxDVck"
+                          }
+                        ],
+                        "cost_usd": 0.9820518,
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6637059_26713309.zip",
+                        "cheat_mode": false,
+                        "trial_name": "6637059_26713309__task__BrxDVck",
+                        "reasoning_effort": "xhigh"
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 2601996,
+                        "generate": 34536
+                      },
+                      "evaluation_latency": 2820,
+                      "is_used_for_aggregation": false
+                    },
+                    {
+                      "id": 26713310,
+                      "name": "harbor_trial_2",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "usage": {
+                          "cost_usd": 1.4682978,
+                          "n_cache_tokens": 1381734,
+                          "n_input_tokens": 1442045,
+                          "n_output_tokens": 44528,
+                          "n_reasoning_tokens": null
+                        },
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "6637059_26713310__task__fXBsfeB"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "pass_threshold": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "6637059_26713310__task__fXBsfeB"
+                          }
+                        ],
+                        "cost_usd": 1.4682978,
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "pass_threshold": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/6637059_26713310.zip",
+                        "cheat_mode": false,
+                        "trial_name": "6637059_26713310__task__fXBsfeB",
+                        "reasoning_effort": "low"
+                      },
+                      "status": "success",
+                      "error_code": null,
+                      "fail_reason": null,
+                      "evaluator_id": 258,
+                      "utilized_tokens": {
+                        "prompt": 1442045,
+                        "generate": 44528
+                      },
+                      "evaluation_latency": 3175,
+                      "is_used_for_aggregation": false
+                    }
+                  ],
+                  "fail_reason": null,
+                  "project_name": "[STEM] Terminal Bench Science",
+                  "evaluations_failed": 0,
+                  "aggregated_evaluations": [],
+                  "aggregated_evaluations_failed": 0
+                },
+                "error": null,
+                "attempts": 46,
+                "lastAttemptAt": "2026-10-02T05:08:42.000Z",
+                "lastSuccessAt": "2026-10-02T05:08:42.000Z"
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "81f279e0-a809-495c-972d-35d37ebd578e",
+                "apiUrl": "https://eval.turing.com/api/llm-as-eval/start-run",
+                "apiName": "meta",
+                "isPolling": true,
+                "defaultPayload": "{\n  \"batch_name\": \"terminus-2-tb-science-evals\",\n  \"engagement_name\": \"meta\",\n  \"project_name\": \"[STEM] Terminal Bench Science\",\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "selectedReviewCriterias": [
+                  "task"
+                ],
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        },
+        "cheatValidation": {
+          "value": {
+            "locked": false
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/13L8eCICmE01eDRwNLghX4em4pgOR4JO2",
+        "validation": {
+          "value": {
+            "lastSubmittedAt": "2026-10-02T03:59:59.991Z",
+            "locked": true,
+            "scriptValidationRunIds": [
+              6404,
+              6400
+            ],
+            "scriptValidationSkipped": false
+          }
+        }
+      }
+    }
+  }
+}

@@ -46,9 +46,14 @@ instances/
         fixtures/{artifacts,gcs,zips,folders}/   offline stand-ins for the fetch layer
         golden/                sample task payloads (.txt) to run & eyeball — no assertions
         golden/{artifacts,gcs,zips,folders}/     same stand-ins for golden runs
-templates/                     scaffold copied when creating a new project
+      <project-slug>/          a project reviewed in several pipelines instead (mirrors
+        pipelines/             agentic-reviewer-qd): the project folder holds nothing but
+          <pipeline>-<id>/     pipelines/, and each pipeline holds the same files as a
+            validation.js …    project-level script above
+templates/                     scaffold copied when creating a new project or pipeline
 scripts/
-  new-project.mjs              scaffold a new project
+  new-project.mjs              scaffold a new project, or a pipeline inside one
+  targets.mjs                  where scripts live: project- or pipeline-level ids
   wrapper.mjs                  local mirror of the tool's sandbox
   run-tests.mjs                run all fixtures through the wrapper
   run-golden.mjs               run a project's golden/*.txt samples & print findings
@@ -68,11 +73,18 @@ npm install    # only needed for `npm run report` (xlsx). Tests need no deps.
    ```bash
    node scripts/new-project.mjs labeling-g my-project-slug
    ```
+   or, for one pipeline of a project:
+   ```bash
+   node scripts/new-project.mjs labeling-eval 198-terminal-bench-science my-pipeline-1234
+   ```
+   Every tool below takes the same id: `instance/project` for a project-level script,
+   `instance/project/pipeline` for a pipeline-level one.
 2. **Edit** `validation.js`, keep `requirements.md` in sync, add cases to `fixtures/cases.json`.
 3. **Test** before deploying:
    ```bash
    npm test                              # all projects
-   npm test -- labeling-g/my-project     # one project
+   npm test -- labeling-g/my-project     # one project (all its pipelines, if it has them)
+   npm test -- labeling-eval/198-terminal-bench-science/task-data-validation-1128   # one pipeline
    ```
 4. **Eyeball sample data** — paste a task payload into `golden/*.txt` and run it:
    ```bash

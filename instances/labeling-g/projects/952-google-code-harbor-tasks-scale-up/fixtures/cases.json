@@ -1,0 +1,3151 @@
+[
+  {
+    "name": "valid package -> pass, no warnings",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000001&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000001",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000002",
+                      "id": "node-2",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000002"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000003",
+                      "id": "node-3",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000003"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000005",
+                          "id": "node-5",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000005"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000006",
+                          "id": "node-6",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000006"
+                        }
+                      ],
+                      "id": "node-4",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-1",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000007",
+                  "id": "node-7",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000007"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000010",
+                          "id": "node-10",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000010"
+                        }
+                      ],
+                      "id": "node-9",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000011",
+                      "id": "node-11",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000011"
+                    }
+                  ],
+                  "id": "node-8",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000012",
+                  "id": "node-12",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000012"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000014",
+                      "id": "node-14",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000014"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000015",
+                      "id": "node-15",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000015"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000016",
+                      "id": "node-16",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000016"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000017",
+                      "id": "node-17",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000017"
+                    }
+                  ],
+                  "id": "node-13",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warnings": [],
+      "infosContain": [
+        "in sync"
+      ],
+      "successesContain": [
+        "passes all checks"
+      ]
+    }
+  },
+  {
+    "name": "Drive holds a file the form never submitted -> sync error, content checks stand down",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000002&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000002",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000019",
+                      "id": "node-19",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000019"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000020",
+                      "id": "node-20",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000020"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000022",
+                          "id": "node-22",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000022"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000023",
+                          "id": "node-23",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000023"
+                        }
+                      ],
+                      "id": "node-21",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-18",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000024",
+                  "id": "node-24",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000024"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000027",
+                          "id": "node-27",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000027"
+                        }
+                      ],
+                      "id": "node-26",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000028",
+                      "id": "node-28",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000028"
+                    }
+                  ],
+                  "id": "node-25",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000029",
+                  "id": "node-29",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000029"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000031",
+                      "id": "node-31",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000031"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000032",
+                      "id": "node-32",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000032"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000033",
+                      "id": "node-33",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000033"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000034",
+                      "id": "node-34",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000034"
+                    }
+                  ],
+                  "id": "node-30",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "were not in the submitted form: tests/test_extra.py"
+      ],
+      "errorsNotContain": [
+        "task.toml is not valid TOML"
+      ],
+      "infosContain": [
+        "Content checks (task.toml, Dockerfiles, entry points) were NOT run"
+      ]
+    }
+  },
+  {
+    "name": "form lists a file that is gone from Drive -> sync error",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000003&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000003",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000036",
+                      "id": "node-36",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000036"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000037",
+                      "id": "node-37",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000037"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000039",
+                          "id": "node-39",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000039"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000040",
+                          "id": "node-40",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000040"
+                        }
+                      ],
+                      "id": "node-38",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-35",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000041",
+                  "id": "node-41",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000041"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000044",
+                          "id": "node-44",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000044"
+                        }
+                      ],
+                      "id": "node-43",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000045",
+                      "id": "node-45",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000045"
+                    }
+                  ],
+                  "id": "node-42",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000046",
+                  "id": "node-46",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000046"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000048",
+                      "id": "node-48",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000048"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000049",
+                      "id": "node-49",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000049"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000050",
+                      "id": "node-50",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000050"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000051",
+                      "id": "node-51",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000051"
+                    }
+                  ],
+                  "id": "node-47",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "no longer in the Drive folder: environment/project/SPEC.md"
+      ]
+    }
+  },
+  {
+    "name": "file edited after submission (size drift) -> sync error",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000004&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000004",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000053",
+                      "id": "node-53",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000053"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000054",
+                      "id": "node-54",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000054"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000056",
+                          "id": "node-56",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000056"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000057",
+                          "id": "node-57",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000057"
+                        }
+                      ],
+                      "id": "node-55",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-52",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000058",
+                  "id": "node-58",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000058"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000061",
+                          "id": "node-61",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000061"
+                        }
+                      ],
+                      "id": "node-60",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000062",
+                      "id": "node-62",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000062"
+                    }
+                  ],
+                  "id": "node-59",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000063",
+                  "id": "node-63",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000063"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000065",
+                      "id": "node-65",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000065"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000066",
+                      "id": "node-66",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000066"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000067",
+                      "id": "node-67",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000067"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000068",
+                      "id": "node-68",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000068"
+                    }
+                  ],
+                  "id": "node-64",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "changed size since the form was submitted: solution/reference/engine.py"
+      ]
+    }
+  },
+  {
+    "name": "Google Doc in the folder -> form lists it, Drive cannot read it",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000005&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000005",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "driveFileId": "FILE000000000000000000000000000069",
+                  "id": "node-69",
+                  "mimeType": "application/vnd.google-apps.document",
+                  "modified": "10/1/2026",
+                  "name": "NOTES",
+                  "size": "0 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000069"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000071",
+                      "id": "node-71",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000071"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000072",
+                      "id": "node-72",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000072"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000074",
+                          "id": "node-74",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000074"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000075",
+                          "id": "node-75",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000075"
+                        }
+                      ],
+                      "id": "node-73",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-70",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000076",
+                  "id": "node-76",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000076"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000079",
+                          "id": "node-79",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000079"
+                        }
+                      ],
+                      "id": "node-78",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000080",
+                      "id": "node-80",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000080"
+                    }
+                  ],
+                  "id": "node-77",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000081",
+                  "id": "node-81",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000081"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000083",
+                      "id": "node-83",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000083"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000084",
+                      "id": "node-84",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000084"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000085",
+                      "id": "node-85",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000085"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000086",
+                      "id": "node-86",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000086"
+                    }
+                  ],
+                  "id": "node-82",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "no longer in the Drive folder: NOTES"
+      ]
+    }
+  },
+  {
+    "name": "task field has no folder link -> error",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000006&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": []
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "holds no Google Drive folder link"
+      ]
+    }
+  },
+  {
+    "name": "task field missing entirely -> error",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000007&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {}
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "holds no Google Drive folder link"
+      ]
+    }
+  },
+  {
+    "name": "structure: stray root file, missing solve.sh, junk -> errors + warning",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000008&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000008",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000088",
+                      "id": "node-88",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000088"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000089",
+                      "id": "node-89",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000089"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000091",
+                          "id": "node-91",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000091"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000092",
+                          "id": "node-92",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000092"
+                        }
+                      ],
+                      "id": "node-90",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-87",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000093",
+                  "id": "node-93",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000093"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000094",
+                  "id": "node-94",
+                  "mimeType": "text/plain",
+                  "modified": "10/1/2026",
+                  "name": "notes.txt",
+                  "size": "5 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000094"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000097",
+                          "id": "node-97",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000097"
+                        }
+                      ],
+                      "id": "node-96",
+                      "name": "reference",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-95",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000098",
+                  "id": "node-98",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000098"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000100",
+                      "id": "node-100",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".DS_Store",
+                      "size": "4 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000100"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000101",
+                      "id": "node-101",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000101"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000102",
+                      "id": "node-102",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000102"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000103",
+                      "id": "node-103",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000103"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000104",
+                      "id": "node-104",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000104"
+                    }
+                  ],
+                  "id": "node-99",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "file(s) outside the Harbor layout: notes.txt",
+        "required file(s) are missing or empty: solution/solve.sh"
+      ],
+      "warningsContain": [
+        "may not be relevant: tests/.DS_Store"
+      ]
+    }
+  },
+  {
+    "name": "parent folder linked -> package one level down",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000009&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000009",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000107",
+                          "id": "node-107",
+                          "mimeType": "",
+                          "modified": "10/1/2026",
+                          "name": ".dockerignore",
+                          "size": "13 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000107"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000108",
+                          "id": "node-108",
+                          "mimeType": "",
+                          "modified": "10/1/2026",
+                          "name": "Dockerfile",
+                          "size": "211 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000108"
+                        },
+                        {
+                          "children": [
+                            {
+                              "driveFileId": "FILE000000000000000000000000000110",
+                              "id": "node-110",
+                              "mimeType": "text/markdown",
+                              "modified": "10/1/2026",
+                              "name": "SPEC.md",
+                              "size": "52 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000110"
+                            },
+                            {
+                              "driveFileId": "FILE000000000000000000000000000111",
+                              "id": "node-111",
+                              "mimeType": "text/x-python-script",
+                              "modified": "10/1/2026",
+                              "name": "engine.py",
+                              "size": "48 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000111"
+                            }
+                          ],
+                          "id": "node-109",
+                          "name": "project",
+                          "type": "folder"
+                        }
+                      ],
+                      "id": "node-106",
+                      "name": "environment",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000112",
+                      "id": "node-112",
+                      "mimeType": "text/markdown",
+                      "modified": "10/1/2026",
+                      "name": "instruction.md",
+                      "size": "78 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000112"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "driveFileId": "FILE000000000000000000000000000115",
+                              "id": "node-115",
+                              "mimeType": "text/x-python-script",
+                              "modified": "10/1/2026",
+                              "name": "engine.py",
+                              "size": "42 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000115"
+                            }
+                          ],
+                          "id": "node-114",
+                          "name": "reference",
+                          "type": "folder"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000116",
+                          "id": "node-116",
+                          "mimeType": "text/x-sh",
+                          "modified": "10/1/2026",
+                          "name": "solve.sh",
+                          "size": "189 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000116"
+                        }
+                      ],
+                      "id": "node-113",
+                      "name": "solution",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000117",
+                      "id": "node-117",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "task.toml",
+                      "size": "765 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000117"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000119",
+                          "id": "node-119",
+                          "mimeType": "",
+                          "modified": "10/1/2026",
+                          "name": "Dockerfile",
+                          "size": "127 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000119"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000120",
+                          "id": "node-120",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "run_all.py",
+                          "size": "273 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000120"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000121",
+                          "id": "node-121",
+                          "mimeType": "text/x-sh",
+                          "modified": "10/1/2026",
+                          "name": "test.sh",
+                          "size": "416 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000121"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000122",
+                          "id": "node-122",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "test_engine.py",
+                          "size": "257 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000122"
+                        }
+                      ],
+                      "id": "node-118",
+                      "name": "tests",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-105",
+                  "name": "sample_debug_task",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "the package sits one level down, inside sample_debug_task/"
+      ]
+    }
+  },
+  {
+    "name": "Dockerfiles: non-root USER, missing COPY source, leak, runtime pip with no network -> errors",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000010&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000010",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000124",
+                      "id": "node-124",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000124"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000125",
+                      "id": "node-125",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "293 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000125"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000127",
+                          "id": "node-127",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000127"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000128",
+                          "id": "node-128",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000128"
+                        }
+                      ],
+                      "id": "node-126",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-123",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000129",
+                  "id": "node-129",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000129"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000132",
+                          "id": "node-132",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000132"
+                        }
+                      ],
+                      "id": "node-131",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000133",
+                      "id": "node-133",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000133"
+                    }
+                  ],
+                  "id": "node-130",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000134",
+                  "id": "node-134",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000134"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000136",
+                      "id": "node-136",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000136"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000137",
+                      "id": "node-137",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000137"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000138",
+                      "id": "node-138",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "435 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000138"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000139",
+                      "id": "node-139",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000139"
+                    }
+                  ],
+                  "id": "node-135",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "non-root USER (agent)",
+        "copies path(s) that are in neither environment/ nor the task root: data (checked against environment/)",
+        "copies material the agent must not see: ../solution",
+        "installs dependencies at run time (pip install)"
+      ],
+      "warningsContain": [
+        "pip-installs unpinned package(s): numpy"
+      ]
+    }
+  },
+  {
+    "name": "tests/Dockerfile without COPY . /tests/ and solve.sh pointing at a missing file -> errors",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000011&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000011",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000141",
+                      "id": "node-141",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000141"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000142",
+                      "id": "node-142",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000142"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000144",
+                          "id": "node-144",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000144"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000145",
+                          "id": "node-145",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000145"
+                        }
+                      ],
+                      "id": "node-143",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-140",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000146",
+                  "id": "node-146",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000146"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000149",
+                          "id": "node-149",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000149"
+                        }
+                      ],
+                      "id": "node-148",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000150",
+                      "id": "node-150",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "243 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000150"
+                    }
+                  ],
+                  "id": "node-147",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000151",
+                  "id": "node-151",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000151"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000153",
+                      "id": "node-153",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "112 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000153"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000154",
+                      "id": "node-154",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000154"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000155",
+                      "id": "node-155",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000155"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000156",
+                      "id": "node-156",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000156"
+                    }
+                  ],
+                  "id": "node-152",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "tests/Dockerfile copies nothing into /tests"
+      ],
+      "warningsContain": [
+        "solution/solve.sh uses file(s) that are not in the package: solution/reference/lib"
+      ]
+    }
+  },
+  {
+    "name": "tests/Dockerfile built from the task root -> no finding",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000012&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000012",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000158",
+                      "id": "node-158",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000158"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000159",
+                      "id": "node-159",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "223 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000159"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000161",
+                          "id": "node-161",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000161"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000162",
+                          "id": "node-162",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000162"
+                        }
+                      ],
+                      "id": "node-160",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-157",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000163",
+                  "id": "node-163",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000163"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000166",
+                          "id": "node-166",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000166"
+                        }
+                      ],
+                      "id": "node-165",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000167",
+                      "id": "node-167",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000167"
+                    }
+                  ],
+                  "id": "node-164",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000168",
+                  "id": "node-168",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000168"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000170",
+                      "id": "node-170",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "229 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000170"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000171",
+                      "id": "node-171",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000171"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000172",
+                      "id": "node-172",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000172"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000173",
+                      "id": "node-173",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000173"
+                    }
+                  ],
+                  "id": "node-169",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warnings": []
+    }
+  },
+  {
+    "name": "agent image built from the task root copies tests/ -> leak error",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000013&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000013",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000175",
+                      "id": "node-175",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000175"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000176",
+                      "id": "node-176",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "247 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000176"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000178",
+                          "id": "node-178",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000178"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000179",
+                          "id": "node-179",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000179"
+                        }
+                      ],
+                      "id": "node-177",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-174",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000180",
+                  "id": "node-180",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000180"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000183",
+                          "id": "node-183",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000183"
+                        }
+                      ],
+                      "id": "node-182",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000184",
+                      "id": "node-184",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000184"
+                    }
+                  ],
+                  "id": "node-181",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000185",
+                  "id": "node-185",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000185"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000187",
+                      "id": "node-187",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000187"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000188",
+                      "id": "node-188",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000188"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000189",
+                      "id": "node-189",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000189"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000190",
+                      "id": "node-190",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000190"
+                    }
+                  ],
+                  "id": "node-186",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "copies material the agent must not see: tests/"
+      ]
+    }
+  },
+  {
+    "name": "root-context verifier image with a missing file -> error names the task root",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000014&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000014",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000192",
+                      "id": "node-192",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000192"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000193",
+                      "id": "node-193",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000193"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000195",
+                          "id": "node-195",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000195"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000196",
+                          "id": "node-196",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000196"
+                        }
+                      ],
+                      "id": "node-194",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-191",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000197",
+                  "id": "node-197",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000197"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000200",
+                          "id": "node-200",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000200"
+                        }
+                      ],
+                      "id": "node-199",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000201",
+                      "id": "node-201",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000201"
+                    }
+                  ],
+                  "id": "node-198",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000202",
+                  "id": "node-202",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "765 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000202"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000204",
+                      "id": "node-204",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "61 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000204"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000205",
+                      "id": "node-205",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000205"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000206",
+                      "id": "node-206",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000206"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000207",
+                      "id": "node-207",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000207"
+                    }
+                  ],
+                  "id": "node-203",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "tests/Dockerfile copies path(s) that are in neither tests/ nor the task root: tests/missing.py (checked against the task root)"
+      ]
+    }
+  },
+  {
+    "name": "task.toml: wrong task linked, blank authors, no benchmark_type, bad timeout",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000015&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000015",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000209",
+                      "id": "node-209",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000209"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000210",
+                      "id": "node-210",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000210"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000212",
+                          "id": "node-212",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000212"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000213",
+                          "id": "node-213",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000213"
+                        }
+                      ],
+                      "id": "node-211",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-208",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000214",
+                  "id": "node-214",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000214"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000217",
+                          "id": "node-217",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000217"
+                        }
+                      ],
+                      "id": "node-216",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000218",
+                      "id": "node-218",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000218"
+                    }
+                  ],
+                  "id": "node-215",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000219",
+                  "id": "node-219",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "709 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000219"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000221",
+                      "id": "node-221",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000221"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000222",
+                      "id": "node-222",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000222"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000223",
+                      "id": "node-223",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000223"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000224",
+                      "id": "node-224",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000224"
+                    }
+                  ],
+                  "id": "node-220",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "[task] name is \"other/another_task\" but this task is \"sample_debug_task\"",
+        "[verifier] timeout_sec"
+      ],
+      "warningsContain": [
+        "does not start with \"thcast/\""
+      ],
+      "warningsNotContain": [
+        "authors",
+        "benchmark_type"
+      ]
+    }
+  },
+  {
+    "name": "task.toml does not parse -> error",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000016&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000016",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000226",
+                      "id": "node-226",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000226"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000227",
+                      "id": "node-227",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000227"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000229",
+                          "id": "node-229",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000229"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000230",
+                          "id": "node-230",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000230"
+                        }
+                      ],
+                      "id": "node-228",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-225",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000231",
+                  "id": "node-231",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000231"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000234",
+                          "id": "node-234",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000234"
+                        }
+                      ],
+                      "id": "node-233",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000235",
+                      "id": "node-235",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000235"
+                    }
+                  ],
+                  "id": "node-232",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000236",
+                  "id": "node-236",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "17 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000236"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000238",
+                      "id": "node-238",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000238"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000239",
+                      "id": "node-239",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000239"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000240",
+                      "id": "node-240",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000240"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000241",
+                      "id": "node-241",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000241"
+                    }
+                  ],
+                  "id": "node-237",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "task.toml is not valid TOML"
+      ]
+    }
+  },
+  {
+    "name": "multi-step task: declared step folder missing -> error",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000017&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000017",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000243",
+                      "id": "node-243",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000243"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000244",
+                      "id": "node-244",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000244"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000246",
+                          "id": "node-246",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000246"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000247",
+                          "id": "node-247",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000247"
+                        }
+                      ],
+                      "id": "node-245",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-242",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000250",
+                          "id": "node-250",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000250"
+                        }
+                      ],
+                      "id": "node-249",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000251",
+                      "id": "node-251",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000251"
+                    }
+                  ],
+                  "id": "node-248",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000254",
+                          "id": "node-254",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "instruction.md",
+                          "size": "19 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000254"
+                        },
+                        {
+                          "children": [
+                            {
+                              "driveFileId": "FILE000000000000000000000000000256",
+                              "id": "node-256",
+                              "mimeType": "text/x-sh",
+                              "modified": "10/1/2026",
+                              "name": "test.sh",
+                              "size": "416 B",
+                              "type": "file",
+                              "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000256"
+                            }
+                          ],
+                          "id": "node-255",
+                          "name": "tests",
+                          "type": "folder"
+                        }
+                      ],
+                      "id": "node-253",
+                      "name": "first",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-252",
+                  "name": "steps",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000257",
+                  "id": "node-257",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "818 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000257"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000259",
+                      "id": "node-259",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "127 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000259"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000260",
+                      "id": "node-260",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000260"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000261",
+                      "id": "node-261",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "416 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000261"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000262",
+                      "id": "node-262",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000262"
+                    }
+                  ],
+                  "id": "node-258",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "[[steps]] declares \"second\" but steps/second/ does not exist"
+      ],
+      "errorsNotContain": [
+        "step \"first\""
+      ]
+    }
+  },
+  {
+    "name": "batch-1 patterns: task_idea.md blocks; no tests/Dockerfile, runtime paths, no workdir only warn",
+    "conversationData": {
+      "conversation": {
+        "input": {
+          "metadata": {
+            "Drive Link": "https://drive.google.com/open?id=FOLDER95200000000000000000018&usp=drive_copy",
+            "Programming Language": "Python",
+            "Task Domain": "MLE",
+            "Task Name": "sample_debug_task",
+            "Task Sub-Domain": "MLE Debugging",
+            "projectId": 952
+          }
+        },
+        "ratings": {
+          "task": {
+            "value": {
+              "googleDriveFolderLink": "https://drive.google.com/drive/folders/FOLDER95200000000000000000018",
+              "lastModifiedAt": "2026-10-01T14:20:48.414Z",
+              "renderFolderData": [
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000264",
+                      "id": "node-264",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": ".dockerignore",
+                      "size": "13 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000264"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000265",
+                      "id": "node-265",
+                      "mimeType": "",
+                      "modified": "10/1/2026",
+                      "name": "Dockerfile",
+                      "size": "211 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000265"
+                    },
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000267",
+                          "id": "node-267",
+                          "mimeType": "text/markdown",
+                          "modified": "10/1/2026",
+                          "name": "SPEC.md",
+                          "size": "52 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000267"
+                        },
+                        {
+                          "driveFileId": "FILE000000000000000000000000000268",
+                          "id": "node-268",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "48 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000268"
+                        }
+                      ],
+                      "id": "node-266",
+                      "name": "project",
+                      "type": "folder"
+                    }
+                  ],
+                  "id": "node-263",
+                  "name": "environment",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000269",
+                  "id": "node-269",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "instruction.md",
+                  "size": "78 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000269"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "driveFileId": "FILE000000000000000000000000000272",
+                          "id": "node-272",
+                          "mimeType": "text/x-python-script",
+                          "modified": "10/1/2026",
+                          "name": "engine.py",
+                          "size": "42 B",
+                          "type": "file",
+                          "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000272"
+                        }
+                      ],
+                      "id": "node-271",
+                      "name": "reference",
+                      "type": "folder"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000273",
+                      "id": "node-273",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "solve.sh",
+                      "size": "189 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000273"
+                    }
+                  ],
+                  "id": "node-270",
+                  "name": "solution",
+                  "type": "folder"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000274",
+                  "id": "node-274",
+                  "mimeType": "",
+                  "modified": "10/1/2026",
+                  "name": "task.toml",
+                  "size": "642 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000274"
+                },
+                {
+                  "driveFileId": "FILE000000000000000000000000000275",
+                  "id": "node-275",
+                  "mimeType": "text/markdown",
+                  "modified": "10/1/2026",
+                  "name": "task_idea.md",
+                  "size": "6 B",
+                  "type": "file",
+                  "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000275"
+                },
+                {
+                  "children": [
+                    {
+                      "driveFileId": "FILE000000000000000000000000000277",
+                      "id": "node-277",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "run_all.py",
+                      "size": "273 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000277"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000278",
+                      "id": "node-278",
+                      "mimeType": "text/x-sh",
+                      "modified": "10/1/2026",
+                      "name": "test.sh",
+                      "size": "495 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000278"
+                    },
+                    {
+                      "driveFileId": "FILE000000000000000000000000000279",
+                      "id": "node-279",
+                      "mimeType": "text/x-python-script",
+                      "modified": "10/1/2026",
+                      "name": "test_engine.py",
+                      "size": "257 B",
+                      "type": "file",
+                      "url": "https://drive.google.com/uc?export=download&id=FILE000000000000000000000000000279"
+                    }
+                  ],
+                  "id": "node-276",
+                  "name": "tests",
+                  "type": "folder"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "file(s) outside the Harbor layout: task_idea.md"
+      ],
+      "errorsNotContain": [
+        "tests/Dockerfile"
+      ],
+      "warningsContain": [
+        "environment_mode = \"separate\" but tests/Dockerfile is missing"
+      ],
+      "warningsNotContain": [
+        "workdir",
+        "authors",
+        "benchmark_type",
+        "uses file(s) that are not in the package"
+      ]
+    }
+  }
+]
