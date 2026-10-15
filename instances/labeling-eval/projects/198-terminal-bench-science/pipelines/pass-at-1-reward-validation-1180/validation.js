@@ -14,17 +14,22 @@
 // expands that model's ZIP through fetchGcsData, and cross-checks the trial
 // evidence. The gate is then:
 //
-//   PASS when at least one model with a valid rollout was broken (reward 0).
+//   PASS only when EVERY model in the roster has a valid rollout and was
+//   broken (reward 0). A single solved model (reward 1) fails the gate.
 //
 // A failed verifier test/reward 0 is an ordinary valid failure — that is what
-// "broken" means. A rollout already marked invalid is excluded and never
-// counts as a break; the script checks that the bundle supports exclusion.
+// "broken" means. An invalid rollout cannot prove that its model was broken,
+// so it fails the gate too, unless ALLOW_INVALID_EXCLUSION is set to true, in
+// which case it is excluded with a warning; the script still checks that the
+// bundle supports the exclusion.
 // Scientific/fairness/causal judgments remain in the separate LLM QD and are
 // not merged into this validator's result.
 
 var RATING_KEY = 'pass5Eval';
 var EXPECTED_ATTEMPTS = 1;
-var MIN_BROKEN_MODELS = 1;
+// false: an invalid rollout fails the gate (it cannot prove its model was broken).
+// true:  an invalid rollout is excluded from the gate with a warning.
+var ALLOW_INVALID_EXCLUSION = false;
 var EVALUATOR_PATTERN = /^harbor_trial(?:_(\d+))?$/;
 // The breakpoint key actually read. Project 198 stores it as RATING_KEY; test projects
 // that copy the breakpoint under another key (e.g. "bp1") are found by content instead,
@@ -66,14 +71,15 @@ async function validate(conversationData) {
     PREFIX + 'Recorded outcome before LLM judgment: ' + run.broken_models + ' of ' + run.valid_models +
       ' valid model rollout' + (run.valid_models === 1 ? '' : 's') + ' broken (' +
       run.models.length + ' model' + (run.models.length === 1 ? '' : 's') + ' recorded, ' +
-      run.invalid_models + ' invalid). Gate: at least ' + MIN_BROKEN_MODELS + ' model must be broken in ' +
-      EXPECTED_ATTEMPTS + ' attempt.'
+      run.solved_models + ' solved, ' + run.invalid_models + ' invalid). Gate: every model must be broken ' +
+      '(reward 0) in ' + EXPECTED_ATTEMPTS + ' attempt' +
+      (ALLOW_INVALID_EXCLUSION ? '; invalid rollouts are excluded.' : ', and no rollout may be invalid.')
   );
 
   if (run.maximum_reward !== null) {
     infos.push(
       PREFIX + 'Note: customData rewardBlockCriteriaMaxReward is ' + displayNumber(run.maximum_reward) +
-        '; this validator gates on the break-at-least-one-model rule, not on that value.'
+        '; this validator gates on the break-every-model rule, not on that value.'
     );
   }
 
@@ -116,8 +122,8 @@ async function validate(conversationData) {
   if (!errors.length) {
     successes.push(
       PREFIX + 'DETERMINISTIC PASS: the recorded rollout validity, rewards, bundle evidence, and break count are ' +
-        'internally consistent. ' + run.broken_models + ' of ' + run.valid_models + ' valid model rollout' +
-        (run.valid_models === 1 ? '' : 's') + ' broken (' + listed(run.models.filter(isBroken).map(modelName)) +
+        'internally consistent. All ' + run.broken_models + ' valid model rollout' +
+        (run.broken_models === 1 ? '' : 's') + ' broken (' + listed(run.models.filter(isBroken).map(modelName)) +
         '). LLM trajectory judgment is reported separately.'
     );
   }
@@ -329,23 +335,36 @@ function validateRun(conversationData, findings) {
 
   var valid = models.filter(function (m) { return m.valid === true && m.reward !== null; });
   var broken = valid.filter(isBroken);
+  var solved = valid.filter(function (m) { return m.reward === 1; });
   var invalid = models.filter(function (m) { return m.valid !== true; });
 
+  // Gate: every model must be broken (reward 0). One solved model fails the task.
   if (!valid.length) {
     findings.errors.push('no model has a valid rollout; the break count is undefined and the evaluation must be rerun');
-  } else if (broken.length < MIN_BROKEN_MODELS) {
+  } else if (solved.length) {
     findings.errors.push(
-      'no model was broken: every valid rollout (' + listed(valid.map(modelName)) + ') reached reward 1, but the ' +
-        'task must break at least ' + MIN_BROKEN_MODELS + ' model in ' + EXPECTED_ATTEMPTS + ' attempt'
+      'not every model was broken: ' + listed(solved.map(modelName)) +
+        ' reached reward 1, but the task must break every model in the ' +
+        'roster (reward 0) in ' + EXPECTED_ATTEMPTS + ' attempt; ' + broken.length + ' of ' + models.length +
+        ' model' + (models.length === 1 ? ' was' : 's were') + ' broken'
     );
   }
 
   if (invalid.length) {
-    findings.warnings.push(
-      listed(invalid.map(modelName)) + (invalid.length === 1 ? ' has an invalid rollout' : ' have invalid rollouts') +
-        ' and ' + (invalid.length === 1 ? 'is' : 'are') + ' excluded from the break count; report the reduced roster ' +
-        'explicitly to the client'
-    );
+    if (ALLOW_INVALID_EXCLUSION) {
+      findings.warnings.push(
+        listed(invalid.map(modelName)) + (invalid.length === 1 ? ' has an invalid rollout' : ' have invalid rollouts') +
+          ' and ' + (invalid.length === 1 ? 'is' : 'are') + ' excluded from the break count; report the reduced roster ' +
+          'explicitly to the client'
+      );
+    } else {
+      findings.errors.push(
+        listed(invalid.map(modelName)) + (invalid.length === 1 ? ' has an invalid rollout' : ' have invalid rollouts') +
+          ', so ' + (invalid.length === 1 ? 'that model is' : 'those models are') + ' not proven broken; every model ' +
+          'must have a valid rollout with reward 0 — rerun the evaluation for ' +
+          (invalid.length === 1 ? 'that model' : 'those models')
+      );
+    }
   }
 
   return {
@@ -354,6 +373,7 @@ function validateRun(conversationData, findings) {
     models: models,
     valid_models: valid.length,
     broken_models: broken.length,
+    solved_models: solved.length,
     invalid_models: invalid.length,
     maximum_reward: configuredThreshold(passValue, findings)
   };
@@ -656,11 +676,11 @@ function modelName(model) {
 function describeOutcome(model) {
   if (!model.trial) return 'no recorded rollout';
   if (model.valid !== true) {
-    return 'invalid rollout, excluded' +
+    return 'invalid rollout, ' + (ALLOW_INVALID_EXCLUSION ? 'excluded' : 'not proven broken') +
       (model.trial.invalid_reason_detail ? ' (' + model.trial.invalid_reason_detail + ')' : '');
   }
   if (model.reward === 0) return 'reward 0 — BROKEN';
-  if (model.reward === 1) return 'reward 1 — solved';
+  if (model.reward === 1) return 'reward 1 — SOLVED (fails the every-model-broken gate)';
   return 'valid rollout with no binary reward';
 }
 
