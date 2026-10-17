@@ -8,6 +8,8 @@ node_modules/
 **/golden/gcs/
 **/golden/zips/
 **/golden/folders/
+**/fixtures/zips/
+**/fixtures/folders/
 # Service-account keys / secrets
 credentials.json
 *.sa.json
