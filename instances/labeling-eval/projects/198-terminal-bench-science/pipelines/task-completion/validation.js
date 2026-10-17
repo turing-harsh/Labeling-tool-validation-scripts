@@ -5,9 +5,13 @@
 //   - pipelines/task-data-validation-1128/validation.js
 //   - pipelines/oracle-validation-1183/validation.js
 //   - pipelines/pass-at-1-reward-validation-1180/validation.js
+// The one edit: task data validation's TEST_SH_STYLE_BLOCKS is set to false, so the test.sh
+// shell-flag and literal-reward rules warn instead of blocking. task.toml must use the new
+// structure here too.
 //
 // Runs once, at task completion, and blocks unless all three gates pass:
-//   1. the task package (ratings.task, a Drive folder) has the ideal structure;
+//   1. the task package (ratings.task, a Drive folder) has the ideal structure, with task.toml in
+//      the new structure (schema 1.4, turing/<task>, [metadata] domain/category/subcategory);
 //   2. every oracle trial of the latest Oracle Check (ratings.oracle_check) scored reward 1;
 //   3. every model in the pass eval (ratings.pass5Eval) has a valid, broken rollout, and its
 //      Harbor GCS bundle backs the recorded result.
@@ -65,7 +69,7 @@ function completionMessage(e) {
   return e && typeof e === 'object' && e.message ? String(e.message) : String(e);
 }
 
-// ===== task-data-validation-1128/validation.js (verbatim) =====
+// ===== task-data-validation-1128/validation.js (verbatim, except: var TEST_SH_STYLE_BLOCKS = false;) =====
 function taskDataValidation1128(errors, warnings, infos, successes, logs) {
 var PROFILE = 'upload';
 var UPLOAD = 'upload';
@@ -84,7 +88,7 @@ var ROOT_OPTIONAL_FILES = ['README.md'];
 var CODE_SUFFIXES = ['.py', '.sh', '.r', '.jl', '.c', '.h', '.cpp', '.hpp', '.f', '.f90', '.m'];
 var CONTRACT_DATA_SUFFIXES = ['.csv', '.tsv', '.json', '.jsonl', '.ndjson', '.npy', '.npz', '.parquet',
 '.parq', '.h5', '.hdf5', '.fits', '.pkl', '.txt', '.dat', '.nc', '.mat', '.xyz', '.pdb', '.cif',
-'.fasta', '.fa', '.fastq', '.vcf', '.sdf', '.mol2', '.gz'];
+'.fasta', '.fa', '.fastq', '.vcf', '.sdf', '.mol2', '.gz', '.wav', '.flac'];
 var DIR_CONTRACT = {
 'environment': { required: ['Dockerfile'], allow: null },
 'solution': { required: ['solve.sh'], allow: CODE_SUFFIXES.concat(CONTRACT_DATA_SUFFIXES) },
@@ -103,7 +107,7 @@ var JUNK_NAMES = ['.DS_Store', 'Thumbs.db', 'desktop.ini', '.git', '.gitkeep-cac
 var VERIFIER_ENTRY = 'tests/test.sh';
 var ORACLE_ENTRY = 'solution/solve.sh';
 var DATA_SUFFIXES = ['.csv', '.tsv', '.json', '.jsonl', '.ndjson', '.npy', '.npz', '.parquet',
-'.h5', '.hdf5', '.fits', '.pkl', '.parq'];
+'.h5', '.hdf5', '.fits', '.pkl', '.parq', '.wav', '.flac'];
 var CANARY = /\bharbor-canary\b/i;
 var ANSWERISH = /^(held_?out|hold_?out|answers?|truth|ground_?truth|expected|solutions?|gold|labels?|targets?|key|keys)([._-]|$)/i;
 var DOMAIN_FIELDS = {
@@ -117,6 +121,35 @@ var PYTEST_PINS = ['pytest==8.4.1', 'pytest-json-ctrf==0.3.5'];
 var INSTRUCTION_TAIL =
 /You have\s+(\d+)\s+seconds to complete this task\.\s*Do not cheat by using online solutions or hints specific to this task\.\s*$/;
 var AGENT_TIMEOUT_CAP = 18000;
+// The two task.toml structures. 'new' (schema 1.4): a turing/<task> name and [metadata]
+// domain/category/subcategory/reward_type/source/public_overlap, where domain and category come
+// from DOMAIN_FIELDS and subcategory is free text. 'old': a terminal-bench-science/<task>
+// name and [metadata] domain/field/subfield/expert_time_estimate_hours. schema_version cannot
+// tell them apart -- old-structure packages already say "1.4" -- so tomlSchema() reads the name.
+// Both this pipeline and the task-completion gate accept only 'new'. The old-structure checks
+// below are kept so a gate can re-admit old packages by adding 'old' to this list.
+var ACCEPTED_TOML_SCHEMAS = ['new'];
+// Two tests/test.sh style rules: the set -euo pipefail flags, and a literal 0/1 reward write in
+// test.sh itself. Harbor and upstream Terminal-Bench Science accept verifiers without either
+// (most merged upstream tasks omit errexit; upstream check-binary-reward accepts a literal write
+// in a helper script), so they block here but are only warnings at task completion:
+// scripts/build-198-task-completion.mjs flips this line to false there.
+var TEST_SH_STYLE_BLOCKS = false;
+var NEW_TOML = {
+schemaVersion: '1.4',
+namePrefix: 'turing/',
+metadataKeys: ['domain', 'category', 'subcategory', 'reward_type', 'source', 'public_overlap'],
+rewardType: 'binary'
+};
+var NEW_TOML_TEMPLATE = 'schema_version = "1.4"; artifacts at the top level; ' +
+'[task] name = "turing/<task>", description, version, keywords; ' +
+'[metadata] domain, category (one of that domain\'s categories), subcategory (free text), ' +
+'reward_type = "binary", source, public_overlap; ' +
+'[environment] network_mode = "public", cpus, memory_mb, storage_mb; ' +
+'[agent] timeout_sec (at most 18000), network_mode = "public"; ' +
+'[verifier] timeout_sec, network_mode = "no-network", environment_mode = "separate"; ' +
+'[verifier.environment] network_mode = "no-network", cpus, memory_mb';
+var OLD_TASK_NAME_PREFIX = 'terminal-bench-science/';
 var RETIRED_TOML_FIELDS = ['difficulty_explanation', 'solution_explanation', 'verification_explanation'];
 var BUDGET_REASON = /maximum of \d+ files per folder|folder byte budget of \d+|deadline reached|maximum folder depth of \d+/;
 var FIXES = {
@@ -130,7 +163,7 @@ var FIXES = {
 'T1.checksum-orphan': 'regenerate SHA256SUMS so it lists exactly the files that ship beside it.',
 'T1.metadata-vocabulary': 'use one of the benchmark\'s declared domain/field pairs in task.toml [metadata].',
 'T1.task-block-incomplete': 'fill in description and keywords under [task]; they are what the task publishes with.',
-'T1.task-name-mismatch': 'set [task] name to "terminal-bench-science/<task folder name>".',
+'T1.task-name-mismatch': 'set [task] name to the expected value shown, i.e. the name prefix followed by the task folder name.',
 'T1.agent-timeout': 'set [agent] timeout_sec to at most 18000.',
 'T1.retired-fields': 'move these into README.md sections and delete them from task.toml.',
 'T1.network-mode-value': 'set [environment] network_mode = "public" and [verifier.environment] network_mode = "no-network".',
@@ -393,7 +426,7 @@ hard(name, 'task.toml has no [task] name', 'add name = "…" under [task]');
 } else {
 infos.push(scope(name) + ' | declared name: ' + toml.task.name);
 if (task) {
-var expected = 'terminal-bench-science/' + base(task);
+var expected = (tomlSchema(toml) === 'new' ? NEW_TOML.namePrefix : OLD_TASK_NAME_PREFIX) + base(task);
 if (String(toml.task.name) !== expected) {
 finding(name, 'T1.task-name-mismatch',
 '[task] name is "' + toml.task.name + '" but the folder implies "' + expected + '"');
@@ -985,7 +1018,8 @@ function checkVerifierContract(task, pkg, toml) {
   var verifier = objectAt(objectAt(toml).verifier);
   var mode = String(verifier.environment_mode || '');
 
-  if (toml !== null && mode !== 'separate') {
+  // The new structure requires it outright (checkNewToml); this advisory is the old rule.
+  if (toml !== null && mode !== 'separate' && tomlSchema(toml) === 'old') {
     finding(
       name,
       'T1.verifier-mode',
@@ -1022,7 +1056,7 @@ function checkVerifierContract(task, pkg, toml) {
       hard(name, relativePath + ' installs unpinned package(s): ' + listed(loose.sort()),
         'pin every pip package to an exact version (name==x.y.z) so the image rebuilds identically');
     }
-    if (/\b(?:pip3?|uv\s+pip)\s+install\b[^\n]*(?:>=|<=|~=|!=|==[^\s]*\*)/.test(text)) {
+    if (pipInstallArgs(text).some(function (after) { return /(?:>=|<=|~=|!=|==[^\s]*\*)/.test(after); })) {
       hard(name, relativePath + ' installs a ranged or wildcard version',
         'replace every range (>=, <=, ~=, !=, ==x.*) with an exact == pin');
     }
@@ -1063,7 +1097,7 @@ function checkVerifierContract(task, pkg, toml) {
       return !vcHasShellOption(entry, option[0], option[1]);
     }).map(function (option) { return option[0]; });
     if (unsetOptions.length) {
-      hard(name, VERIFIER_ENTRY + ' does not enable ' + listed(unsetOptions),
+      testShStyle(name, VERIFIER_ENTRY + ' does not enable ' + listed(unsetOptions),
         'put set -euo pipefail at the top of ' + VERIFIER_ENTRY);
     }
     if (!/(?:^|[\s;&|(])(?:pytest|python(?:3(?:\.\d+)?)?\s+-m\s+pytest)(?:\s|$)/m.test(entry)) {
@@ -1072,18 +1106,26 @@ function checkVerifierContract(task, pkg, toml) {
     } else {
       var absentFlags = [];
       if (!/(?:^|\s)-rA(?=\s|$|["';&|)])/m.test(entry)) absentFlags.push('-rA');
-      if (!/--ctrf(?:\s+|=)["']?\/logs\/verifier\/ctrf\.json\b/.test(entry)) {
-        absentFlags.push('--ctrf /logs/verifier/ctrf.json');
-      }
+      var ctrf = vcCtrfTarget(entry);
+      if (ctrf.status === 'missing') absentFlags.push('--ctrf /logs/verifier/ctrf.json');
       if (absentFlags.length) {
         hard(name, VERIFIER_ENTRY + ' runs pytest without ' + listed(absentFlags),
           'run pytest -rA --ctrf /logs/verifier/ctrf.json');
+      }
+      if (ctrf.status === 'elsewhere') {
+        hard(name, VERIFIER_ENTRY + ' writes the CTRF report to ' + ctrf.path + ', not /logs/verifier/ctrf.json',
+          'pass --ctrf /logs/verifier/ctrf.json, or copy the report to /logs/verifier/ctrf.json after pytest; ' +
+          'Harbor collects it only from /logs/verifier');
+      } else if (ctrf.status === 'unconfirmed') {
+        warnings.push('ADVISORY ' + scope(name) + ' | Problem: ' + VERIFIER_ENTRY + ' passes --ctrf ' + ctrf.path +
+          ', which could not be confirmed as /logs/verifier/ctrf.json. | Fix: write the report to ' +
+          '/logs/verifier/ctrf.json, literally or through a variable the script sets, so every eval bundle carries it.');
       }
     }
     var binaryWrite =
       /\becho\s+(?:-n\s+)?["']?[01]["']?\s*>{1,2}\s*["']?\/logs\/verifier\/reward\.txt\b/;
     if (!binaryWrite.test(entry)) {
-      hard(name, VERIFIER_ENTRY + ' never writes a literal 0 or 1 to /logs/verifier/reward.txt',
+      testShStyle(name, VERIFIER_ENTRY + ' never writes a literal 0 or 1 to /logs/verifier/reward.txt',
         'echo 1 > /logs/verifier/reward.txt when pytest passes and echo 0 > /logs/verifier/reward.txt otherwise');
     }
   }
@@ -1128,6 +1170,73 @@ function vcCode(value) {
       return !/^\s*#/.test(line);
     })
     .join('\n');
+}
+
+// Where tests/test.sh sends pytest's CTRF report. The path may be literal or built from shell
+// variables the script assigns (LOG_DIR=/logs/verifier ... --ctrf "$LOG_DIR/ctrf.json"), and
+// ${VAR:-default} falls back to its default. A report written to a private folder first and then
+// published with cp, mv or install into /logs/verifier/ctrf.json (or the /logs/verifier folder)
+// counts as written there. status: 'ok' when some --ctrf reaches /logs/verifier/ctrf.json,
+// 'unconfirmed' when a variable cannot be resolved, 'elsewhere' when it resolves to another path
+// that is never published, 'missing' when pytest gets no --ctrf at all.
+function vcCtrfTarget(code) {
+  var target = '/logs/verifier/ctrf.json';
+  var flags = [];
+  var pattern = /--ctrf(?:\s+|=)("[^"]*"|'[^']*'|[^\s;&|)]+)/g;
+  var match;
+  while ((match = pattern.exec(code)) !== null) flags.push(vcUnquote(match[1]));
+  if (!flags.length) return { status: 'missing', path: null };
+  var resolved = flags.map(function (raw) { return { raw: raw, path: vcResolvePath(code, raw) }; });
+  var published = vcPublishedCopies(code);
+  var reaches = function (path) {
+    return path === target || published.some(function (copy) {
+      return copy.from === path && (copy.to === target || copy.to.replace(/\/+$/, '') === '/logs/verifier');
+    });
+  };
+  if (resolved.some(function (item) { return reaches(item.path); })) return { status: 'ok', path: target };
+  var unresolved = resolved.filter(function (item) { return item.path.indexOf('$') !== -1; });
+  if (unresolved.length) return { status: 'unconfirmed', path: unresolved[0].raw };
+  return { status: 'elsewhere', path: resolved[0].path };
+}
+
+// Every cp/mv/install SOURCE DEST in the script, both paths resolved.
+function vcPublishedCopies(code) {
+  var copies = [];
+  var token = '("[^"]*"|\'[^\']*\'|[^\\s;&|)]+)';
+  var pattern = new RegExp('(?:^|[\\s;&|(])(?:cp|mv|install)\\s+(?:-{1,2}[A-Za-z][A-Za-z-]*(?:=\\S+)?\\s+)*' +
+    token + '\\s+' + token, 'gm');
+  var match;
+  while ((match = pattern.exec(code)) !== null) {
+    copies.push({ from: vcResolvePath(code, vcUnquote(match[1])), to: vcResolvePath(code, vcUnquote(match[2])) });
+  }
+  return copies;
+}
+
+function vcResolvePath(code, raw) {
+  var value = raw;
+  for (var pass = 0; pass < 3 && value.indexOf('$') !== -1; pass++) {
+    value = value.replace(/\$\{([A-Za-z_][A-Za-z0-9_]*)(?::-([^}]*))?\}|\$([A-Za-z_][A-Za-z0-9_]*)/g,
+      function (whole, braced, fallback, bare) {
+        var assigned = vcShellAssignment(code, braced || bare);
+        if (assigned !== null) return assigned;
+        return fallback !== undefined ? fallback : whole;
+      });
+  }
+  return value.replace(/\/{2,}/g, '/');
+}
+
+function vcUnquote(value) {
+  return String(value).replace(/^["']|["']$/g, '');
+}
+
+// The value of the last plain assignment to a shell variable (NAME=..., export NAME=...), or null.
+function vcShellAssignment(code, varName) {
+  var pattern = new RegExp('(?:^|[\\s;&|(])(?:export\\s+|readonly\\s+|local\\s+)?' + vcEscapeRegex(varName) +
+    '=("[^"]*"|\'[^\']*\'|[^\\s;&|)]*)', 'gm');
+  var value = null;
+  var match;
+  while ((match = pattern.exec(code)) !== null) value = vcUnquote(match[1]);
+  return value;
 }
 
 function vcEscapeRegex(value) {
@@ -1454,6 +1563,23 @@ hard(name, 'the package ships working material: ' + listed(names.sort()),
 function checkTaskMetadata(task, pkg, toml) {
 var name = labelOf(task, pkg);
 if (toml === null) return; // C already reported it
+if (!Object.keys(toml).length) return; // an empty task.toml: checkStructure reported it
+var schema = tomlSchema(toml);
+infos.push(scope(name) + ' | task.toml structure: ' + schema + '.');
+if (ACCEPTED_TOML_SCHEMAS.indexOf(schema) === -1) {
+var metadataKeys = Object.keys(objectAt(toml.metadata)).sort();
+hard(name,
+'task.toml uses the ' + schema + ' structure ([task] name "' + String(objectAt(toml.task).name || '') +
+'", [metadata] ' + (metadataKeys.length ? listed(metadataKeys, 8) : 'empty') + '), but this gate accepts only the ' +
+listed(ACCEPTED_TOML_SCHEMAS) + ' structure',
+'rewrite task.toml to the schema ' + NEW_TOML.schemaVersion + ' template: ' + NEW_TOML_TEMPLATE);
+return;
+}
+if (schema === 'new') {
+checkNewToml(name, toml);
+return;
+}
+// The old structure, checked exactly as before the schema 1.4 switch.
 var metadata = objectAt(toml && toml.metadata);
 var required = ['domain', 'field', 'subfield', 'expert_time_estimate_hours'];
 var absent = required.filter(function (key) { return blank(metadata[key]); });
@@ -1504,6 +1630,112 @@ if (Number(environment.gpus) >= 1 && String(environment.validate_env || '') !== 
 finding(name, 'T1.gpu-backend', 'the task requests a GPU but [environment] validate_env is not "modal"');
 }
 }
+// The turing/ name is what marks the new structure. Everything else is 'old', including the
+// pre-switch hybrids that already carry new-style [metadata] under a
+// terminal-bench-science/ name (381552, schema 1.3), so every task authored before the switch is
+// checked exactly as it was before.
+function tomlSchema(toml) {
+var taskName = String(objectAt(objectAt(toml).task).name || '');
+return taskName.indexOf(NEW_TOML.namePrefix) === 0 ? 'new' : 'old';
+}
+// The schema 1.4 template, field by field. Every gap goes into one error, so the author can
+// fix task.toml in a single pass.
+function checkNewToml(name, toml) {
+var problems = [];
+var taskBlock = objectAt(toml.task);
+var metadata = objectAt(toml.metadata);
+var environment = objectAt(toml.environment);
+var agent = objectAt(toml.agent);
+var verifier = objectAt(toml.verifier);
+var verifierEnvironment = objectAt(verifier.environment);
+function need(block, keys, where) {
+keys.forEach(function (key) { if (blank(block[key])) problems.push(where + ' ' + key + ' is missing'); });
+}
+function numbers(block, keys, where) {
+keys.forEach(function (key) {
+if (blank(block[key])) problems.push(where + ' ' + key + ' is missing');
+else if (typeof block[key] !== 'number') problems.push(where + ' ' + key + ' is not a number');
+});
+}
+function equal(block, key, value, where) {
+if (blank(block[key])) problems.push(where + ' ' + key + ' is missing');
+else if (String(block[key]) !== value) problems.push(where + ' ' + key + ' is "' + block[key] + '" (must be "' + value + '")');
+}
+if (String(toml.schema_version || '') !== NEW_TOML.schemaVersion) {
+problems.push('schema_version is ' + (blank(toml.schema_version) ? 'missing' : '"' + toml.schema_version + '"') +
+' (must be "' + NEW_TOML.schemaVersion + '")');
+}
+need(taskBlock, ['name', 'description', 'version', 'keywords'], '[task]');
+if (!blank(taskBlock.name) && !/^turing\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(taskBlock.name))) {
+problems.push('[task] name "' + taskBlock.name + '" is not ' + NEW_TOML.namePrefix + '<kebab-case task name>');
+}
+// [metadata] domain > category > subcategory. Two drafts recur, and each gets the exact edit that
+// fixes it: the old field/subfield keys kept under a turing/ name (rename them), and the domain
+// placed in category with no domain key (shift each value up one level).
+var renames = [];
+var renameProblems = 0;
+var domain = String(metadata.domain || '');
+var category = String(metadata.category || '');
+if (blank(metadata.domain) && DOMAIN_FIELDS[category]) {
+var shiftedCategory = String(metadata.subcategory || '');
+problems.push('[metadata] domain is missing, and category holds the domain "' + category + '"');
+renameProblems++;
+renames.push('set domain = "' + category + '", category = ' +
+(DOMAIN_FIELDS[category].indexOf(shiftedCategory) !== -1 ? '"' + shiftedCategory + '"' : 'one of ' + listed(DOMAIN_FIELDS[category])) +
+' and subcategory = the free-text specialty' + (blank(metadata.subfield) ? '' : ' (e.g. "' + metadata.subfield + '")'));
+} else {
+if (blank(metadata.domain)) problems.push('[metadata] domain is missing');
+[['category', 'field'], ['subcategory', 'subfield']].forEach(function (pair) {
+if (!blank(metadata[pair[0]])) return;
+if (blank(metadata[pair[1]])) {
+problems.push('[metadata] ' + pair[0] + ' is missing');
+return;
+}
+problems.push('[metadata] ' + pair[0] + ' is missing (found ' + pair[1] + ')');
+renameProblems++;
+renames.push('rename ' + pair[1] + ' to ' + pair[0]);
+});
+var effectiveCategory = blank(metadata.category) ? String(metadata.field || '') : category;
+if (domain && !DOMAIN_FIELDS[domain]) {
+problems.push('[metadata] domain "' + domain + '" is not one of ' + listed(Object.keys(DOMAIN_FIELDS)));
+} else if (domain && effectiveCategory && DOMAIN_FIELDS[domain].indexOf(effectiveCategory) === -1) {
+problems.push('[metadata] category "' + effectiveCategory + '" is not a category of ' + domain +
+' (' + listed(DOMAIN_FIELDS[domain]) + ')');
+}
+}
+if (!blank(metadata.subcategory) && typeof metadata.subcategory !== 'string') {
+problems.push('[metadata] subcategory is not a string');
+}
+need(metadata, ['source', 'public_overlap'], '[metadata]');
+equal(metadata, 'reward_type', NEW_TOML.rewardType, '[metadata]');
+equal(environment, 'network_mode', 'public', '[environment]');
+numbers(environment, ['cpus', 'memory_mb', 'storage_mb'], '[environment]');
+if (Number(environment.gpus) >= 1 && String(environment.validate_env || '') !== 'modal') {
+problems.push('[environment] requests a GPU but validate_env is not "modal"');
+}
+numbers(agent, ['timeout_sec'], '[agent]');
+if (typeof agent.timeout_sec === 'number' && agent.timeout_sec > AGENT_TIMEOUT_CAP) {
+problems.push('[agent] timeout_sec is ' + agent.timeout_sec + ' (at most ' + AGENT_TIMEOUT_CAP + ')');
+}
+equal(agent, 'network_mode', 'public', '[agent]');
+numbers(verifier, ['timeout_sec'], '[verifier]');
+equal(verifier, 'network_mode', 'no-network', '[verifier]');
+equal(verifier, 'environment_mode', 'separate', '[verifier]');
+equal(verifierEnvironment, 'network_mode', 'no-network', '[verifier.environment]');
+numbers(verifierEnvironment, ['cpus', 'memory_mb'], '[verifier.environment]');
+var retired = RETIRED_TOML_FIELDS.filter(function (key) { return !blank(metadata[key]) || !blank(toml[key]); });
+if (retired.length) problems.push('retired field(s) ' + listed(retired) + ' must move into README.md');
+if (problems.length) {
+var fix = 'match the template: ' + NEW_TOML_TEMPLATE;
+if (renames.length) {
+fix = 'in [metadata], ' + renames.join(' and ') + (renames[0].indexOf('rename ') === 0 ? ', keeping the values' : '') +
+(problems.length > renameProblems ? '; then ' + fix : '; nothing else in task.toml needs to change');
+}
+hard(name, 'task.toml does not match the schema ' + NEW_TOML.schemaVersion + ' structure: ' + listed(problems, 30), fix);
+} else {
+infos.push(scope(name) + ' | task.toml matches the schema ' + NEW_TOML.schemaVersion + ' structure.');
+}
+}
 function sourceLines(text) {
 return String(text).replace(/\\\r?\n/g, ' ').split(/\r?\n/);
 }
@@ -1533,11 +1765,22 @@ parts.slice(0, parts.length - 1).forEach(function (src) { sources.push(src); });
 });
 return sources;
 }
+// The argument list of every pip install command, one entry per command. A RUN line chains
+// commands with && || ; or |, and only the words of the pip command itself are packages:
+// `pip install numpy==2.1.3 && chmod 700 /logs/verifier` installs one pinned package.
+function pipInstallArgs(text) {
+var args = [];
+sourceLines(text).forEach(function (line) {
+line.split(/&&|\|\||[;|]/).forEach(function (command) {
+var match = command.match(/\b(?:pip3?|uv\s+pip)\s+install\b/);
+if (match) args.push(command.slice(match.index + match[0].length));
+});
+});
+return args;
+}
 function unpinnedInstalls(text) {
 var loose = [];
-sourceLines(text).forEach(function (line) {
-if (!/\b(pip3?|uv\s+pip)\s+install\b/.test(line)) return;
-var after = line.slice(line.search(/\binstall\b/) + 'install'.length);
+pipInstallArgs(text).forEach(function (after) {
 after.split(/\s+/).forEach(function (token) {
 var clean = trim(token).replace(/["'\\]/g, '');
 if (!clean || clean.charAt(0) === '-' || clean.charAt(0) === '.' || clean.charAt(0) === '/') return;
@@ -1721,6 +1964,13 @@ return 'Task Package ' + name + ' — "task"';
 }
 function hard(name, message, fix) {
 errors.push(scope(name) + ' | Problem: ' + message + '. | Fix: ' + fix + '.');
+}
+function testShStyle(name, message, fix) {
+if (TEST_SH_STYLE_BLOCKS) {
+hard(name, message, fix);
+return;
+}
+warnings.push('ADVISORY ' + scope(name) + ' | Problem: ' + message + ' (not blocking at task completion). | Fix: ' + fix + '.');
 }
 function finding(name, code, message) {
 var rendered = scope(name) + ' | Problem: ' + code + ': ' + message + '. | Fix: ' +

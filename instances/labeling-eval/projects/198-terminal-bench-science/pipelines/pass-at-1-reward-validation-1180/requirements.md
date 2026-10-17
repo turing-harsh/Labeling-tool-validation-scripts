@@ -15,7 +15,9 @@ Each evaluation has a single trial and its own Harbor ZIP
 GPT-6 Sol, Claude Opus 5.5 (low), and Qwen3.8 Max (0902). The script reads the roster from the
 stored payload instead of hard-coding it.
 
-**Gate: the task passes when at least one model with a valid rollout is broken (reward 0).**
+**Gate: the task passes only when every model in the roster has a valid rollout and is broken
+(reward 0).** A single solved model (reward 1) fails the task. Until 2026-10-15 the gate was
+"break at least one model"; it now requires breaking every model.
 
 Everything else (rating location, version selection, task data shape) is unchanged.
 
@@ -33,8 +35,10 @@ Recorded result (`ratings.pass5Eval.value`):
   aggregates (`n_trials`, `n_passed`, `pass_at_1`, `pass_at_k[1]`, …) match the trial
 - not oracle, not cheat mode
 - warning when the bundle or trial name does not follow `<run_id>_<evaluation_id>`
-- **gate**: at least 1 valid model has reward 0. Invalid rollouts are excluded and never count as a
-  break. An error when no model is valid.
+- **gate**: every model has a valid rollout with reward 0. Any model at reward 1 is an error
+  naming the solved models and the break count. An invalid rollout cannot prove its model was
+  broken, so it is an error too (rerun that model); setting `ALLOW_INVALID_EXCLUSION = true`
+  instead excludes it from the count with a warning. An error when no model is valid.
 
 Bundle (one per model, all fetched in parallel with `fetchGcsData(url, { as: 'zip' })`):
 - readable, not truncated, safe member paths, exactly one trial, matching the recorded trial
@@ -48,7 +52,7 @@ Bundle (one per model, all fetched in parallel with `fetchGcsData(url, { as: 'zi
 ## Not enforced
 
 `rewardBlockCriteriaMaxReward` (still 0.4) is only reported as info. With per-model 0/1 rewards
-and the break-one rule, it no longer defines the gate.
+and the break-every-model rule, it no longer defines the gate.
 
 ## False-positive fixes (2026-10-02, conversation 380342 / run 6637703)
 

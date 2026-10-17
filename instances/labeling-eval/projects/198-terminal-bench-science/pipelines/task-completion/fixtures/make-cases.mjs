@@ -106,6 +106,94 @@ const cases = [
     },
   },
   {
+    name: "task.toml: the new structure (schema 1.4) is accepted",
+    conversationData: { ratings: ratings({}) },
+    expect: { errors: [], infosContain: ["task.toml structure: new", "task.toml matches the schema 1.4 structure"] },
+  },
+  {
+    name: "task.toml: the old structure is rejected at completion, as in task data validation",
+    conversationData: { ratings: ratings({ task: folder("OLDTOML") }) },
+    expect: {
+      errorsContain: ["task.toml uses the old structure", "accepts only the new structure"],
+      infosContain: ["task.toml structure: old", "Task data validation (1128): FAIL"],
+    },
+  },
+  {
+    name: "task.toml: an old package without metadata is rejected as old",
+    conversationData: { ratings: ratings({ task: folder("OLDNOMETADATA") }) },
+    expect: { errorsContain: ["task.toml uses the old structure", "[metadata] empty"] },
+  },
+  {
+    name: "task.toml: a pre-switch hybrid (new metadata, old name) is old and rejected",
+    conversationData: { ratings: ratings({ task: folder("HYBRIDTOML") }) },
+    expect: { errorsContain: ["task.toml uses the old structure"], infosContain: ["task.toml structure: old"] },
+  },
+  {
+    name: "task.toml: the new schema (domain, category, free-text subcategory) passes",
+    conversationData: { ratings: ratings({}) },
+    expect: { errors: [], successesContain: ["all 3 gates pass"], infosContain: ["task.toml matches the schema 1.4 structure"] },
+  },
+  {
+    name: "task.toml: a turing/ name with the old field/subfield keys fails with the rename",
+    conversationData: { ratings: ratings({ task: folder("OLDKEYSNEWNAME") }) },
+    expect: {
+      errorsContain: ["[metadata] category is missing (found field)", "rename field to category and rename subfield to subcategory"],
+      infosContain: ["Task data validation (1128): FAIL (1 error)"],
+    },
+  },
+  {
+    name: "task.toml: the domain written into category fails with the shift",
+    conversationData: { ratings: ratings({ task: folder("SHIFTEDMETADATA") }) },
+    expect: { errorsContain: ["category holds the domain \"earth-sciences\"", "set domain = \"earth-sciences\""] },
+  },
+  {
+    name: "task.toml: a category outside the domain's vocabulary fails",
+    conversationData: { ratings: ratings({ task: folder("BADCATEGORY") }) },
+    expect: { errorsContain: ["[metadata] category \"botany\" is not a category of earth-sciences"] },
+  },
+  {
+    name: "task.toml: a new-structure package is still held to the template",
+    conversationData: { ratings: ratings({ task: folder("TOMLGAPS") }) },
+    expect: { errorsContain: ["does not match the schema 1.4 structure", "[task] version is missing"] },
+  },
+  {
+    name: "test.sh: missing errexit only warns at completion",
+    conversationData: { ratings: ratings({ task: folder("NOERREXIT") }) },
+    expect: {
+      errors: [],
+      warningsContain: ["tests/test.sh does not enable errexit (not blocking at task completion)"],
+      successesContain: [TASK_PASS, "all 3 gates pass"],
+    },
+  },
+  {
+    name: "test.sh: missing pipefail only warns at completion",
+    conversationData: { ratings: ratings({ task: folder("NOPIPEFAIL") }) },
+    expect: { errors: [], warningsContain: ["does not enable pipefail (not blocking at task completion)"] },
+  },
+  {
+    name: "test.sh: no literal reward write in test.sh only warns at completion",
+    conversationData: { ratings: ratings({ task: folder("NOLITERALREWARD") }) },
+    expect: {
+      errors: [],
+      warningsContain: ["never writes a literal 0 or 1 to /logs/verifier/reward.txt (not blocking at task completion)"],
+    },
+  },
+  {
+    name: "test.sh: a non-binary literal reward still blocks at completion",
+    conversationData: { ratings: ratings({ task: folder("PARTIALCREDIT") }) },
+    expect: { errorsContain: ["non-binary literal reward write"] },
+  },
+  {
+    name: "Dockerfile: commands chained after a pinned pip install pass at completion",
+    conversationData: { ratings: ratings({ task: folder("PIPCHAIN") }) },
+    expect: { errors: [], successesContain: [TASK_PASS, "all 3 gates pass"] },
+  },
+  {
+    name: "test.sh: a CTRF path built from a script variable passes at completion",
+    conversationData: { ratings: ratings({ task: folder("CTRFVAR") }) },
+    expect: { errors: [], successesContain: [TASK_PASS, "all 3 gates pass"] },
+  },
+  {
     name: "the Oracle Check was never run",
     conversationData: { ratings: strip(ratings({ oracle_check: null })) },
     expect: { errorsContain: ["the Oracle Check is missing or has not been run"], successesContain: [TASK_PASS, EVAL_PASS] },

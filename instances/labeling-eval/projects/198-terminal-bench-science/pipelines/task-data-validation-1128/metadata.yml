@@ -17,8 +17,9 @@ deployed:
   commit:
 
 notes: |
-  COPY of labeling-m/279-terminal-bench-science-demo, which stays as the demo project. The two
-  validation.js files must stay identical: change one, copy it to the other, run both suites.
+  Started as a copy of labeling-m/279-terminal-bench-science-demo, which stays as the demo
+  project. DIVERGED at the task.toml schema 1.4 switch: this copy accepts only the new task.toml
+  structure (turing/<task> name), while 279 keeps the old rules. Port other fixes by hand.
   Mirrors agentic-reviewer-qd: instances/labeling-eval/projects/terminal-bench-science-198/
   pipelines/task-data-validation-1128/.
 

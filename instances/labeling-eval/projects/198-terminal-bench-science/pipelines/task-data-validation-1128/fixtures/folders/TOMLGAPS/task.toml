@@ -1,0 +1,35 @@
+schema_version = "1.4"
+artifacts = ["/app/result.npz"]
+
+[task]
+name = "turing/demo-assimilation"
+description = "Recover a forcing field from sparse sensors."
+keywords = ["data-assimilation", "lorenz-96"]
+
+[metadata]
+domain = "earth-sciences"
+category = "atmospheric-sciences"
+subcategory = "data-assimilation"
+reward_type = "partial"
+source = "Written by PhD annotators"
+public_overlap = "None"
+
+
+
+[environment]
+network_mode = "public"
+cpus = 1
+memory_mb = 2048
+
+[agent]
+timeout_sec = 3600.0
+
+[verifier]
+timeout_sec = 5400.0
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 1
+memory_mb = 2048

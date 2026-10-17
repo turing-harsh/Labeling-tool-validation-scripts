@@ -19,7 +19,8 @@ deployed:
 notes: |
   Runs at breakpoint pass5RewardValidation (trigger 1180) over the result stored by pass5Eval.
   2026-10-02: pass5Eval moved from one model x 5 attempts to a model roster x 1 attempt
-  (harbor_trial_1..N, one bundle each). Gate is now "break at least one model". See requirements.md.
+  (harbor_trial_1..N, one bundle each). 2026-10-15: gate is now "break every model" -- every
+  model needs a valid rollout with reward 0; one solved or invalid model fails. See requirements.md.
 
   Run 6637059 (conversation 380316) was captured on test project 201, where the breakpoint is
   stored as "bp1". golden/test-project-201-bp1.json keeps that key, and golden/run-6637059.json

@@ -181,27 +181,48 @@ const cases = [
   {
     name: "two models, both broken: passes",
     conversationData: scenario("allbroken", { evals: [m(g), m(c)] }),
-    expect: { errors: [], successesContain: ["2 of 2 valid model rollouts broken"] },
+    expect: { errors: [], successesContain: ["All 2 valid model rollouts broken (openai/gpt-6-sol [xhigh], anthropic/claude-opus-5-5 [low])"] },
   },
   {
-    name: "three models, one broken: passes",
+    name: "three models, all broken: passes",
+    conversationData: scenario("threebroken", { roster: ROSTER, evals: [m(g), m(c), m(q)] }),
+    expect: { errors: [], successesContain: ["All 3 valid model rollouts broken"], infosContain: ["3 of 3 valid model rollouts broken"] },
+  },
+  {
+    name: "three models, one broken: fails the every-model gate",
     conversationData: scenario("onebroken", { roster: ROSTER, evals: [m(g, { reward: 1 }), m(c, { reward: 1 }), m(q)] }),
-    expect: { errors: [], successesContain: ["1 of 3 valid model rollouts broken (qwen/qwen3.8-max-0902 [high])"], infosContain: ["reward 0 — BROKEN", "reward 1 — solved"] },
+    expect: {
+      errorsContain: ["not every model was broken: openai/gpt-6-sol [xhigh], anthropic/claude-opus-5-5 [low] reached reward 1", "1 of 3 models were broken"],
+      infosContain: ["reward 0 — BROKEN", "reward 1 — SOLVED (fails the every-model-broken gate)"],
+    },
+  },
+  {
+    name: "one solved model among two fails the every-model gate",
+    conversationData: scenario("onesolved", { evals: [m(g), m(c, { reward: 1 })] }),
+    expect: { errorsContain: ["not every model was broken: anthropic/claude-opus-5-5 [low] reached reward 1", "1 of 2 models were broken"] },
   },
   {
     name: "every model solved: fails the break gate",
     conversationData: scenario("nonebroken", { roster: ROSTER, evals: [m(g, { reward: 1 }), m(c, { reward: 1 }), m(q, { reward: 1 })] }),
-    expect: { errorsContain: ["no model was broken"] },
+    expect: { errorsContain: ["not every model was broken", "0 of 3 models were broken"] },
   },
   {
     name: "invalid rollout never counts as a break",
     conversationData: scenario("invalidonly", { evals: [m(g, { reward: 1 }), m(c, { valid: false })] }),
-    expect: { errorsContain: ["no model was broken"], warningsContain: ["excluded from the break count"] },
+    expect: { errorsContain: ["not every model was broken: openai/gpt-6-sol [xhigh] reached reward 1", "anthropic/claude-opus-5-5 [low] has an invalid rollout, so that model is not proven broken"] },
   },
   {
-    name: "invalid rollout alongside a broken model: passes with a warning",
+    name: "invalid rollout alongside a broken model fails: not proven broken",
     conversationData: scenario("invalidplus", { evals: [m(g), m(c, { valid: false })] }),
-    expect: { errors: [], warningsContain: ["excluded from the break count"], successesContain: ["1 of 1 valid model rollout broken"] },
+    expect: {
+      errorsContain: ["anthropic/claude-opus-5-5 [low] has an invalid rollout, so that model is not proven broken"],
+      infosContain: ["invalid rollout, not proven broken", "and no rollout may be invalid"],
+    },
+  },
+  {
+    name: "no model with a valid rollout fails",
+    conversationData: scenario("allinvalid", { evals: [m(g, { valid: false }), m(c, { valid: false })] }),
+    expect: { errorsContain: ["no model has a valid rollout", "have invalid rollouts, so those models are not proven broken"] },
   },
   {
     name: "configured model missing from the run fails",
@@ -236,7 +257,7 @@ const cases = [
   {
     name: "test project stores the breakpoint as bp1: found by content",
     conversationData: renameKey(scenario("bp1key", { evals: [m(g), m(c)] }), "bp1"),
-    expect: { errors: [], infosContain: ['validating the model-eval breakpoint stored as "bp1"'], successesContain: ["2 of 2 valid model rollouts broken"] },
+    expect: { errors: [], infosContain: ['validating the model-eval breakpoint stored as "bp1"'], successesContain: ["All 2 valid model rollouts broken"] },
   },
   {
     name: "oracle breakpoint is never mistaken for the model eval",
@@ -259,7 +280,7 @@ const cases = [
       manifestStatus: "failed",
       drop: ["artifacts/app/solver.py", "verifier/ctrf.json", "verifier/test-stdout.txt"],
       exception: { exception_type: "AgentTimeoutError", exception_message: "Agent execution timed out after 28800 seconds" },
-    }), m(c, { reward: 1 })] }),
+    }), m(c)] }),
     expect: {
       errors: [],
       warningsContain: [
@@ -268,7 +289,7 @@ const cases = [
         "no submitted artifact files (broken rollout",
         "exception_info: AgentTimeoutError",
       ],
-      successesContain: ["1 of 2 valid model rollouts broken"],
+      successesContain: ["All 2 valid model rollouts broken"],
     },
   },
   {

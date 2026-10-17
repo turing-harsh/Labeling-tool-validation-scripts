@@ -34,7 +34,7 @@ authoring/    provenance/build_instance.py
 
 ## Expected today
 
-**FAIL, with 8 errors and 1 warning.** The gate admits only the ideal structure, and this demo
+**FAIL, with 9 errors and no warnings.** The gate admits only the ideal structure, and this demo
 package predates it:
 
 - it ships `authoring/` and `harbor-canary` markers, which are both forbidden
@@ -42,7 +42,9 @@ package predates it:
 - the verifier is not pytest: `test.sh` runs `python3 /tests/test_outputs.py` without
   `set -e`, there is no `def test_...`, and `tests/Dockerfile` installs no pytest pins and
   does not create `/logs/verifier`
-- the warning is advisory: `[agent] timeout_sec = 28800` is above the 18000 cap
+- its task.toml uses the old structure (`terminal-bench-science/` name, `domain`/`field`
+  metadata), which this pipeline no longer accepts. The old-structure advisories, such as
+  `timeout_sec = 28800` above the cap, now apply only at task completion.
 
 `380030.txt` and `380090.txt` report "could not be read" offline because their folders are not
 mirrored here. The mirrored folders `379987/` and `380056/` have no `.txt` beside them. Run them

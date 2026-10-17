@@ -1,7 +1,8 @@
 # Requirements — labeling-eval / 198-terminal-bench-science / task-data-validation-1128
 
-> Copy of `labeling-m/279-terminal-bench-science-demo`, where this script was written; "279"
-> below names this script. Keep the two `validation.js` files identical.
+> Started as a copy of `labeling-m/279-terminal-bench-science-demo`, where this script was
+> written; "279" below names this script. **The two have diverged:** only this copy enforces the
+> new task.toml structure (see [§task.toml](#tasktoml)). 279 keeps the old rules.
 
 Deterministic validation of the Terminal-Bench-Science task package linked in `ratings.task`
 (a **Google Drive folder** URL).
@@ -102,7 +103,8 @@ just the part they got wrong.
 
 *Code* is `CODE_SUFFIXES` (`.py .sh .r .jl .c .h .cpp .hpp .f .f90 .m`); *data* is
 `CONTRACT_DATA_SUFFIXES` (`.csv .tsv .json .jsonl .ndjson .npy .npz .parquet .parq .h5 .hdf5 .fits
-.pkl .txt .dat .nc .mat .xyz .pdb .cif .fasta .fa .fastq .vcf .sdf .mol2 .gz`). Extend those
+.pkl .txt .dat .nc .mat .xyz .pdb .cif .fasta .fa .fastq .vcf .sdf .mol2 .gz .wav .flac`; the audio
+formats were added for frequency and signal tasks that grade against recordings). Extend those
 lists when a task genuinely needs another format. Subfolders are allowed (379987 keeps its
 held-out cases in `tests/hidden/`); `.md` notes, logs, notebooks, `SHA256SUMS` and the like are
 not.
@@ -203,13 +205,15 @@ package spelled differently now fails instead of being left for a reviewer.
 
 | Rule | Tier |
 |---|---|
-| Every `pip install` in `environment/Dockerfile` and `tests/Dockerfile` is `==`-pinned, no ranges or wildcards | error |
+| Every `pip install` in `environment/Dockerfile` and `tests/Dockerfile` is `==`-pinned, no ranges or wildcards. Only the pip command's own words are packages: a `RUN` line is split at `&&`, `\|\|`, `;` and `\|`, so `pip install numpy==2.1.3 && chmod 700 /logs/verifier` is pinned, and a second `pip install` later on the line is checked too | error |
 | `tests/Dockerfile` installs `pytest==8.4.1` and `pytest-json-ctrf==0.3.5` | error |
 | `tests/Dockerfile` does `COPY . /tests/` | error |
 | `tests/Dockerfile` creates `/logs/verifier` and the parent folder of every artifact (`mkdir`, `WORKDIR` or `COPY` destination) | error |
-| `tests/test.sh` enables `errexit`, `nounset` and `pipefail` (`set -euo pipefail`) | error |
-| `tests/test.sh` runs pytest with `-rA` and `--ctrf /logs/verifier/ctrf.json` | error |
-| `tests/test.sh` writes a literal `0` or `1` to `/logs/verifier/reward.txt` | error |
+| `tests/test.sh` enables `errexit`, `nounset` and `pipefail` (`set -euo pipefail`) | error (warning at task completion) |
+| `tests/test.sh` runs pytest with `-rA` and `--ctrf /logs/verifier/ctrf.json`. The path may be built from a variable the script assigns (`LOG_DIR=/logs/verifier` … `--ctrf "$LOG_DIR/ctrf.json"`, or `${VAR:-/logs/verifier}`) | error |
+| `--ctrf` resolves to a path other than `/logs/verifier/ctrf.json` and the script never publishes it there. Writing the report to a private folder while submitted code runs and then `cp`/`mv`/`install`-ing it to `/logs/verifier/ctrf.json` (or into `/logs/verifier/`) counts as writing it there | error |
+| `--ctrf` goes through a variable the script never assigns, so the path cannot be confirmed | advisory |
+| `tests/test.sh` writes a literal `0` or `1` to `/logs/verifier/reward.txt` | error (warning at task completion) |
 | Any literal reward write under `tests/` other than `0` or `1` | error |
 | Nothing under `tests/` installs or downloads software (`pip`, `apt`, `conda`, `npm`, `uv run --with`, `curl \| sh`) — the verifier has no network | error |
 | Every `test_*.py` together define at least one `def test_...()` | error |
@@ -265,7 +269,97 @@ are reported separately from identical ones, because differing means the package
 versions of its own definition and nothing says which is authoritative. 380196 has 11 such
 files, four of them differing — including two different `instruction.md` (7070 vs 5038 bytes).
 
-### task.toml metadata
+### task.toml
+
+There are two task.toml structures, told apart by the `[task] name` prefix alone.
+`schema_version` cannot separate them: old-structure packages already say `"1.4"`.
+
+| | **New** (schema 1.4) | **Old** |
+|---|---|---|
+| `[task] name` | `turing/<task>` | anything else, e.g. `terminal-bench-science/<task>` |
+| `[metadata]` | `domain`, `category`, `subcategory`, `reward_type`, `source`, `public_overlap` | `domain`, `field`, `subfield`, `expert_time_estimate_hours` (+ author fields) |
+| Accepted by this pipeline | **yes** | **no:** one error, "uses the old structure" |
+| Accepted at task completion | yes | **no:** the same "uses the old structure" error |
+
+`ACCEPTED_TOML_SCHEMAS = ['new']` at the top of `validation.js` is the switch, and the
+task-completion gate uses it unchanged, so an old-structure package fails at both. A pre-switch
+hybrid such as 381552 (schema `"1.3"`, new-style `[metadata]` under a `terminal-bench-science/`
+name) is **old** and fails too: rename it to `turing/<task>` and finish the template.
+
+#### New structure — every gap blocks, listed in one error
+
+The template:
+
+```toml
+schema_version = "1.4"
+artifacts = ["/app/solve.py"]
+
+[task]
+name = "turing/<task>"          # kebab-case
+description = "…"
+version = "1.0.0"
+keywords = ["…"]
+
+[metadata]
+domain = "physical-sciences"    # a domain from DOMAIN_FIELDS
+category = "chemistry"          # one of that domain's categories
+subcategory = "…"               # free text, e.g. "spectroscopy"
+reward_type = "binary"
+source = "…"
+public_overlap = "…"
+
+[environment]
+network_mode = "public"
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+
+[agent]
+timeout_sec = 18000.0           # at most 18000
+network_mode = "public"
+
+[verifier]
+timeout_sec = 5400.0
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 1
+memory_mb = 2048
+```
+
+The `[metadata]` vocabulary:
+
+| `domain` | `category` |
+|---|---|
+| `life-sciences` | `biology`, `ecology`, `medicine`, `neuroscience` |
+| `physical-sciences` | `astronomy`, `chemistry`, `materials-science`, `physics` |
+| `earth-sciences` | `atmospheric-sciences`, `environmental-sciences`, `geosciences`, `ocean-sciences` |
+| `mathematical-sciences` | `applied-mathematics`, `formal-mathematics`, `operations-research`, `statistics` |
+| `engineering-sciences` | `chemical-engineering`, `civil-engineering`, `electrical-engineering`, `mechanical-engineering` |
+
+`subcategory` is a free-form string. The new `domain`/`category`/`subcategory` keys are the old
+`domain`/`field`/`subfield`, renamed, with the same values. Two drafts recur, and the error's
+Fix names the exact edit instead of repeating the template:
+
+- the old `field`/`subfield` keys under a `turing/` name → "rename field to category and rename
+  subfield to subcategory";
+- the domain written into `category`, with no `domain` key → "set domain = …, category = … and
+  subcategory = the free-text specialty".
+
+When other gaps remain, the Fix adds "then match the template: …".
+
+`checkNewToml` checks every field shown, by type or exact value. It also enforces
+`validate_env = "modal"` when `gpus >= 1`, and the absence of the retired `*_explanation`
+fields. All gaps go into **one** error, `task.toml does not match the schema 1.4 structure: …`,
+so the author fixes the file in one pass. `T1.verifier-mode` is not raised for a new-structure
+package, since the template already requires `environment_mode = "separate"`.
+
+#### Old structure — currently applied nowhere
+
+Kept so a gate can re-admit old packages by adding `'old'` to `ACCEPTED_TOML_SCHEMAS`. No
+pipeline does today.
 
 | Code | Rule | Tier |
 |---|---|---|
@@ -339,16 +433,19 @@ Survey one **without** the reader's budgets, to diagnose a truncation:
 node scripts/survey-folder.mjs <folder-link>
 ```
 
-**The fixture suite (69 cases).** `fixtures/make-folders.mjs` builds `COMPLETE`, a synthetic
-package in exactly the ideal structure, which must pass at `upload` and `audit` with **no errors
+**The fixture suite (74 cases).** `fixtures/make-folders.mjs` builds `COMPLETE`, a synthetic
+package in exactly the ideal structure (with a schema 1.4 task.toml), which must pass at `upload` and `audit` with **no errors
 and no warnings**. Every other fixture folder is `COMPLETE` with one defect, so each case pins
 one rule. The near-miss cases (`OTHERTESTNAME`, `SECRETNAMESOK`, `GLOBREF`, `READMEMATH`,
-`NOREADME`) pin what must stay quiet. After changing a rule, change the generator, re-run it,
+`NOREADME`) pin what must stay quiet. `OLDTOML`, `OLDNOMETADATA`, `OLDVERIFIERPUBLIC` and
+`HYBRIDTOML` carry the old task.toml structure: this pipeline rejects them, and the task-completion
+suite (which shares these folders) checks that it rejects them too. After changing a rule, change the generator, re-run it,
 then `npm test`. When writing a mutation with `String.replace`, pass a function as the
 replacement whenever it contains `$$` — in a replacement *string* `$$` means one literal `$`.
 
-**Verification performed.** The fixture suite passes 69/69. The three real packages under
-`golden/folders/` were run against the strict gate. Every finding was traced to the package
+**Verification performed.** The fixture suite passes 74/74. The real packages under
+`golden/folders/` were run against the strict gate. Since the schema 1.4 switch, all four
+(1961550, 379987, 380056, 381552) are old-structure: rejected here and at completion. Every finding was traced to the package
 itself, and each false positive found that way (`-rA;` before a `;`) was fixed in the script.
 
 > **CRLF warning for anyone writing tests here.** 380030 and 380196 use CRLF line endings.

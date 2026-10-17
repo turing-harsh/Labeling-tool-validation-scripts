@@ -19,20 +19,34 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const pipelines = join(root, "instances", "labeling-eval", "projects", "198-terminal-bench-science", "pipelines");
 
+// `overrides` are the only edits made to a source: exact one-line swaps, each of which must
+// match exactly once. Task completion accepts only the new task.toml structure, exactly as task
+// data validation does; the one difference is that the two test.sh style rules (shell flags, a
+// literal reward write in test.sh) are warnings there, not errors.
 const STAGES = [
-  { dir: "task-data-validation-1128", factory: "taskDataValidation1128", title: "Task data validation (1128)" },
+  {
+    dir: "task-data-validation-1128",
+    factory: "taskDataValidation1128",
+    title: "Task data validation (1128)",
+    overrides: [["var TEST_SH_STYLE_BLOCKS = true;", "var TEST_SH_STYLE_BLOCKS = false;"]],
+  },
   { dir: "oracle-validation-1183", factory: "oracleValidation1183", title: "Oracle validation (1183)" },
   { dir: "pass-at-1-reward-validation-1180", factory: "passEvalValidation1180", title: "Pass eval reward validation (1180)" },
 ];
 
 const ENTRY = /^(async )?function validate\(conversationData\) \{$/m;
 
-const embedded = STAGES.map(({ dir, factory }) => {
-  const source = readFileSync(join(pipelines, dir, "validation.js"), "utf8").replace(/\s+$/, "");
+const embedded = STAGES.map(({ dir, factory, overrides = [] }) => {
+  let source = readFileSync(join(pipelines, dir, "validation.js"), "utf8").replace(/\s+$/, "");
   if (!ENTRY.test(source)) throw new Error(`build-198-task-completion: ${dir}/validation.js has no top-level validate(conversationData)`);
   if (/module\.exports/.test(source)) throw new Error(`build-198-task-completion: ${dir}/validation.js has a CommonJS tail; drop it first`);
+  for (const [from, to] of overrides) {
+    const count = source.split(from).length - 1;
+    if (count !== 1) throw new Error(`build-198-task-completion: expected exactly one "${from}" in ${dir}/validation.js, found ${count}`);
+    source = source.replace(from, () => to);
+  }
   return [
-    `// ===== ${dir}/validation.js (verbatim) =====`,
+    `// ===== ${dir}/validation.js (verbatim${overrides.length ? `, except: ${overrides.map(([, to]) => to).join(" ")}` : ""}) =====`,
     `function ${factory}(errors, warnings, infos, successes, logs) {`,
     source,
     "return validate;",
@@ -47,9 +61,13 @@ const out = `// Terminal-Bench-Science — Task Completion gate (labeling-eval p
 // GENERATED FILE — do not edit by hand. Rebuild with: node scripts/build-198-task-completion.mjs
 // Composed, verbatim, from this project's pipeline scripts:
 ${STAGES.map(({ dir }) => `//   - pipelines/${dir}/validation.js`).join("\n")}
+// The one edit: task data validation's TEST_SH_STYLE_BLOCKS is set to false, so the test.sh
+// shell-flag and literal-reward rules warn instead of blocking. task.toml must use the new
+// structure here too.
 //
 // Runs once, at task completion, and blocks unless all three gates pass:
-//   1. the task package (ratings.task, a Drive folder) has the ideal structure;
+//   1. the task package (ratings.task, a Drive folder) has the ideal structure, with task.toml in
+//      the new structure (schema 1.4, turing/<task>, [metadata] domain/category/subcategory);
 //   2. every oracle trial of the latest Oracle Check (ratings.oracle_check) scored reward 1;
 //   3. every model in the pass eval (ratings.pass5Eval) has a valid, broken rollout, and its
 //      Harbor GCS bundle backs the recorded result.

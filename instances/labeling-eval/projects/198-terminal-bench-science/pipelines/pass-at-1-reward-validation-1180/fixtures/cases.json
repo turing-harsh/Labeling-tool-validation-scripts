@@ -177,12 +177,265 @@
     "expect": {
       "errors": [],
       "successesContain": [
-        "2 of 2 valid model rollouts broken"
+        "All 2 valid model rollouts broken (openai/gpt-6-sol [xhigh], anthropic/claude-opus-5-5 [low])"
       ]
     }
   },
   {
-    "name": "three models, one broken: passes",
+    "name": "three models, all broken: passes",
+    "conversationData": {
+      "ratings": {
+        "pass5Eval": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "v1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "v1",
+                "status": "SUCCESS",
+                "apiId": "api-1",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "result": {
+                  "run_id": 7000001,
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "id": "threebroken1",
+                      "name": "harbor_trial_1",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "reasoning_effort": "xhigh",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_threebroken1__task__Ab0"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_threebroken1__task__Ab0"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_threebroken1__task__Ab0",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_threebroken1.zip"
+                      }
+                    },
+                    {
+                      "id": "threebroken2",
+                      "name": "harbor_trial_2",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "reasoning_effort": "low",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_threebroken2__task__Ab1"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_threebroken2__task__Ab1"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_threebroken2__task__Ab1",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_threebroken2.zip"
+                      }
+                    },
+                    {
+                      "id": "threebroken3",
+                      "name": "harbor_trial_3",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "qwen/qwen3.8-max-0902",
+                        "reasoning_effort": "high",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_threebroken3__task__Ab2"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_threebroken3__task__Ab2"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_threebroken3__task__Ab2",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_threebroken3.zip"
+                      }
+                    }
+                  ],
+                  "evaluations_failed": 0
+                }
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "api-1",
+                "apiName": "meta",
+                "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"qwen/qwen3.8-max-0902\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"high\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/synthetic-task-folder-0000000000"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "successesContain": [
+        "All 3 valid model rollouts broken"
+      ],
+      "infosContain": [
+        "3 of 3 valid model rollouts broken"
+      ]
+    }
+  },
+  {
+    "name": "three models, one broken: fails the every-model gate",
     "conversationData": {
       "ratings": {
         "pass5Eval": {
@@ -425,13 +678,195 @@
       }
     },
     "expect": {
-      "errors": [],
-      "successesContain": [
-        "1 of 3 valid model rollouts broken (qwen/qwen3.8-max-0902 [high])"
+      "errorsContain": [
+        "not every model was broken: openai/gpt-6-sol [xhigh], anthropic/claude-opus-5-5 [low] reached reward 1",
+        "1 of 3 models were broken"
       ],
       "infosContain": [
         "reward 0 — BROKEN",
-        "reward 1 — solved"
+        "reward 1 — SOLVED (fails the every-model-broken gate)"
+      ]
+    }
+  },
+  {
+    "name": "one solved model among two fails the every-model gate",
+    "conversationData": {
+      "ratings": {
+        "pass5Eval": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "v1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "v1",
+                "status": "SUCCESS",
+                "apiId": "api-1",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "result": {
+                  "run_id": 7000001,
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "id": "onesolved1",
+                      "name": "harbor_trial_1",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "reasoning_effort": "xhigh",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_onesolved1__task__Ab0"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "pass_at_1": 0,
+                          "pass_at_k": {
+                            "1": 0
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_onesolved1__task__Ab0"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "pass_at_1": 0,
+                        "pass_at_k": {
+                          "1": 0
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_onesolved1__task__Ab0",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_onesolved1.zip"
+                      }
+                    },
+                    {
+                      "id": "onesolved2",
+                      "name": "harbor_trial_2",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "reasoning_effort": "low",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 1,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": true,
+                              "passed": true,
+                              "reward": 1,
+                              "rewards": {
+                                "reward": 1
+                              },
+                              "trial_name": "7000001_onesolved2__task__Ab1"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 1
+                          },
+                          "n_passed": 1,
+                          "n_trials": 1,
+                          "pass_at_1": 1,
+                          "pass_at_k": {
+                            "1": 1
+                          },
+                          "n_attempts": 1,
+                          "n_valid_trials": 1,
+                          "valid_rollouts": 1,
+                          "correct_rollouts": 1,
+                          "invalid_rollouts": 0,
+                          "n_invalid_trials": 0,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": true,
+                            "passed": true,
+                            "reward": 1,
+                            "rewards": {
+                              "reward": 1
+                            },
+                            "trial_name": "7000001_onesolved2__task__Ab1"
+                          }
+                        ],
+                        "n_passed": 1,
+                        "n_trials": 1,
+                        "pass_at_1": 1,
+                        "pass_at_k": {
+                          "1": 1
+                        },
+                        "n_attempts": 1,
+                        "n_valid_trials": 1,
+                        "valid_rollouts": 1,
+                        "correct_rollouts": 1,
+                        "invalid_rollouts": 0,
+                        "n_invalid_trials": 0,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_onesolved2__task__Ab1",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_onesolved2.zip"
+                      }
+                    }
+                  ],
+                  "evaluations_failed": 0
+                }
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "api-1",
+                "apiName": "meta",
+                "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/synthetic-task-folder-0000000000"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "not every model was broken: anthropic/claude-opus-5-5 [low] reached reward 1",
+        "1 of 2 models were broken"
       ]
     }
   },
@@ -680,7 +1115,8 @@
     },
     "expect": {
       "errorsContain": [
-        "no model was broken"
+        "not every model was broken",
+        "0 of 3 models were broken"
       ]
     }
   },
@@ -855,15 +1291,13 @@
     },
     "expect": {
       "errorsContain": [
-        "no model was broken"
-      ],
-      "warningsContain": [
-        "excluded from the break count"
+        "not every model was broken: openai/gpt-6-sol [xhigh] reached reward 1",
+        "anthropic/claude-opus-5-5 [low] has an invalid rollout, so that model is not proven broken"
       ]
     }
   },
   {
-    "name": "invalid rollout alongside a broken model: passes with a warning",
+    "name": "invalid rollout alongside a broken model fails: not proven broken",
     "conversationData": {
       "ratings": {
         "pass5Eval": {
@@ -1032,12 +1466,182 @@
       }
     },
     "expect": {
-      "errors": [],
-      "warningsContain": [
-        "excluded from the break count"
+      "errorsContain": [
+        "anthropic/claude-opus-5-5 [low] has an invalid rollout, so that model is not proven broken"
       ],
-      "successesContain": [
-        "1 of 1 valid model rollout broken"
+      "infosContain": [
+        "invalid rollout, not proven broken",
+        "and no rollout may be invalid"
+      ]
+    }
+  },
+  {
+    "name": "no model with a valid rollout fails",
+    "conversationData": {
+      "ratings": {
+        "pass5Eval": {
+          "value": {
+            "locked": true,
+            "versionIds": [
+              "v1"
+            ],
+            "versionsData": [
+              {
+                "versionId": "v1",
+                "status": "SUCCESS",
+                "apiId": "api-1",
+                "updatedAt": "2026-10-02T05:08:42.000Z",
+                "result": {
+                  "run_id": 7000001,
+                  "status": "success",
+                  "evaluations": [
+                    {
+                      "id": "allinvalid1",
+                      "name": "harbor_trial_1",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "openai/gpt-6-sol",
+                        "reasoning_effort": "xhigh",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": false,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allinvalid1__task__Ab0",
+                              "invalid_reason": "rate limit (429) from provider"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "n_attempts": 1,
+                          "n_valid_trials": 0,
+                          "valid_rollouts": 0,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 1,
+                          "n_invalid_trials": 1,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": false,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allinvalid1__task__Ab0",
+                            "invalid_reason": "rate limit (429) from provider"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "n_attempts": 1,
+                        "n_valid_trials": 0,
+                        "valid_rollouts": 0,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 1,
+                        "n_invalid_trials": 1,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allinvalid1__task__Ab0",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allinvalid1.zip"
+                      }
+                    },
+                    {
+                      "id": "allinvalid2",
+                      "name": "harbor_trial_2",
+                      "status": "success",
+                      "output": {
+                        "agent": "terminus-2",
+                        "model": "anthropic/claude-opus-5-5",
+                        "reasoning_effort": "low",
+                        "cheat_mode": false,
+                        "reward": {
+                          "reward": 0,
+                          "source": "result.json",
+                          "trials": [
+                            {
+                              "valid": false,
+                              "passed": false,
+                              "reward": 0,
+                              "rewards": {
+                                "reward": 0
+                              },
+                              "trial_name": "7000001_allinvalid2__task__Ab1",
+                              "invalid_reason": "rate limit (429) from provider"
+                            }
+                          ],
+                          "rewards": {
+                            "reward": 0
+                          },
+                          "n_passed": 0,
+                          "n_trials": 1,
+                          "n_attempts": 1,
+                          "n_valid_trials": 0,
+                          "valid_rollouts": 0,
+                          "correct_rollouts": 0,
+                          "invalid_rollouts": 1,
+                          "n_invalid_trials": 1,
+                          "pass_threshold": 1
+                        },
+                        "trials": [
+                          {
+                            "valid": false,
+                            "passed": false,
+                            "reward": 0,
+                            "rewards": {
+                              "reward": 0
+                            },
+                            "trial_name": "7000001_allinvalid2__task__Ab1",
+                            "invalid_reason": "rate limit (429) from provider"
+                          }
+                        ],
+                        "n_passed": 0,
+                        "n_trials": 1,
+                        "n_attempts": 1,
+                        "n_valid_trials": 0,
+                        "valid_rollouts": 0,
+                        "correct_rollouts": 0,
+                        "invalid_rollouts": 1,
+                        "n_invalid_trials": 1,
+                        "pass_threshold": 1,
+                        "trial_name": "7000001_allinvalid2__task__Ab1",
+                        "bundle_url": "gs://llm-as-evaluator-prod/harbor_runs/7000001_allinvalid2.zip"
+                      }
+                    }
+                  ],
+                  "evaluations_failed": 0
+                }
+              }
+            ],
+            "customData": [
+              {
+                "apiId": "api-1",
+                "apiName": "meta",
+                "defaultPayload": "{\n  \"input_type\": \"parsed_json_args\",\n  \"inputs\": [\n    {\n      \"model\": \"openai/gpt-6-sol\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"xhigh\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    },\n    {\n      \"model\": \"anthropic/claude-opus-5-5\",\n      \"agent\": \"terminus-2\",\n      \"reasoning_effort\": \"low\",\n      \"verifier_env\": {\n        \"OPENAI_BASE_URL\": \"https://api.openai.com/v1\"\n      }\n    }\n  ],\n  \"evaluations\": [\n    {\n      \"evaluator_name\": \"harbor_agent\",\n      \"name\": \"harbor_trial\",\n      \"config\": {\n        \"n_attempts\": 1\n      }\n    }\n  ],\n  \"parse\": false\n}",
+                "rewardBlockCriteria": true,
+                "rewardBlockCriteriaMaxReward": 0.4
+              }
+            ]
+          }
+        },
+        "task": "https://drive.google.com/drive/folders/synthetic-task-folder-0000000000"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "no model has a valid rollout",
+        "have invalid rollouts, so those models are not proven broken"
       ]
     }
   },
@@ -2308,7 +2912,7 @@
         "validating the model-eval breakpoint stored as \"bp1\""
       ],
       "successesContain": [
-        "2 of 2 valid model rollouts broken"
+        "All 2 valid model rollouts broken"
       ]
     }
   },
@@ -2885,32 +3489,32 @@
                         "reasoning_effort": "low",
                         "cheat_mode": false,
                         "reward": {
-                          "reward": 1,
+                          "reward": 0,
                           "source": "result.json",
                           "trials": [
                             {
                               "valid": true,
-                              "passed": true,
-                              "reward": 1,
+                              "passed": false,
+                              "reward": 0,
                               "rewards": {
-                                "reward": 1
+                                "reward": 0
                               },
                               "trial_name": "7000001_nooutput2__task__Ab1"
                             }
                           ],
                           "rewards": {
-                            "reward": 1
+                            "reward": 0
                           },
-                          "n_passed": 1,
+                          "n_passed": 0,
                           "n_trials": 1,
-                          "pass_at_1": 1,
+                          "pass_at_1": 0,
                           "pass_at_k": {
-                            "1": 1
+                            "1": 0
                           },
                           "n_attempts": 1,
                           "n_valid_trials": 1,
                           "valid_rollouts": 1,
-                          "correct_rollouts": 1,
+                          "correct_rollouts": 0,
                           "invalid_rollouts": 0,
                           "n_invalid_trials": 0,
                           "pass_threshold": 1
@@ -2918,24 +3522,24 @@
                         "trials": [
                           {
                             "valid": true,
-                            "passed": true,
-                            "reward": 1,
+                            "passed": false,
+                            "reward": 0,
                             "rewards": {
-                              "reward": 1
+                              "reward": 0
                             },
                             "trial_name": "7000001_nooutput2__task__Ab1"
                           }
                         ],
-                        "n_passed": 1,
+                        "n_passed": 0,
                         "n_trials": 1,
-                        "pass_at_1": 1,
+                        "pass_at_1": 0,
                         "pass_at_k": {
-                          "1": 1
+                          "1": 0
                         },
                         "n_attempts": 1,
                         "n_valid_trials": 1,
                         "valid_rollouts": 1,
-                        "correct_rollouts": 1,
+                        "correct_rollouts": 0,
                         "invalid_rollouts": 0,
                         "n_invalid_trials": 0,
                         "pass_threshold": 1,
@@ -2971,7 +3575,7 @@
         "exception_info: AgentTimeoutError"
       ],
       "successesContain": [
-        "1 of 2 valid model rollouts broken"
+        "All 2 valid model rollouts broken"
       ]
     }
   },

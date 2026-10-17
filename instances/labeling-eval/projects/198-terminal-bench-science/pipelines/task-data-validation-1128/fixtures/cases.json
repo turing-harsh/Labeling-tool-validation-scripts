@@ -352,6 +352,21 @@
     }
   },
   {
+    "name": "K: audio recordings (.wav, .flac) are allowed grading data under tests/",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/WAVDATA"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warnings": [],
+      "errorsNotContain": [
+        "outside the agreed structure"
+      ]
+    }
+  },
+  {
     "name": "K: a log in solution/ is rejected",
     "conversationData": {
       "ratings": {
@@ -609,6 +624,35 @@
     }
   },
   {
+    "name": "V: commands chained after a pinned pip install are not packages",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/PIPCHAIN"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warnings": []
+    }
+  },
+  {
+    "name": "V: a second pip install on the same line is still checked",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/PIPCHAINLOOSE"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "environment/Dockerfile installs unpinned package(s): scipy."
+      ],
+      "errorsNotContain": [
+        "chmod",
+        "700"
+      ]
+    }
+  },
+  {
     "name": "V: a ranged pip install blocks",
     "conversationData": {
       "ratings": {
@@ -674,6 +718,19 @@
     }
   },
   {
+    "name": "V: a test.sh without errexit blocks",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/NOERREXIT"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "tests/test.sh does not enable errexit"
+      ]
+    }
+  },
+  {
     "name": "V: a non-pytest verifier blocks",
     "conversationData": {
       "ratings": {
@@ -683,6 +740,57 @@
     "expect": {
       "errorsContain": [
         "does not run pytest"
+      ]
+    }
+  },
+  {
+    "name": "V: a CTRF path built from a variable the script sets passes",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/CTRFVAR"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warnings": []
+    }
+  },
+  {
+    "name": "V: a CTRF path through an unknown variable is only advisory",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/CTRFUNCONFIRMED"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warningsContain": [
+        "passes --ctrf $REPORT_DIR/ctrf.json, which could not be confirmed as /logs/verifier/ctrf.json"
+      ]
+    }
+  },
+  {
+    "name": "V: a CTRF report written privately and copied to /logs/verifier passes",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/CTRFPUBLISHED"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "warnings": []
+    }
+  },
+  {
+    "name": "V: a CTRF report written elsewhere blocks",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/CTRFELSEWHERE"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "writes the CTRF report to /tmp/ctrf.json, not /logs/verifier/ctrf.json"
       ]
     }
   },
@@ -856,49 +964,51 @@
     }
   },
   {
-    "name": "T: an incomplete [metadata] block is advisory at upload",
+    "name": "T: the ideal package declares the new task.toml structure",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/COMPLETE"
+      }
+    },
+    "expect": {
+      "errors": [],
+      "infosContain": [
+        "task.toml structure: new",
+        "task.toml matches the schema 1.4 structure"
+      ]
+    }
+  },
+  {
+    "name": "T: a missing [metadata] block blocks",
     "conversationData": {
       "ratings": {
         "task": "https://drive.google.com/drive/folders/NOMETADATA"
       }
     },
     "expect": {
-      "errors": [],
-      "warningsContain": [
-        "T0.metadata-missing"
-      ]
-    }
-  },
-  {
-    "name": "T: the same block blocks at audit",
-    "conversationData": {
-      "ratings": {
-        "task": "https://drive.google.com/drive/folders/NOMETADATA",
-        "validationProfile": "audit"
-      }
-    },
-    "expect": {
       "errorsContain": [
-        "T0.metadata-missing"
+        "[metadata] domain is missing",
+        "[metadata] category is missing",
+        "[metadata] subcategory is missing",
+        "[metadata] reward_type is missing"
       ]
     }
   },
   {
-    "name": "T: an undeclared verifier network_mode is advisory at upload",
+    "name": "T: an undeclared verifier network_mode blocks",
     "conversationData": {
       "ratings": {
         "task": "https://drive.google.com/drive/folders/NONETWORKMODE"
       }
     },
     "expect": {
-      "errors": [],
-      "warningsContain": [
-        "T0.network-mode-undeclared"
+      "errorsContain": [
+        "[verifier.environment] network_mode is missing"
       ]
     }
   },
   {
-    "name": "T: a public verifier network blocks",
+    "name": "T: a networked verifier blocks",
     "conversationData": {
       "ratings": {
         "task": "https://drive.google.com/drive/folders/VERIFIERPUBLIC"
@@ -906,7 +1016,122 @@
     },
     "expect": {
       "errorsContain": [
-        "[verifier.environment] network_mode = \"public\""
+        "[verifier] network_mode is \"public\" (must be \"no-network\")",
+        "[verifier.environment] network_mode is \"public\" (must be \"no-network\")"
+      ]
+    }
+  },
+  {
+    "name": "T: every template gap is listed in one error",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/TOMLGAPS"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "[task] version is missing",
+        "[metadata] reward_type is \"partial\" (must be \"binary\")",
+        "[environment] storage_mb is missing",
+        "[agent] network_mode is missing"
+      ]
+    }
+  },
+  {
+    "name": "T: a category outside the domain's vocabulary blocks",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/BADCATEGORY"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "[metadata] category \"botany\" is not a category of earth-sciences"
+      ]
+    }
+  },
+  {
+    "name": "T: a domain outside the vocabulary blocks",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/BADDOMAIN"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "[metadata] domain \"social-sciences\" is not one of life-sciences"
+      ]
+    }
+  },
+  {
+    "name": "T: old field/subfield keys under a turing/ name get the two-key rename",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/OLDKEYSNEWNAME"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "[metadata] category is missing (found field), [metadata] subcategory is missing (found subfield).",
+        "Fix: in [metadata], rename field to category and rename subfield to subcategory, keeping the values; nothing else in task.toml needs to change."
+      ],
+      "errorsNotContain": [
+        "match the template"
+      ]
+    }
+  },
+  {
+    "name": "T: a domain written into category is shifted up one level",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/SHIFTEDMETADATA"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "[metadata] domain is missing, and category holds the domain \"earth-sciences\"",
+        "Fix: in [metadata], set domain = \"earth-sciences\", category = \"atmospheric-sciences\" and subcategory = the free-text specialty (e.g. \"data-assimilation\"); nothing else in task.toml needs to change."
+      ]
+    }
+  },
+  {
+    "name": "T: the 1.3 hybrid (new metadata, old name) is old and rejected",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/HYBRIDTOML"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "task.toml uses the old structure",
+        "[metadata] category, domain, public_overlap, reward_type, source, subcategory"
+      ]
+    }
+  },
+  {
+    "name": "T: the old task.toml structure is rejected",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/OLDTOML"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "task.toml uses the old structure",
+        "accepts only the new structure"
+      ]
+    }
+  },
+  {
+    "name": "T: an old task.toml without metadata is rejected as old",
+    "conversationData": {
+      "ratings": {
+        "task": "https://drive.google.com/drive/folders/OLDNOMETADATA"
+      }
+    },
+    "expect": {
+      "errorsContain": [
+        "[metadata] empty"
       ]
     }
   }

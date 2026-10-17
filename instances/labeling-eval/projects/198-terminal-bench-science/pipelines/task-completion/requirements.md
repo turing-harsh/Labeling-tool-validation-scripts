@@ -16,8 +16,17 @@ specifies how they are combined.
 
 `validation.js` is **generated** by `scripts/build-198-task-completion.mjs`. Do not edit it.
 
-- **Verbatim.** Each pipeline script is embedded byte-for-byte inside a factory function.
-  There is one source of truth per rule: fix a rule in its pipeline, then rebuild.
+- **Verbatim, with one switch flipped.** Each pipeline script is embedded byte-for-byte inside a
+  factory function. There is one source of truth per rule: fix a rule in its pipeline, then
+  rebuild. The single edit is task data validation's `TEST_SH_STYLE_BLOCKS`, set to `false`: two
+  `tests/test.sh` rules become `ADVISORY` warnings ("… (not blocking at task completion)") instead
+  of errors — enabling `errexit`, `nounset` and `pipefail`, and writing a literal `0`/`1` to
+  `reward.txt` from test.sh itself. Harbor and upstream Terminal-Bench Science accept verifiers
+  without either. A non-binary literal reward write still blocks. The build fails if that line is
+  not found exactly once.
+- **task.toml: the new structure only.** `ACCEPTED_TOML_SCHEMAS` stays `['new']`, the same as task
+  data validation. A `terminal-bench-science/` package, including a pre-switch hybrid, fails with
+  "uses the old structure"; a `turing/` package is held to the schema 1.4 template.
 - **Isolated.** The factory's parameters shadow the sandbox's `errors`, `warnings`, `infos`,
   `successes` and `logs`. Each stage keeps its own top-level names (`fail`, `ratingsOf`,
   `isArray`… collide across the three) and its own "PASS only when `errors` is empty" logic.
@@ -44,9 +53,19 @@ npm run golden -- labeling-eval/198-terminal-bench-science/task-completion
 
 `fixtures/folders` and `fixtures/zips` are symlinks to the 1128 Drive-folder fixtures and the
 1180 GCS-zip fixtures. `fixtures/make-cases.mjs` composes `cases.json` from those siblings'
-fixtures plus a synthetic `oracle_check`. The 7 cases cover:
+fixtures plus a synthetic `oracle_check`. The 23 cases cover:
 
 - all three gates passing;
+- task.toml in the new structure accepted, and the old structure and the pre-switch hybrid
+  rejected exactly as task data validation rejects them, with the schema 1.4 template still
+  enforced on new ones;
+- the new `[metadata]` schema: `domain`, a `category` from that domain's list and a free-text
+  `subcategory` pass; a `turing/` name with the old `field`/`subfield` keys fails with the rename,
+  the domain written into `category` fails with the shift, and an off-list category fails;
+- the `test.sh` shell-flag and literal-reward rules warning instead of blocking, while a
+  non-binary reward still blocks;
+- a pinned `pip install` with chained commands, and a CTRF path built from a script variable,
+  both passing;
 - each gate failing alone, with the other two still reporting PASS;
 - the Oracle Check missing;
 - an empty submission failing all three gates.

@@ -1,0 +1,30 @@
+schema_version = "1.4"
+
+artifacts = ["/app/result.npz"]
+
+[task]
+name = "terminal-bench-science/demo-assimilation"
+description = "Recover a forcing field from sparse sensors."
+keywords = ["data-assimilation", "lorenz-96"]
+
+[metadata]
+domain = "earth-sciences"
+field = "atmospheric-sciences"
+subfield = "data-assimilation"
+expert_time_estimate_hours = 18.0
+
+[verifier]
+timeout_sec = 120.0
+environment_mode = "separate"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 3600
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+network_mode = "public"

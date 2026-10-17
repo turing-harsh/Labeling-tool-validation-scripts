@@ -1,0 +1,7 @@
+{
+  "K": 40,
+  "noise_std": 0.18,
+  "output": {
+    "path": "/app/result.npz"
+  }
+}
